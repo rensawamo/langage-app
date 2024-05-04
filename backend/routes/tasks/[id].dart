@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:dart_frog/dart_frog.dart';
-import 'package:model/model.dart';
-import 'package:repository/repository.dart';
+import 'package:core_model/model.dart';
+import 'package:core_repository/repository.dart';
 
 
 Future<Response> onRequest(RequestContext context, String id) async {

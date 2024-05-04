@@ -1,9 +1,10 @@
-import 'package:beginner/screens/questionPage.dart';
-import 'package:beginner/screens/resultPage.dart';
-import 'package:beginner/screens/startPage.dart';
+
+import 'package:core_views/screens/question_page.dart';
+import 'package:core_views/screens/result_page.dart';
+import 'package:core_views/screens/start_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'app_route_constant.dart';
+import 'package:core_constants/constants.dart';
 
 class MyAppRoute {
   GoRouter router = GoRouter(routes: [

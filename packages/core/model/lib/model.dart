@@ -3,6 +3,4 @@
 /// More dartdocs go here.
 library;
 export 'src/task/task_model.dart';
-
-
-// TODO: Export any libraries intended for clients of this package.
+export 'word_question/word_question_model.dart';

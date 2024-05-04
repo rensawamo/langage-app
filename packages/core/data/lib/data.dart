@@ -1,33 +1,9 @@
-library globals;
-
-class Question {
-  final String text;
-  final List<Option> options;
-  bool isLocked;
-  Option? selectedOption;
-
-  Question({
-    required this.text,
-    required this.options,
-    this.isLocked = false,
-    this.selectedOption,
-  });
-}
-
-class Option {
-  final String text;
-  final bool isCorrect;
-
-  const Option({
-    required this.text,
-    required this.isCorrect,
-  });
-}
+import 'package:core_model/model.dart';
 
 int gtotal_score = 0;
 
 final questions = [
-  Question(
+  WordQuestionModel(
     text: "What should you do when approaching a yellow traffic light?",
     options: [
       Option(
@@ -38,7 +14,7 @@ final questions = [
       Option(text: "Ignore the light and continue driving", isCorrect: false),
     ],
   ),
-  Question(
+  WordQuestionModel(
     text: "What does a red octagonal sign indicate?",
     options: [
       Option(text: "Yield right of way", isCorrect: false),
@@ -47,7 +23,7 @@ final questions = [
       Option(text: "No left turn allowed", isCorrect: false),
     ],
   ),
-  Question(
+  WordQuestionModel(
     text: "What is the purpose of a crosswalk?",
     options: [
       Option(text: "A designated area for parking", isCorrect: false),

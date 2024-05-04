@@ -1,7 +1,10 @@
-import 'package:beginner/routes/app_route_constant.dart';
+
+import 'package:core_constants/constants.dart';
 import 'package:flutter/material.dart';
+
+
 import 'package:go_router/go_router.dart';
-import 'package:beginner/models/questionBank.dart' as globals;
+import 'package:core_model/model.dart' as globals;
 
 class ResultPage extends StatefulWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -35,7 +38,7 @@ class _ResultPageState extends State<ResultPage> {
             Padding(
               padding: EdgeInsets.only(top: 30, left: 20, right: 20),
               child: Text(
-                '${globals.gtotal_score} / ${globals.questions.length}',
+                'dummy',
                 style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold),
               ),
             ),

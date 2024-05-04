@@ -1,7 +1,8 @@
-import 'package:beginner/models/questionBank.dart';
+import 'package:core_constants/constants.dart';
+import 'package:core_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../routes/app_route_constant.dart';
+import 'package:core_data/data.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({Key? key}) : super(key: key);
@@ -60,7 +61,7 @@ class _QuestionPageState extends State<QuestionPage>
         physics: NeverScrollableScrollPhysics(),
         controller: _controller,
         itemBuilder: (context, index) {
-          Question question1 = questions[index];
+          WordQuestionModel question1 = questions[index];
           _counter = index;
           return Scaffold(
             backgroundColor: Color(0xffF7EBE1),
@@ -215,7 +216,7 @@ class buttonWidget extends StatefulWidget {
       required this.selected_ind})
       : super(key: key);
   final Function nextQuestion;
-  final Question question;
+  final WordQuestionModel question;
   final bool selected;
   final int ans_ind;
   final int selected_ind;

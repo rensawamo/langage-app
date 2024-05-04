@@ -1,4 +1,5 @@
-import 'package:beginner/routes/app_route_constant.dart';
+
+import 'package:core_constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
