@@ -1,4 +1,4 @@
-import 'package:model/model.dart';
+import 'package:core_model/model.dart';
 
 //  repository
 abstract interface class TaskRepo {

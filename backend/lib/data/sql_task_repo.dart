@@ -1,5 +1,5 @@
-import 'package:model/model.dart';
-import 'package:repository/repository.dart';
+import 'package:core_model/model.dart';
+import 'package:core_repository/repository.dart';
 
 // TODO: Implement SQLTaskRepo
 class SQLTaskRepo implements TaskRepo {
