@@ -2,6 +2,7 @@ import 'package:core_enums/enums.dart';
 
 import 'package:core_model/api/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_model/api/quiz_get_all/quiz_get_all_request.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,8 @@ class QuizViewmodel extends QuizViewmodelInterface {
     controller = PageController(initialPage: 0);
     // クイズの 一覧を取得
     getQuizList();
-    updateCounter(1);
+    initializeTts();
+    updateCounter(0);
   }
 
   /// Quize の一覧取得
@@ -96,6 +98,18 @@ class QuizViewmodel extends QuizViewmodelInterface {
       state = state.copyWith(selected: false);
     }
   }
+
+  @override
+  void initializeTts() {
+    flutterTts.setLanguage('ko-KR'); // 韓国語に設定
+    flutterTts.setPitch(1.0);
+    flutterTts.setSpeechRate(0.5);
+  }
+
+  @override
+  Future<void> speak(String text) async {
+    await flutterTts.speak(text);
+  }
 }
 
 /// Quize Viewmodel インターフェース
@@ -117,6 +131,9 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   /// ページサイズ(固定)
   final int pageSize = 50;
 
+  // tts の言語設定
+  late FlutterTts flutterTts;
+
   /// ロード中か
   bool isLoading = false;
   // 画面描写
@@ -131,4 +148,10 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   void selectAns(int selected_index, bool isCorrect);
   // カウンター更新
   void updateCounter(int newCounter);
+
+  /// TTSの初期化
+  void initializeTts();
+
+  // 発声
+  Future<void> speak(String text);
 }
