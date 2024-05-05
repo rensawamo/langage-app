@@ -1,4 +1,3 @@
-
 import 'package:core_constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -42,7 +41,7 @@ class _StartPageState extends State<StartPage> {
               child: InkWell(
                 onTap: () {
                   GoRouter.of(context)
-                      .pushNamed(MyAppRouteConstraint.questionRouteName);
+                      .pushNamed(MyAppRouteConstraint.settingRouteName);
                 },
                 child: Container(
                   padding: EdgeInsets.only(

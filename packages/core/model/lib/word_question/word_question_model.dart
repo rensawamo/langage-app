@@ -1,4 +1,4 @@
-library globals;
+// library globals;
 
 class WordQuestionModel {
   final String text;

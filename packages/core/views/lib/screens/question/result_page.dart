@@ -1,7 +1,5 @@
-
 import 'package:core_constants/constants.dart';
 import 'package:flutter/material.dart';
-
 
 import 'package:go_router/go_router.dart';
 import 'package:core_model/model.dart' as globals;
