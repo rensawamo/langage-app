@@ -1,37 +1,56 @@
+import 'package:core_enums/enums.dart';
+import 'package:core_model/model.dart';
+import 'package:core_views/screens/quiz/quiz_state.dart';
+import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
+import 'package:core_views/views.dart';
+import 'package:core_views/widgets/app_base_frame.dart';
+import 'package:core_views/widgets/app_quiz_button.dart';
+import 'package:core_views/widgets/app_quiz_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider
-final appointmentListProvider = StateNotifierProvider.autoDispose<
-    AppointmentListViewmodelInterface, AppointmentListState>(
+final QuizGetProvider =
+    StateNotifierProvider.autoDispose<QuizViewmodelInterface, QuizState>(
   (ref) {
-    return AppointmentListViewmodel(
-      AppointmentListState(
-        appointmentList: [],
-        scrollController: ScrollController(),
+    return QuizViewmodel(
+      QuizState(
+        quizs: [],
+        controller: PageController(),
       ),
-      ApiClient(),
-      AppointmentGetListAllDao(),
+      QuizGetAllDao(),
     );
   },
 );
 
-/// E201.受診予約一覧
-///
-/// 受診予約の履歴をリストで表示する画面.
-/// [hospitalResourceName]は病院リソース名.
-class AppointmentList extends StatelessWidget {
-  const AppointmentList({
+/// Quiz の 問題を表示する画面
+class QuizPage extends StatelessWidget {
+  const QuizPage({
     super.key,
-    required this.hospitalResourceName,
-    required this.userResourceName,
+    // required this.appInstallType,
   });
 
-  /// 病院リソース名
-  final String hospitalResourceName;
+  /// アプリケーションの種別
+  // final AppInstallType appInstallType;
 
-  /// 利用者ユーザーリソース名
-  final String userResourceName;
+  /// 初期化処理
+  void init(BuildContext context, WidgetRef ref) async {
+    final vm = ref.watch(QuizGetProvider.notifier);
+
+    // アプリケーションの種別
+    vm.appInstallType = AppInstallType.koreanBeginner;
+
+    // インジケータ表示
+    vm.showIndicator = () {
+      AppIndicator.show(context);
+    };
+    // viewmodel側にインジケータ破棄処理をセット
+    vm.hideIndicator = () {
+      AppIndicator.hide(context);
+    };
+    // 初期設定
+    await vm.init();
+  }
 
   /// Widget生成
   @override
@@ -41,7 +60,7 @@ class AppointmentList extends StatelessWidget {
           screenContext: screenContext,
           hasPrevButton: true,
           shouldRemoveFocus: true,
-          title: '受診予約一覧',
+          title: '単語',
           initFrame: (context, ref) {
             // 初期化処理
             init(context, ref);
@@ -51,116 +70,29 @@ class AppointmentList extends StatelessWidget {
             Navigator.pop(context);
           },
           body: Column(
-            children: [
-              Expanded(
-                  child: (ref
-                          .watch(appointmentListProvider)
-                          .appointmentList
-                          .isEmpty)
-                      ? _empty()
-                      : _list())
-            ],
+            children: [Expanded(child: _page())],
           ));
     });
   }
 
-  /// 初期化処理
-  void init(BuildContext context, WidgetRef ref) async {
-    final vm = ref.watch(appointmentListProvider.notifier);
-
-    // 前画面から受け取る病院リソース名をviewmodelにセット
-    vm.hospitalResourceName = hospitalResourceName;
-    vm.userResourceName = userResourceName;
-
-    //共通エラーダイアログ情報をセット
-    vm.errorDialogManage = ErrorDialogManage(
-        context: context,
-        apiClient: ApiClient(),
-        dao: ApplicationVersionCheckDao());
-
-    // viewmodel側にインジケータ表示処理をセット
-    vm.showIndicator = () {
-      AppIndicator.show(context);
-    };
-
-    // viewmodel側にインジケータ破棄処理をセット
-    vm.hideIndicator = () {
-      AppIndicator.hide(context);
-    };
-
-    // 初期設定
-    await vm.init();
-    // 受診予約一覧取得
-    vm.getNotification();
-  }
-
-  /// 受診予約なし時の場合のテキスト
-  Widget _empty() {
-    return const TileEmptyText(
-      header: '予定はありません。',
-      detail: '病院から受診予約の情報が連携されるとここに受診予約の予定が表示され、詳細画面から予約内容の確認やメモの登録を行えます。',
-    );
-  }
-
-  /// 受診予約一覧
-  Widget _list() {
+  Widget _page() {
     return Consumer(builder: (context, ref, child) {
-      final list = ref.watch(appointmentListProvider).appointmentList;
-      return ListView.builder(
-          shrinkWrap: true,
-          controller: ref.watch(appointmentListProvider).scrollController,
-          itemCount: list.length,
-          itemBuilder: (context, index) {
-            return _cell(context, list[index], index);
-          });
+      List<Quiz> quizes = ref.watch(QuizGetProvider).quizs; 
+      return PageView.builder(
+        itemCount: quizes.length,
+        physics: NeverScrollableScrollPhysics(),
+        controller: ref.watch(QuizGetProvider).controller, 
+        itemBuilder: (context, index) {
+          Quiz quiz = quizes[index]; 
+          return AppQuizPageView(
+            index: index,
+            selectAns: ref.read(QuizGetProvider.notifier).selectAns,
+            quiz: quiz,
+            selected: ref.read(QuizGetProvider).selected,
+            selected_ind: ref.read(QuizGetProvider).selectedInd,
+          );
+        },
+      );
     });
-  }
-
-  /// 受診予約セル
-  Widget _cell(BuildContext context, AppointmentInfo info, int index) {
-    return Consumer(
-      builder: (context, ref, child) {
-        return ActionTilePlanAndNotificationDoubleTile(
-          dateAndTimeText: info.dateAndTimeFormatText,
-          title: info.departmentName,
-          isPinned: false,
-          isCircle: !info.read,
-          tag: _tag(info),
-          onTap: () {
-            // E101.受診予約詳細へ遷移
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (c) => AppointmentDetail(
-                      appointmentResourceName: info.appointmentResourceName)),
-            ).then((value) {
-              // リストクリア
-              ref.watch(appointmentListProvider.notifier).clearList();
-              // 一覧取得
-              ref.watch(appointmentListProvider.notifier).getNotification();
-            });
-          },
-        );
-      },
-    );
-  }
-
-  /// タグ
-  AppRoundedTag? _tag(AppointmentInfo info) {
-    var today = DateTime.now();
-    var tomorrow = today.add(const Duration(days: 1));
-    if (info.isCancel) {
-      // 予約キャンセルになっている場合
-      return const AppRoundedTag.cancel();
-    }
-    if (info.dateAndTimeText == DateFormatExtension.hyphen().format(tomorrow)) {
-      // 予約日の前日中の場合
-      return const AppRoundedTag.tomorrow();
-    }
-    if (info.dateAndTimeText == DateFormatExtension.hyphen().format(today)) {
-      // 予約日の当日中の場合
-      return const AppRoundedTag.today();
-    }
-    return null;
   }
 }

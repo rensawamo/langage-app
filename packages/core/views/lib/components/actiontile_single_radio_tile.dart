@@ -58,20 +58,20 @@ class ActionTileSingleRadioTile extends StatelessWidget {
 
   /// タイルタップ時のエフェクトの色
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_10_10,
-    dark: AppColors.neutral_95_10,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// テキストの色
   final _colorSet2 = const AppColorSet(
-    light: AppColors.neutral_10_100,
-    dark: AppColors.neutral_95_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// 非活性状態のテキストの色
   final _colorSet3 = const AppColorSet(
-    light: AppColors.neutral_90_100,
-    dark: AppColors.neutral_90_12,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// Widget生成

@@ -1,6 +1,7 @@
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_views/utility/app_color_set.dart';
+import 'package:core_views/widgets/app_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -97,8 +98,8 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
   /// 背景色
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_100_100,
-    dark: AppColors.neutral_1_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   @override
@@ -187,13 +188,12 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
   Widget _prevButton(BuildContext context) {
     // 戻り先がない場合は戻るボタンを表示しない
     if (Navigator.canPop(context)) {
-      return Text("dummy");
-      // return AppIconButton(
-      //   key: widget.backButtonKey,
-      //   icon: Icons.arrow_back_ios_rounded,
-      //   onTap: widget.backOnTap ?? () => Navigator.pop(context),
-      //   type: AppIconButtonType.neutral,
-      // );
+      return AppIconButton(
+        key: widget.backButtonKey,
+        icon: Icons.arrow_back_ios_rounded,
+        onTap: widget.backOnTap ?? () => Navigator.pop(context),
+        type: AppIconButtonType.neutral,
+      );
     } else {
       return const SizedBox();
     }

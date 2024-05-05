@@ -27,8 +27,8 @@ class AppDivider extends StatelessWidget {
 
   /// 下線の色
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_80_100,
-    dark: AppColors.neutral_20_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// Widget生成

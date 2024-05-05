@@ -1,15 +1,14 @@
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
+import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
 /// 画面用アプリバーを表示するWidget
 class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   /// タイトルテキスト
   final String titleText;
-
-  /// タイトルロゴ
-  final dynamic titleLogo;
 
   /// 左側に表示するWidget
   final Widget leftWidget;
@@ -28,7 +27,6 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   AppBarForScreen({
     super.key,
     this.titleText = '',
-    this.titleLogo,
     required this.leftWidget,
     this.rightWidget,
     this.textType,
@@ -43,20 +41,20 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
 
   /// ステータス・アプリバーの背景色
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_100_100,
-    dark: AppColors.neutral_15_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// タイトルテキストの色
   final _colorSet2 = const AppColorSet(
-    light: AppColors.neutral_10_100,
-    dark: AppColors.neutral_95_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// 下線の色
   final _colorSet3 = const AppColorSet(
-    light: AppColors.neutral_70_100,
-    dark: AppColors.neutral_30_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// コンポーネントの高さを設定
@@ -78,18 +76,16 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
             color: _colorSet1.color(mode),
             width: MediaQuery.of(context).size.width,
             height: 56,
-            padding: titleLogo != null
-                ? const EdgeInsets.all(4)
-                : const EdgeInsets.symmetric(
-                    vertical: 6,
-                    horizontal: 4,
-                  ),
+            padding: const EdgeInsets.symmetric(
+              vertical: 6,
+              horizontal: 4,
+            ),
             child: Stack(
               alignment: AlignmentDirectional.centerStart,
               children: [
                 leftWidget,
                 Center(
-                  child: Text("dummy"),
+                  child: _titleContents(),
                 ),
                 if (rightWidget != null)
                   Row(
@@ -106,6 +102,21 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
+    );
+  }
+
+  /// 中央に表示するWidget
+  Widget _titleContents() {
+    // タイトルテキストを表示する
+    return AppText(
+      text: titleText,
+      style: TextStyles.l(
+        color: _colorSet2.color(mode),
+        type: textType,
+        bold: true,
+      ),
+      textAlign: TextAlign.center,
+      maxLines: 1,
     );
   }
 }

@@ -1,5 +1,12 @@
+import 'package:core_enums/enums.dart';
+
+import 'package:core_model/api/quiz_get_all/quiz_get_all_dao.dart';
+import 'package:core_model/api/quiz_get_all/quiz_get_all_request.dart';
+import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 /// E201.受診予約一覧 Viewmodel
 class QuizViewmodel extends QuizViewmodelInterface {
@@ -10,24 +17,25 @@ class QuizViewmodel extends QuizViewmodelInterface {
   QuizViewmodel(super.state, this.dao);
 
   /// 受診予約一覧取得（過去分含む）　Modelクラス
-  final AppointmentGetListAllDaoInterface dao;
+  final QuizGetAllDao dao;
 
   /// 初期設定
   ///
   @override
-  Future<void> init() async {}
+  Future<void> init() async {
+    controller = PageController(initialPage: 0);
+    // クイズの 一覧を取得
+    getQuizList();
+    updateCounter(1);
+  }
 
-  /// 受診予約一覧取得
-  ///
-  /// [completed]で完了時の処理を設定.
-  /// 続きを取得の場合は[continuation]をtrueに設定する.
+  /// Quize の一覧取得
   @override
-  Future<void> getNotification({bool continuation = false}) async {
+  Future<void> getQuizList() async {
     // ロード中なら何もしない
     if (isLoading) {
       return;
     }
-
     // ロード中に設定
     isLoading = true;
 
@@ -35,66 +43,67 @@ class QuizViewmodel extends QuizViewmodelInterface {
     showIndicator();
 
     // パラメータ生成
-    final request = AppointmentGetListAllRequest(
-        hospitalResourceName: hospitalResourceName,
-        userResourceName: userResourceName,
-        pageSize: pageSize,
-        pageToken: continuation ? token : null);
 
     // ここで data から quizeを取得する
-    dao.request(
-      apiClient,
-      request: request,
-      succeed: (res, header) {
-        // リストに返却値を追加する
-        final list = [...state.Quiz];
-        for (var info in res.appointment) {
-          list.add(AppointmentInfo(
-            appointmentResourceName: info.appointmentResourceName,
-            dateAndTimeFormatText:
-                DateFormatUtility.dateTimeFromDateTimeSeconds(info.startTime),
-            dateAndTimeText: DateFormatUtility.dateHyphen(info.startTime),
-            departmentName: info.departmentName,
-            isCancel: AppointmentStatus.getByValue(info.status) ==
-                AppointmentStatus.appointmentStatusCancel,
-            read: Read.getBoolByValue(info.read),
-          ));
-        }
-        // stateに設定
-        state = state.copyWith(quizs: list);
-
-        // ロード完了
-        isLoading = false;
-
-        // インジケータ破棄
-        hideIndicator();
-      },
-      error: (e) {
-        // ロード完了
-        isLoading = false;
-
-        // インジケータ破棄
-        hideIndicator();
-
-        // エラー処理呼び出し
-      },
-    );
+    dao
+        .getQuizList(QuizGetAllRequest(appInstallType: appInstallType))
+        .then((response) {
+      // 一覧に追加
+      state = state.copyWith(quizs: response.quizes);
+    }).catchError((error) {
+      print(error.toString());
+      // エラー処理
+    }).whenComplete(() {
+      // ロード中解除
+      isLoading = false;
+      // インジケータ非表示
+      hideIndicator();
+    });
   }
 
   /// 一覧クリア
   ///
-  /// 一覧に表示している受診予約情報をクリアする.
   @override
   void clearList() {
     state = state.copyWith(quizs: []);
   }
+
+  /// クイズの質問の移動
+  @override
+  void nextQuestion() {
+    if (state.counter < state.quizs.length - 1) {
+      state.controller.nextPage(
+          duration: const Duration(milliseconds: 200), curve: Curves.linear);
+      state = state.copyWith(counter: state.counter + 1);
+    } else {
+      state = state.copyWith(gtotalScore: state.totalScore);
+    }
+  }
+
+  @override
+  void updateCounter(int newCounter) {
+    state = state.copyWith(counter: newCounter);
+  }
+
+  @override
+  void selectAns(int selected_index, bool isCorrect) {
+    if (!state.selected) {
+      final newScore = isCorrect ? state.totalScore + 1 : state.totalScore;
+      state = state.copyWith(
+          selectedInd: selected_index, selected: true, totalScore: newScore);
+    } else {
+      nextQuestion();
+      state = state.copyWith(selected: false);
+    }
+  }
 }
 
-/// E201.受診予約一覧 Viewmodel インターフェース
+/// Quize Viewmodel インターフェース
 abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   QuizViewmodelInterface(super.state);
 
-  /// APIエラー管理クラス
+  /// Application install type
+  late AppInstallType appInstallType;
 
   /// インジケータ表示メソッド
   late Function showIndicator;
@@ -102,19 +111,24 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   /// インジケータ破棄メソッド
   late Function hideIndicator;
 
+  /// ページコントローラ
+  late PageController controller;
+
   /// ページサイズ(固定)
   final int pageSize = 50;
 
   /// ロード中か
   bool isLoading = false;
-
-  /// 病院リソース名
-  String hospitalResourceName = '';
-
-  /// 利用者ユーザーリソース名
-  String userResourceName = '';
-
+  // 画面描写
   Future<void> init();
-  Future<void> getNotification({bool continuation = false});
+  // クイズの一覧取得
+  Future<void> getQuizList();
+  // 一覧クリア
   void clearList();
+  // クイズの質問の移動
+  void nextQuestion();
+  // 回答選択
+  void selectAns(int selected_index, bool isCorrect);
+  // カウンター更新
+  void updateCounter(int newCounter);
 }

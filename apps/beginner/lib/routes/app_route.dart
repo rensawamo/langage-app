@@ -1,6 +1,5 @@
-import 'package:core_views/screens/question/question_page.dart';
-import 'package:core_views/screens/question/result_page.dart';
-import 'package:core_views/screens/question/start_page.dart';
+
+import 'package:core_views/screens/quiz/quiz.dart';
 import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -12,14 +11,14 @@ class MyAppRoute {
       name: MyAppRouteConstraint.startPageName,
       path: '/',
       pageBuilder: (context, state) {
-        return MaterialPage(child: StartPage());
+        return MaterialPage(child: QuizPage());
       },
     ),
     GoRoute(
       name: MyAppRouteConstraint.questionRouteName,
       path: '/question',
       pageBuilder: (context, state) {
-        return MaterialPage(child: QuestionPage());
+        return MaterialPage(child: QuizPage());
       },
     ),
     GoRoute(
@@ -33,7 +32,7 @@ class MyAppRoute {
         name: MyAppRouteConstraint.resultRouteName,
         path: '/result',
         pageBuilder: (context, state) {
-          return MaterialPage(child: ResultPage());
+          return MaterialPage(child: QuizPage());
         })
 
     

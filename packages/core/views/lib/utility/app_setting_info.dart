@@ -3,7 +3,6 @@ import 'package:core_enums/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 /// アプリ内の設定を管理する
 class AppSettingInfo {
   /// 共通インスタンス

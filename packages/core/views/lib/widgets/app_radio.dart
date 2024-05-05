@@ -35,20 +35,20 @@ class AppRadio extends StatelessWidget {
 
   /// ラジオボタンがOFF状態のアイコンの色
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_40_100,
-    dark: AppColors.neutral_70_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// ラジオボタンがON状態のアイコンの色
   final _colorSet2 = const AppColorSet(
-    light: AppColors.main_40_100,
-    dark: AppColors.main_80_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// 非活性状態のラジオボタンのアイコンの色
   final _colorSet3 = const AppColorSet(
-    light: AppColors.neutral_90_100,
-    dark: AppColors.neutral_90_12,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// Widget生成

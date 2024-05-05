@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 void ShowErrorSnackBar(BuildContext context, String message) {
   final SnackBar snackBar = SnackBar(
     content: Text(message),
-    backgroundColor: AppColors.error_10_100, // エラーメッセージ用の背景色\
+    backgroundColor: AppColors.red_10, // エラーメッセージ用の背景色\
   );
   // SnackBarを表示
   ScaffoldMessenger.of(context).showSnackBar(snackBar);

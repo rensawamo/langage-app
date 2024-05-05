@@ -35,14 +35,14 @@ class TileSectionHeader extends StatelessWidget {
 
   /// タイルの背景色(背景色ありの場合のみ)
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_95_100,
-    dark: AppColors.neutral_22_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// ヘッダーテキストの色
   final _colorSet2 = const AppColorSet(
-    light: AppColors.neutral_40_100,
-    dark: AppColors.neutral_70_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// Widget生成

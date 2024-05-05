@@ -7,7 +7,6 @@ import 'package:core_views/widgets/app_rich_text.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
-
 /// テキストを表示するセクションフッタータイルWidget
 class TileSectionFooter extends StatelessWidget {
   /// コンストラクタ
@@ -43,14 +42,14 @@ class TileSectionFooter extends StatelessWidget {
 
   /// フッターテキストの色(テキストのレイアウトがNeutral)
   final _colorSet1 = const AppColorSet(
-    light: AppColors.neutral_40_100,
-    dark: AppColors.neutral_70_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// フッターテキストの色(テキストのレイアウトがError)
   final _colorSet2 = const AppColorSet(
-    light: AppColors.error_40_100,
-    dark: AppColors.error_80_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// Widget生成

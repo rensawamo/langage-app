@@ -46,32 +46,32 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
 
   /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがMain)
   final _colorSet1 = const AppColorSet(
-    light: AppColors.main_40_12,
-    dark: AppColors.main_80_12,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// ボタンテキストの色(ボタンのレイアウトがMain)
   final _colorSet2 = const AppColorSet(
-    light: AppColors.main_40_100,
-    dark: AppColors.main_80_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがError)
   final _colorSet3 = const AppColorSet(
-    light: AppColors.error_40_12,
-    dark: AppColors.error_80_12,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// ボタンテキストの色(ボタンのレイアウトがError)
   final _colorSet4 = const AppColorSet(
-    light: AppColors.error_40_100,
-    dark: AppColors.error_80_100,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// 非活性状態のボタンテキストの色
   final _colorSet5 = const AppColorSet(
-    light: AppColors.neutral_90_100,
-    dark: AppColors.neutral_90_12,
+    light: AppColors.red_10,
+    dark: AppColors.red_10,
   );
 
   /// Widget生成
