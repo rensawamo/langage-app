@@ -23,6 +23,7 @@ final settingProvider =
         pushNotificationEnabled: false,
         themeMode: ThemeMode.light,
         textSize: AppTextSizeType.middle,
+        appInstallType: AppInstallType.none,
       ),
       AppSystemInfo(),
     );

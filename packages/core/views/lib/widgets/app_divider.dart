@@ -1,4 +1,5 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
 
@@ -26,10 +27,7 @@ class AppDivider extends StatelessWidget {
   final ThemeMode? mode;
 
   /// 下線の色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+    final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// Widget生成
   @override
@@ -39,7 +37,7 @@ class AppDivider extends StatelessWidget {
       thickness: 0.5,
       indent: leftIndent,
       endIndent: rightIndent,
-      color: _colorSet1.color(mode),
+      color: _splashColor.color(mode),
     );
   }
 }

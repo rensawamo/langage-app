@@ -26,6 +26,8 @@ dependencies:
     path: ../../packages/core/constants
   core_views: 
     path: ../../packages/core/views
+  core_enums:
+    path: ../../packages/core/enums
 
 dev_dependencies:
   flutter_test:
@@ -35,7 +37,8 @@ dev_dependencies:
 
 
 flutter:
-
+  assets:
+    - assets/
   uses-material-design: true
 
 

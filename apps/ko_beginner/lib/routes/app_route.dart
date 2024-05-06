@@ -4,15 +4,16 @@ import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:core_constants/constants.dart';
+import 'package:ko_beginner/splash_page.dart';
 
 class MyAppRoute {
   GoRouter router = GoRouter(routes: [
     
     GoRoute(
-      name: MyAppRouteConstraint.startPageName,
+      name: MyAppRouteConstraint.splashPageName,
       path: '/',
       pageBuilder: (context, state) {
-        return MaterialPage(child: QuizPage());
+        return MaterialPage(child: SplashPage());
       },
     ),
     GoRoute(

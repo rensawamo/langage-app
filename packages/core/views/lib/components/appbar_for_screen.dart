@@ -40,22 +40,19 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   final ThemeMode? mode;
 
   /// ステータス・アプリバーの背景色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// タイトルテキストの色
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 下線の色
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 下線の色
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// コンポーネントの高さを設定
   @override
@@ -69,11 +66,11 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       centerTitle: true,
       titleSpacing: 0,
-      backgroundColor: _colorSet1.color(mode),
+      backgroundColor: _splashColor.color(mode),
       title: Column(
         children: [
           Container(
-            color: _colorSet1.color(mode),
+            color: _splashColor.color(mode),
             width: MediaQuery.of(context).size.width,
             height: 56,
             padding: const EdgeInsets.symmetric(
@@ -98,7 +95,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
           Divider(
             height: 0,
             thickness: 0.5,
-            color: _colorSet3.color(mode),
+            color: _splashColor.color(mode),
           ),
         ],
       ),
@@ -111,7 +108,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
     return AppText(
       text: titleText,
       style: TextStyles.l(
-        color: _colorSet2.color(mode),
+        color: _splashColor.color(mode),
         type: textType,
         bold: true,
       ),

@@ -6,7 +6,6 @@ import 'package:core_views/widgets/app_radio.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
-
 /// ラジオボタンとテキストを表示するアクションタイルWidget
 class ActionTileSingleRadioTile extends StatelessWidget {
   /// 表示するテキスト
@@ -57,22 +56,19 @@ class ActionTileSingleRadioTile extends StatelessWidget {
   final ThemeMode? mode;
 
   /// タイルタップ時のエフェクトの色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
-  /// テキストの色
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// テキストの色
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 非活性状態のテキストの色
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 非活性状態のテキストの色
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override
@@ -80,7 +76,7 @@ class ActionTileSingleRadioTile extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        splashColor: active ? _colorSet1.color(mode) : Colors.transparent,
+        splashColor: active ? _splashColor.color(mode) : Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
@@ -117,8 +113,8 @@ class ActionTileSingleRadioTile extends StatelessWidget {
         text: itemText,
         style: TextStyles.m(
           color: active || disabledPartical
-              ? _colorSet2.color(mode)
-              : _colorSet3.color(mode),
+              ? _splashColor.color(mode)
+              : _splashColor.color(mode),
           type: textType,
         ),
       ),

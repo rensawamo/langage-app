@@ -38,34 +38,31 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
   final ThemeMode? mode;
 
   /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがNeutral)
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// ボタンアイコンの色(ボタンのレイアウトがNeutral)
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがMain)
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがMain)
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// ボタンアイコンの色(ボタンのレイアウトがMain)
-  final _colorSet4 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// ボタンアイコンの色(ボタンのレイアウトがMain)
+  // final _colorSet4 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 非活性状態のボタンアイコンの色
-  final _colorSet5 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 非活性状態のボタンアイコンの色
+  // final _colorSet5 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override
@@ -77,16 +74,16 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
         case AppIconButtonType.neutral:
           return _iconButtonWidget(
             context: context,
-            splashColor: _colorSet1.color(mode),
-            iconColor: _colorSet2.color(mode),
+            splashColor: _splashColor.color(mode),
+            iconColor: _splashColor.color(mode),
             onTapEvent: onTap,
           );
         // アイコンボタンのレイアウトがMainの場合
         case AppIconButtonType.main:
           return _iconButtonWidget(
             context: context,
-            splashColor: _colorSet3.color(mode),
-            iconColor: _colorSet4.color(mode),
+            splashColor: _splashColor.color(mode),
+            iconColor: _splashColor.color(mode),
             onTapEvent: onTap,
           );
       }
@@ -95,7 +92,7 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
       return _iconButtonWidget(
         context: context,
         splashColor: Colors.transparent,
-        iconColor: _colorSet5.color(mode),
+        iconColor: _splashColor.color(mode),
         onTapEvent: null,
       );
     }

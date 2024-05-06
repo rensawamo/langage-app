@@ -56,28 +56,26 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
   final ThemeMode? mode;
 
   /// タイルタップ時のエフェクトの色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  /// タイルタップ時のエフェクトの色
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
-  /// メインテキストの色
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// メインテキストの色
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// サブテキストの色
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// サブテキストの色
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 非活性状態のメイン・サブテキストの色
-  final _colorSet4 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 非活性状態のメイン・サブテキストの色
+  // final _colorSet4 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override
@@ -86,7 +84,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: active ? _colorSet1.color(mode) : Colors.transparent,
+        splashColor: active ? _splashColor.color(mode) : Colors.transparent,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -122,7 +120,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
           child: AppText(
             text: mainText,
             style: TextStyles.m(
-              color: active ? _colorSet2.color(mode) : _colorSet4.color(mode),
+              color: active ? _splashColor.color(mode) : _splashColor.color(mode),
               type: textType,
             ),
           ),
@@ -130,7 +128,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
         AppText(
           text: subText,
           style: TextStyles.s(
-            color: active ? _colorSet3.color(mode) : _colorSet4.color(mode),
+            color: active ? _splashColor.color(mode) : _splashColor.color(mode),
             type: textType,
           ),
         ),

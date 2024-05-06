@@ -1,4 +1,4 @@
-import 'package:core_enums/enums.dart';
+
 import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
@@ -38,7 +38,7 @@ class QuizPage extends StatelessWidget {
     final vm = ref.watch(QuizGetProvider.notifier);
 
     // アプリケーションの種別
-    vm.appInstallType = AppInstallType.koreanBeginner;
+    vm.appInstallType = AppSettingInfo().appInstallType;
 
     // インジケータ表示
     vm.showIndicator = () {

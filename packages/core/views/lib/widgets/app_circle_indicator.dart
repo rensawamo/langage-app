@@ -1,4 +1,5 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
 
@@ -16,17 +17,14 @@ class AppCircleIndicator extends StatelessWidget {
   final ThemeMode? mode;
 
   /// サークルインジケータの色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// Widget生成
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
       backgroundColor: Colors.transparent,
-      color: _colorSet1.color(mode),
+      color: _splashColor.color(mode),
     );
   }
 }

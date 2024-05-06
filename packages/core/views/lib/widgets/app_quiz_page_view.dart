@@ -1,4 +1,5 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:core_views/widgets/app_quiz_button.dart';
@@ -26,35 +27,32 @@ class AppQuizPageView extends StatelessWidget {
   }) : super(key: key);
 
   // 背景
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.orenge_0,
-    dark: AppColors.orange_60,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// メインテキストの色
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// サブテキストの色
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// サブテキストの色
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 非活性状態のメイン・サブテキストの色
-  final _colorSet4 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 非活性状態のメイン・サブテキストの色
+  // final _colorSet4 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF7EBE1),
       appBar: AppBar(
-        backgroundColor: _colorSet1.color(mode),
+        backgroundColor: _splashColor.color(mode),
         title: Text('Question ${index + 1}',
             style: TextStyle(
               fontFamily: 'Roboto',

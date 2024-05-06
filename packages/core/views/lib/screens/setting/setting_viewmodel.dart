@@ -52,6 +52,14 @@ class SettingViewmodel extends SettingViewmodelInterface
     state = state.copyWith(textSize: sizeType);
   }
 
+
+  /// アプリインストールタイプの変更
+  @override
+  void changeAppInstallType(AppInstallType type) {
+    AppSettingInfo().changeAppInstallType(type);
+    state = state.copyWith(appInstallType: type);
+  }
+
   /// ライフサイクルの検知登録
   @override
   void addObserver() {
@@ -63,6 +71,8 @@ class SettingViewmodel extends SettingViewmodelInterface
   void removeObserver() {
     systemInfo.removeLifecycleListener();
   }
+
+  
 
   /// アプリが復帰した場合
   @override
@@ -82,6 +92,7 @@ abstract class SettingViewmodelInterface extends StateNotifier<SettingState> {
 
   void changeThemeMode(ThemeMode mode);
   void changeTextSize(AppTextSizeType sizeType);
+  void changeAppInstallType(AppInstallType type);
   void addObserver();
   void removeObserver();
 }

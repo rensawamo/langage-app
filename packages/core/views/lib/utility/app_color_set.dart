@@ -1,22 +1,17 @@
+import 'package:core_constants/constants.dart';
+import 'package:core_enums/enums.dart';
 import 'package:flutter/material.dart';
-import 'app_setting_info.dart';
 
 /// アプリカラー設定
 class AppColorSet {
   /// コンストラクタ
   ///
-  /// [light] ライトモード
-  /// [dark] ダークモード
+  /// [type]  どこの色を指定するか
   const AppColorSet({
-    required this.light,
-    required this.dark,
+    required this.type,
   });
 
-  /// ライトテーマカラー
-  final Color light;
-
-  /// ダークテーマカラー
-  final Color dark;
+  final AppColorType type;
 
   /// テーマの色を取得する
   ///
@@ -24,14 +19,7 @@ class AppColorSet {
   Color color(
     ThemeMode? mode,
   ) {
-    // 任意のテーマをセットしない場合はAppSettingInfoの設定値を利用する
-    switch (mode ?? AppSettingInfo().themeMode) {
-      case ThemeMode.light:
-        return light;
-      case ThemeMode.dark:
-        return dark;
-      case ThemeMode.system:
-        return light;
-    }
+    // settingと アプリの種類に適応した色を返す
+    return AppColors.getColor(mode, type);
   }
 }
