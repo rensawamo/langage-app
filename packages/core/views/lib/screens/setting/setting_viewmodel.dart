@@ -72,8 +72,6 @@ class SettingViewmodel extends SettingViewmodelInterface
     systemInfo.removeLifecycleListener();
   }
 
-  
-
   /// アプリが復帰した場合
   @override
   void onResume() async {

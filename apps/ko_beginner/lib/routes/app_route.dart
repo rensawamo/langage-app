@@ -13,7 +13,7 @@ class MyAppRoute {
       name: MyAppRouteConstraint.splashPageName,
       path: '/',
       pageBuilder: (context, state) {
-        return MaterialPage(child: SplashPage());
+        return MaterialPage(child: QuizPage());
       },
     ),
     GoRoute(

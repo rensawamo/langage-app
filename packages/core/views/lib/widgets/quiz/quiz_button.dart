@@ -1,4 +1,3 @@
-import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/utility/app_color_set.dart';
@@ -50,15 +49,14 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
 
   @override
   Widget build(BuildContext context) {
-    /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがError)
-    final _splashColor = const AppColorSet(type: AppColorType.appbar);
-
     /// 問題に正解したときの色
-    // /// ダークモードでも light の色を使用する
-    // final _colorSet2 = const AppColorSet(
-    //   light: AppColors.red_10,
-    //   dark: AppColors.red_10,
-    // );
+    final _collctColor = const AppColorSet(type: AppColorType.collectAnswer);
+
+    /// 問題にミス回答したときの色
+    final _wrongColor = const AppColorSet(type: AppColorType.wrongAnswer);
+
+    /// 文字の色
+    final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
     // /// 問題にミス回答したときの色
     // /// ダークモードでも light の色を使用する
@@ -70,7 +68,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
     return AnimatedBuilder(
         animation: animationController!,
         builder: (BuildContext context, Widget? child) {
-          int ind = widget.ans_ind;
+          int ans_ind = widget.ans_ind;
 
           return FadeTransition(
             opacity: animation!,
@@ -83,34 +81,35 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                 child: ListTile(
                   title: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: widget.selected
-                          ? (widget.quiz.options[ind].isCorrect
-                              ? MaterialStateProperty.all<Color>(
-                                  _splashColor.color(widget.mode))
-                              : (widget.selected_ind == ind
+                      backgroundColor: widget.selected // 選択済み
+                          ? (widget.quiz.options[ans_ind].isCorrect // 正解
+                              ? MaterialStateProperty.all<Color>(// 正解の色
+                                  _collctColor.color(widget.mode))
+                              : (widget.selected_ind == ans_ind // 選択済みだが不正解
                                   ? MaterialStateProperty.all<Color>(
-                                      _splashColor.color(widget.mode))
+                                      _wrongColor.color(widget.mode)) // 不正解の色
                                   : MaterialStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
-                          : MaterialStateProperty.all<Color>(Color(0xffEDA276)),
+                          : MaterialStateProperty.all<Color>(
+                              Color(0xffEDA276)), // 未選択
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),
                       child: Text(
-                        widget.quiz.options[ind].text,
+                        widget.quiz.options[ans_ind].text,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
                           letterSpacing: -0.1,
-                          color: Color(0xFFFAFAFA).withOpacity(0.9),
+                          color: _defaultColor.color(widget.mode),
                         ),
                       ),
                     ),
                     onPressed: () {
-                      widget.selectAns(
-                          widget.ans_ind, widget.quiz.options[ind].isCorrect);
+                      widget.selectAns(widget.ans_ind,
+                          widget.quiz.options[ans_ind].isCorrect);
                     },
                   ),
                 ),

@@ -35,20 +35,10 @@ class AppRadio extends StatelessWidget {
   final ThemeMode? mode;
 
   /// ラジオボタンがOFF状態のアイコンの色
-      final _splashColor = const AppColorSet(type: AppColorType.appbar);
-
+  final _radioOffColor = const AppColorSet(type: AppColorType.radioOff);
 
   /// ラジオボタンがON状態のアイコンの色
-  // final _colorSet2 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
-
-  // /// 非活性状態のラジオボタンのアイコンの色
-  // final _colorSet3 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
+  final _radioOnColor = const AppColorSet(type: AppColorType.radioOn);
 
   /// Widget生成
   @override
@@ -62,8 +52,20 @@ class AppRadio extends StatelessWidget {
         padding: EdgeInsets.zero, // デフォルトのPaddingを0で潰す
         iconSize: _size,
         onPressed: active ? onPressed : null,
-        icon: selected ? Text("dummyYes") : Text("dummyNo"),
+        icon: selected ? _onButton() : _offButton(),
       ),
     );
+  }
+
+  /// ラジオボタンOFF
+  Widget _offButton() {
+    return Icon(Icons.radio_button_off_rounded,
+        color: _radioOffColor.color(mode), size: _size);
+  }
+
+  /// ラジオボタンON状態
+  Widget _onButton() {
+    return Icon(Icons.check_circle_rounded,
+        color: _radioOnColor.color(mode), size: _size);
   }
 }

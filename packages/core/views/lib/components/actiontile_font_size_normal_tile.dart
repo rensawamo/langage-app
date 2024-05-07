@@ -55,27 +55,11 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
   /// テーマを固定したい場合に指定する
   final ThemeMode? mode;
 
-  /// タイルタップ時のエフェクトの色
-  /// タイルタップ時のエフェクトの色
-  final _splashColor = const AppColorSet(type: AppColorType.appbar);
+  /// タイルタップ時の エフェクトの色
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
-  // /// メインテキストの色
-  // final _colorSet2 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
-
-  // /// サブテキストの色
-  // final _colorSet3 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
-
-  // /// 非活性状態のメイン・サブテキストの色
-  // final _colorSet4 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
+  /// テキストの色
+  final _effectColor = const AppColorSet(type: AppColorType.effectColor);
 
   /// Widget生成
   @override
@@ -84,7 +68,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: active ? _splashColor.color(mode) : Colors.transparent,
+        splashColor: _effectColor.color(mode) ,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -120,7 +104,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
           child: AppText(
             text: mainText,
             style: TextStyles.m(
-              color: active ? _splashColor.color(mode) : _splashColor.color(mode),
+              color: _defaultColor.color(mode),
               type: textType,
             ),
           ),
@@ -128,7 +112,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
         AppText(
           text: subText,
           style: TextStyles.s(
-            color: active ? _splashColor.color(mode) : _splashColor.color(mode),
+            color: _defaultColor.color(mode),
             type: textType,
           ),
         ),

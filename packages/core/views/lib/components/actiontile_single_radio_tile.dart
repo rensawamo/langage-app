@@ -56,7 +56,7 @@ class ActionTileSingleRadioTile extends StatelessWidget {
   final ThemeMode? mode;
 
   /// タイルタップ時のエフェクトの色
-  final _splashColor = const AppColorSet(type: AppColorType.appbar);
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
   // /// テキストの色
   // final _colorSet2 = const AppColorSet(
@@ -76,7 +76,7 @@ class ActionTileSingleRadioTile extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        splashColor: active ? _splashColor.color(mode) : Colors.transparent,
+        splashColor: active ? _defaultColor.color(mode) : Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
@@ -113,8 +113,8 @@ class ActionTileSingleRadioTile extends StatelessWidget {
         text: itemText,
         style: TextStyles.m(
           color: active || disabledPartical
-              ? _splashColor.color(mode)
-              : _splashColor.color(mode),
+              ? _defaultColor.color(mode)
+              : _defaultColor.color(mode),
           type: textType,
         ),
       ),

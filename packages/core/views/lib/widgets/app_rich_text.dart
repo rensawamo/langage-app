@@ -28,7 +28,7 @@ class AppRichText extends StatelessWidget {
   /// 行数
   final int? maxLines;
 
-  /// コンストラクタ
+  /// コンストラクタい
   ///
   /// [style]で表示するテキストスタイルを設定する
   /// [textList]は、表示するテキスト(AppTextSpan)を設定する
