@@ -41,16 +41,13 @@ class TileSectionFooter extends StatelessWidget {
   final ThemeMode? mode;
 
   /// フッターテキストの色(テキストのレイアウトがNeutral)
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// フッターテキストの色(テキストのレイアウトがError)
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override
@@ -60,13 +57,13 @@ class TileSectionFooter extends StatelessWidget {
       case TileSectionFooterType.neutral:
         return _generateMaterial(
           context: context,
-          fontColor: _colorSet1.color(mode),
+          fontColor: _splashColor.color(mode),
         );
       // テキストのレイアウトがErrorの場合
       case TileSectionFooterType.error:
         return _generateMaterial(
           context: context,
-          fontColor: _colorSet2.color(mode),
+          fontColor: _splashColor.color(mode),
         );
     }
   }

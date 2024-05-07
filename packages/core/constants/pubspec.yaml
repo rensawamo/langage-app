@@ -1,6 +1,7 @@
 name: core_constants
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
+publish_to: none
 # repository: https://github.com/my_org/my_repo
 
 environment:
@@ -10,7 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-   
+  core_views:
+    path: ../views
+  core_enums:
+    path: ../enums
   path: ^1.8.0
 
 dev_dependencies:

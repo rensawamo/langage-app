@@ -1,13 +1,13 @@
-import 'package:core_enums/enums.dart';
+
 import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
-import 'package:core_views/widgets/app_quiz_button.dart';
 import 'package:core_views/widgets/app_quiz_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 /// Provider
 final QuizGetProvider =
@@ -38,7 +38,7 @@ class QuizPage extends StatelessWidget {
     final vm = ref.watch(QuizGetProvider.notifier);
 
     // アプリケーションの種別
-    vm.appInstallType = AppInstallType.koreanBeginner;
+    vm.appInstallType = AppSettingInfo().appInstallType;
 
     // インジケータ表示
     vm.showIndicator = () {
@@ -48,6 +48,7 @@ class QuizPage extends StatelessWidget {
     vm.hideIndicator = () {
       AppIndicator.hide(context);
     };
+    vm.flutterTts = FlutterTts();
     // 初期設定
     await vm.init();
   }
@@ -77,16 +78,17 @@ class QuizPage extends StatelessWidget {
 
   Widget _page() {
     return Consumer(builder: (context, ref, child) {
-      List<Quiz> quizes = ref.watch(QuizGetProvider).quizs; 
+      List<Quiz> quizes = ref.watch(QuizGetProvider).quizs;
       return PageView.builder(
         itemCount: quizes.length,
         physics: NeverScrollableScrollPhysics(),
-        controller: ref.watch(QuizGetProvider).controller, 
+        controller: ref.watch(QuizGetProvider).controller,
         itemBuilder: (context, index) {
-          Quiz quiz = quizes[index]; 
+          Quiz quiz = quizes[index];
           return AppQuizPageView(
             index: index,
             selectAns: ref.read(QuizGetProvider.notifier).selectAns,
+            speak: ref.read(QuizGetProvider.notifier).speak,
             quiz: quiz,
             selected: ref.read(QuizGetProvider).selected,
             selected_ind: ref.read(QuizGetProvider).selectedInd,

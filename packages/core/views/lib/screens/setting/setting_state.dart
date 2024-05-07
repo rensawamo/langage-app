@@ -16,5 +16,6 @@ class SettingState with _$SettingState {
     required bool pushNotificationEnabled,
     required ThemeMode themeMode,
     required AppTextSizeType textSize,
+    required AppInstallType appInstallType,
   }) = _SettingState;
 }

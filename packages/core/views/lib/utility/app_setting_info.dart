@@ -20,6 +20,9 @@ class AppSettingInfo {
   /// 現在のアプリテーマ
   ThemeMode _themeMode = ThemeMode.light;
 
+  /// インストールされているアプリのタイプ
+  AppInstallType _appInstallType = AppInstallType.none;
+
   /// 最後に表示していた診察券ページindex値
   int? lastViewedPatientCardIndex = 0;
 
@@ -29,12 +32,23 @@ class AppSettingInfo {
   /// Getter: themeMode
   ThemeMode get themeMode => _themeMode;
 
+  /// Getter: appInstallType
+  AppInstallType get appInstallType => _appInstallType;
+
   /// 文字サイズ変更
   Future<void> changeTextSize(AppTextSizeType type) async {
     final pref = await SharedPreferences.getInstance();
     // 端末内に保存
     await pref.setInt(PrefsKey.configFontScale, type.index);
     _textSizeType = type;
+  }
+
+  /// インストールされているアプリのタイプ変更
+  Future<void> changeAppInstallType(AppInstallType type) async {
+    final pref = await SharedPreferences.getInstance();
+    // 端末内に保存
+    await pref.setInt(PrefsKey.configInstallType, type.index);
+    _appInstallType = type;
   }
 
   /// テーマ変更
@@ -54,6 +68,14 @@ class AppSettingInfo {
       final type = pref.getInt(PrefsKey.configFontScale);
       if (type != null) {
         _textSizeType = AppTextSizeType.values[type];
+      }
+    }
+
+    /// インストールされているアプリのタイプ取得
+    if (pref.containsKey(PrefsKey.configInstallType)) {
+      final type = pref.getInt(PrefsKey.configInstallType);
+      if (type != null) {
+        _appInstallType = AppInstallType.values[type];
       }
     }
 

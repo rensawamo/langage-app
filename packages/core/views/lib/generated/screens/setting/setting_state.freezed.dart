@@ -19,6 +19,7 @@ mixin _$SettingState {
   bool get pushNotificationEnabled => throw _privateConstructorUsedError;
   ThemeMode get themeMode => throw _privateConstructorUsedError;
   AppTextSizeType get textSize => throw _privateConstructorUsedError;
+  AppInstallType get appInstallType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingStateCopyWith<SettingState> get copyWith =>
@@ -34,7 +35,8 @@ abstract class $SettingStateCopyWith<$Res> {
   $Res call(
       {bool pushNotificationEnabled,
       ThemeMode themeMode,
-      AppTextSizeType textSize});
+      AppTextSizeType textSize,
+      AppInstallType appInstallType});
 }
 
 /// @nodoc
@@ -53,6 +55,7 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
     Object? pushNotificationEnabled = null,
     Object? themeMode = null,
     Object? textSize = null,
+    Object? appInstallType = null,
   }) {
     return _then(_value.copyWith(
       pushNotificationEnabled: null == pushNotificationEnabled
@@ -67,6 +70,10 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
           ? _value.textSize
           : textSize // ignore: cast_nullable_to_non_nullable
               as AppTextSizeType,
+      appInstallType: null == appInstallType
+          ? _value.appInstallType
+          : appInstallType // ignore: cast_nullable_to_non_nullable
+              as AppInstallType,
     ) as $Val);
   }
 }
@@ -82,7 +89,8 @@ abstract class _$$SettingStateImplCopyWith<$Res>
   $Res call(
       {bool pushNotificationEnabled,
       ThemeMode themeMode,
-      AppTextSizeType textSize});
+      AppTextSizeType textSize,
+      AppInstallType appInstallType});
 }
 
 /// @nodoc
@@ -99,6 +107,7 @@ class __$$SettingStateImplCopyWithImpl<$Res>
     Object? pushNotificationEnabled = null,
     Object? themeMode = null,
     Object? textSize = null,
+    Object? appInstallType = null,
   }) {
     return _then(_$SettingStateImpl(
       pushNotificationEnabled: null == pushNotificationEnabled
@@ -113,6 +122,10 @@ class __$$SettingStateImplCopyWithImpl<$Res>
           ? _value.textSize
           : textSize // ignore: cast_nullable_to_non_nullable
               as AppTextSizeType,
+      appInstallType: null == appInstallType
+          ? _value.appInstallType
+          : appInstallType // ignore: cast_nullable_to_non_nullable
+              as AppInstallType,
     ));
   }
 }
@@ -123,7 +136,8 @@ class _$SettingStateImpl implements _SettingState {
   const _$SettingStateImpl(
       {required this.pushNotificationEnabled,
       required this.themeMode,
-      required this.textSize});
+      required this.textSize,
+      required this.appInstallType});
 
   @override
   final bool pushNotificationEnabled;
@@ -131,10 +145,12 @@ class _$SettingStateImpl implements _SettingState {
   final ThemeMode themeMode;
   @override
   final AppTextSizeType textSize;
+  @override
+  final AppInstallType appInstallType;
 
   @override
   String toString() {
-    return 'SettingState(pushNotificationEnabled: $pushNotificationEnabled, themeMode: $themeMode, textSize: $textSize)';
+    return 'SettingState(pushNotificationEnabled: $pushNotificationEnabled, themeMode: $themeMode, textSize: $textSize, appInstallType: $appInstallType)';
   }
 
   @override
@@ -148,12 +164,14 @@ class _$SettingStateImpl implements _SettingState {
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode) &&
             (identical(other.textSize, textSize) ||
-                other.textSize == textSize));
+                other.textSize == textSize) &&
+            (identical(other.appInstallType, appInstallType) ||
+                other.appInstallType == appInstallType));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, pushNotificationEnabled, themeMode, textSize);
+  int get hashCode => Object.hash(runtimeType, pushNotificationEnabled,
+      themeMode, textSize, appInstallType);
 
   @JsonKey(ignore: true)
   @override
@@ -166,7 +184,8 @@ abstract class _SettingState implements SettingState {
   const factory _SettingState(
       {required final bool pushNotificationEnabled,
       required final ThemeMode themeMode,
-      required final AppTextSizeType textSize}) = _$SettingStateImpl;
+      required final AppTextSizeType textSize,
+      required final AppInstallType appInstallType}) = _$SettingStateImpl;
 
   @override
   bool get pushNotificationEnabled;
@@ -174,6 +193,8 @@ abstract class _SettingState implements SettingState {
   ThemeMode get themeMode;
   @override
   AppTextSizeType get textSize;
+  @override
+  AppInstallType get appInstallType;
   @override
   @JsonKey(ignore: true)
   _$$SettingStateImplCopyWith<_$SettingStateImpl> get copyWith =>

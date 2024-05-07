@@ -1,4 +1,5 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
@@ -50,24 +51,21 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
   @override
   Widget build(BuildContext context) {
     /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがError)
-    final _colorSet1 = const AppColorSet(
-      light: Color.fromARGB(31, 82, 70, 72),
-      dark: Color.fromARGB(31, 82, 70, 72),
-    );
+    final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
     /// 問題に正解したときの色
-    /// ダークモードでも light の色を使用する
-    final _colorSet2 = const AppColorSet(
-      light: AppColors.red_10,
-      dark: AppColors.red_10,
-    );
+    // /// ダークモードでも light の色を使用する
+    // final _colorSet2 = const AppColorSet(
+    //   light: AppColors.red_10,
+    //   dark: AppColors.red_10,
+    // );
 
-    /// 問題にミス回答したときの色
-    /// ダークモードでも light の色を使用する
-    final _colorSet3 = const AppColorSet(
-      light: AppColors.red_10,
-      dark: AppColors.red_10,
-    );
+    // /// 問題にミス回答したときの色
+    // /// ダークモードでも light の色を使用する
+    // final _colorSet3 = const AppColorSet(
+    //   light: AppColors.red_10,
+    //   dark: AppColors.red_10,
+    // );
 
     return AnimatedBuilder(
         animation: animationController!,
@@ -88,10 +86,10 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                       backgroundColor: widget.selected
                           ? (widget.quiz.options[ind].isCorrect
                               ? MaterialStateProperty.all<Color>(
-                                  _colorSet2.color(widget.mode))
+                                  _splashColor.color(widget.mode))
                               : (widget.selected_ind == ind
                                   ? MaterialStateProperty.all<Color>(
-                                      _colorSet2.color(widget.mode))
+                                      _splashColor.color(widget.mode))
                                   : MaterialStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
                           : MaterialStateProperty.all<Color>(Color(0xffEDA276)),

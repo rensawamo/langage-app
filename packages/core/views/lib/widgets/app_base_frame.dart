@@ -97,10 +97,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 
 class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
   /// 背景色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   @override
   void dispose() {
@@ -163,7 +160,7 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
       canPop: false,
       child: Scaffold(
         key: widget.scaffoldKey,
-        backgroundColor: _colorSet1.color(widget.mode),
+        backgroundColor: _splashColor.color(widget.mode),
         drawer: widget.drawer,
         onDrawerChanged: widget.onDrawerChanged,
         drawerEnableOpenDragGesture: false,

@@ -1,4 +1,5 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
 
@@ -34,22 +35,20 @@ class AppRadio extends StatelessWidget {
   final ThemeMode? mode;
 
   /// ラジオボタンがOFF状態のアイコンの色
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+      final _splashColor = const AppColorSet(type: AppColorType.appbar);
+
 
   /// ラジオボタンがON状態のアイコンの色
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 非活性状態のラジオボタンのアイコンの色
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 非活性状態のラジオボタンのアイコンの色
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override

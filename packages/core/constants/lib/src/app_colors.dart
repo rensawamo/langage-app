@@ -1,15 +1,37 @@
+import 'package:core_enums/enums.dart';
+import 'package:core_views/utility/app_setting_info.dart';
 import 'package:flutter/material.dart';
 
 ///アプリケーションカラーの定数クラス
 
-
 class AppColors {
-  // 赤色パレット
-  static const Color red_100 = Color(0xFFFF0000);
-  static const Color red_87 = Color(0xDEFF0000);
-  static const Color red_60 = Color(0x99FF0000);
-  static const Color red_38 = Color(0x61FF0000);
-  static const Color red_10 = Color(0x1AFF0000);
+  static AppInstallType _appInstallType = AppSettingInfo().appInstallType;
+
+  // Red Palette
+  static const Color red100 = Color(0xFFFF0000);
+  static const Color red87 = Color(0xDEFF0000);
+  static const Color red60 = Color(0x99FF0000);
+  static const Color red38 = Color(0x61FF0000);
+
+
+  static Color getColor(ThemeMode? mode, AppColorType type) {
+    switch (type) {
+      // アプリのバーの色
+      case AppColorType.appbar:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFF0000FF);
+          case ThemeMode.dark:
+            return red100;
+          case ThemeMode.system:
+            return const Color(0xFF0000FF);
+        }
+      case AppColorType.background:
+        return const Color(0x1A0000FF);
+      default:
+        throw Exception("Unsupported AppInstallType: $_appInstallType");
+    }
+  }
 
   // 青色パレット
   static const Color blue_100 = Color(0xFF0000FF);
@@ -45,7 +67,7 @@ class AppColors {
   static const Color orange_60 = Color(0x99FFA500);
   static const Color orange_38 = Color(0x61FFA500);
   static const Color orange_10 = Color(0x1AFFF500);
-  static const Color orenge_0 =  Color(0xffF7EBE1);
+  static const Color orenge_0 = Color(0xffF7EBE1);
   // グレー色パレット
   static const Color gray_100 = Color(0xFF808080);
   static const Color gray_87 = Color(0xDE808080);

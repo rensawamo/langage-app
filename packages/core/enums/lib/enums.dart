@@ -10,5 +10,6 @@ export 'src/app_text_scale.dart';
 export 'src/app_text_button_type.dart';
 export 'src/tile_section_footer_type.dart';
 export 'src/app_icon_button_type.dart';
+export 'src/app_color_type.dart';
 
 // TODO: Export any libraries intended for clients of this package.

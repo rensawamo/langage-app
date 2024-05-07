@@ -1,0 +1,12 @@
+{
+  "flavor": "prd",
+  "appIdSuffix": "",
+  "appName": "韓国語初級",
+  "appId": "com.rensawamo.ko_beginner",
+  "providerLogPrint": [
+    "add",
+    "update",
+    "dispose",
+    "error"
+  ]
+}

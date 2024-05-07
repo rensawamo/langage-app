@@ -34,22 +34,19 @@ class TileSectionHeader extends StatelessWidget {
   final ThemeMode? mode;
 
   /// タイルの背景色(背景色ありの場合のみ)
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  final _splashColor = const AppColorSet(type: AppColorType.appbar);
 
   /// ヘッダーテキストの色
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: hasFillingColor ? _colorSet1.color(mode) : Colors.transparent,
+      color: hasFillingColor ? _splashColor.color(mode) : Colors.transparent,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(
         top: 16,
@@ -60,7 +57,7 @@ class TileSectionHeader extends StatelessWidget {
       child: AppText(
         text: text,
         style: TextStyles.s(
-          color: _colorSet2.color(mode),
+          color: _splashColor.color(mode),
           type: textType,
         ),
       ),

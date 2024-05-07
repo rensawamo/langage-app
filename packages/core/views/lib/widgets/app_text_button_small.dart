@@ -45,34 +45,32 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
   final ThemeMode? mode;
 
   /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがMain)
-  final _colorSet1 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+      final _splashColor = const AppColorSet(type: AppColorType.appbar);
+
 
   /// ボタンテキストの色(ボタンのレイアウトがMain)
-  final _colorSet2 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // final _colorSet2 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがError)
-  final _colorSet3 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがError)
+  // final _colorSet3 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// ボタンテキストの色(ボタンのレイアウトがError)
-  final _colorSet4 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// ボタンテキストの色(ボタンのレイアウトがError)
+  // final _colorSet4 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
-  /// 非活性状態のボタンテキストの色
-  final _colorSet5 = const AppColorSet(
-    light: AppColors.red_10,
-    dark: AppColors.red_10,
-  );
+  // /// 非活性状態のボタンテキストの色
+  // final _colorSet5 = const AppColorSet(
+  //   light: AppColors.red_10,
+  //   dark: AppColors.red_10,
+  // );
 
   /// Widget生成
   @override
@@ -84,15 +82,15 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
         case AppTextButtonType.main:
           return _textButtonWidget(
             context: context,
-            splashColor: _colorSet1.color(mode),
-            appTextColor: _colorSet2.color(mode),
+            splashColor: _splashColor.color(mode),
+            appTextColor: _splashColor.color(mode),
           );
         // テキストボタンのレイアウトがErrorの場合
         case AppTextButtonType.error:
           return _textButtonWidget(
             context: context,
-            splashColor: _colorSet3.color(mode),
-            appTextColor: _colorSet4.color(mode),
+            splashColor: _splashColor.color(mode),
+            appTextColor: _splashColor.color(mode),
           );
       }
       // 非活性状態の場合
@@ -100,7 +98,7 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
       return _textButtonWidget(
         context: context,
         splashColor: Colors.transparent,
-        appTextColor: _colorSet5.color(mode),
+        appTextColor: _splashColor.color(mode),
       );
     }
   }
