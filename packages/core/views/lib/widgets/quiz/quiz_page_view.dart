@@ -66,10 +66,13 @@ class AppQuizPageView extends StatelessWidget {
         ),
       ),
       body: Column(
-
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          progressBar(count: count,index: index),
+          progressBar(count: count, index: index),
+
+          SizedBox(
+            height: context.mediaQueryHeight * .035,
+          ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Container(
@@ -117,7 +120,7 @@ class AppQuizPageView extends StatelessWidget {
               itemCount: quiz.options.length,
               itemBuilder: (context, index1) {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(bottom: 18),
                   child: AppQuizbuttonWidget(
                     selectAns: selectAns,
                     quiz: quiz,
@@ -129,15 +132,14 @@ class AppQuizPageView extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(
-            height: context.mediaQueryHeight * .01,
-          ),
+    
           // next button
-          CuteButton(
+          Padding(padding:  EdgeInsets.only(bottom: 60), child: CuteButton(
             next: next,
             mode: mode,
             textType: textType,
-          ),
+          )),
+          
         ],
       ),
     );

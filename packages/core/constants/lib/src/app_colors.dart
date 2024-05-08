@@ -24,6 +24,15 @@ class AppColors {
           case ThemeMode.system:
             return Colors.transparent; // または、適切なデフォルトの色
         }
+        case AppColorType.reverseColor:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return Colors.white;
+          case ThemeMode.dark:
+            return Colors.black;
+          case ThemeMode.system:
+            return Colors.transparent; // または、適切なデフォルトの色
+        }
 
       // アプリのバーの色
       case AppColorType.appbar:

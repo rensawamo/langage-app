@@ -16,25 +16,41 @@ class CuteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// 問題に正解したときの色
     final _nextContour = const AppColorSet(type: AppColorType.collectAnswer);
 
-    return ElevatedButton(
-      onPressed: () {
-        next();
-      },
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8), // ボタン内の余白
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20), // ボタンの角丸
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(1.1, 1.1),
+              blurRadius: 10.0,
+            ),
+          ],
         ),
-        elevation: 8, // ボタンの影の高さ
-      ),
-      child: Text(
-        "次へ",
-        style: TextStyles.m(
-          color: _nextContour.color(mode),
-          type: textType,
+        child: ElevatedButton(
+          onPressed: () => next(),
+          style: ElevatedButton.styleFrom(
+          
+            shadowColor: Colors.transparent, // 影も透明に
+            padding: EdgeInsets.all(16.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            elevation: 0, // 影の高さを0に設定
+          ),
+          child: Text(
+            "次へ",
+            style: TextStyles.m(
+              color: _nextContour.color(mode),
+              type: textType,
+            ),
+          ),
         ),
       ),
     );

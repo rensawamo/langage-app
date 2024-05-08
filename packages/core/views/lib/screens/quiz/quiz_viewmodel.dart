@@ -94,9 +94,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
       final newScore = isCorrect ? state.totalScore + 1 : state.totalScore;
       state = state.copyWith(
           selectedInd: selected_index, selected: true, totalScore: newScore);
-    } else {
-      nextQuestion();
-      state = state.copyWith(selected: false);
     }
   }
 

@@ -2,6 +2,8 @@
 enum AppColorType {
   // default  ダークモードなら 白 ライトモードなら黒
   defaultColor,
+  // dafautcolor の逆 ダークなら 黒 ライトなら白
+  reverseColor,
   // Appbarの色
   appbar,
   // 背景の色

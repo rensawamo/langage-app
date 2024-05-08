@@ -56,7 +56,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
     final _wrongColor = const AppColorSet(type: AppColorType.wrongAnswer);
 
     /// 文字の色
-    final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+    final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
 
     // /// 問題にミス回答したときの色
     // /// ダークモードでも light の色を使用する
@@ -103,7 +103,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
                           letterSpacing: -0.1,
-                          color: _defaultColor.color(widget.mode),
+                          color: _reverseColor.color(widget.mode),
                         ),
                       ),
                     ),

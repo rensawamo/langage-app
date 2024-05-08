@@ -1,13 +1,14 @@
-import 'package:core_constants/constants.dart';
-import 'package:core_model/model.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_views/screens/quiz/quiz.dart';
 import 'package:core_views/screens/setting/setting.dart';
-import 'package:core_views/widgets/app_base_frame.dart';
+import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key, this.mode}) : super(key: key);
+
+  final ThemeMode? mode;
 
   @override
   State<HomePage> createState() => _MyAppState();
@@ -23,6 +24,12 @@ class _MyAppState extends State<HomePage> {
     super.initState();
   }
 
+  /// ステータス・アプリバーの背景色
+  final _appbarColor = const AppColorSet(type: AppColorType.appbar);
+
+  /// セレクトされているときの色
+  final _charactorColor = const AppColorSet(type: AppColorType.reverseColor);
+
   /// Widget生成
   @override
   Widget build(BuildContext screenContext) {
@@ -31,9 +38,9 @@ class _MyAppState extends State<HomePage> {
         body: pages[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentIndex,
-            unselectedItemColor: Colors.white,
+            unselectedItemColor: _charactorColor.color(widget.mode),
             selectedItemColor: Colors.black,
-            backgroundColor: Colors.blue,
+            backgroundColor: _appbarColor.color(widget.mode),
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_tree),
