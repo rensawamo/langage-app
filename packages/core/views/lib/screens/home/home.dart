@@ -1,6 +1,7 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_views/screens/quiz/quiz.dart';
 import 'package:core_views/screens/setting/setting.dart';
+import 'package:core_views/screens/topic/topic.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _MyAppState extends State<HomePage> {
   int currentIndex = 0;
 
-  final List<dynamic> pages = <dynamic>[QuizPage(), Setting()];
+  final List<dynamic> pages = <dynamic>[TopicPage(), Setting()];
 
   @override
   void initState() {

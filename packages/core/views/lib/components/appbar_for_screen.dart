@@ -1,3 +1,4 @@
+
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_views/extension/view+extention.dart';
@@ -16,6 +17,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
 
   /// 右側に表示するリストWidget
   final List<Widget>? rightWidget;
+
 
   /// コンストラクタ
   ///
@@ -59,7 +61,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     // appBarがSizedBoxのインスタンスかどうかをチェック
     return AppBar(
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading:  false,
       elevation: 0,
       centerTitle: true,
       titleSpacing: 0,

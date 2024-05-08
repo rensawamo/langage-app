@@ -18,7 +18,7 @@ class MyAppRoute {
       },
     ),
     GoRoute(
-      name: MyAppRouteConstraint.questionRouteName,
+      name: MyAppRouteConstraint.quizRouteName,
       path: '/question',
       pageBuilder: (context, state) {
         return MaterialPage(child: QuizPage());

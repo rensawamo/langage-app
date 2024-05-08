@@ -37,14 +37,14 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     super.initState();
 
     // 2秒後に実行される処理
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 0), () {
       // contextが利用可能になった後でref.watchを呼び出す
       ref
           .watch(settingProvider.notifier)
           .changeAppInstallType(AppInstallType.koreanBeginner);
 
       // 2秒後にpushNamedを実行
-      GoRouter.of(context).pushNamed(MyAppRouteConstraint.homeRouteName);
+     GoRouter.of(context).pushNamed(MyAppRouteConstraint.homeRouteName);
     });
   }
 

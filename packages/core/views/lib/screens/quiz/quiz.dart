@@ -7,6 +7,7 @@ import 'package:core_views/widgets/quiz/quiz_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:go_router/go_router.dart';
 
 /// Provider
 final QuizGetProvider =
@@ -57,6 +58,9 @@ class QuizPage extends StatelessWidget {
           screenContext: screenContext,
           hasPrevButton: true,
           shouldRemoveFocus: true,
+          backOnTap: () {
+           Navigator.pop(context, '戻り値'); // これで 戻り値を渡せるみたい
+          },
           title: '単語',
           initFrame: (context, ref) {
             // 初期化処理
