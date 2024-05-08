@@ -53,31 +53,25 @@ class AppQuizPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF7EBE1),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: _backGroundColor.color(mode),
-        title: Text(
-          'Question ${index + 1}',
-          style: TextStyles.l(
-            color: _pageTitleColor.color(mode),
-            type: textType,
-          ),
-        ),
-      ),
+    
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
         children: [
+          Text('Quiz ${index + 1}'),
+          SizedBox(
+            height: context.mediaQueryHeight * .01,
+          ),
           progressBar(count: count, index: index),
 
           SizedBox(
-            height: context.mediaQueryHeight * .035,
+            height: context.mediaQueryHeight * .01,
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: Container(
               width: double.infinity,
-              padding: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -113,14 +107,14 @@ class AppQuizPageView extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: context.mediaQueryHeight * .035,
+            height: context.mediaQueryHeight * .02,
           ),
           Expanded(
             child: ListView.builder(
               itemCount: quiz.options.length,
               itemBuilder: (context, index1) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 18),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: AppQuizbuttonWidget(
                     selectAns: selectAns,
                     quiz: quiz,
@@ -134,7 +128,7 @@ class AppQuizPageView extends StatelessWidget {
           ),
     
           // next button
-          Padding(padding:  EdgeInsets.only(bottom: 60), child: CuteButton(
+          Padding(padding:  EdgeInsets.only(top: 5,bottom: 5), child: CuteButton(
             next: next,
             mode: mode,
             textType: textType,

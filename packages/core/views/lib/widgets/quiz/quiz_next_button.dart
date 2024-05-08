@@ -36,9 +36,8 @@ class CuteButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () => next(),
           style: ElevatedButton.styleFrom(
-          
             shadowColor: Colors.transparent, // 影も透明に
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(10.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
