@@ -1,5 +1,6 @@
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_text.dart';
@@ -28,6 +29,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.titleText = '',
     required this.leftWidget,
+    this.appbar,
     this.rightWidget,
     this.textType,
     this.mode,
@@ -36,23 +38,17 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   /// 任意の文字サイズで固定する場合に定義する
   final AppTextSizeType? textType;
 
+  /// アプリバーの表示 非表示をきりかえたいときに定義する
+  final PreferredSizeWidget? appbar;
+
   /// テーマを固定したい場合に指定する
   final ThemeMode? mode;
 
   /// ステータス・アプリバーの背景色
-  final _splashColor = const AppColorSet(type: AppColorType.appbar);
+  final _appbarColor = const AppColorSet(type: AppColorType.appbar);
 
-  /// タイトルテキストの色
-  // final _colorSet2 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
-
-  // /// 下線の色
-  // final _colorSet3 = const AppColorSet(
-  //   light: AppColors.red_10,
-  //   dark: AppColors.red_10,
-  // );
+  /// 文字の色
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
   /// コンポーネントの高さを設定
   @override
@@ -61,16 +57,17 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   /// Widget生成
   @override
   Widget build(BuildContext context) {
+    // appBarがSizedBoxのインスタンスかどうかをチェック
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0,
       centerTitle: true,
       titleSpacing: 0,
-      backgroundColor: _splashColor.color(mode),
+      backgroundColor: _appbarColor.color(mode),
       title: Column(
         children: [
           Container(
-            color: _splashColor.color(mode),
+            color: _appbarColor.color(mode),
             width: MediaQuery.of(context).size.width,
             height: 56,
             padding: const EdgeInsets.symmetric(
@@ -95,7 +92,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
           Divider(
             height: 0,
             thickness: 0.5,
-            color: _splashColor.color(mode),
+            color: _appbarColor.color(mode),
           ),
         ],
       ),
@@ -108,7 +105,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
     return AppText(
       text: titleText,
       style: TextStyles.l(
-        color: _splashColor.color(mode),
+        color: _defaultColor.color(mode),
         type: textType,
         bold: true,
       ),

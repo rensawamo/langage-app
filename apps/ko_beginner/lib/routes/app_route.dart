@@ -1,4 +1,5 @@
 
+import 'package:core_views/screens/home/home.dart';
 import 'package:core_views/screens/quiz/quiz.dart';
 import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class MyAppRoute {
       name: MyAppRouteConstraint.splashPageName,
       path: '/',
       pageBuilder: (context, state) {
-        return MaterialPage(child: QuizPage());
+        return MaterialPage(child: SplashPage());
       },
     ),
     GoRoute(
@@ -21,6 +22,13 @@ class MyAppRoute {
       path: '/question',
       pageBuilder: (context, state) {
         return MaterialPage(child: QuizPage());
+      },
+    ),
+    GoRoute(
+      name: MyAppRouteConstraint.homeRouteName,
+      path: '/home',
+      pageBuilder: (context, state) {
+        return MaterialPage(child: HomePage());
       },
     ),
     GoRoute(

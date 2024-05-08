@@ -66,6 +66,8 @@ class AppQuizPageView extends StatelessWidget {
         ),
       ),
       body: Column(
+
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           progressBar(count: count,index: index),
           Padding(

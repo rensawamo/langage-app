@@ -50,6 +50,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
   /// AppBarForScreen以外に設定するアプリバー
   final PreferredSizeWidget? appBar;
 
+
   /// 画面本体
   final Widget body;
 
@@ -59,6 +60,8 @@ class AppBaseFrame extends ConsumerStatefulWidget {
   /// 戻るボタンタップイベント
   final Function()? backOnTap;
 
+
+
   /// 左上に戻るボタンを表示させるかどうか
   final bool hasPrevButton;
 
@@ -67,6 +70,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 
   /// ドロワー（サイドメニュー）
   final Widget? drawer;
+
 
   /// 画面のBuild完了後に呼び出されるFunction。引数にBuiildContextとWidgetReferenceが渡される
   final Function(BuildContext, WidgetRef)? initFrame;
