@@ -53,19 +53,17 @@ class AppQuizPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Quiz ${index + 1}'),
           SizedBox(
-            height: context.mediaQueryHeight * .01,
+            height: context.mediaQueryHeight * .02,
           ),
           progressBar(count: count, index: index),
 
           SizedBox(
-            height: context.mediaQueryHeight * .01,
+            height: context.mediaQueryHeight * .02,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -109,31 +107,36 @@ class AppQuizPageView extends StatelessWidget {
           SizedBox(
             height: context.mediaQueryHeight * .02,
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: quiz.options.length,
-              itemBuilder: (context, index1) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: AppQuizbuttonWidget(
-                    selectAns: selectAns,
-                    quiz: quiz,
-                    ans_ind: index1,
-                    selected: selected,
-                    selected_ind: selected_ind,
-                  ),
-                );
-              },
+
+          Container(
+            height: context.mediaQueryHeight * .4,
+            child: Expanded(
+              child: ListView.builder(
+                itemCount: quiz.options.length,
+                itemBuilder: (context, index1) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: AppQuizbuttonWidget(
+                      selectAns: selectAns,
+                      quiz: quiz,
+                      ans_ind: index1,
+                      selected: selected,
+                      selected_ind: selected_ind,
+                    ),
+                  );
+                },
+              ),
             ),
           ),
-    
+
           // next button
-          Padding(padding:  EdgeInsets.only(top: 5,bottom: 5), child: CuteButton(
-            next: next,
-            mode: mode,
-            textType: textType,
-          )),
-          
+          Padding(
+              padding: EdgeInsets.only(top: 5, bottom: 5),
+              child: CuteButton(
+                next: next,
+                mode: mode,
+                textType: textType,
+              )),
         ],
       ),
     );
