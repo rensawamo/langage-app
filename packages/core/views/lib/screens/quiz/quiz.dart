@@ -1,13 +1,13 @@
-
 import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
-import 'package:core_views/widgets/app_quiz_page_view.dart';
+import 'package:core_views/widgets/quiz/quiz_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:go_router/go_router.dart';
 
 /// Provider
 final QuizGetProvider =
@@ -29,9 +29,6 @@ class QuizPage extends StatelessWidget {
     super.key,
     // required this.appInstallType,
   });
-
-  /// アプリケーションの種別
-  // final AppInstallType appInstallType;
 
   /// 初期化処理
   void init(BuildContext context, WidgetRef ref) async {
@@ -61,14 +58,13 @@ class QuizPage extends StatelessWidget {
           screenContext: screenContext,
           hasPrevButton: true,
           shouldRemoveFocus: true,
+          backOnTap: () {
+           Navigator.pop(context, '戻り値'); // これで 戻り値を渡せるみたい
+          },
           title: '単語',
           initFrame: (context, ref) {
             // 初期化処理
             init(context, ref);
-          },
-          backOnTap: () {
-            // 前画面へ戻る
-            Navigator.pop(context);
           },
           body: Column(
             children: [Expanded(child: _page())],
@@ -88,8 +84,10 @@ class QuizPage extends StatelessWidget {
           return AppQuizPageView(
             index: index,
             selectAns: ref.read(QuizGetProvider.notifier).selectAns,
+            next: ref.read(QuizGetProvider.notifier).next,
             speak: ref.read(QuizGetProvider.notifier).speak,
             quiz: quiz,
+            count: quizes.length,
             selected: ref.read(QuizGetProvider).selected,
             selected_ind: ref.read(QuizGetProvider).selectedInd,
           );

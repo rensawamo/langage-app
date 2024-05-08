@@ -1,4 +1,5 @@
 
+import 'package:core_views/screens/home/home.dart';
 import 'package:core_views/screens/quiz/quiz.dart';
 import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +18,17 @@ class MyAppRoute {
       },
     ),
     GoRoute(
-      name: MyAppRouteConstraint.questionRouteName,
+      name: MyAppRouteConstraint.quizRouteName,
       path: '/question',
       pageBuilder: (context, state) {
         return MaterialPage(child: QuizPage());
+      },
+    ),
+    GoRoute(
+      name: MyAppRouteConstraint.homeRouteName,
+      path: '/home',
+      pageBuilder: (context, state) {
+        return MaterialPage(child: HomePage());
       },
     ),
     GoRoute(

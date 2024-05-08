@@ -55,8 +55,11 @@ class ActiontileFontSizeBigTile extends StatelessWidget {
   /// テーマを固定したい場合に指定する
   final ThemeMode? mode;
 
-  /// タイルタップ時のエフェクトの色
-  final _splashColor = const AppColorSet(type: AppColorType.appbar);
+  /// タイルタップ時の エフェクトの色
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+
+  /// テキストの色
+  final _effectColor = const AppColorSet(type: AppColorType.effectColor);
 
   /// Widget生成
   @override
@@ -65,7 +68,7 @@ class ActiontileFontSizeBigTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: active ? _splashColor.color(mode) : Colors.transparent,
+        splashColor: _effectColor.color(mode),
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -101,7 +104,7 @@ class ActiontileFontSizeBigTile extends StatelessWidget {
           child: AppText(
             text: mainText,
             style: TextStyles.mL(
-              color: active ? _splashColor.color(mode) : _splashColor.color(mode),
+              color: _defaultColor.color(mode),
               type: textType,
             ),
           ),
@@ -109,7 +112,7 @@ class ActiontileFontSizeBigTile extends StatelessWidget {
         AppText(
           text: subText,
           style: TextStyles.sL(
-            color: active ? _splashColor.color(mode) : _splashColor.color(mode),
+            color: _defaultColor.color(mode),
             type: textType,
           ),
         ),

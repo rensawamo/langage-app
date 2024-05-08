@@ -64,7 +64,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
   }
 
   /// 一覧クリア
-  ///
   @override
   void clearList() {
     state = state.copyWith(quizs: []);
@@ -73,10 +72,12 @@ class QuizViewmodel extends QuizViewmodelInterface {
   /// クイズの質問の移動
   @override
   void nextQuestion() {
+    // まだ問題が残っている場合は 次の問題へ
     if (state.counter < state.quizs.length - 1) {
       state.controller.nextPage(
           duration: const Duration(milliseconds: 200), curve: Curves.linear);
       state = state.copyWith(counter: state.counter + 1);
+      // 問題がない場合は totalのスコアを更新
     } else {
       state = state.copyWith(gtotalScore: state.totalScore);
     }
@@ -93,10 +94,13 @@ class QuizViewmodel extends QuizViewmodelInterface {
       final newScore = isCorrect ? state.totalScore + 1 : state.totalScore;
       state = state.copyWith(
           selectedInd: selected_index, selected: true, totalScore: newScore);
-    } else {
-      nextQuestion();
-      state = state.copyWith(selected: false);
     }
+  }
+
+  @override
+  void next() {
+    nextQuestion();
+    state = state.copyWith(selected: false);
   }
 
   @override
@@ -146,6 +150,9 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   void nextQuestion();
   // 回答選択
   void selectAns(int selected_index, bool isCorrect);
+
+  // 次の問題へ遷移
+  void next();
   // カウンター更新
   void updateCounter(int newCounter);
 

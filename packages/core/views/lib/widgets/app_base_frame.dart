@@ -4,6 +4,7 @@ import 'package:core_views/utility/app_color_set.dart';
 import 'package:core_views/widgets/app_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../components/appbar_for_screen.dart';
 
@@ -97,7 +98,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 
 class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
   /// 背景色
-  final _splashColor = const AppColorSet(type: AppColorType.appbar);
+  final _backGroundColor = const AppColorSet(type: AppColorType.background);
 
   @override
   void dispose() {
@@ -160,7 +161,7 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
       canPop: false,
       child: Scaffold(
         key: widget.scaffoldKey,
-        backgroundColor: _splashColor.color(widget.mode),
+        backgroundColor: _backGroundColor.color(widget.mode),
         drawer: widget.drawer,
         onDrawerChanged: widget.onDrawerChanged,
         drawerEnableOpenDragGesture: false,
@@ -169,9 +170,7 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
               textType: widget.textType,
               mode: widget.mode,
               titleText: widget.title,
-              leftWidget: widget.hasPrevButton
-                  ? _prevButton(context)
-                  : const SizedBox(),
+              leftWidget: _prevButton(context),
             ),
         body: SafeArea(child: widget.body),
         bottomNavigationBar: widget.bottomBar != null
@@ -183,16 +182,15 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
 
   /// 戻るボタンの生成
   Widget _prevButton(BuildContext context) {
-    // 戻り先がない場合は戻るボタンを表示しない
-    if (Navigator.canPop(context)) {
-      return AppIconButton(
-        key: widget.backButtonKey,
-        icon: Icons.arrow_back_ios_rounded,
-        onTap: widget.backOnTap ?? () => Navigator.pop(context),
-        type: AppIconButtonType.neutral,
-      );
-    } else {
+    // 戻り先がない場合は戻るボタンを表示しな
+    if (!widget.hasPrevButton) {
       return const SizedBox();
     }
+    return AppIconButton(
+      key: widget.backButtonKey,
+      icon: Icons.arrow_back_ios_rounded,
+      onTap: widget.backOnTap ?? () => GoRouter.of(context).pop(),
+      type: AppIconButtonType.neutral,
+    );
   }
 }

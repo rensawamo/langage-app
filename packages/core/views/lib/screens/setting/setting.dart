@@ -109,11 +109,6 @@ class Setting extends StatelessWidget {
               textType: textType,
             ),
             _fontSizeTiles(),
-            TileSectionFooter(
-              text: '変更すると画面上の文字サイズが変化します。なお、一部非対応の画面やコンテンツが存在します。',
-              mode: mode,
-              textType: textType,
-            ),
           ],
         ),
       );
