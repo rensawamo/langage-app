@@ -2,6 +2,7 @@ import 'package:core_model/model.dart';
 
 //  basic プラン
 class AppQuizData {
+  
   static final List<Quiz> korianBiginnerQuizes = [
     Quiz(
       text: "사람",

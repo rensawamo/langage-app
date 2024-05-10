@@ -21,7 +21,8 @@ class MyAppRoute {
       name: MyAppRouteConstraint.quizRouteName,
       path: '/question',
       pageBuilder: (context, state) {
-        return MaterialPage(child: QuizPage());
+        // 問題数を取得して QuizPageに渡す
+        return MaterialPage(child: QuizPage(questionCount: state.extra as int));
       },
     ),
     GoRoute(
@@ -42,7 +43,7 @@ class MyAppRoute {
         name: MyAppRouteConstraint.resultRouteName,
         path: '/result',
         pageBuilder: (context, state) {
-          return MaterialPage(child: QuizPage());
+          return MaterialPage(child: QuizPage(questionCount: state.extra as int));
         })
 
     

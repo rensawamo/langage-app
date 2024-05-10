@@ -1,5 +1,4 @@
 import 'package:core_enums/enums.dart';
-import 'package:core_views/screens/quiz/quiz.dart';
 import 'package:core_views/screens/setting/setting.dart';
 import 'package:core_views/screens/topic/topic.dart';
 import 'package:core_views/utility/app_color_set.dart';
@@ -18,7 +17,7 @@ class HomePage extends StatefulWidget {
 class _MyAppState extends State<HomePage> {
   int currentIndex = 0;
 
-  final List<dynamic> pages = <dynamic>[TopicPage(), Setting()];
+  final List<dynamic> pages = <dynamic>[TopicPage(), Setting(), Setting()];
 
   @override
   void initState() {
@@ -42,21 +41,25 @@ class _MyAppState extends State<HomePage> {
             unselectedItemColor: _charactorColor.color(widget.mode),
             selectedItemColor: Colors.black,
             backgroundColor: _appbarColor.color(widget.mode),
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_tree),
+            items: <BottomNavigationBarItem>[
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.book),
                 label: '問題',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_rounded),
-                label: '',
+                icon: Icon(Icons.star),
+                label: 'お気に入り',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: '設定',
               ),
             ],
-            onTap: (int index) => <void>{
-                  setState(() {
-                    currentIndex = index;
-                  })
-                }),
+            onTap: (int index) {
+              setState(() {
+                currentIndex = index;
+              });
+            }),
       );
     });
   }

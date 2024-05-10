@@ -13,7 +13,7 @@ class TopicPage extends StatelessWidget {
       shouldRemoveFocus: true,
       title: 'トピック',
       body: Padding(
-        padding: const EdgeInsets.all(15.0), // 大枠のパディング
+        padding: const EdgeInsets.all(15.0), 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,17 +21,13 @@ class TopicPage extends StatelessWidget {
             Text("単語"),
             ListTile(
               leading: Icon(Icons.question_answer, color: Colors.blue),
-              trailing: Icon(
-                Icons.play_arrow,
+              onTap: () => GoRouter.of(context).pushNamed(
+                MyAppRouteConstraint.quizRouteName,
+                extra: 15,
               ),
               title: Text('問題数 15問'),
               subtitle: Text('通勤や隙間時間に～'),
               tileColor: Colors.blue[50], // 背景色の設定
-              onTap: () => GoRouter.of(context)
-                  .pushNamed(MyAppRouteConstraint.quizRouteName)
-                  .then((value) {
-                print('戻り値: $value');
-              }),
             ),
             SizedBox(height: context.mediaQueryHeight * .02),
             ListTile(
@@ -42,9 +38,10 @@ class TopicPage extends StatelessWidget {
               title: Text('問題数 30問'),
               subtitle: Text('休憩や余裕があるときに～'),
               tileColor: Colors.green[50],
-              onTap: () => GoRouter.of(context)
-                  .pushNamed(MyAppRouteConstraint.quizRouteName)
-                  .then((value) {
+              onTap: () => GoRouter.of(context).pushNamed(
+                MyAppRouteConstraint.quizRouteName,
+                extra: 30,
+              ).then((value) {
                 print('戻り値: $value');
               }),
             ),
@@ -58,7 +55,7 @@ class TopicPage extends StatelessWidget {
               subtitle: Text('しっかりと学習～'),
               tileColor: Colors.red[50],
               onTap: () => GoRouter.of(context)
-                  .pushNamed(MyAppRouteConstraint.quizRouteName)
+                  .pushNamed(MyAppRouteConstraint.quizRouteName, extra: 50)
                   .then((value) {
                 print('戻り値: $value');
               }),
