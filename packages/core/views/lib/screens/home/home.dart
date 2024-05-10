@@ -45,11 +45,11 @@ class _MyAppState extends State<HomePage> {
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_tree),
-                label: 'Mind Map',
+                label: '問題',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle_rounded),
-                label: 'User',
+                label: '',
               ),
             ],
             onTap: (int index) => <void>{
