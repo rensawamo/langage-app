@@ -7,7 +7,6 @@ import 'package:core_views/widgets/quiz/quiz_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:go_router/go_router.dart';
 
 /// Provider
 final QuizGetProvider =
@@ -27,8 +26,12 @@ final QuizGetProvider =
 class QuizPage extends StatelessWidget {
   const QuizPage({
     super.key,
-    // required this.appInstallType,
+    required this.questionCount,
+    // required this.apInstallType,
   });
+
+  /// 問題数
+  final int questionCount;
 
   /// 初期化処理
   void init(BuildContext context, WidgetRef ref) async {
@@ -36,6 +39,9 @@ class QuizPage extends StatelessWidget {
 
     // アプリケーションの種別
     vm.appInstallType = AppSettingInfo().appInstallType;
+
+    // 問題数をセットする
+    vm.questionCount = questionCount;
 
     // インジケータ表示
     vm.showIndicator = () {
@@ -59,7 +65,7 @@ class QuizPage extends StatelessWidget {
           hasPrevButton: true,
           shouldRemoveFocus: true,
           backOnTap: () {
-           Navigator.pop(context, '戻り値'); // これで 戻り値を渡せるみたい
+            Navigator.pop(context, '戻り値'); // これで 戻り値を渡せるみたい
           },
           title: '単語',
           initFrame: (context, ref) {

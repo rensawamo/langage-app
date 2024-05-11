@@ -44,7 +44,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           .changeAppInstallType(AppInstallType.koreanBeginner);
 
       // 2秒後にpushNamedを実行
-     GoRouter.of(context).pushNamed(MyAppRouteConstraint.homeRouteName);
+      GoRouter.of(context).pushNamed(MyAppRouteConstraint.homeRouteName);
     });
   }
 

@@ -48,7 +48,9 @@ class QuizViewmodel extends QuizViewmodelInterface {
 
     // ここで data から quizeを取得する
     dao
-        .getQuizList(QuizGetAllRequest(appInstallType: appInstallType))
+        .getQuizList(QuizGetAllRequest(
+            appInstallType: appInstallType,
+            questionCount: questionCount))
         .then((response) {
       // 一覧に追加
       state = state.copyWith(quizs: response.quizes);
@@ -137,6 +139,9 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
 
   // tts の言語設定
   late FlutterTts flutterTts;
+
+  // 問題数
+  late int questionCount;
 
   /// ロード中か
   bool isLoading = false;

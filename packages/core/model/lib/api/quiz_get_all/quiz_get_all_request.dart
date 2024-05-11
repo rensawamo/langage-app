@@ -16,6 +16,7 @@ class QuizGetAllRequest
   const factory QuizGetAllRequest({
     // 使用中のアプリのタイプ
     required AppInstallType appInstallType,
+    required int questionCount,
   }) = _QuizGetAllRequest;
 
   factory QuizGetAllRequest.fromJson(Map<String, dynamic> json) =>
