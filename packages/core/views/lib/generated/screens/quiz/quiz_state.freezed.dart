@@ -17,12 +17,15 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$QuizState {
   List<Quiz> get quizs => throw _privateConstructorUsedError;
+  List<bool> get isFavorites => throw _privateConstructorUsedError;
   PageController get controller => throw _privateConstructorUsedError;
+  List<bool?> get scores => throw _privateConstructorUsedError;
   int get counter => throw _privateConstructorUsedError;
   bool get selected => throw _privateConstructorUsedError;
   int get selectedInd => throw _privateConstructorUsedError;
   int get totalScore => throw _privateConstructorUsedError;
   int get gtotalScore => throw _privateConstructorUsedError;
+  bool get isFinished => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuizStateCopyWith<QuizState> get copyWith =>
@@ -36,12 +39,15 @@ abstract class $QuizStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Quiz> quizs,
+      List<bool> isFavorites,
       PageController controller,
+      List<bool?> scores,
       int counter,
       bool selected,
       int selectedInd,
       int totalScore,
-      int gtotalScore});
+      int gtotalScore,
+      bool isFinished});
 }
 
 /// @nodoc
@@ -58,22 +64,33 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
   @override
   $Res call({
     Object? quizs = null,
+    Object? isFavorites = null,
     Object? controller = null,
+    Object? scores = null,
     Object? counter = null,
     Object? selected = null,
     Object? selectedInd = null,
     Object? totalScore = null,
     Object? gtotalScore = null,
+    Object? isFinished = null,
   }) {
     return _then(_value.copyWith(
       quizs: null == quizs
           ? _value.quizs
           : quizs // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
+      isFavorites: null == isFavorites
+          ? _value.isFavorites
+          : isFavorites // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
       controller: null == controller
           ? _value.controller
           : controller // ignore: cast_nullable_to_non_nullable
               as PageController,
+      scores: null == scores
+          ? _value.scores
+          : scores // ignore: cast_nullable_to_non_nullable
+              as List<bool?>,
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
@@ -94,6 +111,10 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
           ? _value.gtotalScore
           : gtotalScore // ignore: cast_nullable_to_non_nullable
               as int,
+      isFinished: null == isFinished
+          ? _value.isFinished
+          : isFinished // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -108,12 +129,15 @@ abstract class _$$QuizStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<Quiz> quizs,
+      List<bool> isFavorites,
       PageController controller,
+      List<bool?> scores,
       int counter,
       bool selected,
       int selectedInd,
       int totalScore,
-      int gtotalScore});
+      int gtotalScore,
+      bool isFinished});
 }
 
 /// @nodoc
@@ -128,22 +152,33 @@ class __$$QuizStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? quizs = null,
+    Object? isFavorites = null,
     Object? controller = null,
+    Object? scores = null,
     Object? counter = null,
     Object? selected = null,
     Object? selectedInd = null,
     Object? totalScore = null,
     Object? gtotalScore = null,
+    Object? isFinished = null,
   }) {
     return _then(_$QuizStateImpl(
       quizs: null == quizs
           ? _value._quizs
           : quizs // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
+      isFavorites: null == isFavorites
+          ? _value._isFavorites
+          : isFavorites // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
       controller: null == controller
           ? _value.controller
           : controller // ignore: cast_nullable_to_non_nullable
               as PageController,
+      scores: null == scores
+          ? _value._scores
+          : scores // ignore: cast_nullable_to_non_nullable
+              as List<bool?>,
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
@@ -164,6 +199,10 @@ class __$$QuizStateImplCopyWithImpl<$Res>
           ? _value.gtotalScore
           : gtotalScore // ignore: cast_nullable_to_non_nullable
               as int,
+      isFinished: null == isFinished
+          ? _value.isFinished
+          : isFinished // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -173,13 +212,18 @@ class __$$QuizStateImplCopyWithImpl<$Res>
 class _$QuizStateImpl implements _QuizState {
   const _$QuizStateImpl(
       {required final List<Quiz> quizs,
+      required final List<bool> isFavorites,
       required this.controller,
+      final List<bool?> scores = const [],
       this.counter = 0,
       this.selected = false,
       this.selectedInd = -1,
       this.totalScore = 0,
-      this.gtotalScore = 0})
-      : _quizs = quizs;
+      this.gtotalScore = 0,
+      this.isFinished = false})
+      : _quizs = quizs,
+        _isFavorites = isFavorites,
+        _scores = scores;
 
   final List<Quiz> _quizs;
   @override
@@ -189,8 +233,25 @@ class _$QuizStateImpl implements _QuizState {
     return EqualUnmodifiableListView(_quizs);
   }
 
+  final List<bool> _isFavorites;
+  @override
+  List<bool> get isFavorites {
+    if (_isFavorites is EqualUnmodifiableListView) return _isFavorites;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_isFavorites);
+  }
+
   @override
   final PageController controller;
+  final List<bool?> _scores;
+  @override
+  @JsonKey()
+  List<bool?> get scores {
+    if (_scores is EqualUnmodifiableListView) return _scores;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_scores);
+  }
+
   @override
   @JsonKey()
   final int counter;
@@ -206,10 +267,13 @@ class _$QuizStateImpl implements _QuizState {
   @override
   @JsonKey()
   final int gtotalScore;
+  @override
+  @JsonKey()
+  final bool isFinished;
 
   @override
   String toString() {
-    return 'QuizState(quizs: $quizs, controller: $controller, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore)';
+    return 'QuizState(quizs: $quizs, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished)';
   }
 
   @override
@@ -218,8 +282,11 @@ class _$QuizStateImpl implements _QuizState {
         (other.runtimeType == runtimeType &&
             other is _$QuizStateImpl &&
             const DeepCollectionEquality().equals(other._quizs, _quizs) &&
+            const DeepCollectionEquality()
+                .equals(other._isFavorites, _isFavorites) &&
             (identical(other.controller, controller) ||
                 other.controller == controller) &&
+            const DeepCollectionEquality().equals(other._scores, _scores) &&
             (identical(other.counter, counter) || other.counter == counter) &&
             (identical(other.selected, selected) ||
                 other.selected == selected) &&
@@ -228,19 +295,24 @@ class _$QuizStateImpl implements _QuizState {
             (identical(other.totalScore, totalScore) ||
                 other.totalScore == totalScore) &&
             (identical(other.gtotalScore, gtotalScore) ||
-                other.gtotalScore == gtotalScore));
+                other.gtotalScore == gtotalScore) &&
+            (identical(other.isFinished, isFinished) ||
+                other.isFinished == isFinished));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_quizs),
+      const DeepCollectionEquality().hash(_isFavorites),
       controller,
+      const DeepCollectionEquality().hash(_scores),
       counter,
       selected,
       selectedInd,
       totalScore,
-      gtotalScore);
+      gtotalScore,
+      isFinished);
 
   @JsonKey(ignore: true)
   @override
@@ -252,17 +324,24 @@ class _$QuizStateImpl implements _QuizState {
 abstract class _QuizState implements QuizState {
   const factory _QuizState(
       {required final List<Quiz> quizs,
+      required final List<bool> isFavorites,
       required final PageController controller,
+      final List<bool?> scores,
       final int counter,
       final bool selected,
       final int selectedInd,
       final int totalScore,
-      final int gtotalScore}) = _$QuizStateImpl;
+      final int gtotalScore,
+      final bool isFinished}) = _$QuizStateImpl;
 
   @override
   List<Quiz> get quizs;
   @override
+  List<bool> get isFavorites;
+  @override
   PageController get controller;
+  @override
+  List<bool?> get scores;
   @override
   int get counter;
   @override
@@ -273,6 +352,8 @@ abstract class _QuizState implements QuizState {
   int get totalScore;
   @override
   int get gtotalScore;
+  @override
+  bool get isFinished;
   @override
   @JsonKey(ignore: true)
   _$$QuizStateImplCopyWith<_$QuizStateImpl> get copyWith =>

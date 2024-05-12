@@ -2,7 +2,110 @@ import 'package:core_model/model.dart';
 
 //  basic プラン
 class AppQuizData {
-  
+  // 挨拶
+  static final List<Quiz> korianBiginnerGreets = [
+    Quiz(
+      text: "안녕하세요",
+      options: [
+        Option(text: "안녕하세요", isCorrect: true),
+        Option(text: "안녕히 계세요", isCorrect: false),
+        Option(text: "감사합니다", isCorrect: false),
+        Option(text: "잘 지내세요?", isCorrect: false)
+      ],
+    ),
+// さようなら（別れの挨拶）
+    Quiz(
+      text: "안녕히 가세요",
+      options: [
+        Option(text: "안녕히 가세요", isCorrect: true),
+        Option(text: "안녕히 계세요", isCorrect: false),
+        Option(text: "오랜만이에요", isCorrect: false),
+        Option(text: "어서 오세요", isCorrect: false)
+      ],
+    ),
+// ありがとう
+    Quiz(
+      text: "감사합니다",
+      options: [
+        Option(text: "감사합니다", isCorrect: true),
+        Option(text: "안녕하세요", isCorrect: false),
+        Option(text: "실례합니다", isCorrect: false),
+        Option(text: "처음 뵙겠습니다", isCorrect: false)
+      ],
+    ),
+// おやすみ
+    Quiz(
+      text: "안녕히 주무세요",
+      options: [
+        Option(text: "안녕히 주무세요", isCorrect: true),
+        Option(text: "잘 가요", isCorrect: false),
+        Option(text: "잘 있어요", isCorrect: false),
+        Option(text: "안녕하세요", isCorrect: false)
+      ],
+    ),
+// ごめんなさい
+    Quiz(
+      text: "죄송합니다",
+      options: [
+        Option(text: "죄송합니다", isCorrect: true),
+        Option(text: "감사합니다", isCorrect: false),
+        Option(text: "안녕하세요", isCorrect: false),
+        Option(text: "실례합니다", isCorrect: false)
+      ],
+    ),
+// おはようございます
+    Quiz(
+      text: "좋은 아침입니다",
+      options: [
+        Option(text: "좋은 아침입니다", isCorrect: true),
+        Option(text: "잘 가요", isCorrect: false),
+        Option(text: "감사합니다", isCorrect: false),
+        Option(text: "죄송합니다", isCorrect: false)
+      ],
+    ),
+// 久しぶり
+    Quiz(
+      text: "오랜만이에요",
+      options: [
+        Option(text: "오랜만이에요", isCorrect: true),
+        Option(text: "안녕하세요", isCorrect: false),
+        Option(text: "안녕히 가세요", isCorrect: false),
+        Option(text: "잘 있어요", isCorrect: false)
+      ],
+    ),
+// 失礼します
+    Quiz(
+      text: "실례합니다",
+      options: [
+        Option(text: "실례합니다", isCorrect: true),
+        Option(text: "감사합니다", isCorrect: false),
+        Option(text: "안녕하세요", isCorrect: false),
+        Option(text: "처음 뵙겠습니다", isCorrect: false)
+      ],
+    ),
+// 初めまして
+    Quiz(
+      text: "처음 뵙겠습니다",
+      options: [
+        Option(text: "처음 뵙겠습니다", isCorrect: true),
+        Option(text: "감사합니다", isCorrect: false),
+        Option(text: "안녕하세요", isCorrect: false),
+        Option(text: "실례합니다", isCorrect: false)
+      ],
+    ),
+// ようこそ
+    Quiz(
+      text: "어서 오세요",
+      options: [
+        Option(text: "어서 오세요", isCorrect: true),
+        Option(text: "잘 가요", isCorrect: false),
+        Option(text: "안녕히 계세요", isCorrect: false),
+        Option(text: "안녕하세요", isCorrect: false)
+      ],
+    ),
+  ];
+
+  // 日常単語
   static final List<Quiz> korianBiginnerQuizes = [
     Quiz(
       text: "사람",
@@ -4225,5 +4328,78 @@ class AppQuizData {
         Option(text: "犬", isCorrect: false),
       ],
     ),
+    Quiz(
+      text: "달",
+      options: [
+        Option(text: "月", isCorrect: true),
+        Option(text: "星", isCorrect: false),
+        Option(text: "太陽", isCorrect: false),
+        Option(text: "地球", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "별",
+      options: [
+        Option(text: "星", isCorrect: true),
+        Option(text: "月", isCorrect: false),
+        Option(text: "太陽", isCorrect: false),
+        Option(text: "地球", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "구름",
+      options: [
+        Option(text: "雲", isCorrect: true),
+        Option(text: "雨", isCorrect: false),
+        Option(text: "風", isCorrect: false),
+        Option(text: "雷", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "사랑",
+      options: [
+        Option(text: "愛", isCorrect: true),
+        Option(text: "憎しみ", isCorrect: false),
+        Option(text: "友情", isCorrect: false),
+        Option(text: "喜び", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "미움",
+      options: [
+        Option(text: "憎しみ", isCorrect: true),
+        Option(text: "愛", isCorrect: false),
+        Option(text: "友情", isCorrect: false),
+        Option(text: "喜び", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "친구",
+      options: [
+        Option(text: "友達", isCorrect: true),
+        Option(text: "敵", isCorrect: false),
+        Option(text: "同僚", isCorrect: false),
+        Option(text: "家族", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "가족",
+      options: [
+        Option(text: "家族", isCorrect: true),
+        Option(text: "友達", isCorrect: false),
+        Option(text: "同僚", isCorrect: false),
+        Option(text: "敵", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "행복",
+      options: [
+        Option(text: "幸福", isCorrect: true),
+        Option(text: "悲しみ", isCorrect: false),
+        Option(text: "怒り", isCorrect: false),
+        Option(text: "驚き", isCorrect: false),
+      ],
+    ),
+    // ... 45 more Quiz instances should be added here following the same pattern
   ];
 }

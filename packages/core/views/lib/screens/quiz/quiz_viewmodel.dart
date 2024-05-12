@@ -2,12 +2,12 @@ import 'package:core_enums/enums.dart';
 
 import 'package:core_model/api/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_model/api/quiz_get_all/quiz_get_all_request.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 /// E201.受診予約一覧 Viewmodel
 class QuizViewmodel extends QuizViewmodelInterface {
@@ -24,11 +24,10 @@ class QuizViewmodel extends QuizViewmodelInterface {
   ///
   @override
   Future<void> init() async {
-    controller = PageController(initialPage: 0);
-    // クイズの 一覧を取得
     getQuizList();
     initializeTts();
-    updateCounter(0);
+    state =
+        state.copyWith(controller: PageController(initialPage: 0), counter: 0);
   }
 
   /// Quize の一覧取得
@@ -50,10 +49,12 @@ class QuizViewmodel extends QuizViewmodelInterface {
     dao
         .getQuizList(QuizGetAllRequest(
             appInstallType: appInstallType,
+            quizTopicType: quizTopicType,
             questionCount: questionCount))
         .then((response) {
       // 一覧に追加
-      state = state.copyWith(quizs: response.quizes);
+      state = state.copyWith(
+          quizs: response.quizes, isFavorites: response.isFavorites);
     }).catchError((error) {
       print(error.toString());
       // エラー処理
@@ -65,6 +66,12 @@ class QuizViewmodel extends QuizViewmodelInterface {
     });
   }
 
+  void startNewQuestion() {
+    // PageControllerをリセット
+    state.controller.jumpToPage(0);
+    // その他の初期化処理...
+  }
+
   /// 一覧クリア
   @override
   void clearList() {
@@ -72,16 +79,27 @@ class QuizViewmodel extends QuizViewmodelInterface {
   }
 
   /// クイズの質問の移動
+  ///  問題がない場合は resultのスコアへ移動
   @override
-  void nextQuestion() {
+  void nextQuestion(bool isSelected) {
     // まだ問題が残っている場合は 次の問題へ
     if (state.counter < state.quizs.length - 1) {
       state.controller.nextPage(
           duration: const Duration(milliseconds: 200), curve: Curves.linear);
-      state = state.copyWith(counter: state.counter + 1);
-      // 問題がない場合は totalのスコアを更新
+      state = state.copyWith(
+        counter: state.counter + 1,
+        selected: false,
+      );
     } else {
-      state = state.copyWith(gtotalScore: state.totalScore);
+      state = state.copyWith(
+        gtotalScore: state.totalScore,
+        selected: false,
+        isFinished: true,
+      );
+    }
+    // 回答していない場合は null を追加 未回答と表示する
+    if (!isSelected) {
+      state = state.copyWith(scores: List.from(state.scores)..add(null));
     }
   }
 
@@ -95,14 +113,15 @@ class QuizViewmodel extends QuizViewmodelInterface {
     if (!state.selected) {
       final newScore = isCorrect ? state.totalScore + 1 : state.totalScore;
       state = state.copyWith(
-          selectedInd: selected_index, selected: true, totalScore: newScore);
+        selectedInd: selected_index,
+        selected: true,
+        totalScore: newScore,
+        scores: List.from(state.scores)..add(isCorrect),
+      );
+    } else {
+      state = state.copyWith(scores: List.from(state.scores)..add(null));
     }
-  }
-
-  @override
-  void next() {
-    nextQuestion();
-    state = state.copyWith(selected: false);
+    print(state.scores);
   }
 
   @override
@@ -131,9 +150,6 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   /// インジケータ破棄メソッド
   late Function hideIndicator;
 
-  /// ページコントローラ
-  late PageController controller;
-
   /// ページサイズ(固定)
   final int pageSize = 50;
 
@@ -143,21 +159,24 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   // 問題数
   late int questionCount;
 
+  // トピックの種別
+  late QuizTopicType quizTopicType;
+
   /// ロード中か
   bool isLoading = false;
   // 画面描写
   Future<void> init();
+
   // クイズの一覧取得
   Future<void> getQuizList();
   // 一覧クリア
   void clearList();
   // クイズの質問の移動
-  void nextQuestion();
+  void nextQuestion(bool isSelected);
+
   // 回答選択
   void selectAns(int selected_index, bool isCorrect);
 
-  // 次の問題へ遷移
-  void next();
   // カウンター更新
   void updateCounter(int newCounter);
 

@@ -1,4 +1,5 @@
 import 'package:core_enums/enums.dart';
+import 'package:core_views/screens/quiz_favorite/quiz_favorite.dart';
 import 'package:core_views/screens/setting/setting.dart';
 import 'package:core_views/screens/topic/topic.dart';
 import 'package:core_views/utility/app_color_set.dart';
@@ -17,11 +18,23 @@ class HomePage extends StatefulWidget {
 class _MyAppState extends State<HomePage> {
   int currentIndex = 0;
 
-  final List<dynamic> pages = <dynamic>[TopicPage(), Setting(), Setting()];
+  final List<dynamic> pages = <dynamic>[
+    TopicPage(),
+    QuizFavorite(dropDownMenu: {
+      '単語': QuizTopicType.word,
+      '挨拶': QuizTopicType.greet,
+    }),
+    Setting()
+  ];
 
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   /// ステータス・アプリバーの背景色

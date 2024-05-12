@@ -18,22 +18,25 @@ dependencies:
   go_router: ^14.0.2
   flutter_tts: ^4.0.2
 
-  core_model: 
+  core_model:
     path: ../model
-  core_repository: 
+  core_repository:
     path: ../repository
-  core_data: 
+  core_data:
     path: ../data
-  core_constants: 
+  core_constants:
     path: ../constants
-  core_enums: 
+  core_enums:
     path: ../enums
+  core_sql:
+    path: ../sql
+
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0
   logger: ^2.2.0
   url_launcher: ^6.2.6
-  
+
 
 dev_dependencies:
   flutter_test:

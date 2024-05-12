@@ -24,7 +24,7 @@ class AppColors {
           case ThemeMode.system:
             return Colors.transparent; // または、適切なデフォルトの色
         }
-        case AppColorType.reverseColor:
+      case AppColorType.reverseColor:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
             return Colors.white;
@@ -118,6 +118,16 @@ class AppColors {
       case AppColorType.wrongAnswer:
         return Color.fromARGB(255, 62, 62, 192);
 
+      case AppColorType.progress:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xffEDA276);
+          case ThemeMode.dark:
+            return const Color(0xffEDA276);
+          case ThemeMode.system:
+            return const Color(0xffEDA276);
+        }
+
       // radio ボタンが on の時
       case AppColorType.radioOn:
         switch (mode ?? AppSettingInfo().themeMode) {
@@ -150,7 +160,45 @@ class AppColors {
           case ThemeMode.system:
             return const Color(0xffEDA276);
         }
+      case AppColorType.question15:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.dark:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
 
+      case AppColorType.question30:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.dark:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
+
+      case AppColorType.question50:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.dark:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
+
+      case AppColorType.greeting:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.dark:
+            return const Color(0xFFE0F2F1);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
       default:
         throw Exception("Unsupported AppInstallType: $_appInstallType");
     }

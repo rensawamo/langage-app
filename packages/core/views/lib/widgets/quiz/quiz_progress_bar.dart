@@ -1,10 +1,14 @@
+import 'package:core_enums/enums.dart';
+import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 class progressBar extends StatefulWidget {
-  const progressBar({super.key, required this.count, required this.index});
+  const progressBar(
+      {super.key, required this.count, this.mode, required this.index});
   final int count;
   final int index;
+  final ThemeMode? mode;
 
   @override
   State<progressBar> createState() => _progressBarState();
@@ -27,6 +31,11 @@ class _progressBarState extends State<progressBar>
     super.initState();
   }
 
+  // 影の色
+  final _shadowColor = const AppColorSet(type: AppColorType.shadow);
+  // プログレスバーの色
+  final _progressColor = const AppColorSet(type: AppColorType.progress);
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -38,7 +47,7 @@ class _progressBarState extends State<progressBar>
               height: 5,
               width: 200,
               decoration: BoxDecoration(
-                color: Colors.orange[200],
+                color: _shadowColor.color(widget.mode),
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
               ),
               child: Row(
@@ -49,8 +58,8 @@ class _progressBarState extends State<progressBar>
                     height: 5,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(colors: [
-                        Colors.black,
-                        Colors.orangeAccent,
+                        _progressColor.color(widget.mode),
+                        _progressColor.color(widget.mode)
                       ]),
                       borderRadius: BorderRadius.all(Radius.circular(4.0)),
                     ),

@@ -1,4 +1,4 @@
-import 'package:core_model/api/json_serializable_interface.dart';
+import 'package:core_model/json_serializable_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../../generated/api/quiz_get_all/quiz_get_all_response.freezed.dart';
@@ -13,6 +13,8 @@ class QuizGetAllResponse
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory QuizGetAllResponse({
     required List<Quiz> quizes,
+    required List<bool> isFavorites,
+
   }) = _QuizGetAllResponse;
 
   factory QuizGetAllResponse.fromJson(Map<String, dynamic> json) =>
