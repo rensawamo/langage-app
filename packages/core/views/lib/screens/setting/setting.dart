@@ -60,6 +60,7 @@ class Setting extends StatelessWidget {
             navigator.pop(); // popを明示的に呼ぶ
           },
           child: AppBaseFrame(
+            hasPrevButton: false,
             screenContext: screenContext,
             initFrame: (_, __) {
               final vm = ref.watch(settingProvider.notifier);

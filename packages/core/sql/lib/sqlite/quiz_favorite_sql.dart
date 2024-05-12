@@ -56,6 +56,16 @@ class QuizFavoriteSql {
     }
   }
 
+  // Delete a word from the database
+  static Future<int> delete(
+      String word, String topicType, String appInstallType) async {
+    Database db = await instance.database;
+    return await db.delete(table,
+        where:
+            '$columnWord = ? AND $columnTopicType = ? AND $columnAppInstallType = ?',
+        whereArgs: [word, topicType, appInstallType]);
+  }
+
   static Future<bool> isFavorite(
       String word, String topicType, String appInstallType) async {
     Database db = await instance.database;
@@ -66,9 +76,9 @@ class QuizFavoriteSql {
     return result.isNotEmpty;
   }
 
+
   /// インストールされているアプリの種類
   /// 選択トピックのタイトルに応じて お気に入りの語句を取得する
-
   static Future<List<String>> getAllWords(
       String topicType, String appInstallType) async {
     print('topicType: $topicType');

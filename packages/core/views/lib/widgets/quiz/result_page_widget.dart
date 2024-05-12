@@ -90,10 +90,15 @@ class _ResultPageState extends State<ResultPageWidget> {
                         Expanded(
                           child: IconButton(
                             onPressed: () async {
-                              await QuizFavoriteSql.insert(
-                                  widget.quizes[index].text,
-                                  widget.topicType.name,
-                                  widget.installtype.name);
+                              (isFavorites[index])
+                                  ? await QuizFavoriteSql.delete(
+                                      widget.quizes[index].text,
+                                      widget.topicType.name,
+                                      widget.installtype.name)
+                                  : await QuizFavoriteSql.insert(
+                                      widget.quizes[index].text,
+                                      widget.topicType.name,
+                                      widget.installtype.name);
                               setState(() {
                                 isFavorites[index] = true;
                               });
