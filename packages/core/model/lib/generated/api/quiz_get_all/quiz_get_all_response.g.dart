@@ -12,12 +12,16 @@ _$QuizGetAllResponseImpl _$$QuizGetAllResponseImplFromJson(
       quizes: (json['quizes'] as List<dynamic>)
           .map((e) => Quiz.fromJson(e as Map<String, dynamic>))
           .toList(),
+      isFavorites: (json['is_favorites'] as List<dynamic>)
+          .map((e) => e as bool)
+          .toList(),
     );
 
 Map<String, dynamic> _$$QuizGetAllResponseImplToJson(
         _$QuizGetAllResponseImpl instance) =>
     <String, dynamic>{
       'quizes': instance.quizes,
+      'is_favorites': instance.isFavorites,
     };
 
 _$QuizImpl _$$QuizImplFromJson(Map<String, dynamic> json) => _$QuizImpl(

@@ -21,12 +21,24 @@ enum AppColorType {
   // 問題に正解したときの色
   collectAnswer,
   // 問題に不正解したときの色
+
   wrongAnswer,
+  // 問題の進捗バーの色
+  progress,
   // ラジオボタンがonの時
   radioOn,
   // ラジオボタンがoffの時
   radioOff,
   // setting のtileのタップ時のエフェクトの色
   effectColor,
+  // 問題数 15
+  question15,
+  // 問題数 30
+  question30,
+  // 問題数 50
+  question50,
+  // 挨拶
+  greeting,
+
 
 }

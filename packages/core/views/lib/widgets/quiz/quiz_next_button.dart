@@ -1,15 +1,21 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CuteButton extends StatelessWidget {
   final Function next;
+  final int quizeCount;
+  final bool isSelected;
+  final int totalScore;
   final ThemeMode? mode;
   final AppTextSizeType? textType;
 
   const CuteButton({
     required this.next,
+    required this.quizeCount,
+    required this.isSelected,
+    required this.totalScore,
     this.mode,
     this.textType,
   });
@@ -17,41 +23,37 @@ class CuteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _nextContour = const AppColorSet(type: AppColorType.collectAnswer);
+    final _shadowColor = const AppColorSet(type: AppColorType.shadow);
 
     return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              offset: Offset(1.1, 1.1),
-              blurRadius: 10.0,
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 16),
+        child: InkWell(
+          onTap: () {
+            if (next(isSelected) == true) {
+              GoRouter.of(context).pop();
+            }
+          },
+          child: Container(
+            // height: 58,
+            padding: EdgeInsets.only(
+              left: 48.0,
+              right: 48.0,
+              top: 10,
+              bottom: 10,
             ),
-          ],
-        ),
-        child: ElevatedButton(
-          onPressed: () => next(),
-          style: ElevatedButton.styleFrom(
-            shadowColor: Colors.transparent, // 影も透明に
-            padding: EdgeInsets.all(10.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color: Color(0xff132137),
             ),
-            elevation: 0, // 影の高さを0に設定
-          ),
-          child: Text(
-            "次へ",
-            style: TextStyles.m(
-              color: _nextContour.color(mode),
-              type: textType,
+            child: Text(
+              "次へ",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

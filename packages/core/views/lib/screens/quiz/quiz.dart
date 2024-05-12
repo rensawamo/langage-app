@@ -1,3 +1,5 @@
+import 'package:core_enums/enums.dart';
+import 'package:core_model/api/quiz_get_all/topic_param.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
@@ -15,6 +17,7 @@ final QuizGetProvider =
     return QuizViewmodel(
       QuizState(
         quizs: [],
+        isFavorites: [],
         controller: PageController(),
       ),
       QuizGetAllDao(),
@@ -24,14 +27,12 @@ final QuizGetProvider =
 
 /// Quiz の 問題を表示する画面
 class QuizPage extends StatelessWidget {
-  const QuizPage({
+  QuizPage({
     super.key,
-    required this.questionCount,
-    // required this.apInstallType,
+    required this.quizTopicType,
   });
 
-  /// 問題数
-  final int questionCount;
+  final TopicParam quizTopicType;
 
   /// 初期化処理
   void init(BuildContext context, WidgetRef ref) async {
@@ -41,7 +42,9 @@ class QuizPage extends StatelessWidget {
     vm.appInstallType = AppSettingInfo().appInstallType;
 
     // 問題数をセットする
-    vm.questionCount = questionCount;
+    vm.questionCount = quizTopicType.extra;
+
+    vm.quizTopicType = quizTopicType.quizTopicType;
 
     // インジケータ表示
     vm.showIndicator = () {
@@ -65,7 +68,7 @@ class QuizPage extends StatelessWidget {
           hasPrevButton: true,
           shouldRemoveFocus: true,
           backOnTap: () {
-            Navigator.pop(context, '戻り値'); // これで 戻り値を渡せるみたい
+            Navigator.pop(context, '戻り値');
           },
           title: '単語',
           initFrame: (context, ref) {
@@ -88,14 +91,21 @@ class QuizPage extends StatelessWidget {
         itemBuilder: (context, index) {
           Quiz quiz = quizes[index];
           return AppQuizPageView(
+            quizes: quizes,
+            isFavorites: ref.read(QuizGetProvider).isFavorites,
+            scores: ref.read(QuizGetProvider).scores ?? [],
+            isFinished: ref.read(QuizGetProvider).isFinished,
             index: index,
             selectAns: ref.read(QuizGetProvider.notifier).selectAns,
-            next: ref.read(QuizGetProvider.notifier).next,
+            next: ref.read(QuizGetProvider.notifier).nextQuestion,
             speak: ref.read(QuizGetProvider.notifier).speak,
             quiz: quiz,
             count: quizes.length,
             selected: ref.read(QuizGetProvider).selected,
             selected_ind: ref.read(QuizGetProvider).selectedInd,
+            tatalScore: ref.read(QuizGetProvider).totalScore,
+            installtype: AppSettingInfo().appInstallType,
+            quizTopicType: quizTopicType.quizTopicType,
           );
         },
       );

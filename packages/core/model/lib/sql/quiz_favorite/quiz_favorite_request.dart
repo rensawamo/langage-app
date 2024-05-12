@@ -2,24 +2,27 @@ import 'package:core_enums/enums.dart';
 import 'package:core_model/json_serializable_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/api/quiz_get_all/quiz_get_all_request.freezed.dart';
-part '../../generated/api/quiz_get_all/quiz_get_all_request.g.dart';
+part '../../generated/sql/quiz_favorite/quiz_favorite_request.freezed.dart';
+part '../../generated/sql/quiz_favorite/quiz_favorite_request.g.dart';
 
 ///  RequestEntity
 @freezed
-class QuizGetAllRequest
-    with _$QuizGetAllRequest
+class QuizFavoriteRequest
+    with _$QuizFavoriteRequest
     implements JsonSerializableInterface {
   /// コンストラクタ
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory QuizGetAllRequest({
+  const factory QuizFavoriteRequest({
     // 使用中のアプリのタイプ
     required AppInstallType appInstallType,
-    required int questionCount,
+    // トピックのタイプ
     required QuizTopicType quizTopicType,
-  }) = _QuizGetAllRequest;
+    
+    // 取得数固定
+    required int pageSize,
+  }) = _QuizFavoriteRequest;
 
-  factory QuizGetAllRequest.fromJson(Map<String, dynamic> json) =>
-      _$QuizGetAllRequestFromJson(json);
+  factory QuizFavoriteRequest.fromJson(Map<String, dynamic> json) =>
+      _$QuizFavoriteRequestFromJson(json);
 }

@@ -21,6 +21,7 @@ QuizGetAllResponse _$QuizGetAllResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QuizGetAllResponse {
   List<Quiz> get quizes => throw _privateConstructorUsedError;
+  List<bool> get isFavorites => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $QuizGetAllResponseCopyWith<$Res> {
           QuizGetAllResponse value, $Res Function(QuizGetAllResponse) then) =
       _$QuizGetAllResponseCopyWithImpl<$Res, QuizGetAllResponse>;
   @useResult
-  $Res call({List<Quiz> quizes});
+  $Res call({List<Quiz> quizes, List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$QuizGetAllResponseCopyWithImpl<$Res, $Val extends QuizGetAllResponse>
   @override
   $Res call({
     Object? quizes = null,
+    Object? isFavorites = null,
   }) {
     return _then(_value.copyWith(
       quizes: null == quizes
           ? _value.quizes
           : quizes // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
+      isFavorites: null == isFavorites
+          ? _value.isFavorites
+          : isFavorites // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
     ) as $Val);
   }
 }
@@ -69,7 +75,7 @@ abstract class _$$QuizGetAllResponseImplCopyWith<$Res>
       __$$QuizGetAllResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Quiz> quizes});
+  $Res call({List<Quiz> quizes, List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -84,12 +90,17 @@ class __$$QuizGetAllResponseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? quizes = null,
+    Object? isFavorites = null,
   }) {
     return _then(_$QuizGetAllResponseImpl(
       quizes: null == quizes
           ? _value._quizes
           : quizes // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
+      isFavorites: null == isFavorites
+          ? _value._isFavorites
+          : isFavorites // ignore: cast_nullable_to_non_nullable
+              as List<bool>,
     ));
   }
 }
@@ -98,8 +109,10 @@ class __$$QuizGetAllResponseImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
-  const _$QuizGetAllResponseImpl({required final List<Quiz> quizes})
-      : _quizes = quizes;
+  const _$QuizGetAllResponseImpl(
+      {required final List<Quiz> quizes, required final List<bool> isFavorites})
+      : _quizes = quizes,
+        _isFavorites = isFavorites;
 
   factory _$QuizGetAllResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizGetAllResponseImplFromJson(json);
@@ -112,9 +125,17 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
     return EqualUnmodifiableListView(_quizes);
   }
 
+  final List<bool> _isFavorites;
+  @override
+  List<bool> get isFavorites {
+    if (_isFavorites is EqualUnmodifiableListView) return _isFavorites;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_isFavorites);
+  }
+
   @override
   String toString() {
-    return 'QuizGetAllResponse(quizes: $quizes)';
+    return 'QuizGetAllResponse(quizes: $quizes, isFavorites: $isFavorites)';
   }
 
   @override
@@ -122,13 +143,17 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuizGetAllResponseImpl &&
-            const DeepCollectionEquality().equals(other._quizes, _quizes));
+            const DeepCollectionEquality().equals(other._quizes, _quizes) &&
+            const DeepCollectionEquality()
+                .equals(other._isFavorites, _isFavorites));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_quizes));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_quizes),
+      const DeepCollectionEquality().hash(_isFavorites));
 
   @JsonKey(ignore: true)
   @override
@@ -146,14 +171,17 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
 }
 
 abstract class _QuizGetAllResponse implements QuizGetAllResponse {
-  const factory _QuizGetAllResponse({required final List<Quiz> quizes}) =
-      _$QuizGetAllResponseImpl;
+  const factory _QuizGetAllResponse(
+      {required final List<Quiz> quizes,
+      required final List<bool> isFavorites}) = _$QuizGetAllResponseImpl;
 
   factory _QuizGetAllResponse.fromJson(Map<String, dynamic> json) =
       _$QuizGetAllResponseImpl.fromJson;
 
   @override
   List<Quiz> get quizes;
+  @override
+  List<bool> get isFavorites;
   @override
   @JsonKey(ignore: true)
   _$$QuizGetAllResponseImplCopyWith<_$QuizGetAllResponseImpl> get copyWith =>
