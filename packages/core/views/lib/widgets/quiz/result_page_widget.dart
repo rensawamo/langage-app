@@ -93,7 +93,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                 ),
                 DataColumn(
                   label: Container(
-                    width: context.mediaQueryWidth * .1,
+                    width: context.mediaQueryWidth * .08,
                     child: Text(
                       'boice',
                     ),
@@ -101,7 +101,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                 ),
                 DataColumn(
                   label: Container(
-                    width: context.mediaQueryWidth * .1,
+                    width: context.mediaQueryWidth * .08,
                     child: Text(
                       'star',
                     ),
@@ -141,7 +141,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                       ),
                     )),
                     DataCell(Container(
-                      width: context.mediaQueryWidth * .1,
+                      width: context.mediaQueryWidth * .08,
                       child: IconButton(
                         icon: Icon(Icons.volume_up),
                         onPressed: () async {
@@ -151,7 +151,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                     )),
                     DataCell(
                       Container(
-                        width: context.mediaQueryWidth * .1,
+                        width: context.mediaQueryWidth * .08,
                         child: IconButton(
                           onPressed: () async {
                             (isFavorites[index])
