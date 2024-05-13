@@ -61,7 +61,7 @@ class TopicPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: context.mediaQueryHeight * .02),
-                  _tile(context, 1, '問題数 15問', '日常会話の挨拶', _grreetingColor,
+                  _tile(context, 10, '問題数 15問', '日常会話の挨拶', _grreetingColor,
                       QuizTopicType.greet),
                 ])));
   }

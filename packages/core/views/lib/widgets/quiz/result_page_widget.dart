@@ -54,6 +54,7 @@ class _ResultPageState extends State<ResultPageWidget> {
       backgroundColor: Color(0xffF7EBE1),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
@@ -70,13 +71,13 @@ class _ResultPageState extends State<ResultPageWidget> {
             height: context.mediaQueryHeight * .02,
           ),
           Container(
-            alignment: Alignment.center,
             width: context.mediaQueryWidth * .95,
             height: context.mediaQueryHeight * .6,
             child: DataTable(
               columns: <DataColumn>[
                 DataColumn(
                   label: Container(
+                    width: context.mediaQueryWidth * .15,
                     child: Text(
                       'Quiz',
                     ),
@@ -84,6 +85,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                 ),
                 DataColumn(
                   label: Container(
+                    width: context.mediaQueryWidth * .1,
                     child: Text(
                       'Score',
                     ),
@@ -91,15 +93,17 @@ class _ResultPageState extends State<ResultPageWidget> {
                 ),
                 DataColumn(
                   label: Container(
+                    width: context.mediaQueryWidth * .1,
                     child: Text(
-                      'Speak',
+                      'boice',
                     ),
                   ),
                 ),
                 DataColumn(
                   label: Container(
+                    width: context.mediaQueryWidth * .1,
                     child: Text(
-                      'Favorite',
+                      'star',
                     ),
                   ),
                 ),
@@ -111,16 +115,20 @@ class _ResultPageState extends State<ResultPageWidget> {
                 (index) => DataRow(
                   cells: <DataCell>[
                     DataCell(
-                      Text(
-                        widget.quizes[index].text,
-                        style: TextStyles.m(
-                          color: _defaultColor.color(widget.mode),
-                          type: widget.textType,
+                      Container(
+                        width: context.mediaQueryWidth * .22,
+                        child: Text(
+                          widget.quizes[index].text,
+                          style: TextStyles.m(
+                            color: _defaultColor.color(widget.mode),
+                            type: widget.textType,
+                          ),
                         ),
                       ),
                     ),
-                    DataCell(
-                      Text(
+                    DataCell(Container(
+                      width: context.mediaQueryWidth * .1,
+                      child: Text(
                         widget.scores[index] == null
                             ? "未回答"
                             : widget.scores[index]!
@@ -131,36 +139,40 @@ class _ResultPageState extends State<ResultPageWidget> {
                           type: widget.textType,
                         ),
                       ),
-                    ),
-                    DataCell(
-                      IconButton(
+                    )),
+                    DataCell(Container(
+                      width: context.mediaQueryWidth * .1,
+                      child: IconButton(
                         icon: Icon(Icons.volume_up),
                         onPressed: () async {
                           await widget.speak(widget.quizes[index].text);
                         },
                       ),
-                    ),
+                    )),
                     DataCell(
-                      IconButton(
-                        onPressed: () async {
-                          (isFavorites[index])
-                              ? await QuizFavoriteSql.delete(
-                                  widget.quizes[index].text,
-                                  widget.topicType.name,
-                                  widget.installtype.name)
-                              : await QuizFavoriteSql.insert(
-                                  widget.quizes[index].text,
-                                  widget.topicType.name,
-                                  widget.installtype.name);
-                          setState(() {
-                            isFavorites[index] = true;
-                          });
-                        },
-                        icon: (isFavorites[index])
-                            ? Icon(
-                                Icons.star,
-                              )
-                            : Icon(Icons.star_border),
+                      Container(
+                        width: context.mediaQueryWidth * .1,
+                        child: IconButton(
+                          onPressed: () async {
+                            (isFavorites[index])
+                                ? await QuizFavoriteSql.delete(
+                                    widget.quizes[index].text,
+                                    widget.topicType.name,
+                                    widget.installtype.name)
+                                : await QuizFavoriteSql.insert(
+                                    widget.quizes[index].text,
+                                    widget.topicType.name,
+                                    widget.installtype.name);
+                            setState(() {
+                              isFavorites[index] = true;
+                            });
+                          },
+                          icon: (isFavorites[index])
+                              ? Icon(
+                                  Icons.star,
+                                )
+                              : Icon(Icons.star_border),
+                        ),
                       ),
                     ),
                   ],
