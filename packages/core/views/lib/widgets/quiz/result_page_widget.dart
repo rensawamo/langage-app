@@ -70,116 +70,118 @@ class _ResultPageState extends State<ResultPageWidget> {
           SizedBox(
             height: context.mediaQueryHeight * .02,
           ),
-          Container(
-            width: context.mediaQueryWidth * .95,
-            height: context.mediaQueryHeight * .6,
-            child: DataTable(
-              columns: <DataColumn>[
-                DataColumn(
-                  label: Container(
-                    width: context.mediaQueryWidth * .15,
-                    child: Text(
-                      'Quiz',
-                    ),
-                  ),
-                ),
-                DataColumn(
-                  label: Container(
-                    width: context.mediaQueryWidth * .1,
-                    child: Text(
-                      'Score',
-                    ),
-                  ),
-                ),
-                DataColumn(
-                  label: Container(
-                    width: context.mediaQueryWidth * .08,
-                    child: Text(
-                      'boice',
-                    ),
-                  ),
-                ),
-                DataColumn(
-                  label: Container(
-                    width: context.mediaQueryWidth * .08,
-                    child: Text(
-                      'star',
-                    ),
-                  ),
-                ),
-              ],
-              // 以下省略...
-
-              rows: List<DataRow>.generate(
-                widget.quizes.length,
-                (index) => DataRow(
-                  cells: <DataCell>[
-                    DataCell(
-                      Container(
-                        width: context.mediaQueryWidth * .22,
+          SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                width: context.mediaQueryWidth * .95,
+                height: context.mediaQueryHeight * .6,
+                child: DataTable(
+                  columns: <DataColumn>[
+                    DataColumn(
+                      label: Container(
+                        width: context.mediaQueryWidth * .15,
                         child: Text(
-                          widget.quizes[index].text,
-                          style: TextStyles.m(
-                            color: _defaultColor.color(widget.mode),
-                            type: widget.textType,
-                          ),
+                          'Quiz',
                         ),
                       ),
                     ),
-                    DataCell(Container(
-                      width: context.mediaQueryWidth * .1,
-                      child: Text(
-                        widget.scores[index] == null
-                            ? "未回答"
-                            : widget.scores[index]!
-                                ? '正解'
-                                : '不正解',
-                        style: TextStyles.s(
-                          color: _defaultColor.color(widget.mode),
-                          type: widget.textType,
+                    DataColumn(
+                      label: Container(
+                        width: context.mediaQueryWidth * .1,
+                        child: Text(
+                          'Score',
                         ),
                       ),
-                    )),
-                    DataCell(Container(
-                      width: context.mediaQueryWidth * .08,
-                      child: IconButton(
-                        icon: Icon(Icons.volume_up),
-                        onPressed: () async {
-                          await widget.speak(widget.quizes[index].text);
-                        },
-                      ),
-                    )),
-                    DataCell(
-                      Container(
+                    ),
+                    DataColumn(
+                      label: Container(
                         width: context.mediaQueryWidth * .08,
-                        child: IconButton(
-                          onPressed: () async {
-                            (isFavorites[index])
-                                ? await QuizFavoriteSql.delete(
-                                    widget.quizes[index].text,
-                                    widget.topicType.name,
-                                    widget.installtype.name)
-                                : await QuizFavoriteSql.insert(
-                                    widget.quizes[index].text,
-                                    widget.topicType.name,
-                                    widget.installtype.name);
-                            setState(() {
-                              isFavorites[index] = true;
-                            });
-                          },
-                          icon: (isFavorites[index])
-                              ? Icon(
-                                  Icons.star,
-                                )
-                              : Icon(Icons.star_border),
+                        child: Text(
+                          'boice',
+                        ),
+                      ),
+                    ),
+                    DataColumn(
+                      label: Container(
+                        width: context.mediaQueryWidth * .08,
+                        child: Text(
+                          'star',
                         ),
                       ),
                     ),
                   ],
+                  // 以下省略...
+
+                  rows: List<DataRow>.generate(
+                    widget.quizes.length,
+                    (index) => DataRow(
+                      cells: <DataCell>[
+                        DataCell(
+                          Container(
+                            width: context.mediaQueryWidth * .22,
+                            child: Text(
+                              widget.quizes[index].text,
+                              style: TextStyles.m(
+                                color: _defaultColor.color(widget.mode),
+                                type: widget.textType,
+                              ),
+                            ),
+                          ),
+                        ),
+                        DataCell(Container(
+                          width: context.mediaQueryWidth * .1,
+                          child: Text(
+                            widget.scores[index] == null
+                                ? "未回答"
+                                : widget.scores[index]!
+                                    ? '正解'
+                                    : '不正解',
+                            style: TextStyles.s(
+                              color: _defaultColor.color(widget.mode),
+                              type: widget.textType,
+                            ),
+                          ),
+                        )),
+                        DataCell(Container(
+                          width: context.mediaQueryWidth * .08,
+                          child: IconButton(
+                            icon: Icon(Icons.volume_up),
+                            onPressed: () async {
+                              await widget.speak(widget.quizes[index].text);
+                            },
+                          ),
+                        )),
+                        DataCell(
+                          Container(
+                            width: context.mediaQueryWidth * .08,
+                            child: IconButton(
+                              onPressed: () async {
+                                (isFavorites[index])
+                                    ? await QuizFavoriteSql.delete(
+                                        widget.quizes[index].text,
+                                        widget.topicType.name,
+                                        widget.installtype.name)
+                                    : await QuizFavoriteSql.insert(
+                                        widget.quizes[index].text,
+                                        widget.topicType.name,
+                                        widget.installtype.name);
+                                setState(() {
+                                  isFavorites[index] = true;
+                                });
+                              },
+                              icon: (isFavorites[index])
+                                  ? Icon(
+                                      Icons.star,
+                                    )
+                                  : Icon(Icons.star_border),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
+              )),
           SizedBox(
             height: context.mediaQueryHeight * .07,
           ),
