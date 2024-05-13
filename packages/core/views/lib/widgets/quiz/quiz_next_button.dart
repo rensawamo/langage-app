@@ -1,5 +1,6 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_views/utility/app_color_set.dart';
+import 'package:core_views/utility/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,8 +23,7 @@ class CuteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _nextContour = const AppColorSet(type: AppColorType.collectAnswer);
-    final _shadowColor = const AppColorSet(type: AppColorType.shadow);
+    final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
 
     return Padding(
         padding:
@@ -48,9 +48,9 @@ class CuteButton extends StatelessWidget {
             ),
             child: Text(
               "次へ",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
+              style: TextStyles.l(
+                color: _reverseColor.color(mode),
+                type: textType,
               ),
             ),
           ),

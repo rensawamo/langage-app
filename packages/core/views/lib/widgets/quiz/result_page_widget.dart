@@ -2,6 +2,9 @@ import 'package:core_enums/enums.dart';
 import 'package:core_model/model.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_views/extension/view+extention.dart';
+import 'package:core_views/utility/app_color_set.dart';
+import 'package:core_views/utility/text_styles.dart';
+import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +18,8 @@ class ResultPageWidget extends StatefulWidget {
       required this.scores,
       required this.installtype,
       required this.topicType,
+      this.mode,
+      this.textType,
       Key? key})
       : super(key: key);
 
@@ -26,6 +31,8 @@ class ResultPageWidget extends StatefulWidget {
   final List<bool?> scores;
   final AppInstallType installtype;
   final QuizTopicType topicType;
+  final ThemeMode? mode;
+  final AppTextSizeType? textType;
 
   @override
   _ResultPageState createState() => _ResultPageState();
@@ -39,121 +46,157 @@ class _ResultPageState extends State<ResultPageWidget> {
     super.initState();
   }
 
+  final _defaultColor = const AppColorSet(type: AppColorType.titleCharacter);
+  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF7EBE1),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: Text(
-                'Your Score',
-                style: TextStyle(fontSize: 25),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            child: AppText(
+              text: "結果 ${widget.totalScore} / ${widget.count}",
+              style: TextStyles.l(
+                color: _defaultColor.color(widget.mode),
+                type: widget.textType,
               ),
             ),
-            Container(
-              height: context.mediaQueryHeight * .6,
-              width: context.mediaQueryWidth * .9,
-              child: ListView.builder(
-                itemCount: widget.quizes.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(widget.quizes[index].text),
-                        ),
-                        Expanded(
-                          child: Text(
-                            widget.scores[index] == null
-                                ? "未回答"
-                                : widget.scores[index]!
-                                    ? '正解'
-                                    : '不正解',
-                          ),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            icon: Icon(Icons.play_arrow),
-                            onPressed: () async {
-                              await widget.speak(widget.quizes[index].text);
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: IconButton(
-                            onPressed: () async {
-                              (isFavorites[index])
-                                  ? await QuizFavoriteSql.delete(
-                                      widget.quizes[index].text,
-                                      widget.topicType.name,
-                                      widget.installtype.name)
-                                  : await QuizFavoriteSql.insert(
-                                      widget.quizes[index].text,
-                                      widget.topicType.name,
-                                      widget.installtype.name);
-                              setState(() {
-                                isFavorites[index] = true;
-                              });
-                            },
-                            icon: (isFavorites[index])
-                                ? Icon(Icons.star)
-                                : Icon(Icons.star_border),
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 30, left: 20, right: 20),
-              child: Text(
-                '${widget.totalScore} / ${widget.quizes.length}',
-                style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom + 16),
-                child: InkWell(
-                  onTap: () {
-                    GoRouter.of(context).pop();
-                  },
-                  child: Container(
-                    // height: 58,
-                    padding: EdgeInsets.only(
-                      left: 48.0,
-                      right: 48.0,
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Color(0xff132137),
-                    ),
+          ),
+          SizedBox(
+            height: context.mediaQueryHeight * .02,
+          ),
+          Container(
+            alignment: Alignment.center,
+            width: context.mediaQueryWidth * .95,
+            height: context.mediaQueryHeight * .6,
+            child: DataTable(
+              columns: <DataColumn>[
+                DataColumn(
+                  label: Container(
                     child: Text(
-                      "トピックに戻る",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
+                      'Quiz',
                     ),
                   ),
-                ))
-          ],
-        ),
+                ),
+                DataColumn(
+                  label: Container(
+                    child: Text(
+                      'Score',
+                    ),
+                  ),
+                ),
+                DataColumn(
+                  label: Container(
+                    child: Text(
+                      'Speak',
+                    ),
+                  ),
+                ),
+                DataColumn(
+                  label: Container(
+                    child: Text(
+                      'Favorite',
+                    ),
+                  ),
+                ),
+              ],
+              // 以下省略...
+
+              rows: List<DataRow>.generate(
+                widget.quizes.length,
+                (index) => DataRow(
+                  cells: <DataCell>[
+                    DataCell(
+                      Text(
+                        widget.quizes[index].text,
+                        style: TextStyles.m(
+                          color: _defaultColor.color(widget.mode),
+                          type: widget.textType,
+                        ),
+                      ),
+                    ),
+                    DataCell(
+                      Text(
+                        widget.scores[index] == null
+                            ? "未回答"
+                            : widget.scores[index]!
+                                ? '正解'
+                                : '不正解',
+                        style: TextStyles.s(
+                          color: _defaultColor.color(widget.mode),
+                          type: widget.textType,
+                        ),
+                      ),
+                    ),
+                    DataCell(
+                      IconButton(
+                        icon: Icon(Icons.volume_up),
+                        onPressed: () async {
+                          await widget.speak(widget.quizes[index].text);
+                        },
+                      ),
+                    ),
+                    DataCell(
+                      IconButton(
+                        onPressed: () async {
+                          (isFavorites[index])
+                              ? await QuizFavoriteSql.delete(
+                                  widget.quizes[index].text,
+                                  widget.topicType.name,
+                                  widget.installtype.name)
+                              : await QuizFavoriteSql.insert(
+                                  widget.quizes[index].text,
+                                  widget.topicType.name,
+                                  widget.installtype.name);
+                          setState(() {
+                            isFavorites[index] = true;
+                          });
+                        },
+                        icon: (isFavorites[index])
+                            ? Icon(
+                                Icons.star,
+                              )
+                            : Icon(Icons.star_border),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: context.mediaQueryHeight * .07,
+          ),
+          Container(
+              child: InkWell(
+            onTap: () {
+              GoRouter.of(context).pop();
+            },
+            child: Container(
+              padding: EdgeInsets.only(
+                left: 48.0,
+                right: 48.0,
+                top: 10,
+                bottom: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: _defaultColor.color(widget.mode),
+              ),
+              child: Text(
+                "トピックに戻る",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: _reverseColor.color(widget.mode),
+                ),
+              ),
+            ),
+          ))
+        ],
       ),
     );
   }

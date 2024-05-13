@@ -67,9 +67,6 @@ class QuizPage extends StatelessWidget {
           screenContext: screenContext,
           hasPrevButton: true,
           shouldRemoveFocus: true,
-          backOnTap: () {
-            Navigator.pop(context, '戻り値');
-          },
           title: '単語',
           initFrame: (context, ref) {
             // 初期化処理

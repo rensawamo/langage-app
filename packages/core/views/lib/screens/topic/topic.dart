@@ -17,7 +17,7 @@ class TopicPage extends StatelessWidget {
     this.mode,
     this.textType,
   });
-  final _defaultColor = const AppColorSet(type: AppColorType.titleCharacter);
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
   final _question15Color = const AppColorSet(type: AppColorType.question15);
   final _question30Color = const AppColorSet(type: AppColorType.question30);
   final _question50Color = const AppColorSet(type: AppColorType.question50);
@@ -61,7 +61,7 @@ class TopicPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: context.mediaQueryHeight * .02),
-                  _tile(context, 10, '問題数 15問', '日常会話の挨拶', _grreetingColor,
+                  _tile(context, 1, '問題数 15問', '日常会話の挨拶', _grreetingColor,
                       QuizTopicType.greet),
                 ])));
   }

@@ -3,7 +3,6 @@ import 'package:core_views/components/actiontile_font_size_big_tile.dart';
 import 'package:core_views/components/actiontile_font_size_extra_big_tile.dart';
 import 'package:core_views/components/actiontile_font_size_normal_tile.dart';
 import 'package:core_views/components/actiontile_single_radio_tile.dart';
-import 'package:core_views/components/tile_section_footer.dart';
 import 'package:core_views/components/tile_section_header.dart';
 import 'package:core_views/screens/setting/setting_state.dart';
 import 'package:core_views/screens/setting/setting_viewmodel.dart';
@@ -12,7 +11,6 @@ import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:core_views/widgets/app_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
 
 /// Provider
 final settingProvider =
@@ -30,13 +28,7 @@ final settingProvider =
   },
 );
 
-/// N001.設定
-///
-/// プッシュ通知、外観、文字サイズの設定を行う画面.
 class Setting extends StatelessWidget {
-  /// ロガー
-  final _logger = Logger();
-
   /// コンストラクタ
   Setting({super.key});
 
@@ -48,17 +40,7 @@ class Setting extends StatelessWidget {
         final state = ref.watch(settingProvider);
         return PopScope(
           canPop: false, // 戻るキーの動作で戻ることを一旦防ぐ
-          onPopInvoked: (didPop) async {
-            if (didPop) {
-              return;
-            }
-            // ライフサイクルの設定を解除
-            ref.watch(settingProvider.notifier).removeObserver();
-            // 前画面へ戻る
 
-            final NavigatorState navigator = Navigator.of(context);
-            navigator.pop(); // popを明示的に呼ぶ
-          },
           child: AppBaseFrame(
             hasPrevButton: false,
             screenContext: screenContext,
@@ -71,12 +53,6 @@ class Setting extends StatelessWidget {
             title: '設定',
             textType: state.textSize,
             mode: state.themeMode,
-            backOnTap: () {
-              // ライフサイクルの設定を解除
-              ref.watch(settingProvider.notifier).removeObserver();
-              // 前画面へ戻る
-              Navigator.pop(context);
-            },
             body: _mainBody(),
           ),
         );
@@ -91,14 +67,9 @@ class Setting extends StatelessWidget {
       return SingleChildScrollView(
         child: Column(
           children: [
-            TileSectionHeader(
-              text: '通知設定',
-              mode: mode,
-              textType: textType,
-            ),
             _divider(),
             TileSectionHeader(
-              text: '外観設定',
+              text: '明るさ設定',
               mode: mode,
               textType: textType,
             ),
@@ -124,7 +95,7 @@ class Setting extends StatelessWidget {
     );
   }
 
-  /// 外観設定タイル
+  /// 明るさ設定タイル
   Widget _appearanceTiles() {
     return Consumer(builder: (context, ref, child) {
       final state = ref.watch(settingProvider);
