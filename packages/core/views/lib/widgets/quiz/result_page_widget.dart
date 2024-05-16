@@ -71,7 +71,7 @@ class _ResultPageState extends State<ResultPageWidget> {
         ),
         _table(),
         SizedBox(
-          height: context.mediaQueryHeight * .025,
+          height: context.mediaQueryHeight * .035,
         ),
         Container(
           child: InkWell(
@@ -145,7 +145,7 @@ class _ResultPageState extends State<ResultPageWidget> {
   }
 
   Widget _buildVoiceCell(int index) => Container(
-        height: 50,
+        height: 65,
         color: index % 2 == 0 ? Colors.white : Colors.grey[200],
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
@@ -156,7 +156,7 @@ class _ResultPageState extends State<ResultPageWidget> {
       );
 
   Widget _buildFavoriteCell(int index) => Container(
-        height: 50,
+        height: 65,
         color: index % 2 == 0 ? Colors.white : Colors.grey[200],
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
@@ -177,15 +177,17 @@ class _ResultPageState extends State<ResultPageWidget> {
       );
 
   Widget _buildCell(String text) => Container(
+        height: 58,
         padding:
             const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
         color: Colors.green,
         alignment: Alignment.center,
-        child: Text(text, style: TextStyle(color: Colors.white)),
+        child: Text(text,
+            style: TextStyle(color: Colors.white), textAlign: TextAlign.left),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
-        height: 50,
+        height: 65,
         padding: const EdgeInsets.all(8),
         color: index % 2 == 0 ? Colors.white : Colors.grey[200],
         alignment: Alignment.center,
