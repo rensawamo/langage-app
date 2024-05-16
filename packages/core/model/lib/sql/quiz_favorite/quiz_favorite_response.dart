@@ -1,4 +1,4 @@
-import 'package:core_enums/enums.dart';
+
 import 'package:core_model/json_serializable_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -37,11 +37,15 @@ class _MyAppState extends State<HomePage> {
     super.dispose();
   }
 
-  /// ステータス・アプリバーの背景色
-  final _appbarColor = const AppColorSet(type: AppColorType.appbar);
-
   /// セレクトされているときの色
-  final _charactorColor = const AppColorSet(type: AppColorType.reverseColor);
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+
+  // タブバーの文字の色
+  final _tabberColor = const AppColorSet(type: AppColorType.appbar);
+
+  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
+
+
 
   /// Widget生成
   @override
@@ -51,9 +55,9 @@ class _MyAppState extends State<HomePage> {
         body: pages[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentIndex,
-            unselectedItemColor: _charactorColor.color(widget.mode),
-            selectedItemColor: Colors.black,
-            backgroundColor: _appbarColor.color(widget.mode),
+            unselectedItemColor: _defaultColor.color(widget.mode),
+            selectedItemColor: _defaultColor.color(widget.mode),
+            backgroundColor: _tabberColor.color(widget.mode),
             items: <BottomNavigationBarItem>[
               const BottomNavigationBarItem(
                 icon: Icon(Icons.book),

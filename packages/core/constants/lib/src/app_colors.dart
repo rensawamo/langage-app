@@ -61,7 +61,8 @@ class AppColors {
           case ThemeMode.light:
             return const Color(0xffF7EBE1);
           case ThemeMode.dark:
-            return const Color(0xffF7EBE1);
+            return const Color(0xFF000000);
+
           case ThemeMode.system:
             return const Color(0xFF0000FF);
         }
@@ -165,7 +166,7 @@ class AppColors {
           case ThemeMode.light:
             return const Color(0xFFE0F2F1);
           case ThemeMode.dark:
-            return const Color(0xFFE0F2F1);
+            return const Color(0xffF7EBE1);
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
@@ -173,9 +174,9 @@ class AppColors {
       case AppColorType.question30:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
-            return const Color(0xFFE0F2F1);
+            return const Color(0xFFADFF2F);
           case ThemeMode.dark:
-            return const Color(0xFFE0F2F1);
+            return const Color(0xffF7EBE1);
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
@@ -183,9 +184,9 @@ class AppColors {
       case AppColorType.question50:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
-            return const Color(0xFFE0F2F1);
+            return const Color(0xFFFFB6C1);
           case ThemeMode.dark:
-            return const Color(0xFFE0F2F1);
+            return const Color(0xffF7EBE1);
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
@@ -195,7 +196,7 @@ class AppColors {
           case ThemeMode.light:
             return const Color(0xFFE0F2F1);
           case ThemeMode.dark:
-            return const Color(0xFFE0F2F1);
+            return const Color(0xffF7EBE1);
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }

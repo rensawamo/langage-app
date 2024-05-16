@@ -1,6 +1,7 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/utility/app_color_set.dart';
+import 'package:core_views/utility/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class AppQuizbuttonWidget extends StatefulWidget {
@@ -12,6 +13,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
     required this.selected,
     required this.selected_ind,
     this.mode,
+    this.textType,
   }) : super(key: key);
   final Function selectAns;
   final Quiz quiz;
@@ -19,6 +21,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
   final int ans_ind;
   final int selected_ind;
   final ThemeMode? mode;
+  final AppTextSizeType? textType;
 
   @override
   ___buttonWidgetState createState() => ___buttonWidgetState();
@@ -56,14 +59,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
     final _wrongColor = const AppColorSet(type: AppColorType.wrongAnswer);
 
     /// 文字の色
-    final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
-
-    // /// 問題にミス回答したときの色
-    // /// ダークモードでも light の色を使用する
-    // final _colorSet3 = const AppColorSet(
-    //   light: AppColors.red_10,
-    //   dark: AppColors.red_10,
-    // );
+    final _characotorColor = const AppColorSet(type: AppColorType.reverseColor);
 
     return AnimatedBuilder(
         animation: animationController!,
@@ -98,12 +94,9 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                       child: Text(
                         widget.quiz.options[ans_ind].text,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          letterSpacing: -0.1,
-                          color: _reverseColor.color(widget.mode),
+                        style: TextStyles.xl(
+                          color: _characotorColor.color(widget.mode),
+                          type: widget.textType,
                         ),
                       ),
                     ),

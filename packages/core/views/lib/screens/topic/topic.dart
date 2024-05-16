@@ -17,7 +17,7 @@ class TopicPage extends StatelessWidget {
     this.mode,
     this.textType,
   });
-  final _defaultColor = const AppColorSet(type: AppColorType.titleCharacter);
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
   final _question15Color = const AppColorSet(type: AppColorType.question15);
   final _question30Color = const AppColorSet(type: AppColorType.question30);
   final _question50Color = const AppColorSet(type: AppColorType.question50);

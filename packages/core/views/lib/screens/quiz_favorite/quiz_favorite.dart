@@ -5,6 +5,7 @@ import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -70,7 +71,7 @@ class QuizFavorite extends StatelessWidget {
             init(context, ref);
           },
           body: Column(
-            children: [_dropDown(), Expanded(child: _list())],
+            children: [_dropDown(), Expanded(child: _list(ref))],
           ));
     });
   }
@@ -96,27 +97,39 @@ class QuizFavorite extends StatelessWidget {
     });
   }
 
-  Widget _list() {
-    return Consumer(builder: (context, ref, child) {
-      final state = ref.watch(QuizFavoriteProvider);
-      return ListView.builder(
-        controller: state.scrollController,
-        itemCount: state.texts.length,
-        itemBuilder: (context, index) {
-          final text = state.texts[index];
-          return _tile(context, text);
-        },
-      );
-    });
+  Widget _empty() {
+    return Center(
+      child: Text('お気に入りはありません'),
+    );
   }
 
+  /// お気に入りリストのウィジェット
+  Widget _list(WidgetRef ref) {
+    final state = ref.watch(QuizFavoriteProvider);
+    return state.texts.isEmpty
+        ? _empty()
+        : ListView.builder(
+            controller: state.scrollController,
+            itemCount: state.texts.length,
+            itemBuilder: (context, index) => _tile(context, state.texts[index]),
+          );
+  }
+
+  /// リストアイテム
   Widget _tile(BuildContext context, String text) {
-    return ListTile(
-      title: Text(text),
-      onTap: () {
-        // 音声再生
-        FlutterTts().speak(text);
-      },
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Colors.grey[300]!, width: 1.0),
+        ),
+      ),
+      child: ListTile(
+        title: Text(text),
+        trailing: IconButton(
+          icon: Icon(Icons.volume_up),
+          onPressed: () => FlutterTts().speak(text),
+        ),
+      ),
     );
   }
 }

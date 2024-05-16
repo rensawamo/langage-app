@@ -48,6 +48,5 @@ class MyAppRoute {
         pageBuilder: (context, state) {
           return MaterialPage(child: TopicPage());
         }),
-
   ]);
 }
