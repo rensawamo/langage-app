@@ -54,7 +54,9 @@ class QuizViewmodel extends QuizViewmodelInterface {
         .then((response) {
       // 一覧に追加
       state = state.copyWith(
-          quizs: response.quizes, isFavorites: response.isFavorites);
+          quizs: response.quizes,
+          answers: response.answers,
+          isFavorites: response.isFavorites);
     }).catchError((error) {
       print(error.toString());
       // エラー処理

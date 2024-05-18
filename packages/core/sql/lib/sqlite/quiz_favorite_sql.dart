@@ -7,6 +7,7 @@ class QuizFavoriteSql {
 
   static final table = 'quiz';
   static final columnWord = 'word';
+  static final columnAnswer = 'answer';
   static final columnTopicType = 'topicType';
   static final columnAppInstallType = 'appInstallType';
 
@@ -33,25 +34,28 @@ class QuizFavoriteSql {
   static Future _onCreate(Database db, int version) async {
     await db.execute('''
           CREATE TABLE $table (
-            $columnWord TEXT PRIMARY KEY, $columnTopicType TEXT, $columnAppInstallType TEXT
+            $columnWord TEXT PRIMARY KEY,$columnAnswer TEXT, $columnTopicType TEXT, $columnAppInstallType TEXT
           )
           ''');
   }
 
   // Insert a word into the database
-  static Future<int> insert(
-      String word, String topicType, String appInstallType) async {
+  static Future<int> insert(String word, String answer, String topicType,
+      String appInstallType) async {
     Database db = await instance.database;
     List<Map<String, dynamic>> existingWord = await db.query(table,
-        where: '$columnWord = ? AND $columnAppInstallType = ? ',
+        where: '$columnWord = ?  AND $columnAppInstallType = ? ',
         whereArgs: [word, appInstallType]);
     if (existingWord.isEmpty) {
+      print('insert word: $word');
       return await db.insert(table, {
         columnWord: word,
+        columnAnswer: answer,
         columnTopicType: topicType,
         columnAppInstallType: appInstallType
       });
     } else {
+      print('word already exists');
       return 0;
     }
   }
@@ -59,6 +63,7 @@ class QuizFavoriteSql {
   // Delete a word from the database
   static Future<int> delete(
       String word, String topicType, String appInstallType) async {
+    print(word);
     Database db = await instance.database;
     return await db.delete(table,
         where:
@@ -76,7 +81,6 @@ class QuizFavoriteSql {
     return result.isNotEmpty;
   }
 
-
   /// インストールされているアプリの種類
   /// 選択トピックのタイトルに応じて お気に入りの語句を取得する
   static Future<List<String>> getAllWords(
@@ -89,6 +93,18 @@ class QuizFavoriteSql {
 
     return result.isNotEmpty
         ? result.map((e) => e[columnWord] as String).toList()
+        : [];
+  }
+
+  static Future<List<String>> getAllAnswers(
+      String topicType, String appInstallType) async {
+    Database db = await instance.database;
+    List<Map<String, dynamic>> result = await db.query(table,
+        where: '$columnTopicType = ? AND $columnAppInstallType = ?',
+        whereArgs: [topicType, appInstallType]);
+
+    return result.isNotEmpty
+        ? result.map((e) => e[columnAnswer] as String).toList()
         : [];
   }
 }

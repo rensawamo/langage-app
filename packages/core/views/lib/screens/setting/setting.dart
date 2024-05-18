@@ -6,6 +6,7 @@ import 'package:core_views/components/actiontile_single_radio_tile.dart';
 import 'package:core_views/components/tile_section_header.dart';
 import 'package:core_views/screens/setting/setting_state.dart';
 import 'package:core_views/screens/setting/setting_viewmodel.dart';
+import 'package:core_views/utility/app_setting_info.dart';
 import 'package:core_views/utility/app_system_info.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:core_views/widgets/app_divider.dart';
@@ -17,10 +18,10 @@ final settingProvider =
     StateNotifierProvider.autoDispose<SettingViewmodelInterface, SettingState>(
   (ref) {
     return SettingViewmodel(
-      const SettingState(
+      SettingState(
         pushNotificationEnabled: false,
-        themeMode: ThemeMode.light,
-        textSize: AppTextSizeType.middle,
+        themeMode: AppSettingInfo().themeMode,
+        textSize: AppSettingInfo().textSizeType,
         appInstallType: AppInstallType.none,
       ),
       AppSystemInfo(),

@@ -23,13 +23,21 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
                   List<Quiz>.from(AppQuizData.korianBiginnerQuizes)..shuffle();
               var limitedQuizes =
                   shuffledQuizzes.take(request.questionCount).toList();
+              List<String> answers = limitedQuizes.map((quiz) {
+                return quiz.options
+                    .firstWhere((option) => option.isCorrect)
+                    .text;
+              }).toList();
               var favorites = await QuizFavoriteSql.getAllWords(
                   request.quizTopicType.name, request.appInstallType.name);
               List<bool> isFavorites = limitedQuizes
                   .map((quiz) => favorites.contains(quiz.text))
                   .toList();
+                print(isFavorites);
               return Future.value(QuizGetAllResponse(
-                  quizes: limitedQuizes, isFavorites: isFavorites));
+                  quizes: limitedQuizes,
+                  answers: answers,
+                  isFavorites: isFavorites));
 
             /// 挨拶
             case QuizTopicType.greet:
@@ -37,22 +45,33 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
                   List<Quiz>.from(AppQuizData.korianBiginnerGreets)..shuffle();
               var limitedQuizzes =
                   shuffledQuizzes.take(request.questionCount).toList();
+              List<String> answers = limitedQuizzes.map((quiz) {
+                return quiz.options
+                    .firstWhere((option) => option.isCorrect)
+                    .text;
+              }).toList();
               var favorites = await QuizFavoriteSql.getAllWords(
                   request.quizTopicType.name, request.appInstallType.name);
               List<bool> isFavorites = limitedQuizzes
                   .map((quiz) => favorites.contains(quiz.text))
                   .toList();
               return Future.value(QuizGetAllResponse(
-                  quizes: limitedQuizzes, isFavorites: isFavorites));
+                  quizes: limitedQuizzes,
+                  answers: answers,
+                  isFavorites: isFavorites));
 
             default:
               return Future.value(QuizGetAllResponse(
-                  quizes: AppQuizData.korianBiginnerQuizes, isFavorites: []));
+                  quizes: AppQuizData.korianBiginnerQuizes,
+                  answers: [],
+                  isFavorites: []));
           }
 
         default:
           return Future.value(QuizGetAllResponse(
-              quizes: AppQuizData.korianBiginnerQuizes, isFavorites: []));
+              quizes: AppQuizData.korianBiginnerQuizes,
+              answers: [],
+              isFavorites: []));
       }
     } catch (e) {
       throw Exception('Failed to fetch quiz data');

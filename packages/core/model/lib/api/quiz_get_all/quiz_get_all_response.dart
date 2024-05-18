@@ -13,6 +13,7 @@ class QuizGetAllResponse
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory QuizGetAllResponse({
     required List<Quiz> quizes,
+    required List<String> answers,
     required List<bool> isFavorites,
 
   }) = _QuizGetAllResponse;

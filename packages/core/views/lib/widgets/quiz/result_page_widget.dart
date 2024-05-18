@@ -16,6 +16,7 @@ class ResultPageWidget extends StatefulWidget {
       required this.totalScore,
       required this.count,
       required this.quizes,
+      required this.answers,
       required this.isFavorites,
       required this.scores,
       required this.installtype,
@@ -29,6 +30,7 @@ class ResultPageWidget extends StatefulWidget {
   final int totalScore;
   final int count;
   final List<Quiz> quizes;
+  final List<String> answers;
   final List<bool> isFavorites;
   final List<bool?> scores;
   final AppInstallType installtype;
@@ -118,6 +120,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                 TableCell(
                   child: _buildCell('Quiz'),
                 ),
+                TableCell(child: _buildCell('Answer')),
                 TableCell(child: _buildCell('Score')),
                 TableCell(child: _buildCell('Voice')),
                 TableCell(child: _buildCell('Star')),
@@ -130,6 +133,9 @@ class _ResultPageState extends State<ResultPageWidget> {
                         TableCell(
                             child: _buildSubtitleCell(
                                 widget.quizes[index].text, index)),
+                        TableCell(
+                            child: _buildSubtitleCell(
+                                widget.answers[index], index)),
                         TableCell(
                             child: _buildSubtitleCell(
                                 widget.scores[index]?.toString() ?? '未回答',
@@ -165,29 +171,36 @@ class _ResultPageState extends State<ResultPageWidget> {
             isFavorites[index] ? Icons.star : Icons.star_border,
             color: Colors.yellow[700],
           ),
-          onPressed: () async => {
-            setState(() => isFavorites[index] = !isFavorites[index]),
-            isFavorites[index]
-                ? await QuizFavoriteSql.delete(widget.quizes[index].text,
-                    widget.topicType.name, widget.installtype.name)
-                : await QuizFavoriteSql.insert(widget.quizes[index].text,
-                    widget.topicType.name, widget.installtype.name),
+          onPressed: () async {
+            if (isFavorites[index]) {
+              await QuizFavoriteSql.delete(widget.quizes[index].text,
+                  widget.topicType.name, widget.installtype.name);
+            } else {
+              await QuizFavoriteSql.insert(
+                  widget.quizes[index].text,
+                  widget.answers[index],
+                  widget.topicType.name,
+                  widget.installtype.name);
+            }
+            setState(() => isFavorites[index] = !isFavorites[index]);
           },
         ),
       );
 
   Widget _buildCell(String text) => Container(
         height: 58,
-        padding:
-            const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
         color: Colors.green,
         alignment: Alignment.center,
         child: Text(text,
-            style: TextStyle(color: Colors.white), textAlign: TextAlign.left),
+            style: TextStyles.xs(
+              color: _defaultColor.color(widget.mode),
+              type: widget.textType,
+            )),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
         height: 65,
+        width: 160,
         padding: const EdgeInsets.all(8),
         color: index % 2 == 0 ? Colors.white : Colors.grey[200],
         alignment: Alignment.center,

@@ -10,6 +10,8 @@ class QuizFavoriteDao implements QuizFavoriteDaoInterface {
       QuizFavoriteRequest request) async {
     return QuizFavoriteResponse(
         texts: await QuizFavoriteSql.getAllWords(
+            request.quizTopicType.name, request.appInstallType.name),
+        answers: await QuizFavoriteSql.getAllAnswers(
             request.quizTopicType.name, request.appInstallType.name));
   }
 }

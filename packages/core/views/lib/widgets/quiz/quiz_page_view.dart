@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 // アプリクイズのページ
 class AppQuizPageView extends StatelessWidget {
   final List<Quiz> quizes;
+  final List<String> answers;
   final List<bool> isFavorites;
   final List<bool?> scores;
   final bool isFinished;
@@ -28,13 +29,13 @@ class AppQuizPageView extends StatelessWidget {
   final AppInstallType installtype;
   final QuizTopicType quizTopicType;
 
-
   /// テキストの大きさが定義されている場合に適応する
   final AppTextSizeType? textType;
 
   const AppQuizPageView({
     Key? key,
     required this.quizes,
+    required this.answers,
     required this.isFavorites,
     required this.scores,
     required this.isFinished,
@@ -47,8 +48,8 @@ class AppQuizPageView extends StatelessWidget {
     required this.selected,
     required this.selected_ind,
     this.mode,
-    required  this.installtype,
-    required  this.quizTopicType,
+    required this.installtype,
+    required this.quizTopicType,
     this.textType,
     required this.tatalScore,
   }) : super(key: key);
@@ -67,6 +68,7 @@ class AppQuizPageView extends StatelessWidget {
           ? ResultPageWidget(
               speak: speak,
               quizes: quizes,
+              answers: answers,
               isFavorites: isFavorites,
               scores: scores,
               count: count,
@@ -156,7 +158,7 @@ class AppQuizPageView extends StatelessWidget {
                 // next button
                 Padding(
                     padding: EdgeInsets.only(top: 5, bottom: 5),
-                    child: CuteButton(
+                    child: QuizNextButton(
                       next: next,
                       quizeCount: count,
                       isSelected: selected,

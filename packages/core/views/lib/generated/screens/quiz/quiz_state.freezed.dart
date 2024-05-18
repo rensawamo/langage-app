@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$QuizState {
   List<Quiz> get quizs => throw _privateConstructorUsedError;
+  List<String> get answers => throw _privateConstructorUsedError;
   List<bool> get isFavorites => throw _privateConstructorUsedError;
   PageController get controller => throw _privateConstructorUsedError;
   List<bool?> get scores => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $QuizStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Quiz> quizs,
+      List<String> answers,
       List<bool> isFavorites,
       PageController controller,
       List<bool?> scores,
@@ -64,6 +66,7 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
   @override
   $Res call({
     Object? quizs = null,
+    Object? answers = null,
     Object? isFavorites = null,
     Object? controller = null,
     Object? scores = null,
@@ -79,6 +82,10 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
           ? _value.quizs
           : quizs // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
+      answers: null == answers
+          ? _value.answers
+          : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isFavorites: null == isFavorites
           ? _value.isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
@@ -129,6 +136,7 @@ abstract class _$$QuizStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<Quiz> quizs,
+      List<String> answers,
       List<bool> isFavorites,
       PageController controller,
       List<bool?> scores,
@@ -152,6 +160,7 @@ class __$$QuizStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? quizs = null,
+    Object? answers = null,
     Object? isFavorites = null,
     Object? controller = null,
     Object? scores = null,
@@ -167,6 +176,10 @@ class __$$QuizStateImplCopyWithImpl<$Res>
           ? _value._quizs
           : quizs // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
+      answers: null == answers
+          ? _value._answers
+          : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isFavorites: null == isFavorites
           ? _value._isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
@@ -212,6 +225,7 @@ class __$$QuizStateImplCopyWithImpl<$Res>
 class _$QuizStateImpl implements _QuizState {
   const _$QuizStateImpl(
       {required final List<Quiz> quizs,
+      required final List<String> answers,
       required final List<bool> isFavorites,
       required this.controller,
       final List<bool?> scores = const [],
@@ -222,6 +236,7 @@ class _$QuizStateImpl implements _QuizState {
       this.gtotalScore = 0,
       this.isFinished = false})
       : _quizs = quizs,
+        _answers = answers,
         _isFavorites = isFavorites,
         _scores = scores;
 
@@ -231,6 +246,14 @@ class _$QuizStateImpl implements _QuizState {
     if (_quizs is EqualUnmodifiableListView) return _quizs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_quizs);
+  }
+
+  final List<String> _answers;
+  @override
+  List<String> get answers {
+    if (_answers is EqualUnmodifiableListView) return _answers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_answers);
   }
 
   final List<bool> _isFavorites;
@@ -273,7 +296,7 @@ class _$QuizStateImpl implements _QuizState {
 
   @override
   String toString() {
-    return 'QuizState(quizs: $quizs, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished)';
+    return 'QuizState(quizs: $quizs, answers: $answers, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished)';
   }
 
   @override
@@ -282,6 +305,7 @@ class _$QuizStateImpl implements _QuizState {
         (other.runtimeType == runtimeType &&
             other is _$QuizStateImpl &&
             const DeepCollectionEquality().equals(other._quizs, _quizs) &&
+            const DeepCollectionEquality().equals(other._answers, _answers) &&
             const DeepCollectionEquality()
                 .equals(other._isFavorites, _isFavorites) &&
             (identical(other.controller, controller) ||
@@ -304,6 +328,7 @@ class _$QuizStateImpl implements _QuizState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_quizs),
+      const DeepCollectionEquality().hash(_answers),
       const DeepCollectionEquality().hash(_isFavorites),
       controller,
       const DeepCollectionEquality().hash(_scores),
@@ -324,6 +349,7 @@ class _$QuizStateImpl implements _QuizState {
 abstract class _QuizState implements QuizState {
   const factory _QuizState(
       {required final List<Quiz> quizs,
+      required final List<String> answers,
       required final List<bool> isFavorites,
       required final PageController controller,
       final List<bool?> scores,
@@ -336,6 +362,8 @@ abstract class _QuizState implements QuizState {
 
   @override
   List<Quiz> get quizs;
+  @override
+  List<String> get answers;
   @override
   List<bool> get isFavorites;
   @override
