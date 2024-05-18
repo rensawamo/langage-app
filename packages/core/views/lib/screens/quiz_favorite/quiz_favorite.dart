@@ -1,5 +1,6 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
+import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
 import 'package:core_views/views.dart';
@@ -15,9 +16,14 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
   (ref) {
     return QuizeFavoriteViewmodel(
       QuizFavoriteState(
-        texts: [],
+        quizzes: [],
+        answers: [],
+        isFavorites: [],
         scrollController: ScrollController(),
         selectValue: QuizTopicType.word,
+        speak: (String text) {
+          FlutterTts().speak(text);
+        },
       ),
       QuizFavoriteDao(),
     );
@@ -49,6 +55,7 @@ class QuizFavorite extends StatelessWidget {
     vm.hideIndicator = () {
       AppIndicator.hide(context);
     };
+    vm.flutterTts = FlutterTts();
 
     // 初期設定
     await vm.init();
@@ -56,10 +63,10 @@ class QuizFavorite extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext screenContext) {
+  Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
       return AppBaseFrame(
-          screenContext: screenContext,
+          screenContext: context,
           hasPrevButton: false,
           shouldRemoveFocus: true,
           backOnTap: () {
@@ -71,7 +78,7 @@ class QuizFavorite extends StatelessWidget {
             init(context, ref);
           },
           body: Column(
-            children: [_dropDown(), Expanded(child: _list(ref))],
+            children: [_dropDown(), Expanded(child: _table())],
           ));
     });
   }
@@ -97,39 +104,104 @@ class QuizFavorite extends StatelessWidget {
     });
   }
 
-  Widget _empty() {
-    return Center(
-      child: Text('お気に入りはありません'),
-    );
+  Widget _table() {
+    return Consumer(builder: (context, ref, child) {
+      List<String> quizzes = ref.watch(QuizFavoriteProvider).quizzes;
+      List<String> answers = ref.watch(QuizFavoriteProvider).answers;
+      List<bool> isFavorites = ref.watch(QuizFavoriteProvider).isFavorites;
+      Function speak = ref.read(QuizFavoriteProvider).speak;
+
+      return Center(
+        
+          child: Container(
+        width: context.mediaQueryWidth * 0.9,
+
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
+          child: Table(
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: [
+              TableRow(
+                children: [
+                  TableCell(
+                    child: _buildCell('Quiz'),
+                  ),
+                  TableCell(child: _buildCell('Score')),
+                  TableCell(child: _buildCell('Voice')),
+                  TableCell(child: _buildCell('Star')),
+                ],
+              ),
+              ...List.generate(
+                  quizzes.length,
+                  (index) => TableRow(
+                        children: [
+                          TableCell(
+                              child: _buildSubtitleCell(quizzes[index], index)),
+                          TableCell(
+                              child: _buildSubtitleCell(quizzes[index], index)),
+                          TableCell(
+                              child: _buildVoiceCell(index, quizzes, speak)),
+                          TableCell(
+                              child: _buildFavoriteCell(index, isFavorites)),
+                        ],
+                      )),
+            ],
+          ),
+        ),
+      ));
+    });
   }
 
-  /// お気に入りリストのウィジェット
-  Widget _list(WidgetRef ref) {
-    final state = ref.watch(QuizFavoriteProvider);
-    return state.texts.isEmpty
-        ? _empty()
-        : ListView.builder(
-            controller: state.scrollController,
-            itemCount: state.texts.length,
-            itemBuilder: (context, index) => _tile(context, state.texts[index]),
-          );
-  }
+  Widget _buildVoiceCell(
+    int index,
+    List<String> quizzes,
+    Function speak,
+  ) =>
+      Container(
+        height: 65,
+        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        padding: const EdgeInsets.all(8),
+        alignment: Alignment.center,
+        child: IconButton(
+          icon: const Icon(Icons.volume_up, color: Colors.blue),
+          onPressed: () => speak(quizzes[index]),
+        ),
+      );
 
-  /// リストアイテム
-  Widget _tile(BuildContext context, String text) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.grey[300]!, width: 1.0),
+  Widget _buildFavoriteCell(int index, List<bool> isFavorites) => Container(
+        height: 65,
+        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        padding: const EdgeInsets.all(8),
+        alignment: Alignment.center,
+        child: Icon(
+          isFavorites[index] ? Icons.star : Icons.star_border,
+          color: Colors.yellow[700],
         ),
-      ),
-      child: ListTile(
-        title: Text(text),
-        trailing: IconButton(
-          icon: Icon(Icons.volume_up),
-          onPressed: () => FlutterTts().speak(text),
-        ),
-      ),
-    );
-  }
+        // onPressed: () async => {
+        //   setState(() => isFavorites[index] = !isFavorites[index]),
+        //   isFavorites[index]
+        //       ? await QuizFavoriteSql.delete(widget.quizes[index].text,
+        //           widget.topicType.name, widget.installtype.name)
+        //       : await QuizFavoriteSql.insert(widget.quizes[index].text,
+        //           widget.topicType.name, widget.installtype.name),
+        // },
+      );
+
+  Widget _buildCell(String text) => Container(
+        height: 58,
+        padding:
+            const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
+        color: Colors.green,
+        alignment: Alignment.center,
+        child: Text(text,
+            style: TextStyle(color: Colors.white), textAlign: TextAlign.left),
+      );
+
+  Widget _buildSubtitleCell(String text, int index) => Container(
+        height: 65,
+        padding: const EdgeInsets.all(8),
+        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        alignment: Alignment.center,
+        child: Text(text, style: TextStyle(color: Colors.black)),
+      );
 }

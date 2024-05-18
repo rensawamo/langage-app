@@ -118,6 +118,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                 TableCell(
                   child: _buildCell('Quiz'),
                 ),
+                TableCell(child: _buildCell('Answer')),
                 TableCell(child: _buildCell('Score')),
                 TableCell(child: _buildCell('Voice')),
                 TableCell(child: _buildCell('Star')),
@@ -127,6 +128,9 @@ class _ResultPageState extends State<ResultPageWidget> {
                 widget.quizes.length,
                 (index) => TableRow(
                       children: [
+                        TableCell(
+                            child: _buildSubtitleCell(
+                                widget.quizes[index].text, index)),
                         TableCell(
                             child: _buildSubtitleCell(
                                 widget.quizes[index].text, index)),
@@ -178,16 +182,19 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildCell(String text) => Container(
         height: 58,
-        padding:
-            const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
+        
         color: Colors.green,
         alignment: Alignment.center,
         child: Text(text,
-            style: TextStyle(color: Colors.white), textAlign: TextAlign.left),
+            style: TextStyles.xs(
+              color: _defaultColor.color(widget.mode),
+              type: widget.textType,
+            )),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
         height: 65,
+        width: 160,
         padding: const EdgeInsets.all(8),
         color: index % 2 == 0 ? Colors.white : Colors.grey[200],
         alignment: Alignment.center,

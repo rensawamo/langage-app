@@ -3,6 +3,7 @@ import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 /// E201.受診予約一覧 Viewmodel
 class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
@@ -27,6 +28,7 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
         print("dummuy");
       }
     });
+    initializeTts();
   }
 
   /// お気に入りの単語一覧取得
@@ -53,7 +55,9 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     ))
         .then((response) {
       // 一覧に追加
-      state = state.copyWith(texts: response.texts);
+      state = state.copyWith(
+          quizzes: response.texts,
+          isFavorites: List.filled(response.texts.length, true));
     }).catchError((error) {
       print(error.toString());
       // エラー処理
@@ -65,12 +69,19 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     });
   }
 
+  @override
+  void initializeTts() {
+    flutterTts.setLanguage('ko-KR'); // 韓国語に設定
+    flutterTts.setPitch(1.0);
+    flutterTts.setSpeechRate(0.5);
+  }
+
   /// 一覧クリア
   ///
   /// 一覧に表示している受診予約情報をクリアする.
   @override
   void clearList() {
-    state = state.copyWith(texts: []);
+    state = state.copyWith(quizzes: []);
   }
 }
 
@@ -84,7 +95,6 @@ abstract class QuizeFavoriteViewmodelInterface
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
-
 
   /// インジケータ表示メソッド
   late Function showIndicator;
@@ -103,4 +113,10 @@ abstract class QuizeFavoriteViewmodelInterface
   Future<void> getFavorites(QuizTopicType quizTopicType);
 
   void clearList();
+
+  /// TTSの初期化
+  void initializeTts();
+
+  // tts の言語設定
+  late FlutterTts flutterTts;
 }

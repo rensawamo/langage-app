@@ -10,10 +10,13 @@ class QuizFavoriteState with _$QuizFavoriteState {
   /// コンストラクタ
   ///
   /// [Quiz]
-  const factory QuizFavoriteState({
-    required List<String> texts,
-    required ScrollController scrollController,
-    /// セレクトボックスの値
-    required QuizTopicType selectValue
-  }) = _QuizFavoriteState;
+  const factory QuizFavoriteState(
+      {required List<String> quizzes,
+      required List<String> answers,
+      required List<bool> isFavorites,
+      required ScrollController scrollController,
+      required Function speak,
+
+      /// セレクトボックスの値
+      required QuizTopicType selectValue}) = _QuizFavoriteState;
 }
