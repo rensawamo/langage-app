@@ -4,7 +4,7 @@ import 'package:core_views/utility/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CuteButton extends StatelessWidget {
+class QuizNextButton extends StatelessWidget {
   final Function next;
   final int quizeCount;
   final bool isSelected;
@@ -12,7 +12,7 @@ class CuteButton extends StatelessWidget {
   final ThemeMode? mode;
   final AppTextSizeType? textType;
 
-  const CuteButton({
+  const QuizNextButton({
     required this.next,
     required this.quizeCount,
     required this.isSelected,

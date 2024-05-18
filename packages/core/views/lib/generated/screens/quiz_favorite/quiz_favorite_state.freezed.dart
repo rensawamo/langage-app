@@ -18,8 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$QuizFavoriteState {
   List<String> get quizzes => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
-  List<bool> get isFavorites => throw _privateConstructorUsedError;
+  List<bool> get isHideAnswers => throw _privateConstructorUsedError;
   ScrollController get scrollController => throw _privateConstructorUsedError;
+  String get selectDropDownValue => throw _privateConstructorUsedError;
   Function get speak => throw _privateConstructorUsedError;
 
   /// セレクトボックスの値
@@ -39,8 +40,9 @@ abstract class $QuizFavoriteStateCopyWith<$Res> {
   $Res call(
       {List<String> quizzes,
       List<String> answers,
-      List<bool> isFavorites,
+      List<bool> isHideAnswers,
       ScrollController scrollController,
+      String selectDropDownValue,
       Function speak,
       QuizTopicType selectValue});
 }
@@ -60,8 +62,9 @@ class _$QuizFavoriteStateCopyWithImpl<$Res, $Val extends QuizFavoriteState>
   $Res call({
     Object? quizzes = null,
     Object? answers = null,
-    Object? isFavorites = null,
+    Object? isHideAnswers = null,
     Object? scrollController = null,
+    Object? selectDropDownValue = null,
     Object? speak = null,
     Object? selectValue = null,
   }) {
@@ -74,14 +77,18 @@ class _$QuizFavoriteStateCopyWithImpl<$Res, $Val extends QuizFavoriteState>
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isFavorites: null == isFavorites
-          ? _value.isFavorites
-          : isFavorites // ignore: cast_nullable_to_non_nullable
+      isHideAnswers: null == isHideAnswers
+          ? _value.isHideAnswers
+          : isHideAnswers // ignore: cast_nullable_to_non_nullable
               as List<bool>,
       scrollController: null == scrollController
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
+      selectDropDownValue: null == selectDropDownValue
+          ? _value.selectDropDownValue
+          : selectDropDownValue // ignore: cast_nullable_to_non_nullable
+              as String,
       speak: null == speak
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
@@ -105,8 +112,9 @@ abstract class _$$QuizFavoriteStateImplCopyWith<$Res>
   $Res call(
       {List<String> quizzes,
       List<String> answers,
-      List<bool> isFavorites,
+      List<bool> isHideAnswers,
       ScrollController scrollController,
+      String selectDropDownValue,
       Function speak,
       QuizTopicType selectValue});
 }
@@ -124,8 +132,9 @@ class __$$QuizFavoriteStateImplCopyWithImpl<$Res>
   $Res call({
     Object? quizzes = null,
     Object? answers = null,
-    Object? isFavorites = null,
+    Object? isHideAnswers = null,
     Object? scrollController = null,
+    Object? selectDropDownValue = null,
     Object? speak = null,
     Object? selectValue = null,
   }) {
@@ -138,14 +147,18 @@ class __$$QuizFavoriteStateImplCopyWithImpl<$Res>
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      isFavorites: null == isFavorites
-          ? _value._isFavorites
-          : isFavorites // ignore: cast_nullable_to_non_nullable
+      isHideAnswers: null == isHideAnswers
+          ? _value._isHideAnswers
+          : isHideAnswers // ignore: cast_nullable_to_non_nullable
               as List<bool>,
       scrollController: null == scrollController
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
+      selectDropDownValue: null == selectDropDownValue
+          ? _value.selectDropDownValue
+          : selectDropDownValue // ignore: cast_nullable_to_non_nullable
+              as String,
       speak: null == speak
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
@@ -164,13 +177,14 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
   const _$QuizFavoriteStateImpl(
       {required final List<String> quizzes,
       required final List<String> answers,
-      required final List<bool> isFavorites,
+      required final List<bool> isHideAnswers,
       required this.scrollController,
+      required this.selectDropDownValue,
       required this.speak,
       required this.selectValue})
       : _quizzes = quizzes,
         _answers = answers,
-        _isFavorites = isFavorites;
+        _isHideAnswers = isHideAnswers;
 
   final List<String> _quizzes;
   @override
@@ -188,16 +202,18 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
     return EqualUnmodifiableListView(_answers);
   }
 
-  final List<bool> _isFavorites;
+  final List<bool> _isHideAnswers;
   @override
-  List<bool> get isFavorites {
-    if (_isFavorites is EqualUnmodifiableListView) return _isFavorites;
+  List<bool> get isHideAnswers {
+    if (_isHideAnswers is EqualUnmodifiableListView) return _isHideAnswers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_isFavorites);
+    return EqualUnmodifiableListView(_isHideAnswers);
   }
 
   @override
   final ScrollController scrollController;
+  @override
+  final String selectDropDownValue;
   @override
   final Function speak;
 
@@ -207,7 +223,7 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
 
   @override
   String toString() {
-    return 'QuizFavoriteState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, scrollController: $scrollController, speak: $speak, selectValue: $selectValue)';
+    return 'QuizFavoriteState(quizzes: $quizzes, answers: $answers, isHideAnswers: $isHideAnswers, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, selectValue: $selectValue)';
   }
 
   @override
@@ -218,9 +234,11 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
             const DeepCollectionEquality().equals(other._quizzes, _quizzes) &&
             const DeepCollectionEquality().equals(other._answers, _answers) &&
             const DeepCollectionEquality()
-                .equals(other._isFavorites, _isFavorites) &&
+                .equals(other._isHideAnswers, _isHideAnswers) &&
             (identical(other.scrollController, scrollController) ||
                 other.scrollController == scrollController) &&
+            (identical(other.selectDropDownValue, selectDropDownValue) ||
+                other.selectDropDownValue == selectDropDownValue) &&
             (identical(other.speak, speak) || other.speak == speak) &&
             (identical(other.selectValue, selectValue) ||
                 other.selectValue == selectValue));
@@ -231,8 +249,9 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
       runtimeType,
       const DeepCollectionEquality().hash(_quizzes),
       const DeepCollectionEquality().hash(_answers),
-      const DeepCollectionEquality().hash(_isFavorites),
+      const DeepCollectionEquality().hash(_isHideAnswers),
       scrollController,
+      selectDropDownValue,
       speak,
       selectValue);
 
@@ -248,8 +267,9 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
   const factory _QuizFavoriteState(
       {required final List<String> quizzes,
       required final List<String> answers,
-      required final List<bool> isFavorites,
+      required final List<bool> isHideAnswers,
       required final ScrollController scrollController,
+      required final String selectDropDownValue,
       required final Function speak,
       required final QuizTopicType selectValue}) = _$QuizFavoriteStateImpl;
 
@@ -258,9 +278,11 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
   @override
   List<String> get answers;
   @override
-  List<bool> get isFavorites;
+  List<bool> get isHideAnswers;
   @override
   ScrollController get scrollController;
+  @override
+  String get selectDropDownValue;
   @override
   Function get speak;
   @override

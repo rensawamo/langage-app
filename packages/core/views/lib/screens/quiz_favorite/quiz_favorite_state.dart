@@ -13,8 +13,9 @@ class QuizFavoriteState with _$QuizFavoriteState {
   const factory QuizFavoriteState(
       {required List<String> quizzes,
       required List<String> answers,
-      required List<bool> isFavorites,
+      required List<bool> isHideAnswers,
       required ScrollController scrollController,
+      required String selectDropDownValue,
       required Function speak,
 
       /// セレクトボックスの値

@@ -16,6 +16,7 @@ class QuizFavoriteResponse
   const factory QuizFavoriteResponse({
     //  トピックに応じた お気に入りの語句を返す
     required List<String> texts,
+    required List<String> answers,
   }) = _QuizFavoriteResponse;
 
   factory QuizFavoriteResponse.fromJson(Map<String, dynamic> json) =>

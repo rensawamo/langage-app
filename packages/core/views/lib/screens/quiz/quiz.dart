@@ -17,6 +17,7 @@ final QuizGetProvider =
     return QuizViewmodel(
       QuizState(
         quizs: [],
+        answers: [],
         isFavorites: [],
         controller: PageController(),
       ),
@@ -89,8 +90,9 @@ class QuizPage extends StatelessWidget {
           Quiz quiz = quizes[index];
           return AppQuizPageView(
             quizes: quizes,
+            answers: ref.read(QuizGetProvider).answers,
             isFavorites: ref.read(QuizGetProvider).isFavorites,
-            scores: ref.read(QuizGetProvider).scores ?? [],
+            scores: ref.read(QuizGetProvider).scores,
             isFinished: ref.read(QuizGetProvider).isFinished,
             index: index,
             selectAns: ref.read(QuizGetProvider.notifier).selectAns,

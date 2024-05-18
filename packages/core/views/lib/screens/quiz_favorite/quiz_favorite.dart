@@ -5,6 +5,7 @@ import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
+import 'package:core_views/widgets/app_delete_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,9 +19,10 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
       QuizFavoriteState(
         quizzes: [],
         answers: [],
-        isFavorites: [],
+        isHideAnswers: [],
         scrollController: ScrollController(),
         selectValue: QuizTopicType.word,
+        selectDropDownValue: "単語",
         speak: (String text) {
           FlutterTts().speak(text);
         },
@@ -46,6 +48,9 @@ class QuizFavorite extends StatelessWidget {
 
     // アプリケーションの種別
     vm.appInstallType = AppSettingInfo().appInstallType;
+
+    // クイズのタイプ
+    vm.quizTopicType = QuizTopicType.word;
 
     // インジケータ表示
     vm.showIndicator = () {
@@ -83,12 +88,16 @@ class QuizFavorite extends StatelessWidget {
     });
   }
 
+  /// ドロップダウンメニュー
+  /// クイズの種別を選択する
   Widget _dropDown() {
     return Consumer(builder: (context, ref, child) {
       final state = ref.watch(QuizFavoriteProvider.notifier);
+      final selectDropDownValue =
+          ref.watch(QuizFavoriteProvider).selectDropDownValue;
 
       return DropdownButton<String>(
-        value: dropDownMenu.keys.first,
+        value: selectDropDownValue,
         items: dropDownMenu.keys
             .map((String key) => DropdownMenuItem<String>(
                   value: key,
@@ -98,6 +107,7 @@ class QuizFavorite extends StatelessWidget {
         onChanged: (key) {
           if (key != null) {
             state.getFavorites(dropDownMenu[key]!);
+            state.selectDropDownMenu(key);
           }
         },
       );
@@ -108,14 +118,15 @@ class QuizFavorite extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       List<String> quizzes = ref.watch(QuizFavoriteProvider).quizzes;
       List<String> answers = ref.watch(QuizFavoriteProvider).answers;
-      List<bool> isFavorites = ref.watch(QuizFavoriteProvider).isFavorites;
+      List<bool> isHideAnswers = ref.watch(QuizFavoriteProvider).isHideAnswers;
+      Function toggleAnswer =
+          ref.watch(QuizFavoriteProvider.notifier).toggleAnswer;
       Function speak = ref.read(QuizFavoriteProvider).speak;
 
       return Center(
-        
           child: Container(
-        width: context.mediaQueryWidth * 0.9,
-
+        width: context.mediaQueryWidth * 0.95,
+        height: context.mediaQueryHeight * 0.75,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
           child: Table(
@@ -126,7 +137,7 @@ class QuizFavorite extends StatelessWidget {
                   TableCell(
                     child: _buildCell('Quiz'),
                   ),
-                  TableCell(child: _buildCell('Score')),
+                  TableCell(child: _buildCell('Mean')),
                   TableCell(child: _buildCell('Voice')),
                   TableCell(child: _buildCell('Star')),
                 ],
@@ -138,11 +149,12 @@ class QuizFavorite extends StatelessWidget {
                           TableCell(
                               child: _buildSubtitleCell(quizzes[index], index)),
                           TableCell(
-                              child: _buildSubtitleCell(quizzes[index], index)),
+                              child: _buildMeanCell(answers[index], index,
+                                  isHideAnswers[index], toggleAnswer)),
                           TableCell(
                               child: _buildVoiceCell(index, quizzes, speak)),
                           TableCell(
-                              child: _buildFavoriteCell(index, isFavorites)),
+                              child: _buildFavoriteCell(index, context, ref)),
                         ],
                       )),
             ],
@@ -168,23 +180,25 @@ class QuizFavorite extends StatelessWidget {
         ),
       );
 
-  Widget _buildFavoriteCell(int index, List<bool> isFavorites) => Container(
+  Widget _buildFavoriteCell(int index, context, ref) => Container(
         height: 65,
         color: index % 2 == 0 ? Colors.white : Colors.grey[200],
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
-        child: Icon(
-          isFavorites[index] ? Icons.star : Icons.star_border,
-          color: Colors.yellow[700],
+        child: IconButton(
+          icon: Icon(
+              // 削除
+              Icons.delete),
+          onPressed: () async => {
+            ShowDeleteDialog(context, "削除してもよろしいですか？")
+                .then((bool? result) async {
+              if (result != null) {
+                final state = ref.read(QuizFavoriteProvider.notifier);
+                await state.deleteFavorite(index);
+              }
+            })
+          },
         ),
-        // onPressed: () async => {
-        //   setState(() => isFavorites[index] = !isFavorites[index]),
-        //   isFavorites[index]
-        //       ? await QuizFavoriteSql.delete(widget.quizes[index].text,
-        //           widget.topicType.name, widget.installtype.name)
-        //       : await QuizFavoriteSql.insert(widget.quizes[index].text,
-        //           widget.topicType.name, widget.installtype.name),
-        // },
       );
 
   Widget _buildCell(String text) => Container(
@@ -195,6 +209,23 @@ class QuizFavorite extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(text,
             style: TextStyle(color: Colors.white), textAlign: TextAlign.left),
+      );
+
+  Widget _buildMeanCell(
+          String text, int index, bool isHideAnswer, Function toggleAnswer) =>
+      Container(
+        height: 65,
+        padding: EdgeInsets.all(8),
+        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        alignment: Alignment.center,
+        child: InkWell(
+          onTap: () {
+            toggleAnswer(index);
+          },
+          child: isHideAnswer == true
+              ? Text('????', style: TextStyle(color: Colors.black))
+              : Text(text, style: TextStyle(color: Colors.black)),
+        ),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(

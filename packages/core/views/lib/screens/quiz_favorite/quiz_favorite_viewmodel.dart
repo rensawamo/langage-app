@@ -1,6 +1,7 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_request.dart';
+import 'package:core_sql/sql.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -57,7 +58,8 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
       // 一覧に追加
       state = state.copyWith(
           quizzes: response.texts,
-          isFavorites: List.filled(response.texts.length, true));
+          answers: response.answers,
+          isHideAnswers: List.filled(response.texts.length, true));
     }).catchError((error) {
       print(error.toString());
       // エラー処理
@@ -70,10 +72,34 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   }
 
   @override
+  void selectDropDownMenu(String value) {
+    // ドロップダウンメニューの選択
+    state = state.copyWith(selectDropDownValue: value);
+  }
+
+  void toggleAnswer(int index) {
+    print(state.isHideAnswers);
+    // 回答表示の切り替え
+    List<bool> isHideAnswers = List.from(state.isHideAnswers); // 変更可能なコピーを作成
+
+    isHideAnswers[index] = !isHideAnswers[index];
+    state = state.copyWith(isHideAnswers: isHideAnswers);
+  }
+
+  @override
   void initializeTts() {
     flutterTts.setLanguage('ko-KR'); // 韓国語に設定
     flutterTts.setPitch(1.0);
     flutterTts.setSpeechRate(0.5);
+  }
+
+  @override
+  Future<void> deleteFavorite(int index) async {
+    // お気に入り削除
+    await QuizFavoriteSql.delete(
+        state.quizzes[index], quizTopicType.name, appInstallType.name);
+    // 更新
+    getFavorites(quizTopicType);
   }
 
   /// 一覧クリア
@@ -112,10 +138,19 @@ abstract class QuizeFavoriteViewmodelInterface
 
   Future<void> getFavorites(QuizTopicType quizTopicType);
 
+  // dropDownMenu の選択
+  void selectDropDownMenu(String value);
+
+  // 回答表示の切り替え
+  void toggleAnswer(int index);
+
   void clearList();
 
   /// TTSの初期化
   void initializeTts();
+
+  /// sql お気に入り削除
+  Future<void> deleteFavorite(int index);
 
   // tts の言語設定
   late FlutterTts flutterTts;

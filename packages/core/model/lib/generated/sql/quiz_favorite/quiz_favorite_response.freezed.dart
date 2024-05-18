@@ -22,6 +22,7 @@ QuizFavoriteResponse _$QuizFavoriteResponseFromJson(Map<String, dynamic> json) {
 mixin _$QuizFavoriteResponse {
 //  トピックに応じた お気に入りの語句を返す
   List<String> get texts => throw _privateConstructorUsedError;
+  List<String> get answers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $QuizFavoriteResponseCopyWith<$Res> {
           $Res Function(QuizFavoriteResponse) then) =
       _$QuizFavoriteResponseCopyWithImpl<$Res, QuizFavoriteResponse>;
   @useResult
-  $Res call({List<String> texts});
+  $Res call({List<String> texts, List<String> answers});
 }
 
 /// @nodoc
@@ -53,11 +54,16 @@ class _$QuizFavoriteResponseCopyWithImpl<$Res,
   @override
   $Res call({
     Object? texts = null,
+    Object? answers = null,
   }) {
     return _then(_value.copyWith(
       texts: null == texts
           ? _value.texts
           : texts // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      answers: null == answers
+          ? _value.answers
+          : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
   }
@@ -71,7 +77,7 @@ abstract class _$$QuizFavoriteResponseImplCopyWith<$Res>
       __$$QuizFavoriteResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> texts});
+  $Res call({List<String> texts, List<String> answers});
 }
 
 /// @nodoc
@@ -86,11 +92,16 @@ class __$$QuizFavoriteResponseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? texts = null,
+    Object? answers = null,
   }) {
     return _then(_$QuizFavoriteResponseImpl(
       texts: null == texts
           ? _value._texts
           : texts // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      answers: null == answers
+          ? _value._answers
+          : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
   }
@@ -100,8 +111,10 @@ class __$$QuizFavoriteResponseImplCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$QuizFavoriteResponseImpl implements _QuizFavoriteResponse {
-  const _$QuizFavoriteResponseImpl({required final List<String> texts})
-      : _texts = texts;
+  const _$QuizFavoriteResponseImpl(
+      {required final List<String> texts, required final List<String> answers})
+      : _texts = texts,
+        _answers = answers;
 
   factory _$QuizFavoriteResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizFavoriteResponseImplFromJson(json);
@@ -116,9 +129,17 @@ class _$QuizFavoriteResponseImpl implements _QuizFavoriteResponse {
     return EqualUnmodifiableListView(_texts);
   }
 
+  final List<String> _answers;
+  @override
+  List<String> get answers {
+    if (_answers is EqualUnmodifiableListView) return _answers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_answers);
+  }
+
   @override
   String toString() {
-    return 'QuizFavoriteResponse(texts: $texts)';
+    return 'QuizFavoriteResponse(texts: $texts, answers: $answers)';
   }
 
   @override
@@ -126,13 +147,16 @@ class _$QuizFavoriteResponseImpl implements _QuizFavoriteResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuizFavoriteResponseImpl &&
-            const DeepCollectionEquality().equals(other._texts, _texts));
+            const DeepCollectionEquality().equals(other._texts, _texts) &&
+            const DeepCollectionEquality().equals(other._answers, _answers));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_texts));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_texts),
+      const DeepCollectionEquality().hash(_answers));
 
   @JsonKey(ignore: true)
   @override
@@ -151,14 +175,17 @@ class _$QuizFavoriteResponseImpl implements _QuizFavoriteResponse {
 }
 
 abstract class _QuizFavoriteResponse implements QuizFavoriteResponse {
-  const factory _QuizFavoriteResponse({required final List<String> texts}) =
-      _$QuizFavoriteResponseImpl;
+  const factory _QuizFavoriteResponse(
+      {required final List<String> texts,
+      required final List<String> answers}) = _$QuizFavoriteResponseImpl;
 
   factory _QuizFavoriteResponse.fromJson(Map<String, dynamic> json) =
       _$QuizFavoriteResponseImpl.fromJson;
 
   @override //  トピックに応じた お気に入りの語句を返す
   List<String> get texts;
+  @override
+  List<String> get answers;
   @override
   @JsonKey(ignore: true)
   _$$QuizFavoriteResponseImplCopyWith<_$QuizFavoriteResponseImpl>

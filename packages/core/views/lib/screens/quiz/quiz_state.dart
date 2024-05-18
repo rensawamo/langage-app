@@ -12,6 +12,7 @@ class QuizState with _$QuizState {
   /// [Quiz]
   const factory QuizState({
     required List<Quiz> quizs,
+    required List<String> answers,
     required List<bool> isFavorites,
     required PageController controller,
     @Default([]) List<bool?> scores,
