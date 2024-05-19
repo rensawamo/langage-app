@@ -136,7 +136,7 @@ class AppQuizPageView extends StatelessWidget {
                 ),
 
                 Container(
-                  height: context.mediaQueryHeight * .4,
+                  height: context.mediaQueryHeight * .5,
                   child: Expanded(
                     child: ListView.builder(
                       itemCount: quiz.options.length,

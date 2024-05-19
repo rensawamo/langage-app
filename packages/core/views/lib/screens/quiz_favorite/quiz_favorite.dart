@@ -3,6 +3,7 @@ import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
+import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:core_views/widgets/app_delete_dialog.dart';
@@ -70,7 +71,6 @@ class QuizFavorite extends StatelessWidget {
   }
 
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
-  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
 
   // 表の タイトルの背景色
   final _cellTitleColor = const AppColorSet(type: AppColorType.cellTitle);
@@ -109,23 +109,28 @@ class QuizFavorite extends StatelessWidget {
       final selectDropDownValue =
           ref.watch(QuizFavoriteProvider).selectDropDownValue;
 
-      return
-           DropdownButton<String>(
-            value: selectDropDownValue,
-            items: dropDownMenu.keys
-                .map((String key) => DropdownMenuItem<String>(
-                      child: Text(
-                        key,
-                      ),
-                    ))
-                .toList(),
-            onChanged: (key) {
-              if (key != null) {
-                state.getFavorites(dropDownMenu[key]!);
-                state.selectDropDownMenu(key);
-              }
-            },
-          );
+      return Theme(
+        data:
+            Theme.of(context).copyWith(canvasColor: _cellEvenColor.color(mode)),
+        child: DropdownButton<String>(
+          value: selectDropDownValue,
+          items: dropDownMenu.keys
+              .map((String key) => DropdownMenuItem<String>(
+                    value: key,
+                    child: Text(
+                      key,
+                      style: TextStyle(color: _defaultColor.color(mode)),
+                    ),
+                  ))
+              .toList(),
+          onChanged: (key) {
+            if (key != null) {
+              state.getFavorites(dropDownMenu[key]!);
+              state.selectDropDownMenu(key);
+            }
+          },
+        ),
+      );
     });
   }
 
@@ -235,7 +240,7 @@ class QuizFavorite extends StatelessWidget {
           String text, int index, bool isHideAnswer, Function toggleAnswer) =>
       Container(
         height: 65,
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(5),
         color: index % 2 == 0
             ? _cellOddColor.color(mode)
             : _cellEvenColor.color(mode),
@@ -265,6 +270,10 @@ class QuizFavorite extends StatelessWidget {
             ? _cellOddColor.color(mode)
             : _cellEvenColor.color(mode),
         alignment: Alignment.center,
-        child: Text(text, style: TextStyle(color: _defaultColor.color(mode))),
+        child: Text(text,
+            textAlign: TextAlign.left,
+            style: TextStyles.s(
+              color: _defaultColor.color(mode),
+            )),
       );
 }
