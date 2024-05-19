@@ -36,12 +36,20 @@ enum AppColorType {
   effectColor,
   // 問題数 15
   question15,
+  // 問題数15のアイコンの色
+  question15Icon,
   // 問題数 30
   question30,
+  // 問題数30のアイコンの色
+  question30Icon,
   // 問題数 50
   question50,
+  // 問題数50のアイコンの色
+  question50Icon,
   // 挨拶
   greeting,
+  // 挨拶のアイコンの色
+  greetingIcon,
 
   //////  result view  //////
   // 結果画面の表のタイトルの背景色

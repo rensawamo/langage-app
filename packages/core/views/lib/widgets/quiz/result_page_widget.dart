@@ -151,9 +151,15 @@ class _ResultPageState extends State<ResultPageWidget> {
                             child: _buildSubtitleCell(
                                 widget.answers[index], index)),
                         TableCell(
-                            child: _buildSubtitleCell(
-                                widget.scores[index]?.toString() ?? '未回答',
-                                index)),
+                          child: _buildSubtitleCell(
+                            widget.scores[index] == null
+                                ? '未回答'
+                                : widget.scores[index] == true
+                                    ? '正解'
+                                    : '不正解',
+                            index,
+                          ),
+                        ),
                         TableCell(child: _buildVoiceCell(index)),
                         TableCell(child: _buildFavoriteCell(index)),
                       ],
@@ -205,26 +211,38 @@ class _ResultPageState extends State<ResultPageWidget> {
         ),
       );
 
-  Widget _buildCell(String text) => Container(
+  Widget _buildCell(
+    String text,
+  ) =>
+      Container(
+        padding: const EdgeInsets.all(8),
         height: 58,
         color: _cellTitleColor.color(widget.mode),
         alignment: Alignment.center,
         child: Text(text,
-            style: TextStyles.xs(
+            style: TextStyles.s(
               color: _defaultColor.color(widget.mode),
               type: widget.textType,
             )),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
-        height: 65,
-        width: 160,
-        padding: const EdgeInsets.all(8),
-        color: index % 2 == 0
-            ? _cellOddColor.color(widget.mode)
-            : _cellEvenColor.color(widget.mode),
-        alignment: Alignment.center,
-        child: Text(text,
-            style: TextStyle(color: _defaultColor.color(widget.mode))),
-      );
+      height: 65,
+      padding: const EdgeInsets.all(8),
+      color: index % 2 == 0
+          ? _cellOddColor.color(widget.mode)
+          : _cellEvenColor.color(widget.mode),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        textAlign: TextAlign.left,
+        style: TextStyles.s(
+          color: text == '正解'
+              ? Colors.red
+              : text == '不正解'
+                  ? Colors.blue
+                  : _defaultColor.color(widget.mode),
+          type: widget.textType,
+        ),
+      ));
 }

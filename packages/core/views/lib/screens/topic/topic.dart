@@ -19,9 +19,17 @@ class TopicPage extends StatelessWidget {
   });
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
   final _question15Color = const AppColorSet(type: AppColorType.question15);
+  final _question15IconColor =
+      const AppColorSet(type: AppColorType.question15Icon);
   final _question30Color = const AppColorSet(type: AppColorType.question30);
+  final _question30IconColor =
+      const AppColorSet(type: AppColorType.question30Icon);
   final _question50Color = const AppColorSet(type: AppColorType.question50);
+  final _question50IconColor =
+      const AppColorSet(type: AppColorType.question50Icon);
   final _grreetingColor = const AppColorSet(type: AppColorType.greeting);
+  final _grreetingIconColor =
+      const AppColorSet(type: AppColorType.greetingIcon);
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +52,26 @@ class TopicPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: context.mediaQueryHeight * .04),
-                  _tile(context, 10, '問題数 10問', 'ちょっとした空き時間に～！',
-                      _question15Color, QuizTopicType.word),
+                  _tile(
+                      context,
+                      10,
+                      '問題数 10問',
+                      'ちょっとした空き時間に～！',
+                      _question15Color,
+                      _question15IconColor,
+                      QuizTopicType.word),
                   SizedBox(height: context.mediaQueryHeight * .04),
-                  _tile(context, 30, '問題数 30問', '休憩や余裕があるときに～！',
-                      _question30Color, QuizTopicType.word),
+                  _tile(
+                      context,
+                      30,
+                      '問題数 30問',
+                      '休憩や余裕があるときに～！',
+                      _question30Color,
+                      _question30IconColor,
+                      QuizTopicType.word),
                   SizedBox(height: context.mediaQueryHeight * .04),
                   _tile(context, 50, '問題数 50問', 'じっくりと～！', _question50Color,
-                      QuizTopicType.word),
+                      _question50IconColor, QuizTopicType.word),
                   SizedBox(height: context.mediaQueryHeight * .04),
                   AppText(
                     text: "挨拶",
@@ -62,15 +82,15 @@ class TopicPage extends StatelessWidget {
                   ),
                   SizedBox(height: context.mediaQueryHeight * .04),
                   _tile(context, 10, '問題数 15問', 'これだけは押さえよう！', _grreetingColor,
-                      QuizTopicType.greet),
+                      _grreetingIconColor, QuizTopicType.greet),
                 ])));
   }
 
   // 問題のセレクトのたいる
   Widget _tile(context, int questionCount, String title, String subTitle,
-      AppColorSet color, QuizTopicType quizTopicType) {
+      AppColorSet color, AppColorSet iconColor, QuizTopicType quizTopicType) {
     return ListTile(
-      leading: Icon(Icons.question_answer, color: _defaultColor.color(mode)),
+      leading: Icon(Icons.question_answer, color: iconColor.color(mode)),
       onTap: () =>
           GoRouter.of(context).pushNamed(MyAppRouteConstraint.quizRouteName,
               extra: TopicParam(

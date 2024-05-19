@@ -27,13 +27,12 @@ class AppColors {
       case AppColorType.reverseColor:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
-            return const Color.fromARGB(34, 0, 0, 0);
+            return const Color(0xFF000000);
           case ThemeMode.dark:
             return Colors.white;
           case ThemeMode.system:
             return Colors.transparent; // ま // または、適切なデフォルトの色
         }
-
 
       // アプリのバーの色
       case AppColorType.appbar:
@@ -160,6 +159,15 @@ class AppColors {
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
+      case AppColorType.question15Icon:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFF0000FF);
+          case ThemeMode.dark:
+            return Color.fromARGB(255, 177, 235, 232);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
 
       case AppColorType.question30:
         switch (mode ?? AppSettingInfo().themeMode) {
@@ -167,6 +175,15 @@ class AppColors {
             return const Color(0xFFADFF2F);
           case ThemeMode.dark:
             return Color(0xff808080);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
+      case AppColorType.question30Icon:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFF006400); 
+          case ThemeMode.dark:
+            return const Color(0xFFADFF2F);
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
@@ -181,6 +198,15 @@ class AppColors {
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
+      case AppColorType.question50Icon:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFFF1493);
+          case ThemeMode.dark:
+            return const Color(0xFFFFB6C1);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
 
       case AppColorType.greeting:
         switch (mode ?? AppSettingInfo().themeMode) {
@@ -188,6 +214,15 @@ class AppColors {
             return Color.fromARGB(255, 241, 209, 144);
           case ThemeMode.dark:
             return Color(0xff808080);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
+      case AppColorType.greetingIcon:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFA52A2A); 
+          case ThemeMode.dark:
+            return Color.fromARGB(255, 241, 209, 144);
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
