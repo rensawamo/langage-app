@@ -2063,8 +2063,8 @@ class AppQuizData {
     Quiz(
       text: "과자",
       options: [
-        Option(text: "ごはん", isCorrect: true),
-        Option(text: "お菓子", isCorrect: false),
+        Option(text: "ごはん", isCorrect: false),
+        Option(text: "お菓子", isCorrect: true),
         Option(text: "砂糖", isCorrect: false),
         Option(text: "チョコレート", isCorrect: false),
       ],
@@ -2333,8 +2333,8 @@ class AppQuizData {
     Quiz(
       text: "극장",
       options: [
-        Option(text: "映画館", isCorrect: true),
-        Option(text: "劇場", isCorrect: false),
+        Option(text: "映画館", isCorrect: false),
+        Option(text: "劇場", isCorrect: true),
         Option(text: "会場", isCorrect: false),
         Option(text: "スタジオ", isCorrect: false),
       ],
