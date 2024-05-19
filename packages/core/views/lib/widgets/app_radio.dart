@@ -59,13 +59,12 @@ class AppRadio extends StatelessWidget {
 
   /// ラジオボタンOFF
   Widget _offButton() {
-    return Icon(Icons.radio_button_off_rounded,
+    return Icon(Icons.radio_button_unchecked,
         color: _radioOffColor.color(mode), size: _size);
   }
 
   /// ラジオボタンON状態
   Widget _onButton() {
-    return Icon(Icons.check_circle_rounded,
-        color: _radioOnColor.color(mode), size: _size);
+    return Icon(Icons.radio_button_checked, color: _radioOnColor.color(mode), size: _size);
   }
 }

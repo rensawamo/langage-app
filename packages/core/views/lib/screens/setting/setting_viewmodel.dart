@@ -90,6 +90,7 @@ abstract class SettingViewmodelInterface extends StateNotifier<SettingState> {
 
   void changeThemeMode(ThemeMode mode);
   void changeTextSize(AppTextSizeType sizeType);
+  
   void changeAppInstallType(AppInstallType type);
   void addObserver();
   void removeObserver();

@@ -23,7 +23,8 @@ class QuizNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
+
+    final _nextButtonColor = const AppColorSet(type: AppColorType.nextButton);
 
     return Padding(
         padding:
@@ -44,12 +45,12 @@ class QuizNextButton extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: Color(0xff132137),
+              color: _nextButtonColor.color(mode),
             ),
             child: Text(
               "次へ",
               style: TextStyles.l(
-                color: _reverseColor.color(mode),
+                color: Color(0xFFFFFFFF),
                 type: textType,
               ),
             ),

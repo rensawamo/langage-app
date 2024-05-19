@@ -50,59 +50,73 @@ class _ResultPageState extends State<ResultPageWidget> {
     super.initState();
   }
 
-  final _defaultColor = const AppColorSet(type: AppColorType.titleCharacter);
-  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+  final _backGroundColor = const AppColorSet(type: AppColorType.background);
+  // トピックへ戻る
+  final _nextButtonColor = const AppColorSet(type: AppColorType.nextButton);
+
+  // 表の タイトルの背景色
+  final _cellTitleColor = const AppColorSet(type: AppColorType.cellTitle);
+
+  // 表の奇数時の背景色
+  final _cellOddColor = const AppColorSet(type: AppColorType.cellOdd);
+  // 表の偶数時の背景色
+  final _cellEvenColor = const AppColorSet(type: AppColorType.cellEven);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: _backGroundColor.color(widget.mode),
         body: Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(left: 20, right: 20),
-          child: AppText(
-            text: "結果 ${widget.totalScore} / ${widget.count}",
-            style: TextStyles.l(
-              color: _defaultColor.color(widget.mode),
-              type: widget.textType,
+          children: [
+            SizedBox(
+              height: context.mediaQueryHeight * .025,
             ),
-          ),
-        ),
-        SizedBox(
-          height: context.mediaQueryHeight * .025,
-        ),
-        _table(),
-        SizedBox(
-          height: context.mediaQueryHeight * .035,
-        ),
-        Container(
-          child: InkWell(
-            onTap: () {
-              GoRouter.of(context).pop();
-            },
-            child: Container(
-              padding: EdgeInsets.only(
-                left: 48.0,
-                right: 48.0,
-                top: 10,
-                bottom: 10,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: _defaultColor.color(widget.mode),
-              ),
-              child: Text(
-                "トピックに戻る",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: _reverseColor.color(widget.mode),
+            Padding(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: AppText(
+                text: "結果 ${widget.totalScore} / ${widget.count}",
+                style: TextStyles.xl(
+                  color: _defaultColor.color(widget.mode),
+                  type: widget.textType,
                 ),
               ),
             ),
-          ),
-        ),
-      ],
-    ));
+            SizedBox(
+              height: context.mediaQueryHeight * .025,
+            ),
+            _table(),
+            SizedBox(
+              height: context.mediaQueryHeight * .04,
+            ),
+            Container(
+              child: InkWell(
+                onTap: () {
+                  GoRouter.of(context).pop();
+                },
+                child: Container(
+                  padding: EdgeInsets.only(
+                    left: 48.0,
+                    right: 48.0,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: _nextButtonColor.color(widget.mode),
+                  ),
+                  child: Text(
+                    "トピックに戻る",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFFFFFFF),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget _table() {
@@ -152,7 +166,9 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildVoiceCell(int index) => Container(
         height: 65,
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(widget.mode)
+            : _cellEvenColor.color(widget.mode),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -163,7 +179,9 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildFavoriteCell(int index) => Container(
         height: 65,
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(widget.mode)
+            : _cellEvenColor.color(widget.mode),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -189,7 +207,7 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildCell(String text) => Container(
         height: 58,
-        color: Colors.green,
+        color: _cellTitleColor.color(widget.mode),
         alignment: Alignment.center,
         child: Text(text,
             style: TextStyles.xs(
@@ -202,8 +220,11 @@ class _ResultPageState extends State<ResultPageWidget> {
         height: 65,
         width: 160,
         padding: const EdgeInsets.all(8),
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(widget.mode)
+            : _cellEvenColor.color(widget.mode),
         alignment: Alignment.center,
-        child: Text(text, style: TextStyle(color: Colors.black)),
+        child: Text(text,
+            style: TextStyle(color: _defaultColor.color(widget.mode))),
       );
 }
