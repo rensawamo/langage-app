@@ -15,6 +15,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
     this.mode,
     this.textType,
   }) : super(key: key);
+
   final Function selectAns;
   final Quiz quiz;
   final bool selected;
@@ -58,8 +59,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
     /// 問題にミス回答したときの色
     final _wrongColor = const AppColorSet(type: AppColorType.wrongAnswer);
 
-    /// 文字の色
-    final _characotorColor = const AppColorSet(type: AppColorType.reverseColor);
+    final _quizTileColor = const AppColorSet(type: AppColorType.quizTile);
 
     return AnimatedBuilder(
         animation: animationController!,
@@ -87,7 +87,8 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                                   : MaterialStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
                           : MaterialStateProperty.all<Color>(
-                              Color(0xffEDA276)), // 未選択
+                              _quizTileColor.color(widget.mode),
+                            ), // 未選択
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -95,7 +96,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                         widget.quiz.options[ans_ind].text,
                         textAlign: TextAlign.center,
                         style: TextStyles.xl(
-                          color: _characotorColor.color(widget.mode),
+                          color: Color(0xFFFFFFFF),
                           type: widget.textType,
                         ),
                       ),

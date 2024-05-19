@@ -37,10 +37,12 @@ class QuizFavorite extends StatelessWidget {
   QuizFavorite({
     Key? key,
     required this.dropDownMenu,
+    this.mode,
   }) : super(key: key);
 
   /// ドロップダウンメニュー
   final Map<String, QuizTopicType> dropDownMenu;
+  final ThemeMode? mode;
 
   /// 初期化処理
   void init(BuildContext context, WidgetRef ref) async {
@@ -66,6 +68,16 @@ class QuizFavorite extends StatelessWidget {
     await vm.init();
     vm.getFavorites(QuizTopicType.word);
   }
+
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+
+  // 表の タイトルの背景色
+  final _cellTitleColor = const AppColorSet(type: AppColorType.cellTitle);
+
+  // 表の奇数時の背景色
+  final _cellOddColor = const AppColorSet(type: AppColorType.cellOdd);
+  // 表の偶数時の背景色
+  final _cellEvenColor = const AppColorSet(type: AppColorType.cellEven);
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +107,14 @@ class QuizFavorite extends StatelessWidget {
       final state = ref.watch(QuizFavoriteProvider.notifier);
       final selectDropDownValue =
           ref.watch(QuizFavoriteProvider).selectDropDownValue;
-
-      return DropdownButton<String>(
+      return DropdownButtonFormField<String>(
         value: selectDropDownValue,
         items: dropDownMenu.keys
             .map((String key) => DropdownMenuItem<String>(
                   value: key,
-                  child: Text(key),
+                  child: Text(
+                    key,
+                  ),
                 ))
             .toList(),
         onChanged: (key) {
@@ -139,7 +152,7 @@ class QuizFavorite extends StatelessWidget {
                   ),
                   TableCell(child: _buildCell('Mean')),
                   TableCell(child: _buildCell('Voice')),
-                  TableCell(child: _buildCell('Star')),
+                  TableCell(child: _buildCell('Edit')),
                 ],
               ),
               ...List.generate(
@@ -171,7 +184,9 @@ class QuizFavorite extends StatelessWidget {
   ) =>
       Container(
         height: 65,
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(mode)
+            : _cellEvenColor.color(mode),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -182,16 +197,18 @@ class QuizFavorite extends StatelessWidget {
 
   Widget _buildFavoriteCell(int index, context, ref) => Container(
         height: 65,
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(mode)
+            : _cellEvenColor.color(mode),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
           icon: Icon(
               // 削除
-              Icons.delete),
+              Icons.delete,
+              color: _defaultColor.color(mode)),
           onPressed: () async => {
-            ShowDeleteDialog(context, "削除してもよろしいですか？")
-                .then((bool? result) async {
+            ShowDeleteDialog(context, "削除しますか？").then((bool? result) async {
               if (result != null) {
                 final state = ref.read(QuizFavoriteProvider.notifier);
                 await state.deleteFavorite(index);
@@ -205,10 +222,11 @@ class QuizFavorite extends StatelessWidget {
         height: 58,
         padding:
             const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
-        color: Colors.green,
+        color: _cellTitleColor.color(mode),
         alignment: Alignment.center,
         child: Text(text,
-            style: TextStyle(color: Colors.white), textAlign: TextAlign.left),
+            style: TextStyle(color: _defaultColor.color(mode)),
+            textAlign: TextAlign.left),
       );
 
   Widget _buildMeanCell(
@@ -216,23 +234,35 @@ class QuizFavorite extends StatelessWidget {
       Container(
         height: 65,
         padding: EdgeInsets.all(8),
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(mode)
+            : _cellEvenColor.color(mode),
         alignment: Alignment.center,
         child: InkWell(
-          onTap: () {
-            toggleAnswer(index);
-          },
           child: isHideAnswer == true
-              ? Text('????', style: TextStyle(color: Colors.black))
-              : Text(text, style: TextStyle(color: Colors.black)),
+              ? FilledButton(
+                  onPressed: () {
+                    toggleAnswer(index);
+                  },
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: _cellTitleColor.color(mode),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  child: Text('表示'),
+                )
+              : Text(text, style: TextStyle(color: _defaultColor.color(mode))),
         ),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
         height: 65,
         padding: const EdgeInsets.all(8),
-        color: index % 2 == 0 ? Colors.white : Colors.grey[200],
+        color: index % 2 == 0
+            ? _cellOddColor.color(mode)
+            : _cellEvenColor.color(mode),
         alignment: Alignment.center,
-        child: Text(text, style: TextStyle(color: Colors.black)),
+        child: Text(text, style: TextStyle(color: _defaultColor.color(mode))),
       );
 }

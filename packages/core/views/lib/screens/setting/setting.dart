@@ -46,7 +46,6 @@ class Setting extends StatelessWidget {
             hasPrevButton: false,
             screenContext: screenContext,
             initFrame: (_, __) {
-              final vm = ref.watch(settingProvider.notifier);
               // 復帰完了時コールバックをセット
               // vm.compResume = () => PushTransitionManager().checkTransition();
               ref.read(settingProvider.notifier).init();
@@ -70,14 +69,14 @@ class Setting extends StatelessWidget {
           children: [
             _divider(),
             TileSectionHeader(
-              text: '明るさ設定',
+              text: '明るさ',
               mode: mode,
               textType: textType,
             ),
             _appearanceTiles(),
             _divider(),
             TileSectionHeader(
-              text: '文字サイズ設定',
+              text: '文字の大きさ',
               mode: mode,
               textType: textType,
             ),
@@ -103,7 +102,7 @@ class Setting extends StatelessWidget {
       return Column(children: [
         ActionTileSingleRadioTile(
             mode: state.themeMode,
-            itemText: '明るい外観',
+            itemText: 'ライトモード',
             textType: state.textSize,
             onTap: (value) {
               // thememode変更
@@ -112,7 +111,7 @@ class Setting extends StatelessWidget {
             groupValue: ref.watch(settingProvider).themeMode,
             radioValue: ThemeMode.light),
         ActionTileSingleRadioTile(
-            itemText: '暗い外観',
+            itemText: 'ダークモード',
             mode: state.themeMode,
             textType: state.textSize,
             onTap: (value) {
@@ -133,8 +132,8 @@ class Setting extends StatelessWidget {
         ActiontileFontSizeNormalTile(
             mode: state.themeMode,
             textType: AppTextSizeType.middle,
-            mainText: '文字サイズ：普通',
-            subText: '標準の文字サイズです。',
+            mainText: '普通',
+            subText: '普通サイズです。',
             onTap: (value) {
               // 文字サイズ変更
               ref.watch(settingProvider.notifier).changeTextSize(value);
@@ -144,8 +143,8 @@ class Setting extends StatelessWidget {
         ActiontileFontSizeBigTile(
             mode: state.themeMode,
             textType: AppTextSizeType.large,
-            mainText: '文字サイズ：大',
-            subText: '一回り大きな文字サイズです。',
+            mainText: '少し大きめ',
+            subText: '少し画面の文字が見にくい人におすすめです。',
             onTap: (value) {
               // 文字サイズ変更
               ref.watch(settingProvider.notifier).changeTextSize(value);
@@ -155,8 +154,8 @@ class Setting extends StatelessWidget {
         ActiontileFontSizeExtraBigTile(
             mode: state.themeMode,
             textType: AppTextSizeType.exLarge,
-            mainText: '文字サイズ：特大',
-            subText: '一番大きな文字サイズです。',
+            mainText: '大きめ',
+            subText: '画面の文字が見にくい人におすすめです。',
             onTap: (value) {
               // 文字サイズ変更
               ref.watch(settingProvider.notifier).changeTextSize(value);

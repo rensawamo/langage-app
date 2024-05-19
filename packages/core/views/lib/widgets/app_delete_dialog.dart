@@ -1,13 +1,21 @@
 import 'dart:async';
+import 'package:core_enums/enums.dart';
+import 'package:core_views/utility/text_styles.dart';
+import 'package:core_views/views.dart';
+import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 /// 削除確認ダイアログ
 class DeleteDialog extends StatefulWidget {
   final String title;
+  final ThemeMode? mode;
+  final AppTextSizeType? textType;
 
   const DeleteDialog({
     required this.title,
+    this.mode,
+    this.textType,
     Key? key,
   }) : super(key: key);
 
@@ -16,26 +24,41 @@ class DeleteDialog extends StatefulWidget {
 }
 
 class _ConfirmDialogState extends State<DeleteDialog> {
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+  final _dialogColor = const AppColorSet(type: AppColorType.cellEven);
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.white,
-      title: Text(
-        widget.title,
+      backgroundColor: _dialogColor.color(widget.mode),
+      title: AppText(
+        text: widget.title,
+        style: TextStyles.xl(
+          color: _defaultColor.color(widget.mode),
+          type: widget.textType,
+        ),
       ),
       content: const Column(
         mainAxisSize: MainAxisSize.min,
       ),
       actions: <Widget>[
         TextButton(
-          child: const Text(
-            'キャンセル',
+          child: AppText(
+            text: 'キャンセル',
+            style: TextStyles.m(
+              color: _defaultColor.color(widget.mode),
+              type: widget.textType,
+            ),
           ),
           onPressed: () => GoRouter.of(context).pop(),
         ),
         TextButton(
-          child: const Text(
-            'OK',
+          child: AppText(
+            text: 'OK',
+            style: TextStyles.m(
+              color: _defaultColor.color(widget.mode),
+              type: widget.textType,
+            ),
           ),
           onPressed: () => GoRouter.of(context).pop(true),
         ),

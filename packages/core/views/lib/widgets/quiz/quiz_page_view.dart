@@ -54,9 +54,10 @@ class AppQuizPageView extends StatelessWidget {
     required this.tatalScore,
   }) : super(key: key);
 
-  // 問題の文字の色
-  final _titleCharacterColor =
-      const AppColorSet(type: AppColorType.titleCharacter);
+  // 背景
+  final _backGroundColor = const AppColorSet(type: AppColorType.background);
+
+  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
   // 影
   final _shadowColor = const AppColorSet(type: AppColorType.shadow);
@@ -64,6 +65,7 @@ class AppQuizPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _backGroundColor.color(mode),
       body: isFinished
           ? ResultPageWidget(
               speak: speak,
@@ -80,8 +82,8 @@ class AppQuizPageView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Quiz ${index + 1}',
-                    style: TextStyles.l(
-                      color: _titleCharacterColor.color(mode),
+                    style: TextStyles.xl(
+                      color: _defaultColor.color(mode),
                       type: textType,
                     )),
                 SizedBox(
@@ -116,12 +118,11 @@ class AppQuizPageView extends StatelessWidget {
                           quiz.text,
                           textAlign: TextAlign.center,
                           style: TextStyles.xl(
-                            color: _titleCharacterColor.color(mode),
                             type: textType,
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.volume_up),
+                          icon: Icon(Icons.volume_up, color: Colors.blue),
                           onPressed: () async {
                             await speak(quiz.text);
                           },

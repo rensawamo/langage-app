@@ -78,7 +78,6 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   }
 
   void toggleAnswer(int index) {
-    print(state.isHideAnswers);
     // 回答表示の切り替え
     List<bool> isHideAnswers = List.from(state.isHideAnswers); // 変更可能なコピーを作成
 

@@ -41,11 +41,7 @@ class _MyAppState extends State<HomePage> {
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
   // タブバーの文字の色
-  final _tabberColor = const AppColorSet(type: AppColorType.appbar);
-
-  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
-
-
+  final _appberColor = const AppColorSet(type: AppColorType.appbar);
 
   /// Widget生成
   @override
@@ -57,10 +53,12 @@ class _MyAppState extends State<HomePage> {
             currentIndex: currentIndex,
             unselectedItemColor: _defaultColor.color(widget.mode),
             selectedItemColor: _defaultColor.color(widget.mode),
-            backgroundColor: _tabberColor.color(widget.mode),
+            backgroundColor: _appberColor.color(widget.mode),
             items: <BottomNavigationBarItem>[
               const BottomNavigationBarItem(
-                icon: Icon(Icons.book),
+                icon: Icon(
+                  Icons.book,
+                ),
                 label: '問題',
               ),
               BottomNavigationBarItem(

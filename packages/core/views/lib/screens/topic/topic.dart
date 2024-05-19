@@ -43,16 +43,16 @@ class TopicPage extends StatelessWidget {
                       type: textType,
                     ),
                   ),
-                  SizedBox(height: context.mediaQueryHeight * .02),
-                  _tile(context, 10, '問題数 10問', 'ちょっとした空き時間に～',
+                  SizedBox(height: context.mediaQueryHeight * .04),
+                  _tile(context, 10, '問題数 10問', 'ちょっとした空き時間に～！',
                       _question15Color, QuizTopicType.word),
-                  SizedBox(height: context.mediaQueryHeight * .02),
-                  _tile(context, 30, '問題数 30問', '休憩や余裕があるときに～',
+                  SizedBox(height: context.mediaQueryHeight * .04),
+                  _tile(context, 30, '問題数 30問', '休憩や余裕があるときに～！',
                       _question30Color, QuizTopicType.word),
-                  SizedBox(height: context.mediaQueryHeight * .02),
-                  _tile(context, 50, '問題数 50問', 'じっくりと～', _question50Color,
+                  SizedBox(height: context.mediaQueryHeight * .04),
+                  _tile(context, 50, '問題数 50問', 'じっくりと～！', _question50Color,
                       QuizTopicType.word),
-                  SizedBox(height: context.mediaQueryHeight * .035),
+                  SizedBox(height: context.mediaQueryHeight * .04),
                   AppText(
                     text: "挨拶",
                     style: TextStyles.xl(
@@ -60,8 +60,8 @@ class TopicPage extends StatelessWidget {
                       type: textType,
                     ),
                   ),
-                  SizedBox(height: context.mediaQueryHeight * .02),
-                  _tile(context, 10, '問題数 15問', '日常会話の挨拶', _grreetingColor,
+                  SizedBox(height: context.mediaQueryHeight * .04),
+                  _tile(context, 10, '問題数 15問', 'これだけは押さえよう！', _grreetingColor,
                       QuizTopicType.greet),
                 ])));
   }
@@ -70,7 +70,7 @@ class TopicPage extends StatelessWidget {
   Widget _tile(context, int questionCount, String title, String subTitle,
       AppColorSet color, QuizTopicType quizTopicType) {
     return ListTile(
-      leading: Icon(Icons.question_answer, color: color.color(mode)),
+      leading: Icon(Icons.question_answer, color: _defaultColor.color(mode)),
       onTap: () =>
           GoRouter.of(context).pushNamed(MyAppRouteConstraint.quizRouteName,
               extra: TopicParam(

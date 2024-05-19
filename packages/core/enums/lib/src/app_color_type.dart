@@ -5,9 +5,12 @@ enum AppColorType {
   // dafautcolor の逆 ダークなら 黒 ライトなら白
   reverseColor,
   // Appbarの色
+  
   appbar,
   // 背景の色
   background,
+  // クイズタイルの色
+  quizTile,
   // ヘッダーのテキストの色
   headerText,
   // 影
@@ -40,5 +43,17 @@ enum AppColorType {
   // 挨拶
   greeting,
 
+  //////  result view  //////
+  // 結果画面の表のタイトルの背景色
+  cellTitle,
+  // 結果画面の表の奇数行の背景色
+  cellOdd,
+  // 結果画面の表の偶数行の背景色
+  cellEven,
+
+
+  /////// setting view  //////
+  // checkbox
+  checkbox,
 
 }
