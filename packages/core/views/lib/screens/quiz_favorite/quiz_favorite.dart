@@ -70,6 +70,7 @@ class QuizFavorite extends StatelessWidget {
   }
 
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
+  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
 
   // 表の タイトルの背景色
   final _cellTitleColor = const AppColorSet(type: AppColorType.cellTitle);
@@ -107,23 +108,24 @@ class QuizFavorite extends StatelessWidget {
       final state = ref.watch(QuizFavoriteProvider.notifier);
       final selectDropDownValue =
           ref.watch(QuizFavoriteProvider).selectDropDownValue;
-      return DropdownButtonFormField<String>(
-        value: selectDropDownValue,
-        items: dropDownMenu.keys
-            .map((String key) => DropdownMenuItem<String>(
-                  value: key,
-                  child: Text(
-                    key,
-                  ),
-                ))
-            .toList(),
-        onChanged: (key) {
-          if (key != null) {
-            state.getFavorites(dropDownMenu[key]!);
-            state.selectDropDownMenu(key);
-          }
-        },
-      );
+
+      return
+           DropdownButton<String>(
+            value: selectDropDownValue,
+            items: dropDownMenu.keys
+                .map((String key) => DropdownMenuItem<String>(
+                      child: Text(
+                        key,
+                      ),
+                    ))
+                .toList(),
+            onChanged: (key) {
+              if (key != null) {
+                state.getFavorites(dropDownMenu[key]!);
+                state.selectDropDownMenu(key);
+              }
+            },
+          );
     });
   }
 
