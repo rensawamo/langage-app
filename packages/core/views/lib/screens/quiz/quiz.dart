@@ -80,10 +80,10 @@ class QuizPage extends StatelessWidget {
           body: Column(
             children: [
               Expanded(
-                  child: answers.first == ""
-                      ? Container()
-                      : quizes.isEmpty
-                          ? _empty()
+                  child: quizes.isEmpty
+                      ? _empty()
+                      :  answers.first == ""
+                          ? Container()
                           : _page(quizes, answers))
             ],
           ));

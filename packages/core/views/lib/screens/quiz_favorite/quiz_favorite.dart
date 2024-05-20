@@ -99,13 +99,14 @@ class QuizFavorite extends StatelessWidget {
             // 初期化処理
             init(context, ref);
           },
-          body: Column(
+              body: Column(
             children: [
               _dropDown(),
-              quizzes.first == "" ? Container() :
               quizzes.isEmpty
-               ? _empty()
-               : Expanded(child: _table(quizzes))
+                  ? _empty()
+                  : quizzes.first == ""
+                      ? Container()
+                      : Expanded(child: _table(quizzes))
             ],
           ));
     });
