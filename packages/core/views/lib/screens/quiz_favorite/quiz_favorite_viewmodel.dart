@@ -20,6 +20,11 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
+    // ロード中に設定
+    isLoading = true;
+
+    // インジケータ表示
+    showIndicator();
     final controller = state.scrollController;
     controller.addListener(() {
       // スクロール量が全体の95%になった時, DBから新しいデータを取得する.
@@ -35,18 +40,6 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   /// お気に入りの単語一覧取得
   @override
   Future<void> getFavorites(QuizTopicType quizTopicType) async {
-    // ロード中なら何もしない
-    if (isLoading) {
-      return;
-    }
-    // ロード中に設定
-    isLoading = true;
-
-    // インジケータ表示
-    showIndicator();
-
-    // パラメータ生成
-
     // ここで data から quizeを取得する
     dao
         .getFavoriteList(QuizFavoriteRequest(
@@ -96,7 +89,9 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   Future<void> deleteFavorite(int index) async {
     // お気に入り削除
     await QuizFavoriteSql.delete(
-        state.quizzes[index], quizTopicType.name, appInstallType.name);
+      state.quizzes[index],
+      appInstallType.name,
+    );
     // 更新
     getFavorites(quizTopicType);
   }

@@ -181,7 +181,7 @@ class AppColors {
       case AppColorType.question30Icon:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
-            return const Color(0xFF006400); 
+            return const Color(0xFF006400);
           case ThemeMode.dark:
             return const Color(0xFFADFF2F);
           case ThemeMode.system:
@@ -208,7 +208,7 @@ class AppColors {
             return const Color(0xFFE0F2F1);
         }
 
-      case AppColorType.greeting:
+      case AppColorType.favorite:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
             return Color.fromARGB(255, 241, 209, 144);
@@ -217,12 +217,33 @@ class AppColors {
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }
+      case AppColorType.favoriteIcon:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xFFA52A2A);
+          case ThemeMode.dark:
+            return Color.fromARGB(255, 241, 209, 144);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
+
+      case AppColorType.greeting:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return Color(0xFFBAC48F);
+          case ThemeMode.dark:
+            return Color(0xff808080);
+          case ThemeMode.system:
+            return const Color(0xFFE0F2F1);
+        }
       case AppColorType.greetingIcon:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
-            return const Color(0xFFA52A2A); 
+            return Color.fromARGB(255, 46, 51, 21);
+
           case ThemeMode.dark:
-            return Color.fromARGB(255, 241, 209, 144);
+            return Color(0xFFBAC48F);
+
           case ThemeMode.system:
             return const Color(0xFFE0F2F1);
         }

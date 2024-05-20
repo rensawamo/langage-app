@@ -18,7 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$QuizFavoriteState {
   List<String> get quizzes => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
+
+  /// 各単語を隠すか
   List<bool> get isHideAnswers => throw _privateConstructorUsedError;
+
+  /// All 表示にきりかえる
   ScrollController get scrollController => throw _privateConstructorUsedError;
   String get selectDropDownValue => throw _privateConstructorUsedError;
   Function get speak => throw _privateConstructorUsedError;
@@ -202,7 +206,10 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
     return EqualUnmodifiableListView(_answers);
   }
 
+  /// 各単語を隠すか
   final List<bool> _isHideAnswers;
+
+  /// 各単語を隠すか
   @override
   List<bool> get isHideAnswers {
     if (_isHideAnswers is EqualUnmodifiableListView) return _isHideAnswers;
@@ -210,6 +217,7 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
     return EqualUnmodifiableListView(_isHideAnswers);
   }
 
+  /// All 表示にきりかえる
   @override
   final ScrollController scrollController;
   @override
@@ -278,8 +286,12 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
   @override
   List<String> get answers;
   @override
+
+  /// 各単語を隠すか
   List<bool> get isHideAnswers;
   @override
+
+  /// All 表示にきりかえる
   ScrollController get scrollController;
   @override
   String get selectDropDownValue;

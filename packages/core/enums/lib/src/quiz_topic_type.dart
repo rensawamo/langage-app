@@ -1,5 +1,8 @@
 /// クイズのトピックタイプ
 enum QuizTopicType {
+  /// お気に入り
+  favorite,
+
   /// 単語
   word,
 

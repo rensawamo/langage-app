@@ -1704,7 +1704,7 @@ class AppQuizData {
       text: "소녀",
       options: [
         Option(text: "少女", isCorrect: true),
-        Option(text: "女の子", isCorrect: false),
+        Option(text: "妹", isCorrect: false),
         Option(text: "女性", isCorrect: false),
         Option(text: "青年", isCorrect: false),
       ],

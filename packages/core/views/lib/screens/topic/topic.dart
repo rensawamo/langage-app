@@ -31,6 +31,9 @@ class TopicPage extends StatelessWidget {
   final _grreetingIconColor =
       const AppColorSet(type: AppColorType.greetingIcon);
 
+  final _favoriteColor = const AppColorSet(type: AppColorType.favorite);
+  final _favoriteIconColor = const AppColorSet(type: AppColorType.favoriteIcon);
+
   @override
   Widget build(BuildContext context) {
     return AppBaseFrame(
@@ -38,52 +41,77 @@ class TopicPage extends StatelessWidget {
         hasPrevButton: false,
         shouldRemoveFocus: true,
         title: 'トピック',
-        body: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  AppText(
-                    text: "単語",
-                    style: TextStyles.xl(
-                      color: _defaultColor.color(mode),
-                      type: textType,
-                    ),
-                  ),
-                  SizedBox(height: context.mediaQueryHeight * .04),
-                  _tile(
-                      context,
-                      10,
-                      '問題数 10問',
-                      'ちょっとした空き時間に～！',
-                      _question15Color,
-                      _question15IconColor,
-                      QuizTopicType.word),
-                  SizedBox(height: context.mediaQueryHeight * .04),
-                  _tile(
-                      context,
-                      30,
-                      '問題数 30問',
-                      '休憩や余裕があるときに～！',
-                      _question30Color,
-                      _question30IconColor,
-                      QuizTopicType.word),
-                  SizedBox(height: context.mediaQueryHeight * .04),
-                  _tile(context, 50, '問題数 50問', 'じっくりと～！', _question50Color,
-                      _question50IconColor, QuizTopicType.word),
-                  SizedBox(height: context.mediaQueryHeight * .04),
-                  AppText(
-                    text: "挨拶",
-                    style: TextStyles.xl(
-                      color: _defaultColor.color(mode),
-                      type: textType,
-                    ),
-                  ),
-                  SizedBox(height: context.mediaQueryHeight * .04),
-                  _tile(context, 10, '問題数 15問', 'これだけは押さえよう！', _grreetingColor,
-                      _grreetingIconColor, QuizTopicType.greet),
-                ])));
+        body: SingleChildScrollView(
+            child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      AppText(
+                        text: "単語(300単語からランダム)",
+                        style: TextStyles.xl(
+                          color: _defaultColor.color(mode),
+                          type: textType,
+                        ),
+                      ),
+                      SizedBox(height: context.mediaQueryHeight * .02),
+                      _tile(
+                          context,
+                          10,
+                          '問題数 10問',
+                          'ちょっとした空き時間に～！',
+                          _question15Color,
+                          _question15IconColor,
+                          QuizTopicType.word),
+                      SizedBox(height: context.mediaQueryHeight * .02),
+                      _tile(
+                          context,
+                          30,
+                          '問題数 30問',
+                          '休憩や余裕があるときに～！',
+                          _question30Color,
+                          _question30IconColor,
+                          QuizTopicType.word),
+                      SizedBox(height: context.mediaQueryHeight * .02),
+                      _tile(context, 50, '問題数 50問', 'じっくりと～！', _question50Color,
+                          _question50IconColor, QuizTopicType.word),
+                      SizedBox(height: context.mediaQueryHeight * .035),
+                      AppText(
+                        text: "挨拶(20フレーズからランダム)",
+                        style: TextStyles.xl(
+                          color: _defaultColor.color(mode),
+                          type: textType,
+                        ),
+                      ),
+                      SizedBox(height: context.mediaQueryHeight * .01),
+                      _tile(
+                          context,
+                          10,
+                          '問題数 10問',
+                          'これだけは押さえよう！',
+                          _grreetingColor,
+                          _grreetingIconColor,
+                          QuizTopicType.greet),
+                      SizedBox(height: context.mediaQueryHeight * .035),
+                      AppText(
+                        text: "お気に入り",
+                        style: TextStyles.xl(
+                          color: _defaultColor.color(mode),
+                          type: textType,
+                        ),
+                      ),
+                      SizedBox(height: context.mediaQueryHeight * .01),
+                      _tile(
+                          context,
+                          10,
+                          'お気に入り',
+                          'お気に入りに登録した問題から出題！',
+                          _favoriteColor,
+                          _favoriteIconColor,
+                          QuizTopicType.favorite),
+                      SizedBox(height: context.mediaQueryHeight * .035),
+                    ]))));
   }
 
   // 問題のセレクトのたいる
