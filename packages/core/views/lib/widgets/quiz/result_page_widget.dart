@@ -1,6 +1,7 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_model/model.dart';
 import 'package:core_sql/sql.dart';
+import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:core_views/utility/text_styles.dart';
@@ -197,8 +198,8 @@ class _ResultPageState extends State<ResultPageWidget> {
           ),
           onPressed: () async {
             if (isFavorites[index]) {
-              await QuizFavoriteSql.delete(widget.quizes[index].text,
-                  widget.topicType.name, widget.installtype.name);
+              await QuizFavoriteSql.delete(
+                  widget.quizes[index].text, widget.installtype.name);
             } else {
               await QuizFavoriteSql.insert(
                   widget.quizes[index].text,

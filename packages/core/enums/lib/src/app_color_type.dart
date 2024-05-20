@@ -5,7 +5,7 @@ enum AppColorType {
   // dafautcolor の逆 ダークなら 黒 ライトなら白
   reverseColor,
   // Appbarの色
-  
+
   appbar,
   // 背景の色
   background,
@@ -50,7 +50,11 @@ enum AppColorType {
   greeting,
   // 挨拶のアイコンの色
   greetingIcon,
-
+  // favorite
+  favorite,
+  // favoriteのアイコンの色
+  favoriteIcon,
+  
   //////  result view  //////
   // 結果画面の表のタイトルの背景色
   cellTitle,

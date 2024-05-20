@@ -62,13 +62,13 @@ class QuizFavoriteSql {
 
   // Delete a word from the database
   static Future<int> delete(
-      String word, String topicType, String appInstallType) async {
+      String word, String appInstallType) async {
     print(word);
     Database db = await instance.database;
     return await db.delete(table,
         where:
-            '$columnWord = ? AND $columnTopicType = ? AND $columnAppInstallType = ?',
-        whereArgs: [word, topicType, appInstallType]);
+            '$columnWord = ?  AND $columnAppInstallType = ?',
+        whereArgs: [word, appInstallType]);
   }
 
   static Future<bool> isFavorite(

@@ -1,5 +1,7 @@
 import 'package:core_enums/enums.dart';
+import 'package:core_model/model.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
+import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
@@ -18,7 +20,7 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
   (ref) {
     return QuizeFavoriteViewmodel(
       QuizFavoriteState(
-        quizzes: [],
+        quizzes: [""],
         answers: [],
         isHideAnswers: [],
         scrollController: ScrollController(),
@@ -83,6 +85,8 @@ class QuizFavorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
+      List<String> quizzes = ref.watch(QuizFavoriteProvider).quizzes;
+
       return AppBaseFrame(
           screenContext: context,
           hasPrevButton: false,
@@ -96,7 +100,13 @@ class QuizFavorite extends StatelessWidget {
             init(context, ref);
           },
           body: Column(
-            children: [_dropDown(), Expanded(child: _table())],
+            children: [
+              _dropDown(),
+              quizzes.first == "" ? Container() :
+              quizzes.isEmpty
+               ? _empty()
+               : Expanded(child: _table(quizzes))
+            ],
           ));
     });
   }
@@ -134,9 +144,8 @@ class QuizFavorite extends StatelessWidget {
     });
   }
 
-  Widget _table() {
+  Widget _table(List<String> quizzes) {
     return Consumer(builder: (context, ref, child) {
-      List<String> quizzes = ref.watch(QuizFavoriteProvider).quizzes;
       List<String> answers = ref.watch(QuizFavoriteProvider).answers;
       List<bool> isHideAnswers = ref.watch(QuizFavoriteProvider).isHideAnswers;
       Function toggleAnswer =
@@ -276,4 +285,11 @@ class QuizFavorite extends StatelessWidget {
               color: _defaultColor.color(mode),
             )),
       );
+
+  Widget _empty() {
+    return const TileEmptyText(
+      header: 'お気に入りは登録されていません。問題を解いて登録しましょう！',
+      detail: '',
+    );
+  }
 }

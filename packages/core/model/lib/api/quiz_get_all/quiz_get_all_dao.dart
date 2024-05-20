@@ -21,6 +21,7 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
             case QuizTopicType.word:
               var shuffledQuizzes =
                   List<Quiz>.from(AppQuizData.korianBiginnerQuizes)..shuffle();
+              print(shuffledQuizzes.length);
               var limitedQuizes =
                   shuffledQuizzes.take(request.questionCount).toList();
               List<String> answers = limitedQuizes.map((quiz) {
@@ -33,7 +34,7 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
               List<bool> isFavorites = limitedQuizes
                   .map((quiz) => favorites.contains(quiz.text))
                   .toList();
-                print(isFavorites);
+              print(isFavorites);
               return Future.value(QuizGetAllResponse(
                   quizes: limitedQuizes,
                   answers: answers,
@@ -43,6 +44,7 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
             case QuizTopicType.greet:
               var shuffledQuizzes =
                   List<Quiz>.from(AppQuizData.korianBiginnerGreets)..shuffle();
+
               var limitedQuizzes =
                   shuffledQuizzes.take(request.questionCount).toList();
               List<String> answers = limitedQuizzes.map((quiz) {
@@ -59,6 +61,31 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
                   quizes: limitedQuizzes,
                   answers: answers,
                   isFavorites: isFavorites));
+
+            ///
+            case QuizTopicType.favorite:
+              var favoriteWords = await QuizFavoriteSql.getAllWords(
+                  "word", request.appInstallType.name);
+              var favoriteGreets = await QuizFavoriteSql.getAllWords(
+                  "greet", request.appInstallType.name);
+              var favorites = favoriteWords + favoriteGreets;
+
+              var Quizzes = List<Quiz>.from(AppQuizData.korianBiginnerQuizes);
+
+              // shuffleQuizeから お気に入りのみを取り出す
+              var limitedQuizes =
+                  Quizzes.where((quiz) => favorites.contains(quiz.text))
+                      .take(request.questionCount)
+                      .toList()..shuffle();
+              List<String> answers = limitedQuizes.map((quiz) {
+                return quiz.options
+                    .firstWhere((option) => option.isCorrect)
+                    .text;
+              }).toList();
+              return Future.value(QuizGetAllResponse(
+                  quizes: limitedQuizes,
+                  answers: answers,
+                  isFavorites: List<bool>.filled(limitedQuizes.length, true)));
 
             default:
               return Future.value(QuizGetAllResponse(

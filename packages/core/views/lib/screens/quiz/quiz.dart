@@ -1,6 +1,7 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_model/api/quiz_get_all/topic_param.dart';
 import 'package:core_model/model.dart';
+import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
 import 'package:core_views/views.dart';
@@ -17,7 +18,7 @@ final QuizGetProvider =
     return QuizViewmodel(
       QuizState(
         quizs: [],
-        answers: [],
+        answers: [""],
         isFavorites: [],
         controller: PageController(),
       ),
@@ -64,6 +65,9 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext screenContext) {
     return Consumer(builder: (context, ref, child) {
+      List<Quiz> quizes = ref.watch(QuizGetProvider).quizs;
+      List<String> answers = ref.watch(QuizGetProvider).answers;
+
       return AppBaseFrame(
           screenContext: screenContext,
           hasPrevButton: true,
@@ -74,14 +78,20 @@ class QuizPage extends StatelessWidget {
             init(context, ref);
           },
           body: Column(
-            children: [Expanded(child: _page())],
+            children: [
+              Expanded(
+                  child: answers.first == ""
+                      ? Container()
+                      : quizes.isEmpty
+                          ? _empty()
+                          : _page(quizes, answers))
+            ],
           ));
     });
   }
 
-  Widget _page() {
+  Widget _page(List<Quiz> quizes, List<String> answers) {
     return Consumer(builder: (context, ref, child) {
-      List<Quiz> quizes = ref.watch(QuizGetProvider).quizs;
       return PageView.builder(
         itemCount: quizes.length,
         physics: NeverScrollableScrollPhysics(),
@@ -90,7 +100,7 @@ class QuizPage extends StatelessWidget {
           Quiz quiz = quizes[index];
           return AppQuizPageView(
             quizes: quizes,
-            answers: ref.read(QuizGetProvider).answers,
+            answers: answers,
             isFavorites: ref.read(QuizGetProvider).isFavorites,
             scores: ref.read(QuizGetProvider).scores,
             isFinished: ref.read(QuizGetProvider).isFinished,
@@ -109,5 +119,12 @@ class QuizPage extends StatelessWidget {
         },
       );
     });
+  }
+
+  Widget _empty() {
+    return const TileEmptyText(
+      header: 'お気に入りは登録されていません。問題を解いて登録しましょう！',
+      detail: '',
+    );
   }
 }
