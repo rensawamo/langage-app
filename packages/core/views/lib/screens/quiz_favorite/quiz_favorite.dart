@@ -156,7 +156,7 @@ class QuizFavorite extends StatelessWidget {
       return Center(
           child: Container(
         width: context.mediaQueryWidth * 0.95,
-        height: context.mediaQueryHeight * 0.75,
+        height: context.mediaQueryHeight * 0.65,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
           child: Table(
