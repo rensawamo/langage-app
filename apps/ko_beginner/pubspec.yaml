@@ -39,6 +39,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
+    - ./assets/images/ko_national_flag.png
   uses-material-design: true
 
 
@@ -46,6 +47,5 @@ flutter_icons:
   android: true
   ios: true
   assets:
-    - ./assets/images/
     - ./assets/launcher_icons/dev.png
-    - ./assets/launcher_icons/stg.png
+    - ./assets/launcher_icons/prd.png

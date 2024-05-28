@@ -172,7 +172,7 @@ class AppQuizData {
         Option(text: "さようなら", isCorrect: false),
         Option(text: "ありがとうございます", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),
-        Option(text: "久しぶり", isCorrect: true),
+        Option(text: "久しぶりです", isCorrect: true),
       ],
     ),
     Quiz(
@@ -452,7 +452,7 @@ class AppQuizData {
     Quiz(
       text: "음식",
       options: [
-        Option(text: "飲み物", isCorrect: false),
+        Option(text: "調味", isCorrect: false),
         Option(text: "料理", isCorrect: false),
         Option(text: "野菜", isCorrect: false),
         Option(text: "食べ物", isCorrect: true),
@@ -549,10 +549,10 @@ class AppQuizData {
       ],
     ),
     Quiz(
-      text: "차",
+      text: "자전거",
       options: [
-        Option(text: "車", isCorrect: true),
-        Option(text: "自転車", isCorrect: false),
+        Option(text: "車", isCorrect: false),
+        Option(text: "自転車", isCorrect: true),
         Option(text: "バス", isCorrect: false),
         Option(text: "電車", isCorrect: false),
       ],
@@ -570,9 +570,9 @@ class AppQuizData {
       text: "눈",
       options: [
         Option(text: "雪", isCorrect: true),
-        Option(text: "目", isCorrect: false),
-        Option(text: "鼻", isCorrect: false),
-        Option(text: "口", isCorrect: false),
+        Option(text: "花", isCorrect: false),
+        Option(text: "氷", isCorrect: false),
+        Option(text: "水", isCorrect: false),
       ],
     ),
     Quiz(
@@ -633,7 +633,7 @@ class AppQuizData {
       text: "펜",
       options: [
         Option(text: "ペン", isCorrect: true),
-        Option(text: "鉛筆", isCorrect: false),
+        Option(text: "下敷き", isCorrect: false),
         Option(text: "消しゴム", isCorrect: false),
         Option(text: "定規", isCorrect: false),
       ],
@@ -732,7 +732,7 @@ class AppQuizData {
       text: "소리",
       options: [
         Option(text: "音", isCorrect: true),
-        Option(text: "声", isCorrect: false),
+        Option(text: "におい", isCorrect: false),
         Option(text: "歌", isCorrect: false),
         Option(text: "音楽", isCorrect: false),
       ],
@@ -758,8 +758,8 @@ class AppQuizData {
     Quiz(
       text: "강아지",
       options: [
-        Option(text: "犬", isCorrect: true),
         Option(text: "猫", isCorrect: false),
+        Option(text: "子犬", isCorrect: true),
         Option(text: "鳥", isCorrect: false),
         Option(text: "魚", isCorrect: false),
       ],
@@ -818,15 +818,7 @@ class AppQuizData {
         Option(text: "テーブル", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "꿈",
-      options: [
-        Option(text: "希望", isCorrect: false),
-        Option(text: "目標", isCorrect: false),
-        Option(text: "理想", isCorrect: false),
-        Option(text: "夢", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "자동차",
       options: [
@@ -849,7 +841,7 @@ class AppQuizData {
       text: "실수",
       options: [
         Option(text: "成功", isCorrect: false),
-        Option(text: "失敗", isCorrect: false),
+        Option(text: "リトライ", isCorrect: false),
         Option(text: "試み", isCorrect: false),
         Option(text: "間違い", isCorrect: true),
       ],
@@ -868,7 +860,7 @@ class AppQuizData {
       options: [
         Option(text: "思い出", isCorrect: true),
         Option(text: "未来", isCorrect: false),
-        Option(text: "過去", isCorrect: false),
+        Option(text: "出来事", isCorrect: false),
         Option(text: "現在", isCorrect: false),
       ],
     ),
@@ -1002,9 +994,9 @@ class AppQuizData {
       text: "가격",
       options: [
         Option(text: "価格", isCorrect: true),
-        Option(text: "料金", isCorrect: false),
+        Option(text: "負担", isCorrect: false),
         Option(text: "費用", isCorrect: false),
-        Option(text: "値段", isCorrect: false),
+        Option(text: "コスト", isCorrect: false),
       ],
     ),
     Quiz(
@@ -1037,18 +1029,18 @@ class AppQuizData {
     Quiz(
       text: "방학",
       options: [
-        Option(text: "長期休暇", isCorrect: true),
         Option(text: "冬休み", isCorrect: false),
         Option(text: "春休み", isCorrect: false),
         Option(text: "欠席", isCorrect: false),
+        Option(text: "長期休暇", isCorrect: true),
       ],
     ),
     Quiz(
       text: "여름",
       options: [
-        Option(text: "夏", isCorrect: true),
         Option(text: "冬", isCorrect: false),
         Option(text: "春", isCorrect: false),
+        Option(text: "夏", isCorrect: true),
         Option(text: "秋", isCorrect: false),
       ],
     ),
@@ -1118,7 +1110,7 @@ class AppQuizData {
     Quiz(
       text: "음악",
       options: [
-        Option(text: "歌", isCorrect: false),
+        Option(text: "歌唱", isCorrect: false),
         Option(text: "楽器", isCorrect: false),
         Option(text: "音楽", isCorrect: true),
         Option(text: "演奏", isCorrect: false),
@@ -1138,8 +1130,8 @@ class AppQuizData {
       options: [
         Option(text: "手段", isCorrect: false),
         Option(text: "方法", isCorrect: true),
-        Option(text: "手法", isCorrect: false),
-        Option(text: "やり方", isCorrect: false),
+        Option(text: "往復", isCorrect: false),
+        Option(text: "助け", isCorrect: false),
       ],
     ),
     Quiz(
@@ -1172,7 +1164,7 @@ class AppQuizData {
     Quiz(
       text: "배우",
       options: [
-        Option(text: "女優", isCorrect: false),
+        Option(text: "演歌歌手", isCorrect: false),
         Option(text: "歌手", isCorrect: false),
         Option(text: "俳優", isCorrect: true),
         Option(text: "ダンサー", isCorrect: false),
@@ -1218,7 +1210,7 @@ class AppQuizData {
       text: "선물",
       options: [
         Option(text: "作物", isCorrect: false),
-        Option(text: "贈り与える", isCorrect: false),
+        Option(text: "お中元", isCorrect: false),
         Option(text: "おもちゃ", isCorrect: false),
         Option(text: "プレゼント", isCorrect: true),
       ],
@@ -1244,10 +1236,10 @@ class AppQuizData {
     Quiz(
       text: "신발",
       options: [
-        Option(text: "サンダル", isCorrect: false),
-        Option(text: "スニーカー", isCorrect: false),
+        Option(text: "帽子", isCorrect: false),
+        Option(text: "服", isCorrect: false),
         Option(text: "靴", isCorrect: true),
-        Option(text: "ブーツ", isCorrect: false),
+        Option(text: "ズボン", isCorrect: false),
       ],
     ),
     Quiz(
@@ -1385,15 +1377,7 @@ class AppQuizData {
         Option(text: "風邪", isCorrect: true),
       ],
     ),
-    Quiz(
-      text: "자전거",
-      options: [
-        Option(text: "車", isCorrect: false),
-        Option(text: "バイク", isCorrect: false),
-        Option(text: "トラック", isCorrect: false),
-        Option(text: "自転車", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "주스",
       options: [
@@ -1415,8 +1399,8 @@ class AppQuizData {
     Quiz(
       text: "미용실",
       options: [
-        Option(text: "美容院", isCorrect: true),
-        Option(text: "理髪店", isCorrect: false),
+        Option(text: "美容室", isCorrect: true),
+        Option(text: "病院", isCorrect: false),
         Option(text: "エステ", isCorrect: false),
         Option(text: "マッサージ", isCorrect: false),
       ],
@@ -1523,10 +1507,10 @@ class AppQuizData {
     Quiz(
       text: "직업",
       options: [
-        Option(text: "仕事", isCorrect: true),
+        Option(text: "職業", isCorrect: true),
         Option(text: "学生", isCorrect: false),
-        Option(text: "教師", isCorrect: false),
-        Option(text: "医者", isCorrect: false),
+        Option(text: "職員", isCorrect: false),
+        Option(text: "作業", isCorrect: false),
       ],
     ),
     Quiz(
@@ -1547,15 +1531,7 @@ class AppQuizData {
         Option(text: "娘", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "어머니",
-      options: [
-        Option(text: "父", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "娘", isCorrect: false),
-        Option(text: "母", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "언니",
       options: [
@@ -1579,8 +1555,8 @@ class AppQuizData {
       options: [
         Option(text: "兄", isCorrect: true),
         Option(text: "弟", isCorrect: false),
-        Option(text: "お兄さん", isCorrect: false),
-        Option(text: "おとうとさん", isCorrect: false),
+        Option(text: "兄弟", isCorrect: false),
+        Option(text: "友達", isCorrect: false),
       ],
     ),
     Quiz(
@@ -1588,15 +1564,15 @@ class AppQuizData {
       options: [
         Option(text: "兄", isCorrect: true),
         Option(text: "弟", isCorrect: false),
-        Option(text: "お兄さん", isCorrect: false),
-        Option(text: "おとうとさん", isCorrect: false),
+        Option(text: "兄弟", isCorrect: false),
+        Option(text: "友達", isCorrect: false),
       ],
     ),
     Quiz(
       text: "누이",
       options: [
-        Option(text: "妹", isCorrect: true),
-        Option(text: "姉", isCorrect: false),
+        Option(text: "兄、弟", isCorrect: false),
+        Option(text: "姉、妹", isCorrect: true),
         Option(text: "おばさん", isCorrect: false),
         Option(text: "おじさん", isCorrect: false),
       ],
@@ -1604,9 +1580,9 @@ class AppQuizData {
     Quiz(
       text: "동생",
       options: [
-        Option(text: "姉", isCorrect: false),
+        Option(text: "兄、姉", isCorrect: false),
         Option(text: "おばさん", isCorrect: false),
-        Option(text: "妹", isCorrect: true),
+        Option(text: "弟、妹", isCorrect: true),
         Option(text: "おじさん", isCorrect: false),
       ],
     ),
@@ -1631,10 +1607,10 @@ class AppQuizData {
     Quiz(
       text: "부부",
       options: [
-        Option(text: "夫婦", isCorrect: true),
         Option(text: "恋人", isCorrect: false),
         Option(text: "友達", isCorrect: false),
         Option(text: "家族", isCorrect: false),
+        Option(text: "夫婦", isCorrect: true),
       ],
     ),
     Quiz(
@@ -1709,15 +1685,7 @@ class AppQuizData {
         Option(text: "青年", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "눈물",
-      options: [
-        Option(text: "血", isCorrect: false),
-        Option(text: "汗", isCorrect: false),
-        Option(text: "涙", isCorrect: true),
-        Option(text: "唾液", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "웃음",
       options: [
@@ -1766,10 +1734,10 @@ class AppQuizData {
     Quiz(
       text: "진실",
       options: [
-        Option(text: "真相", isCorrect: false),
+        Option(text: "未来", isCorrect: false),
         Option(text: "現実", isCorrect: false),
         Option(text: "真実", isCorrect: true),
-        Option(text: "真理", isCorrect: false),
+        Option(text: "信仰", isCorrect: false),
       ],
     ),
     Quiz(
@@ -1777,7 +1745,7 @@ class AppQuizData {
       options: [
         Option(text: "感謝", isCorrect: true),
         Option(text: "謝罪", isCorrect: false),
-        Option(text: "謝辞", isCorrect: false),
+        Option(text: "社交", isCorrect: false),
         Option(text: "許し", isCorrect: false),
       ],
     ),
@@ -1795,7 +1763,7 @@ class AppQuizData {
       options: [
         Option(text: "来日", isCorrect: false),
         Option(text: "出かける", isCorrect: false),
-        Option(text: "訪ねる", isCorrect: false),
+        Option(text: "部屋", isCorrect: false),
         Option(text: "訪問", isCorrect: true),
       ],
     ),
@@ -1835,16 +1803,7 @@ class AppQuizData {
         Option(text: "眠気", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "소리",
-      options: [
-        Option(text: "音楽", isCorrect: false),
-        Option(text: "音響", isCorrect: false),
-        Option(text: "匂い", isCorrect: false),
-        Option(text: "音", isCorrect: true),
-      ],
-    ),
-    Quiz(
+     Quiz(
       text: "잡지",
       options: [
         Option(text: "新聞", isCorrect: false),
@@ -1979,15 +1938,7 @@ class AppQuizData {
         Option(text: "左", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "아래",
-      options: [
-        Option(text: "下", isCorrect: true),
-        Option(text: "上", isCorrect: false),
-        Option(text: "左", isCorrect: false),
-        Option(text: "右", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "손목",
       options: [
@@ -2000,9 +1951,9 @@ class AppQuizData {
     Quiz(
       text: "콩나물",
       options: [
-        Option(text: "もやし", isCorrect: true),
         Option(text: "ほうれん草", isCorrect: false),
         Option(text: "レタス", isCorrect: false),
+        Option(text: "もやし", isCorrect: true),
         Option(text: "キャベツ", isCorrect: false),
       ],
     ),
@@ -2073,9 +2024,9 @@ class AppQuizData {
       text: "사탕",
       options: [
         Option(text: "キャンディ", isCorrect: true),
-        Option(text: "塩", isCorrect: false),
-        Option(text: "醤油", isCorrect: false),
-        Option(text: "味噌", isCorrect: false),
+        Option(text: "ガム", isCorrect: false),
+        Option(text: "駄菓子", isCorrect: false),
+        Option(text: "レモン", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2109,7 +2060,7 @@ class AppQuizData {
       text: "돈가스",
       options: [
         Option(text: "トンカツ", isCorrect: true),
-        Option(text: "カツレツ", isCorrect: false),
+        Option(text: "ご飯", isCorrect: false),
         Option(text: "カレーライス", isCorrect: false),
         Option(text: "ラーメン", isCorrect: false),
       ],
@@ -2180,10 +2131,10 @@ class AppQuizData {
     Quiz(
       text: "낮",
       options: [
-        Option(text: "昼", isCorrect: true),
         Option(text: "夜", isCorrect: false),
         Option(text: "朝", isCorrect: false),
         Option(text: "午後", isCorrect: false),
+        Option(text: "昼", isCorrect: true),
       ],
     ),
     Quiz(
@@ -2198,8 +2149,8 @@ class AppQuizData {
     Quiz(
       text: "오후",
       options: [
-        Option(text: "午後", isCorrect: true),
         Option(text: "夜", isCorrect: false),
+        Option(text: "午後", isCorrect: true),
         Option(text: "昼", isCorrect: false),
         Option(text: "朝", isCorrect: false),
       ],
@@ -2250,20 +2201,21 @@ class AppQuizData {
       ],
     ),
     Quiz(
-      text: "길이",
+      text: "높이",
       options: [
-        Option(text: "長さ", isCorrect: true),
-        Option(text: "広さ", isCorrect: false),
-        Option(text: "高さ", isCorrect: false),
-        Option(text: "厚み", isCorrect: false),
+        Option(text: "高く", isCorrect: true),
+        Option(text: "幅", isCorrect: false),
+        Option(text: "長く", isCorrect: false),
+        Option(text: "太く", isCorrect: false),
       ],
     ),
+
     Quiz(
       text: "양쪽",
       options: [
         Option(text: "両側", isCorrect: true),
-        Option(text: "左右", isCorrect: false),
-        Option(text: "右左", isCorrect: false),
+        Option(text: "片側", isCorrect: false),
+        Option(text: "右側", isCorrect: false),
         Option(text: "側面", isCorrect: false),
       ],
     ),
@@ -2288,17 +2240,17 @@ class AppQuizData {
     Quiz(
       text: "효과",
       options: [
+        Option(text: "効率", isCorrect: false),
         Option(text: "効果", isCorrect: true),
-        Option(text: "影", isCorrect: false),
-        Option(text: "影像", isCorrect: false),
-        Option(text: "印象", isCorrect: false),
+        Option(text: "評価", isCorrect: false),
+        Option(text: "評論", isCorrect: false),
       ],
     ),
     Quiz(
       text: "인상",
       options: [
-        Option(text: "印象", isCorrect: true),
-        Option(text: "影", isCorrect: false),
+        Option(text: "人相", isCorrect: true),
+        Option(text: "人物", isCorrect: false),
         Option(text: "影響", isCorrect: false),
         Option(text: "影像", isCorrect: false),
       ],
@@ -2315,7 +2267,7 @@ class AppQuizData {
     Quiz(
       text: "좌석",
       options: [
-        Option(text: "自分", isCorrect: false),
+        Option(text: "順", isCorrect: false),
         Option(text: "居酒屋", isCorrect: false),
         Option(text: "座席", isCorrect: true),
         Option(text: "自身", isCorrect: false),
@@ -2342,37 +2294,37 @@ class AppQuizData {
     Quiz(
       text: "드라마",
       options: [
-        Option(text: "ドラマ", isCorrect: true),
         Option(text: "映画", isCorrect: false),
         Option(text: "漫画", isCorrect: false),
+        Option(text: "ドラマ", isCorrect: true),
         Option(text: "小説", isCorrect: false),
       ],
     ),
     Quiz(
       text: "대회",
       options: [
-        Option(text: "大会", isCorrect: true),
         Option(text: "競争", isCorrect: false),
         Option(text: "試合", isCorrect: false),
         Option(text: "競技", isCorrect: false),
+        Option(text: "大会", isCorrect: true),
       ],
     ),
     Quiz(
       text: "경쟁",
       options: [
-        Option(text: "競争", isCorrect: true),
         Option(text: "大会", isCorrect: false),
         Option(text: "試合", isCorrect: false),
+        Option(text: "競争", isCorrect: true),
         Option(text: "競技", isCorrect: false),
       ],
     ),
     Quiz(
       text: "경기",
       options: [
-        Option(text: "試合", isCorrect: true),
+        Option(text: "競技", isCorrect: true),
         Option(text: "大会", isCorrect: false),
         Option(text: "戦争", isCorrect: false),
-        Option(text: "競争", isCorrect: false),
+        Option(text: "協定", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2387,9 +2339,9 @@ class AppQuizData {
     Quiz(
       text: "전쟁",
       options: [
-        Option(text: "戦争", isCorrect: true),
         Option(text: "戦闘", isCorrect: false),
         Option(text: "軍隊", isCorrect: false),
+        Option(text: "戦争", isCorrect: true),
         Option(text: "攻撃", isCorrect: false),
       ],
     ),
@@ -2397,7 +2349,7 @@ class AppQuizData {
       text: "전투",
       options: [
         Option(text: "戦闘", isCorrect: true),
-        Option(text: "戦争", isCorrect: false),
+        Option(text: "船体", isCorrect: false),
         Option(text: "軍隊", isCorrect: false),
         Option(text: "攻撃", isCorrect: false),
       ],
@@ -2405,9 +2357,9 @@ class AppQuizData {
     Quiz(
       text: "군대",
       options: [
-        Option(text: "軍隊", isCorrect: true),
         Option(text: "戦争", isCorrect: false),
         Option(text: "戦闘", isCorrect: false),
+        Option(text: "軍隊", isCorrect: true),
         Option(text: "攻撃", isCorrect: false),
       ],
     ),
@@ -2423,10 +2375,10 @@ class AppQuizData {
     Quiz(
       text: "요금",
       options: [
+        Option(text: "相場", isCorrect: false),
+        Option(text: "出費", isCorrect: false),
+        Option(text: "破格", isCorrect: false),
         Option(text: "料金", isCorrect: true),
-        Option(text: "価格", isCorrect: false),
-        Option(text: "費用", isCorrect: false),
-        Option(text: "値段", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2441,10 +2393,10 @@ class AppQuizData {
     Quiz(
       text: "값",
       options: [
-        Option(text: "値段", isCorrect: true),
+        Option(text: "値", isCorrect: true),
         Option(text: "金", isCorrect: false),
         Option(text: "借金", isCorrect: false),
-        Option(text: "費用", isCorrect: false),
+        Option(text: "値引き", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2468,8 +2420,8 @@ class AppQuizData {
     Quiz(
       text: "우정",
       options: [
-        Option(text: "友情", isCorrect: true),
         Option(text: "愛", isCorrect: false),
+        Option(text: "友情", isCorrect: true),
         Option(text: "仲間", isCorrect: false),
         Option(text: "家族", isCorrect: false),
       ],
@@ -2477,10 +2429,10 @@ class AppQuizData {
     Quiz(
       text: "가족",
       options: [
-        Option(text: "家族", isCorrect: true),
         Option(text: "友達", isCorrect: false),
         Option(text: "仲間", isCorrect: false),
         Option(text: "恋人", isCorrect: false),
+        Option(text: "家族", isCorrect: true),
       ],
     ),
     Quiz(
@@ -2495,9 +2447,9 @@ class AppQuizData {
     Quiz(
       text: "손을 잡다",
       options: [
-        Option(text: "手をつなぐ", isCorrect: true),
         Option(text: "手をあげる", isCorrect: false),
         Option(text: "抱擁", isCorrect: false),
+        Option(text: "手をつなぐ", isCorrect: true),
         Option(text: "握手", isCorrect: false),
       ],
     ),
@@ -2595,7 +2547,7 @@ class AppQuizData {
       text: "회의실",
       options: [
         Option(text: "教室", isCorrect: false),
-        Option(text: "教師室", isCorrect: false),
+        Option(text: "職員室", isCorrect: false),
         Option(text: "会議室", isCorrect: true),
         Option(text: "事務所", isCorrect: false),
       ],
@@ -2790,20 +2742,29 @@ class AppQuizData {
       ],
     ),
     Quiz(
-      text: "큰",
+      text: "크다",
       options: [
-        Option(text: "本当", isCorrect: false),
-        Option(text: "真", isCorrect: false),
+        Option(text: "小さい", isCorrect: false),
+        Option(text: "細い", isCorrect: false),
         Option(text: "大きい", isCorrect: true),
-        Option(text: "偽", isCorrect: false),
+        Option(text: "太い", isCorrect: false),
+      ],
+    ),
+     Quiz(
+      text: "작다",
+      options: [
+        Option(text: "小さい", isCorrect: true),
+        Option(text: "細い", isCorrect: false),
+        Option(text: "大きい", isCorrect: false),
+        Option(text: "太い", isCorrect: false),
       ],
     ),
     Quiz(
       text: "거짓",
       options: [
         Option(text: "真実", isCorrect: false),
-        Option(text: "真", isCorrect: false),
-        Option(text: "大きい", isCorrect: false),
+        Option(text: "正しい", isCorrect: false),
+        Option(text: "間違い", isCorrect: false),
         Option(text: "偽", isCorrect: true),
       ],
     ),
@@ -2880,6 +2841,15 @@ class AppQuizData {
       ],
     ),
     Quiz(
+      text: "바늘",
+      options: [
+        Option(text: "眼鏡", isCorrect: false),
+        Option(text: "時計", isCorrect: false),
+        Option(text: "針", isCorrect: true),
+        Option(text: "イヤリング", isCorrect: false),
+      ],
+    ),
+    Quiz(
       text: "귀걸이",
       options: [
         Option(text: "眼鏡", isCorrect: false),
@@ -2898,20 +2868,20 @@ class AppQuizData {
       ],
     ),
     Quiz(
-      text: "아름다운",
+      text: "아름답다",
       options: [
         Option(text: "美しい", isCorrect: true),
         Option(text: "かわいい", isCorrect: false),
-        Option(text: "綺麗", isCorrect: false),
+        Option(text: "かっこいい", isCorrect: false),
         Option(text: "美味しい", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "예뻐요",
+      text: "예뻐다",
       options: [
         Option(text: "かわいい", isCorrect: true),
-        Option(text: "美しい", isCorrect: false),
-        Option(text: "綺麗", isCorrect: false),
+        Option(text: "かっこいい", isCorrect: false),
+        Option(text: "かしこい", isCorrect: false),
         Option(text: "美味しい", isCorrect: false),
       ],
     ),

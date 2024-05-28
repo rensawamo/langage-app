@@ -145,7 +145,7 @@ class AppColors {
           case ThemeMode.light:
             return Color.fromARGB(255, 220, 147, 104);
           case ThemeMode.dark:
-            return Color.fromARGB(255, 220, 147, 104);
+            return Color(0xff808080);
 
           case ThemeMode.system:
             return const Color(0xffEDA276);

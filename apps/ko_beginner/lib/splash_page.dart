@@ -37,7 +37,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     super.initState();
 
     // 2秒後に実行される処理
-    Future.delayed(const Duration(seconds: 0), () {
+    Future.delayed(const Duration(seconds: 2), () {
       // contextが利用可能になった後でref.watchを呼び出す
       ref
           .watch(settingProvider.notifier)
@@ -63,11 +63,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
               ),
-              child: Image.asset('assets/images/ko-biginner.png'),
-            ),
-            const Text(
-              'Life Mind',
-              // style: AppText.launch,
+              child: Image.asset('assets/images/ko_national_flag.png'),
             ),
           ],
         ),
