@@ -2,6 +2,7 @@ import 'package:core_enums/enums.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite.dart';
 import 'package:core_views/screens/setting/setting.dart';
 import 'package:core_views/screens/topic/topic.dart';
+import 'package:core_views/screens/wordlist/word_list.dart';
 import 'package:core_views/utility/app_color_set.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,6 +21,10 @@ class _MyAppState extends State<HomePage> {
 
   final List<dynamic> pages = <dynamic>[
     TopicPage(),
+    WordList(dropDownMenu: {
+      '単語': QuizTopicType.word,
+      '挨拶': QuizTopicType.greet,
+    }),
     QuizFavorite(dropDownMenu: {
       '単語': QuizTopicType.word,
       '挨拶': QuizTopicType.greet,
@@ -50,22 +55,28 @@ class _MyAppState extends State<HomePage> {
       return Scaffold(
         body: pages[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             unselectedItemColor: _defaultColor.color(widget.mode),
             selectedItemColor: _defaultColor.color(widget.mode),
             backgroundColor: _appberColor.color(widget.mode),
             items: <BottomNavigationBarItem>[
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.book,
+                  Icons.list,
                 ),
+                label: '単語一覧',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.question_answer),
                 label: '問題',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.star),
                 label: 'お気に入り',
               ),
-              const BottomNavigationBarItem(
+              // 新しいBottomNavigationBarItemを追加
+              BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
                 label: '設定',
               ),

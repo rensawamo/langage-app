@@ -19,6 +19,7 @@ Map<String, dynamic> _$$TopicParamImplToJson(_$TopicParamImpl instance) =>
     };
 
 const _$QuizTopicTypeEnumMap = {
+  QuizTopicType.favorite: 'favorite',
   QuizTopicType.word: 'word',
   QuizTopicType.greet: 'greet',
   QuizTopicType.proverb: 'proverb',

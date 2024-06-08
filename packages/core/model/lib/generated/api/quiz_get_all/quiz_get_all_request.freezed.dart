@@ -21,7 +21,6 @@ QuizGetAllRequest _$QuizGetAllRequestFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QuizGetAllRequest {
 // 使用中のアプリのタイプ
-  AppInstallType get appInstallType => throw _privateConstructorUsedError;
   int get questionCount => throw _privateConstructorUsedError;
   QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
 
@@ -37,10 +36,7 @@ abstract class $QuizGetAllRequestCopyWith<$Res> {
           QuizGetAllRequest value, $Res Function(QuizGetAllRequest) then) =
       _$QuizGetAllRequestCopyWithImpl<$Res, QuizGetAllRequest>;
   @useResult
-  $Res call(
-      {AppInstallType appInstallType,
-      int questionCount,
-      QuizTopicType quizTopicType});
+  $Res call({int questionCount, QuizTopicType quizTopicType});
 }
 
 /// @nodoc
@@ -56,15 +52,10 @@ class _$QuizGetAllRequestCopyWithImpl<$Res, $Val extends QuizGetAllRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appInstallType = null,
     Object? questionCount = null,
     Object? quizTopicType = null,
   }) {
     return _then(_value.copyWith(
-      appInstallType: null == appInstallType
-          ? _value.appInstallType
-          : appInstallType // ignore: cast_nullable_to_non_nullable
-              as AppInstallType,
       questionCount: null == questionCount
           ? _value.questionCount
           : questionCount // ignore: cast_nullable_to_non_nullable
@@ -85,10 +76,7 @@ abstract class _$$QuizGetAllRequestImplCopyWith<$Res>
       __$$QuizGetAllRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AppInstallType appInstallType,
-      int questionCount,
-      QuizTopicType quizTopicType});
+  $Res call({int questionCount, QuizTopicType quizTopicType});
 }
 
 /// @nodoc
@@ -102,15 +90,10 @@ class __$$QuizGetAllRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appInstallType = null,
     Object? questionCount = null,
     Object? quizTopicType = null,
   }) {
     return _then(_$QuizGetAllRequestImpl(
-      appInstallType: null == appInstallType
-          ? _value.appInstallType
-          : appInstallType // ignore: cast_nullable_to_non_nullable
-              as AppInstallType,
       questionCount: null == questionCount
           ? _value.questionCount
           : questionCount // ignore: cast_nullable_to_non_nullable
@@ -128,16 +111,12 @@ class __$$QuizGetAllRequestImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
   const _$QuizGetAllRequestImpl(
-      {required this.appInstallType,
-      required this.questionCount,
-      required this.quizTopicType});
+      {required this.questionCount, required this.quizTopicType});
 
   factory _$QuizGetAllRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizGetAllRequestImplFromJson(json);
 
 // 使用中のアプリのタイプ
-  @override
-  final AppInstallType appInstallType;
   @override
   final int questionCount;
   @override
@@ -145,7 +124,7 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
 
   @override
   String toString() {
-    return 'QuizGetAllRequest(appInstallType: $appInstallType, questionCount: $questionCount, quizTopicType: $quizTopicType)';
+    return 'QuizGetAllRequest(questionCount: $questionCount, quizTopicType: $quizTopicType)';
   }
 
   @override
@@ -153,8 +132,6 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuizGetAllRequestImpl &&
-            (identical(other.appInstallType, appInstallType) ||
-                other.appInstallType == appInstallType) &&
             (identical(other.questionCount, questionCount) ||
                 other.questionCount == questionCount) &&
             (identical(other.quizTopicType, quizTopicType) ||
@@ -163,8 +140,7 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, appInstallType, questionCount, quizTopicType);
+  int get hashCode => Object.hash(runtimeType, questionCount, quizTopicType);
 
   @JsonKey(ignore: true)
   @override
@@ -183,16 +159,13 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
 
 abstract class _QuizGetAllRequest implements QuizGetAllRequest {
   const factory _QuizGetAllRequest(
-      {required final AppInstallType appInstallType,
-      required final int questionCount,
+      {required final int questionCount,
       required final QuizTopicType quizTopicType}) = _$QuizGetAllRequestImpl;
 
   factory _QuizGetAllRequest.fromJson(Map<String, dynamic> json) =
       _$QuizGetAllRequestImpl.fromJson;
 
   @override // 使用中のアプリのタイプ
-  AppInstallType get appInstallType;
-  @override
   int get questionCount;
   @override
   QuizTopicType get quizTopicType;

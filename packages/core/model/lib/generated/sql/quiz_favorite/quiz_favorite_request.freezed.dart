@@ -20,9 +20,7 @@ QuizFavoriteRequest _$QuizFavoriteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuizFavoriteRequest {
-// 使用中のアプリのタイプ
-  AppInstallType get appInstallType =>
-      throw _privateConstructorUsedError; // トピックのタイプ
+// トピックのタイプ
   QuizTopicType get quizTopicType =>
       throw _privateConstructorUsedError; // 取得数固定
   int get pageSize => throw _privateConstructorUsedError;
@@ -39,10 +37,7 @@ abstract class $QuizFavoriteRequestCopyWith<$Res> {
           QuizFavoriteRequest value, $Res Function(QuizFavoriteRequest) then) =
       _$QuizFavoriteRequestCopyWithImpl<$Res, QuizFavoriteRequest>;
   @useResult
-  $Res call(
-      {AppInstallType appInstallType,
-      QuizTopicType quizTopicType,
-      int pageSize});
+  $Res call({QuizTopicType quizTopicType, int pageSize});
 }
 
 /// @nodoc
@@ -58,15 +53,10 @@ class _$QuizFavoriteRequestCopyWithImpl<$Res, $Val extends QuizFavoriteRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appInstallType = null,
     Object? quizTopicType = null,
     Object? pageSize = null,
   }) {
     return _then(_value.copyWith(
-      appInstallType: null == appInstallType
-          ? _value.appInstallType
-          : appInstallType // ignore: cast_nullable_to_non_nullable
-              as AppInstallType,
       quizTopicType: null == quizTopicType
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
@@ -87,10 +77,7 @@ abstract class _$$QuizFavoriteRequestImplCopyWith<$Res>
       __$$QuizFavoriteRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AppInstallType appInstallType,
-      QuizTopicType quizTopicType,
-      int pageSize});
+  $Res call({QuizTopicType quizTopicType, int pageSize});
 }
 
 /// @nodoc
@@ -104,15 +91,10 @@ class __$$QuizFavoriteRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appInstallType = null,
     Object? quizTopicType = null,
     Object? pageSize = null,
   }) {
     return _then(_$QuizFavoriteRequestImpl(
-      appInstallType: null == appInstallType
-          ? _value.appInstallType
-          : appInstallType // ignore: cast_nullable_to_non_nullable
-              as AppInstallType,
       quizTopicType: null == quizTopicType
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
@@ -130,16 +112,11 @@ class __$$QuizFavoriteRequestImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
   const _$QuizFavoriteRequestImpl(
-      {required this.appInstallType,
-      required this.quizTopicType,
-      required this.pageSize});
+      {required this.quizTopicType, required this.pageSize});
 
   factory _$QuizFavoriteRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizFavoriteRequestImplFromJson(json);
 
-// 使用中のアプリのタイプ
-  @override
-  final AppInstallType appInstallType;
 // トピックのタイプ
   @override
   final QuizTopicType quizTopicType;
@@ -149,7 +126,7 @@ class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
 
   @override
   String toString() {
-    return 'QuizFavoriteRequest(appInstallType: $appInstallType, quizTopicType: $quizTopicType, pageSize: $pageSize)';
+    return 'QuizFavoriteRequest(quizTopicType: $quizTopicType, pageSize: $pageSize)';
   }
 
   @override
@@ -157,8 +134,6 @@ class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuizFavoriteRequestImpl &&
-            (identical(other.appInstallType, appInstallType) ||
-                other.appInstallType == appInstallType) &&
             (identical(other.quizTopicType, quizTopicType) ||
                 other.quizTopicType == quizTopicType) &&
             (identical(other.pageSize, pageSize) ||
@@ -167,8 +142,7 @@ class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, appInstallType, quizTopicType, pageSize);
+  int get hashCode => Object.hash(runtimeType, quizTopicType, pageSize);
 
   @JsonKey(ignore: true)
   @override
@@ -187,15 +161,12 @@ class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
 
 abstract class _QuizFavoriteRequest implements QuizFavoriteRequest {
   const factory _QuizFavoriteRequest(
-      {required final AppInstallType appInstallType,
-      required final QuizTopicType quizTopicType,
+      {required final QuizTopicType quizTopicType,
       required final int pageSize}) = _$QuizFavoriteRequestImpl;
 
   factory _QuizFavoriteRequest.fromJson(Map<String, dynamic> json) =
       _$QuizFavoriteRequestImpl.fromJson;
 
-  @override // 使用中のアプリのタイプ
-  AppInstallType get appInstallType;
   @override // トピックのタイプ
   QuizTopicType get quizTopicType;
   @override // 取得数固定

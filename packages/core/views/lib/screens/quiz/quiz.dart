@@ -82,7 +82,7 @@ class QuizPage extends StatelessWidget {
               Expanded(
                   child: quizes.isEmpty
                       ? _empty()
-                      :  answers.first == ""
+                      : answers.first == ""
                           ? Container()
                           : _page(quizes, answers))
             ],

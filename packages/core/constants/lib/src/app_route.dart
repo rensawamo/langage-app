@@ -5,6 +5,7 @@ class MyAppRouteConstraint {
   static const String mainPageName = 'main';
   static const String quizRouteName = 'quiz';
   static const String homeRouteName = 'home';
+  static const String wordListName = 'wordList';
   static const String resultRouteName = 'result';
   static const String topicRouteName = 'topic';
   static const String settingRouteName = 'setting';

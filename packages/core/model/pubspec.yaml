@@ -19,6 +19,8 @@ dependencies:
     path: ../data
   core_sql:
     path: ../sql
+  core_views:
+    path: ../views
 
 dev_dependencies:
   build_runner: ^2.3.3

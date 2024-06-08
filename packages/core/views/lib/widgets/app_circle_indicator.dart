@@ -17,7 +17,7 @@ class AppCircleIndicator extends StatelessWidget {
   final ThemeMode? mode;
 
   /// サークルインジケータの色
-  final _splashColor = const AppColorSet(type: AppColorType.appbar);
+  final _splashColor = const AppColorSet(type: AppColorType.indicator);
 
   /// Widget生成
   @override

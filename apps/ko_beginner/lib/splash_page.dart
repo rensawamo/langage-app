@@ -39,6 +39,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     // 2秒後に実行される処理
     Future.delayed(const Duration(seconds: 2), () {
       // contextが利用可能になった後でref.watchを呼び出す
+      
       ref
           .watch(settingProvider.notifier)
           .changeAppInstallType(AppInstallType.koreanBeginner);

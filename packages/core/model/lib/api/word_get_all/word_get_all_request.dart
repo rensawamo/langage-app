@@ -2,23 +2,22 @@ import 'package:core_enums/enums.dart';
 import 'package:core_model/json_serializable_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/api/quiz_get_all/quiz_get_all_request.freezed.dart';
-part '../../generated/api/quiz_get_all/quiz_get_all_request.g.dart';
+part '../../generated/api/word_get_all/word_get_all_request.freezed.dart';
+part '../../generated/api/word_get_all/word_get_all_request.g.dart';
 
 ///  RequestEntity
 @freezed
-class QuizGetAllRequest
-    with _$QuizGetAllRequest
+class WordGetAllRequest
+    with _$WordGetAllRequest
     implements JsonSerializableInterface {
   /// コンストラクタ
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory QuizGetAllRequest({
+  const factory WordGetAllRequest({
     // 使用中のアプリのタイプ
-    required int questionCount,
     required QuizTopicType quizTopicType,
-  }) = _QuizGetAllRequest;
+  }) = _WordGetAllRequest;
 
-  factory QuizGetAllRequest.fromJson(Map<String, dynamic> json) =>
-      _$QuizGetAllRequestFromJson(json);
+  factory WordGetAllRequest.fromJson(Map<String, dynamic> json) =>
+      _$WordGetAllRequestFromJson(json);
 }

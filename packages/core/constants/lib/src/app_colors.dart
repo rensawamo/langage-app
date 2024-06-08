@@ -44,6 +44,17 @@ class AppColors {
           case ThemeMode.system:
             return const Color(0xffEDA276);
         }
+
+        case AppColorType.indicator:
+        switch (mode ?? AppSettingInfo().themeMode) {
+          case ThemeMode.light:
+            return const Color(0xffEDA276);
+          case ThemeMode.dark:
+            return Colors.grey;
+          case ThemeMode.system:
+            return Colors.transparent; // ま // または、適切なデフォルトの色
+        }
+
       // ヘッダーのテキストの色
       case AppColorType.headerText:
         switch (mode ?? AppSettingInfo().themeMode) {

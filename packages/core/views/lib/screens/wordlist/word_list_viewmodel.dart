@@ -1,51 +1,60 @@
+import 'package:core_data/data.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_model/api/word_get_all/word_get_all_dao.dart';
+import 'package:core_model/api/word_get_all/word_get_all_request.dart';
+import 'package:core_model/model.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
+import 'package:core_views/screens/wordlist/word_list_state.dart';
 import 'package:core_views/utility/app_setting_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-/// E201.受診予約一覧 Viewmodel
-class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
+/// 出題単語一覧 Viewmodel
+class WordListViewmodel extends WordListViewmodelInterface {
   /// コンストラクタ
 
-  QuizeFavoriteViewmodel(super.state, this.dao);
+  WordListViewmodel(super.state, this.dao);
 
   ///  お気に入りの単語一覧取得　daoクラス
-  final QuizFavoriteDao dao;
+  final WordGetAllDao dao;
 
   /// 初期設定
   ///
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
+    // インジケータ表示
+    showIndicator();
+
+    // tls初期化
     initializeTts();
   }
 
-  /// お気に入りの単語一覧取得
+  /// Quize の一覧取得
   @override
-  Future<void> getFavorites(QuizTopicType quizTopicType) async {
-    // インジケータ表示
-    showIndicator();
+  Future<void> getQuizList(QuizTopicType quizTopicType) async {
+    // パラメータ生成
+
     // ここで data から quizeを取得する
     dao
-        .getFavoriteList(QuizFavoriteRequest(
+        .getWordList(WordGetAllRequest(
       quizTopicType: quizTopicType,
-      pageSize: pageSize,
     ))
         .then((response) {
+      print(response);
       // 一覧に追加
       state = state.copyWith(
-          quizzes: response.texts,
+          quizzes: response.words,
           answers: response.answers,
-          isHideAnswers: List.filled(response.texts.length, true));
+          isFavorites: response.isFavorites);
     }).catchError((error) {
       print(error.toString());
+      state = state.copyWith(quizzes: []);
       // エラー処理
     }).whenComplete(() {
-      // ロード中解除
       // インジケータ非表示
       hideIndicator();
     });
@@ -57,14 +66,6 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     state = state.copyWith(selectDropDownValue: value);
   }
 
-  void toggleAnswer(int index) {
-    // 回答表示の切り替え
-    List<bool> isHideAnswers = List.from(state.isHideAnswers); // 変更可能なコピーを作成
-
-    isHideAnswers[index] = !isHideAnswers[index];
-    state = state.copyWith(isHideAnswers: isHideAnswers);
-  }
-
   @override
   void initializeTts() {
     flutterTts.setLanguage('ko-KR'); // 韓国語に設定
@@ -73,14 +74,21 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   }
 
   @override
-  Future<void> deleteFavorite(int index) async {
-    // お気に入り削除
-    await QuizFavoriteSql.delete(
-      state.quizzes[index],
-      AppSettingInfo().appInstallType.name,
-    );
-    // 更新
-    getFavorites(quizTopicType);
+  String getTopic() {
+    if (state.selectDropDownValue == "単語") {
+      return QuizTopicType.word.name;
+    } else {
+      return QuizTopicType.greet.name;
+    }
+  }
+
+  @override
+  void updateFavorite(int index) {
+    // お気に入りの更新
+    List<bool> isFavorites = List.from(state.isFavorites); // 変更可能なコピーを作成
+
+    isFavorites[index] = !isFavorites[index];
+    state = state.copyWith(isFavorites: isFavorites);
   }
 
   /// 一覧クリア
@@ -93,9 +101,8 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
 }
 
 /// E201.受診予約一覧 Viewmodel インターフェース
-abstract class QuizeFavoriteViewmodelInterface
-    extends StateNotifier<QuizFavoriteState> {
-  QuizeFavoriteViewmodelInterface(super.state);
+abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
+  WordListViewmodelInterface(super.state);
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
@@ -106,27 +113,26 @@ abstract class QuizeFavoriteViewmodelInterface
   /// インジケータ破棄メソッド
   late Function hideIndicator;
 
-  /// ページサイズ(固定)
-  final int pageSize = 50;
+  /// ロード中か
+  bool isLoading = false;
 
   Future<void> init();
 
-  Future<void> getFavorites(QuizTopicType quizTopicType);
+  Future<void> getQuizList(QuizTopicType quizTopicType);
 
   // dropDownMenu の選択
   void selectDropDownMenu(String value);
-
-  // 回答表示の切り替え
-  void toggleAnswer(int index);
 
   void clearList();
 
   /// TTSの初期化
   void initializeTts();
 
-  /// sql お気に入り削除
-  Future<void> deleteFavorite(int index);
+  // TOPICタイプの選択されてる文字列を返す
+  String getTopic();
 
+  // お気に入りの更新
+  void updateFavorite(int index);
   // tts の言語設定
   late FlutterTts flutterTts;
 }

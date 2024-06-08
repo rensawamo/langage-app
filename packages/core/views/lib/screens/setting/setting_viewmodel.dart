@@ -43,6 +43,7 @@ class SettingViewmodel extends SettingViewmodelInterface
   void changeThemeMode(ThemeMode mode) {
     AppSettingInfo().changeTheme(mode);
     state = state.copyWith(themeMode: mode);
+    
   }
 
   /// テキストサイズの変更

@@ -1,10 +1,15 @@
 import 'package:core_enums/enums.dart';
+import 'package:core_model/api/quiz_get_all/quiz_get_all_dao.dart';
+import 'package:core_model/api/word_get_all/word_get_all_dao.dart';
 import 'package:core_model/model.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
+import 'package:core_sql/sql.dart';
 import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
+import 'package:core_views/screens/wordlist/word_list_state.dart';
+import 'package:core_views/screens/wordlist/word_list_viewmodel.dart';
 import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
@@ -15,29 +20,28 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 /// Provider
-final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
-    QuizeFavoriteViewmodelInterface, QuizFavoriteState>(
+final wordListProvider = StateNotifierProvider.autoDispose<
+    WordListViewmodelInterface, WordListState>(
   (ref) {
-    return QuizeFavoriteViewmodel(
-      QuizFavoriteState(
+    return WordListViewmodel(
+      WordListState(
         quizzes: [""],
         answers: [],
-        isHideAnswers: [],
-        scrollController: ScrollController(),
+        isFavorites: [],
         selectValue: QuizTopicType.word,
         selectDropDownValue: "単語",
         speak: (String text) {
           FlutterTts().speak(text);
         },
       ),
-      QuizFavoriteDao(),
+      WordGetAllDao(),
     );
   },
 );
 
 /// Quiz の 問題を表示する画面
-class QuizFavorite extends StatelessWidget {
-  QuizFavorite({
+class WordList extends StatelessWidget {
+  WordList({
     Key? key,
     required this.dropDownMenu,
     this.mode,
@@ -49,7 +53,7 @@ class QuizFavorite extends StatelessWidget {
 
   /// 初期化処理
   void init(BuildContext context, WidgetRef ref) async {
-    final vm = ref.watch(QuizFavoriteProvider.notifier);
+    final vm = ref.watch(wordListProvider.notifier);
 
     // クイズのタイプ
     vm.quizTopicType = QuizTopicType.word;
@@ -66,7 +70,8 @@ class QuizFavorite extends StatelessWidget {
 
     // 初期設定
     await vm.init();
-    vm.getFavorites(QuizTopicType.word);
+    // 単語一覧 取得
+    vm.getQuizList(QuizTopicType.word);
   }
 
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
@@ -82,7 +87,7 @@ class QuizFavorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
-      List<String> quizzes = ref.watch(QuizFavoriteProvider).quizzes;
+      List<String> quizzes = ref.watch(wordListProvider).quizzes;
 
       return AppBaseFrame(
           screenContext: context,
@@ -101,7 +106,7 @@ class QuizFavorite extends StatelessWidget {
               _dropDown(),
               quizzes.isEmpty
                   ? _empty()
-                  : quizzes.first == ""
+                  : quizzes.first.isEmpty
                       ? Container()
                       : Expanded(child: _table(quizzes))
             ],
@@ -113,9 +118,9 @@ class QuizFavorite extends StatelessWidget {
   /// クイズの種別を選択する
   Widget _dropDown() {
     return Consumer(builder: (context, ref, child) {
-      final state = ref.watch(QuizFavoriteProvider.notifier);
+      final state = ref.watch(wordListProvider.notifier);
       final selectDropDownValue =
-          ref.watch(QuizFavoriteProvider).selectDropDownValue;
+          ref.watch(wordListProvider).selectDropDownValue;
 
       return Theme(
         data:
@@ -133,7 +138,7 @@ class QuizFavorite extends StatelessWidget {
               .toList(),
           onChanged: (key) {
             if (key != null) {
-              state.getFavorites(dropDownMenu[key]!);
+              state.getQuizList(dropDownMenu[key]!);
               state.selectDropDownMenu(key);
             }
           },
@@ -144,11 +149,10 @@ class QuizFavorite extends StatelessWidget {
 
   Widget _table(List<String> quizzes) {
     return Consumer(builder: (context, ref, child) {
-      List<String> answers = ref.watch(QuizFavoriteProvider).answers;
-      List<bool> isHideAnswers = ref.watch(QuizFavoriteProvider).isHideAnswers;
-      Function toggleAnswer =
-          ref.watch(QuizFavoriteProvider.notifier).toggleAnswer;
-      Function speak = ref.read(QuizFavoriteProvider).speak;
+      List<String> answers = ref.watch(wordListProvider).answers;
+      List<bool> isFavorites = ref.watch(wordListProvider).isFavorites;
+      Function speak = ref.read(wordListProvider).speak;
+      String topicType = ref.watch(wordListProvider.notifier).getTopic();
 
       return Center(
           child: Container(
@@ -166,7 +170,7 @@ class QuizFavorite extends StatelessWidget {
                   ),
                   TableCell(child: _buildCell('Mean')),
                   TableCell(child: _buildCell('Voice')),
-                  TableCell(child: _buildCell('Edit')),
+                  TableCell(child: _buildCell('Favorite')),
                 ],
               ),
               ...List.generate(
@@ -176,12 +180,21 @@ class QuizFavorite extends StatelessWidget {
                           TableCell(
                               child: _buildSubtitleCell(quizzes[index], index)),
                           TableCell(
-                              child: _buildMeanCell(answers[index], index,
-                                  isHideAnswers[index], toggleAnswer)),
+                              child: _buildSubtitleCell(answers[index], index)),
+                          // TableCell(
+                          //     child: _buildMeanCell(answers[index], index,
+                          //         isHideAnswers[index], toggleAnswer)),
                           TableCell(
                               child: _buildVoiceCell(index, quizzes, speak)),
                           TableCell(
-                              child: _buildFavoriteCell(index, context, ref)),
+                              child: _buildFavoriteCell(
+                                  index,
+                                  isFavorites[index],
+                                  quizzes[index],
+                                  answers[index],
+                                  topicType,
+                                  context,
+                                  ref)),
                         ],
                       )),
             ],
@@ -209,28 +222,37 @@ class QuizFavorite extends StatelessWidget {
         ),
       );
 
-  Widget _buildFavoriteCell(int index, context, ref) => Container(
-        height: 65,
-        color: index % 2 == 0
-            ? _cellOddColor.color(mode)
-            : _cellEvenColor.color(mode),
-        padding: const EdgeInsets.all(8),
-        alignment: Alignment.center,
-        child: IconButton(
-          icon: Icon(
+  Widget _buildFavoriteCell(int index, bool isFavorite, String word,
+          String answer, String topicType, context, ref) =>
+      Consumer(builder: (context, ref, child) {
+        final vm = ref.watch(wordListProvider.notifier);
+
+        return Container(
+          height: 65,
+          color: index % 2 == 0
+              ? _cellOddColor.color(mode)
+              : _cellEvenColor.color(mode),
+          padding: const EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: IconButton(
+            icon: Icon(
               // 削除
-              Icons.delete,
-              color: _defaultColor.color(mode)),
-          onPressed: () async => {
-            ShowDeleteDialog(context, "削除しますか？").then((bool? result) async {
-              if (result != null) {
-                final state = ref.read(QuizFavoriteProvider.notifier);
-                await state.deleteFavorite(index);
+              isFavorite ? Icons.star : Icons.star_border,
+              color: Colors.yellow[700],
+            ),
+            onPressed: () async {
+              if (isFavorite) {
+                await QuizFavoriteSql.delete(
+                    word, AppSettingInfo().appInstallType.name);
+              } else {
+                await QuizFavoriteSql.insert(word, answer, topicType,
+                    AppSettingInfo().appInstallType.name);
               }
-            })
-          },
-        ),
-      );
+              vm.updateFavorite(index);
+            },
+          ),
+        );
+      });
 
   Widget _buildCell(String text) => Container(
         height: 58,
