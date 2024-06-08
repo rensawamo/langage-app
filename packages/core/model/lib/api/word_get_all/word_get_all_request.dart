@@ -16,6 +16,8 @@ class WordGetAllRequest
   const factory WordGetAllRequest({
     // 使用中のアプリのタイプ
     required QuizTopicType quizTopicType,
+    required int page,
+    required int pageSize,
   }) = _WordGetAllRequest;
 
   factory WordGetAllRequest.fromJson(Map<String, dynamic> json) =>

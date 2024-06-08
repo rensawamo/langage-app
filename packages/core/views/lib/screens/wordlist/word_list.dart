@@ -28,6 +28,8 @@ final wordListProvider = StateNotifierProvider.autoDispose<
         quizzes: [""],
         answers: [],
         isFavorites: [],
+        currentPage: 1,
+        scrollController: ScrollController(),
         selectValue: QuizTopicType.word,
         selectDropDownValue: "単語",
         speak: (String text) {
@@ -152,6 +154,7 @@ class WordList extends StatelessWidget {
       List<String> answers = ref.watch(wordListProvider).answers;
       List<bool> isFavorites = ref.watch(wordListProvider).isFavorites;
       Function speak = ref.read(wordListProvider).speak;
+      ScrollController _scrollController = ref.read(wordListProvider).scrollController;
       String topicType = ref.watch(wordListProvider.notifier).getTopic();
 
       return Center(
@@ -159,6 +162,7 @@ class WordList extends StatelessWidget {
         width: context.mediaQueryWidth * 0.95,
         height: context.mediaQueryHeight * 0.65,
         child: SingleChildScrollView(
+          controller: _scrollController,
           scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
           child: Table(
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -308,7 +312,7 @@ class WordList extends StatelessWidget {
 
   Widget _empty() {
     return const TileEmptyText(
-      header: 'お気に入りは登録されていません。問題を解いて登録しましょう！',
+      header: '',
       detail: '',
     );
   }

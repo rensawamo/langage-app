@@ -19,8 +19,10 @@ mixin _$WordListState {
   List<String> get quizzes => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
   List<bool> get isFavorites => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
 
   /// All 表示にきりかえる
+  ScrollController get scrollController => throw _privateConstructorUsedError;
   String get selectDropDownValue => throw _privateConstructorUsedError;
   Function get speak => throw _privateConstructorUsedError;
 
@@ -42,6 +44,8 @@ abstract class $WordListStateCopyWith<$Res> {
       {List<String> quizzes,
       List<String> answers,
       List<bool> isFavorites,
+      int currentPage,
+      ScrollController scrollController,
       String selectDropDownValue,
       Function speak,
       QuizTopicType selectValue});
@@ -63,6 +67,8 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
     Object? quizzes = null,
     Object? answers = null,
     Object? isFavorites = null,
+    Object? currentPage = null,
+    Object? scrollController = null,
     Object? selectDropDownValue = null,
     Object? speak = null,
     Object? selectValue = null,
@@ -80,6 +86,14 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
           ? _value.isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      scrollController: null == scrollController
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
       selectDropDownValue: null == selectDropDownValue
           ? _value.selectDropDownValue
           : selectDropDownValue // ignore: cast_nullable_to_non_nullable
@@ -108,6 +122,8 @@ abstract class _$$WordListStateImplCopyWith<$Res>
       {List<String> quizzes,
       List<String> answers,
       List<bool> isFavorites,
+      int currentPage,
+      ScrollController scrollController,
       String selectDropDownValue,
       Function speak,
       QuizTopicType selectValue});
@@ -127,6 +143,8 @@ class __$$WordListStateImplCopyWithImpl<$Res>
     Object? quizzes = null,
     Object? answers = null,
     Object? isFavorites = null,
+    Object? currentPage = null,
+    Object? scrollController = null,
     Object? selectDropDownValue = null,
     Object? speak = null,
     Object? selectValue = null,
@@ -144,6 +162,14 @@ class __$$WordListStateImplCopyWithImpl<$Res>
           ? _value._isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      scrollController: null == scrollController
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
       selectDropDownValue: null == selectDropDownValue
           ? _value.selectDropDownValue
           : selectDropDownValue // ignore: cast_nullable_to_non_nullable
@@ -167,6 +193,8 @@ class _$WordListStateImpl implements _WordListState {
       {required final List<String> quizzes,
       required final List<String> answers,
       required final List<bool> isFavorites,
+      required this.currentPage,
+      required this.scrollController,
       required this.selectDropDownValue,
       required this.speak,
       required this.selectValue})
@@ -198,7 +226,12 @@ class _$WordListStateImpl implements _WordListState {
     return EqualUnmodifiableListView(_isFavorites);
   }
 
+  @override
+  final int currentPage;
+
   /// All 表示にきりかえる
+  @override
+  final ScrollController scrollController;
   @override
   final String selectDropDownValue;
   @override
@@ -210,7 +243,7 @@ class _$WordListStateImpl implements _WordListState {
 
   @override
   String toString() {
-    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, selectDropDownValue: $selectDropDownValue, speak: $speak, selectValue: $selectValue)';
+    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, currentPage: $currentPage, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, selectValue: $selectValue)';
   }
 
   @override
@@ -222,6 +255,10 @@ class _$WordListStateImpl implements _WordListState {
             const DeepCollectionEquality().equals(other._answers, _answers) &&
             const DeepCollectionEquality()
                 .equals(other._isFavorites, _isFavorites) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.scrollController, scrollController) ||
+                other.scrollController == scrollController) &&
             (identical(other.selectDropDownValue, selectDropDownValue) ||
                 other.selectDropDownValue == selectDropDownValue) &&
             (identical(other.speak, speak) || other.speak == speak) &&
@@ -235,6 +272,8 @@ class _$WordListStateImpl implements _WordListState {
       const DeepCollectionEquality().hash(_quizzes),
       const DeepCollectionEquality().hash(_answers),
       const DeepCollectionEquality().hash(_isFavorites),
+      currentPage,
+      scrollController,
       selectDropDownValue,
       speak,
       selectValue);
@@ -251,6 +290,8 @@ abstract class _WordListState implements WordListState {
       {required final List<String> quizzes,
       required final List<String> answers,
       required final List<bool> isFavorites,
+      required final int currentPage,
+      required final ScrollController scrollController,
       required final String selectDropDownValue,
       required final Function speak,
       required final QuizTopicType selectValue}) = _$WordListStateImpl;
@@ -262,8 +303,12 @@ abstract class _WordListState implements WordListState {
   @override
   List<bool> get isFavorites;
   @override
+  int get currentPage;
+  @override
 
   /// All 表示にきりかえる
+  ScrollController get scrollController;
+  @override
   String get selectDropDownValue;
   @override
   Function get speak;

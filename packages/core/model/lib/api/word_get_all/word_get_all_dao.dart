@@ -22,6 +22,7 @@ class WordGetAllDao implements WordGetAllDaoInterface {
             /// 単語
             case QuizTopicType.word:
               List<String> words = AppQuizData.korianBiginnerQuizes
+                  .take(request.pageSize * request.page)
                   .map((quiz) => quiz.text)
                   .toList();
               List<String> answers = AppQuizData.korianBiginnerQuizes

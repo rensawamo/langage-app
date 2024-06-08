@@ -26,22 +26,32 @@ class WordListViewmodel extends WordListViewmodelInterface {
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
-    // インジケータ表示
-    showIndicator();
-
     // tls初期化
     initializeTts();
+    final controller = state.scrollController;
+    controller.addListener(() {
+      // スクロール量が全体の95%になった時,APIを呼ぶ.
+      final scrollValue =
+          controller.offset / controller.position.maxScrollExtent;
+      if (scrollValue > 0.95) {
+        state = state.copyWith(currentPage: state.currentPage + 1);
+        getQuizList(quizTopicType);
+      }
+    });
   }
 
   /// Quize の一覧取得
   @override
   Future<void> getQuizList(QuizTopicType quizTopicType) async {
-    // パラメータ生成
+    // インジケータ表示
+    showIndicator();
 
     // ここで data から quizeを取得する
     dao
         .getWordList(WordGetAllRequest(
       quizTopicType: quizTopicType,
+      page: state.currentPage,
+      pageSize: 20,
     ))
         .then((response) {
       print(response);

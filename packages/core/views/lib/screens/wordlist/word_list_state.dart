@@ -14,8 +14,10 @@ class WordListState with _$WordListState {
       {required List<String> quizzes,
       required List<String> answers,
       required List<bool> isFavorites,
+      required int currentPage,
 
       /// All 表示にきりかえる
+      required ScrollController scrollController,
       required String selectDropDownValue,
       required Function speak,
 
