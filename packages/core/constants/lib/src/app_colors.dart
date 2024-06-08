@@ -183,7 +183,7 @@ class AppColors {
       case AppColorType.question30:
         switch (mode ?? AppSettingInfo().themeMode) {
           case ThemeMode.light:
-            return const Color(0xFFADFF2F);
+            return Color.fromARGB(255, 204, 243, 146);
           case ThemeMode.dark:
             return Color(0xff808080);
           case ThemeMode.system:

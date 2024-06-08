@@ -1,19 +1,13 @@
 import 'package:core_enums/enums.dart';
-import 'package:core_model/api/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_model/api/word_get_all/word_get_all_dao.dart';
-import 'package:core_model/model.dart';
-import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
-import 'package:core_views/screens/quiz_favorite/quiz_favorite_viewmodel.dart';
 import 'package:core_views/screens/wordlist/word_list_state.dart';
 import 'package:core_views/screens/wordlist/word_list_viewmodel.dart';
 import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
-import 'package:core_views/widgets/app_delete_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -104,6 +98,7 @@ class WordList extends StatelessWidget {
             init(context, ref);
           },
           body: Column(
+
             children: [
               _dropDown(),
               quizzes.isEmpty
@@ -120,7 +115,7 @@ class WordList extends StatelessWidget {
   /// クイズの種別を選択する
   Widget _dropDown() {
     return Consumer(builder: (context, ref, child) {
-      final state = ref.watch(wordListProvider.notifier);
+      final vm = ref.watch(wordListProvider.notifier);
       final selectDropDownValue =
           ref.watch(wordListProvider).selectDropDownValue;
 
@@ -140,8 +135,8 @@ class WordList extends StatelessWidget {
               .toList(),
           onChanged: (key) {
             if (key != null) {
-              state.getQuizList(dropDownMenu[key]!);
-              state.selectDropDownMenu(key);
+              vm.selectDropDownMenu(key, dropDownMenu[key]!);
+              vm.getQuizList(dropDownMenu[key]!);
             }
           },
         ),
@@ -154,13 +149,14 @@ class WordList extends StatelessWidget {
       List<String> answers = ref.watch(wordListProvider).answers;
       List<bool> isFavorites = ref.watch(wordListProvider).isFavorites;
       Function speak = ref.read(wordListProvider).speak;
-      ScrollController _scrollController = ref.read(wordListProvider).scrollController;
+      ScrollController _scrollController =
+          ref.read(wordListProvider).scrollController;
       String topicType = ref.watch(wordListProvider.notifier).getTopic();
 
       return Center(
           child: Container(
         width: context.mediaQueryWidth * 0.95,
-        height: context.mediaQueryHeight * 0.65,
+        height: context.mediaQueryHeight * 0.7,
         child: SingleChildScrollView(
           controller: _scrollController,
           scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
@@ -174,7 +170,7 @@ class WordList extends StatelessWidget {
                   ),
                   TableCell(child: _buildCell('Mean')),
                   TableCell(child: _buildCell('Voice')),
-                  TableCell(child: _buildCell('Favorite')),
+                  TableCell(child: _buildCell('Star')),
                 ],
               ),
               ...List.generate(

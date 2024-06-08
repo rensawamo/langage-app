@@ -1,6 +1,5 @@
 import 'package:core_data/data.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_model/api/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_model/api/word_get_all/word_get_all_request.dart';
 import 'package:core_model/api/word_get_all/word_get_all_response.dart';
 import 'package:core_sql/sql.dart';

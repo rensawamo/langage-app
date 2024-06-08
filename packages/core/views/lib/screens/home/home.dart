@@ -20,11 +20,11 @@ class _MyAppState extends State<HomePage> {
   int currentIndex = 0;
 
   final List<dynamic> pages = <dynamic>[
-    TopicPage(),
     WordList(dropDownMenu: {
       '単語': QuizTopicType.word,
       '挨拶': QuizTopicType.greet,
     }),
+    TopicPage(),
     QuizFavorite(dropDownMenu: {
       '単語': QuizTopicType.word,
       '挨拶': QuizTopicType.greet,

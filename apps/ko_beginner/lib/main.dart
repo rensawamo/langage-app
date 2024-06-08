@@ -1,4 +1,3 @@
-import 'package:core_enums/enums.dart';
 import 'package:core_views/views.dart';
 import 'package:ko_beginner/routes/app_route.dart';
 import 'package:flutter/material.dart';

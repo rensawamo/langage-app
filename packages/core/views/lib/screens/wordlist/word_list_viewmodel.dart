@@ -1,14 +1,7 @@
-import 'package:core_data/data.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_model/api/word_get_all/word_get_all_dao.dart';
 import 'package:core_model/api/word_get_all/word_get_all_request.dart';
-import 'package:core_model/model.dart';
-import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
-import 'package:core_model/sql/quiz_favorite/quiz_favorite_request.dart';
-import 'package:core_sql/sql.dart';
-import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/screens/wordlist/word_list_state.dart';
-import 'package:core_views/utility/app_setting_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -35,7 +28,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
           controller.offset / controller.position.maxScrollExtent;
       if (scrollValue > 0.95) {
         state = state.copyWith(currentPage: state.currentPage + 1);
-        getQuizList(quizTopicType);
+        getQuizList(state.selectValue);
       }
     });
   }
@@ -71,9 +64,9 @@ class WordListViewmodel extends WordListViewmodelInterface {
   }
 
   @override
-  void selectDropDownMenu(String value) {
+  void selectDropDownMenu(String value, QuizTopicType quizTopicType) {
     // ドロップダウンメニューの選択
-    state = state.copyWith(selectDropDownValue: value);
+    state = state.copyWith(selectDropDownValue: value, selectValue: quizTopicType);
   }
 
   @override
@@ -100,6 +93,8 @@ class WordListViewmodel extends WordListViewmodelInterface {
     isFavorites[index] = !isFavorites[index];
     state = state.copyWith(isFavorites: isFavorites);
   }
+
+  
 
   /// 一覧クリア
   ///
@@ -131,7 +126,7 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
   Future<void> getQuizList(QuizTopicType quizTopicType);
 
   // dropDownMenu の選択
-  void selectDropDownMenu(String value);
+  void selectDropDownMenu(String value, QuizTopicType quizTopicType);
 
   void clearList();
 
@@ -143,6 +138,8 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
 
   // お気に入りの更新
   void updateFavorite(int index);
+
+
   // tts の言語設定
   late FlutterTts flutterTts;
 }
