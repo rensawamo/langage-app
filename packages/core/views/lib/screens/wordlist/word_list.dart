@@ -92,7 +92,7 @@ class WordList extends StatelessWidget {
           backOnTap: () {
             Navigator.pop(context);
           },
-          title: 'お気に入り',
+          title: '単語リスト',
           initFrame: (context, ref) {
             // 初期化処理
             init(context, ref);
