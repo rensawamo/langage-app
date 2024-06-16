@@ -2,7 +2,7 @@ import 'package:core_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/screens/quiz/quiz_state.freezed.dart';
+part 'quiz_state.freezed.dart';
 
 
 @freezed

@@ -2,7 +2,7 @@ import 'package:core_enums/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
- part '../../generated/screens/setting/setting_state.freezed.dart';
+ part 'setting_state.freezed.dart';
 
 /// N001.設定 状態クラス
 @freezed

@@ -1,8 +1,7 @@
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/screens/setting/setting_state.dart';
-import 'package:core_views/screens/setting/setting_viewmodel.dart';
 import 'package:core_views/utility/app_system_info.dart';
+import 'package:feature_setting/setting.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,7 +38,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     // 2秒後に実行される処理
     Future.delayed(const Duration(seconds: 2), () {
       // contextが利用可能になった後でref.watchを呼び出す
-      
+
       ref
           .watch(settingProvider.notifier)
           .changeAppInstallType(AppInstallType.koreanBeginner);
