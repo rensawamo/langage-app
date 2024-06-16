@@ -9,7 +9,7 @@ import 'package:core_views/screens/quiz/quiz_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// E201.受診予約一覧 Viewmodel
+/// クイズ画面のViewmodel
 class QuizViewmodel extends QuizViewmodelInterface {
   /// コンストラクタ
   ///
@@ -17,7 +17,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
   /// [dao]API Modelクラス AppointmentGetListAllをセット
   QuizViewmodel(super.state, this.dao);
 
-  /// 受診予約一覧取得（過去分含む）　Modelクラス
   final QuizGetAllDao dao;
 
   /// 初期設定
@@ -33,12 +32,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
   /// Quize の一覧取得
   @override
   Future<void> getQuizList() async {
-    // ロード中なら何もしない
-    if (isLoading) {
-      return;
-    }
-    // ロード中に設定
-    isLoading = true;
 
     // インジケータ表示
     showIndicator();
@@ -48,9 +41,7 @@ class QuizViewmodel extends QuizViewmodelInterface {
     // ここで data から quizeを取得する
     dao
         .getQuizList(QuizGetAllRequest(
-            appInstallType: appInstallType,
-            quizTopicType: quizTopicType,
-            questionCount: questionCount))
+            quizTopicType: quizTopicType, questionCount: questionCount))
         .then((response) {
       // 一覧に追加
       state = state.copyWith(
@@ -171,6 +162,7 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
 
   // クイズの一覧取得
   Future<void> getQuizList();
+
   // 一覧クリア
   void clearList();
   // クイズの質問の移動

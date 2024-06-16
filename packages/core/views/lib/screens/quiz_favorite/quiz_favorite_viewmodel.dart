@@ -3,6 +3,7 @@ import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
+import 'package:core_views/utility/app_setting_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -20,30 +21,17 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
-    // ロード中に設定
-    isLoading = true;
-
-    // インジケータ表示
-    showIndicator();
-    final controller = state.scrollController;
-    controller.addListener(() {
-      // スクロール量が全体の95%になった時, DBから新しいデータを取得する.
-      final scrollValue =
-          controller.offset / controller.position.maxScrollExtent;
-      if (scrollValue > 0.95) {
-        print("dummuy");
-      }
-    });
     initializeTts();
   }
 
   /// お気に入りの単語一覧取得
   @override
   Future<void> getFavorites(QuizTopicType quizTopicType) async {
+    // インジケータ表示
+    showIndicator();
     // ここで data から quizeを取得する
     dao
         .getFavoriteList(QuizFavoriteRequest(
-      appInstallType: appInstallType,
       quizTopicType: quizTopicType,
       pageSize: pageSize,
     ))
@@ -58,7 +46,6 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
       // エラー処理
     }).whenComplete(() {
       // ロード中解除
-      isLoading = false;
       // インジケータ非表示
       hideIndicator();
     });
@@ -90,7 +77,7 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     // お気に入り削除
     await QuizFavoriteSql.delete(
       state.quizzes[index],
-      appInstallType.name,
+      AppSettingInfo().appInstallType.name,
     );
     // 更新
     getFavorites(quizTopicType);
@@ -110,9 +97,6 @@ abstract class QuizeFavoriteViewmodelInterface
     extends StateNotifier<QuizFavoriteState> {
   QuizeFavoriteViewmodelInterface(super.state);
 
-  /// アプリのインストールタイプ
-  late AppInstallType appInstallType;
-
   /// クイズの種別
   late QuizTopicType quizTopicType;
 
@@ -124,9 +108,6 @@ abstract class QuizeFavoriteViewmodelInterface
 
   /// ページサイズ(固定)
   final int pageSize = 50;
-
-  /// ロード中か
-  bool isLoading = false;
 
   Future<void> init();
 

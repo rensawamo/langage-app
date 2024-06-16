@@ -12,7 +12,7 @@ class AppIndicator {
   /// 使用する画面のBuildContextを[context]にセットする
   static void show(BuildContext context) {
     if (!_isDisplay) {
- 
+
       // ダイアログを重複表示させないように反転させる
       _isDisplay = !_isDisplay;
       // ダイアログにサークルインジケータをのせて表示する

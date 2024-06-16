@@ -1,23 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../sql/quiz_favorite/quiz_favorite_request.dart';
+part of '../../../api/word_get_all/word_get_all_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$QuizFavoriteRequestImpl _$$QuizFavoriteRequestImplFromJson(
+_$WordGetAllRequestImpl _$$WordGetAllRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$QuizFavoriteRequestImpl(
+    _$WordGetAllRequestImpl(
       quizTopicType:
           $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
+      page: (json['page'] as num).toInt(),
       pageSize: (json['page_size'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$QuizFavoriteRequestImplToJson(
-        _$QuizFavoriteRequestImpl instance) =>
+Map<String, dynamic> _$$WordGetAllRequestImplToJson(
+        _$WordGetAllRequestImpl instance) =>
     <String, dynamic>{
       'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
+      'page': instance.page,
       'page_size': instance.pageSize,
     };
 

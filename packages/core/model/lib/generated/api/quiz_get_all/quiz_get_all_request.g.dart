@@ -9,8 +9,6 @@ part of '../../../api/quiz_get_all/quiz_get_all_request.dart';
 _$QuizGetAllRequestImpl _$$QuizGetAllRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$QuizGetAllRequestImpl(
-      appInstallType:
-          $enumDecode(_$AppInstallTypeEnumMap, json['app_install_type']),
       questionCount: (json['question_count'] as num).toInt(),
       quizTopicType:
           $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
@@ -19,17 +17,12 @@ _$QuizGetAllRequestImpl _$$QuizGetAllRequestImplFromJson(
 Map<String, dynamic> _$$QuizGetAllRequestImplToJson(
         _$QuizGetAllRequestImpl instance) =>
     <String, dynamic>{
-      'app_install_type': _$AppInstallTypeEnumMap[instance.appInstallType]!,
       'question_count': instance.questionCount,
       'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
     };
 
-const _$AppInstallTypeEnumMap = {
-  AppInstallType.none: 'none',
-  AppInstallType.koreanBeginner: 'koreanBeginner',
-};
-
 const _$QuizTopicTypeEnumMap = {
+  QuizTopicType.favorite: 'favorite',
   QuizTopicType.word: 'word',
   QuizTopicType.greet: 'greet',
   QuizTopicType.proverb: 'proverb',

@@ -3,14 +3,16 @@ import 'package:core_enums/enums.dart';
 import 'package:core_model/api/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_model/api/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_sql/sql.dart';
+import 'package:core_views/utility/app_setting_info.dart';
 
 // クイズの問題の data アクセスクラス
 class QuizGetAllDao implements QuizGetAllDaoInterface {
   @override
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request) async {
+    print("getQuizList");
     try {
       // インストールされるアプリの種類
-      switch (request.appInstallType) {
+      switch (AppSettingInfo().appInstallType) {
         // 問題数に応じて 問題を取得する
 
         // 韓国語初級
@@ -30,7 +32,8 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
                     .text;
               }).toList();
               var favorites = await QuizFavoriteSql.getAllWords(
-                  request.quizTopicType.name, request.appInstallType.name);
+                  request.quizTopicType.name,
+                  AppSettingInfo().appInstallType.name);
               List<bool> isFavorites = limitedQuizes
                   .map((quiz) => favorites.contains(quiz.text))
                   .toList();
@@ -53,7 +56,8 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
                     .text;
               }).toList();
               var favorites = await QuizFavoriteSql.getAllWords(
-                  request.quizTopicType.name, request.appInstallType.name);
+                  request.quizTopicType.name,
+                  AppSettingInfo().appInstallType.name);
               List<bool> isFavorites = limitedQuizzes
                   .map((quiz) => favorites.contains(quiz.text))
                   .toList();
@@ -65,9 +69,9 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
             ///
             case QuizTopicType.favorite:
               var favoriteWords = await QuizFavoriteSql.getAllWords(
-                  "word", request.appInstallType.name);
+                  "word", AppSettingInfo().appInstallType.name);
               var favoriteGreets = await QuizFavoriteSql.getAllWords(
-                  "greet", request.appInstallType.name);
+                  "greet", AppSettingInfo().appInstallType.name);
               var favorites = favoriteWords + favoriteGreets;
 
               var Quizzes = List<Quiz>.from(AppQuizData.korianBiginnerQuizes);
@@ -76,7 +80,8 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
               var limitedQuizes =
                   Quizzes.where((quiz) => favorites.contains(quiz.text))
                       .take(request.questionCount)
-                      .toList()..shuffle();
+                      .toList()
+                    ..shuffle();
               List<String> answers = limitedQuizes.map((quiz) {
                 return quiz.options
                     .firstWhere((option) => option.isCorrect)

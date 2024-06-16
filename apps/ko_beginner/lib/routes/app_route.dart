@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:core_model/api/quiz_get_all/topic_param.dart';
 import 'package:core_views/screens/home/home.dart';
 import 'package:core_views/screens/quiz/quiz.dart';
