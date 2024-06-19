@@ -32,6 +32,8 @@ dependencies:
     path: ../sql
   feature_setting:
     path: ../../feature/setting
+  
+
 
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1

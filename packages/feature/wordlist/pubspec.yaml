@@ -1,9 +1,8 @@
-name: feature_quiz
+name: feature_wordlist
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
+publish_to: 'none'
 # repository: https://github.com/my_org/my_repo
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -44,3 +43,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+

@@ -1,13 +1,12 @@
 import 'package:core_model/api/quiz_get_all/topic_param.dart';
-import 'package:core_views/screens/home/home.dart';
 import 'package:core_views/screens/topic/topic.dart';
+import 'package:feature_home/home.dart';
 import 'package:feature_quiz/quiz.dart';
 import 'package:feature_setting/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:core_constants/constants.dart';
 import 'package:ko_beginner/splash_page.dart';
-
 
 class MyAppRoute {
   GoRouter router = GoRouter(routes: [

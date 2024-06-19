@@ -31,6 +31,8 @@ dependencies:
     path: ../../packages/feature/setting
   feature_quiz:
     path: ../../packages/feature/quiz
+  feature_home:
+    path: ../../packages/feature/home
 
 dev_dependencies:
   flutter_test:

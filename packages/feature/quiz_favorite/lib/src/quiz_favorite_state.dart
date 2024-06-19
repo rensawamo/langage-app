@@ -3,7 +3,7 @@ import 'package:core_model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/screens/quiz_favorite/quiz_favorite_state.freezed.dart';
+part 'quiz_favorite_state.freezed.dart';
 
 @freezed
 class QuizFavoriteState with _$QuizFavoriteState {

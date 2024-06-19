@@ -2,10 +2,11 @@ import 'package:core_enums/enums.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_model/sql/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_sql/sql.dart';
-import 'package:core_views/screens/quiz_favorite/quiz_favorite_state.dart';
 import 'package:core_views/utility/app_setting_info.dart';
+import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+
 
 /// E201.受診予約一覧 Viewmodel
 class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {

@@ -3,11 +3,11 @@ import 'package:core_model/api/word_get_all/word_get_all_dao.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/screens/wordlist/word_list_state.dart';
-import 'package:core_views/screens/wordlist/word_list_viewmodel.dart';
 import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
+import 'package:feature_wordlist/src/word_list_state.dart';
+import 'package:feature_wordlist/src/word_list_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -98,7 +98,6 @@ class WordList extends StatelessWidget {
             init(context, ref);
           },
           body: Column(
-
             children: [
               _dropDown(),
               quizzes.isEmpty
