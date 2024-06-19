@@ -1,9 +1,9 @@
 import 'package:core_enums/enums.dart';
 import 'package:core_views/screens/quiz_favorite/quiz_favorite.dart';
-import 'package:core_views/screens/setting/setting.dart';
 import 'package:core_views/screens/topic/topic.dart';
 import 'package:core_views/screens/wordlist/word_list.dart';
 import 'package:core_views/utility/app_color_set.dart';
+import 'package:feature_setting/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

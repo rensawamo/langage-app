@@ -1,9 +1,8 @@
-import 'package:core_enums/enums.dart';
 import 'package:core_model/api/quiz_get_all/topic_param.dart';
 import 'package:core_model/model.dart';
 import 'package:core_views/components/tile_empty_text.dart';
-import 'package:core_views/screens/quiz/quiz_state.dart';
-import 'package:core_views/screens/quiz/quiz_viewmodel.dart';
+import 'quiz_state.dart';
+import 'quiz_viewmodel.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:core_views/widgets/quiz/quiz_page_view.dart';

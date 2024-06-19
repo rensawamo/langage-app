@@ -5,7 +5,7 @@ import 'package:core_model/api/quiz_get_all/quiz_get_all_request.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:core_model/model.dart';
-import 'package:core_views/screens/quiz/quiz_state.dart';
+import 'quiz_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

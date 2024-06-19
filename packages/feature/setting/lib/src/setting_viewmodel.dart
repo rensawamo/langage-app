@@ -1,5 +1,5 @@
 import 'package:core_enums/enums.dart';
-import 'package:core_views/screens/setting/setting_state.dart';
+import 'setting_state.dart';
 import 'package:core_views/utility/app_setting_info.dart';
 import 'package:core_views/utility/app_system_info.dart';
 import 'package:core_views/views.dart';
@@ -43,7 +43,7 @@ class SettingViewmodel extends SettingViewmodelInterface
   void changeThemeMode(ThemeMode mode) {
     AppSettingInfo().changeTheme(mode);
     state = state.copyWith(themeMode: mode);
-    
+
   }
 
   /// テキストサイズの変更
@@ -91,7 +91,7 @@ abstract class SettingViewmodelInterface extends StateNotifier<SettingState> {
 
   void changeThemeMode(ThemeMode mode);
   void changeTextSize(AppTextSizeType sizeType);
-  
+
   void changeAppInstallType(AppInstallType type);
   void addObserver();
   void removeObserver();

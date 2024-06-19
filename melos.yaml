@@ -3,7 +3,7 @@ name: melos_app
 packages:
   - "packages/core/**"
   - "packages/feature/**"
-  - app
+  - apps/**
   - backend
 
 
@@ -19,11 +19,11 @@ command:
       build_runner: ^2.3.3
       flutter_lints: ^3.0.1
 
-      
+
   clean:
     hooks:
       post: |
-        melos exec --flutter -- "flutter clean" 
+        melos exec --flutter -- "flutter clean"
         melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
         melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
 
@@ -31,9 +31,9 @@ command:
     branch: main
     releaseUrl: true
 
-# melos run ~ 
+# melos run ~
 scripts:
- 
+
   pub_get_all:
     run: flutter pub get
     description: Install all dependencies

@@ -1,11 +1,11 @@
-name: core_views
-description: "A new Flutter project."
+name: feature_setting
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-
-
-version: 1.0.1+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -13,40 +13,31 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^2.4.1
-
   cupertino_icons: ^1.0.6
-  go_router: ^14.1.2
   flutter_tts: ^4.0.2
-
   core_model:
-    path: ../model
+    path: ../../core/model
   core_repository:
-    path: ../repository
+    path: ../../core/repository
   core_data:
-    path: ../data
+    path: ../../core/data
   core_constants:
-    path: ../constants
+    path: ../../core/constants
   core_enums:
-    path: ../enums
+    path: ../../core/enums
   core_sql:
-    path: ../sql
-  feature_setting:
-    path: ../../feature/setting
-
+    path: ../../core/sql
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0
   logger: ^2.2.0
   url_launcher: ^6.2.6
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
   build_runner: ^2.3.3
-  source_gen: 1.5.0
-  flutter_gen_runner: ^5.4.0
   freezed: 2.5.2
   json_serializable: ^6.8.0
   lints: ^3.0.0
@@ -54,5 +45,4 @@ dev_dependencies:
 
 
 flutter:
-
   uses-material-design: true

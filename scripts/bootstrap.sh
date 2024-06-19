@@ -38,7 +38,7 @@ fi
 echo ""
 echo "Starting Dart Frog server on Docker"
 # cd backend && dart_frog dev
-# if use docker 
+# if use docker
 docker build . -t dart-frog-app
 docker run -i -t -p 8080:8080 dart-frog-app
 
