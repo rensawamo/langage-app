@@ -24,8 +24,8 @@ final wordListProvider = StateNotifierProvider.autoDispose<
         isFavorites: [],
         currentPage: 1,
         scrollController: ScrollController(),
-        selectValue: QuizTopicType.word,
-        selectDropDownValue: "単語",
+        selectValue: QuizTopicType.noun,
+        selectDropDownValue: "名詞",
         speak: (String text) {
           FlutterTts().speak(text);
         },
@@ -52,7 +52,7 @@ class WordList extends StatelessWidget {
     final vm = ref.watch(wordListProvider.notifier);
 
     // クイズのタイプ
-    vm.quizTopicType = QuizTopicType.word;
+    vm.quizTopicType = QuizTopicType.noun;
 
     // インジケータ表示
     vm.showIndicator = () {
@@ -67,7 +67,7 @@ class WordList extends StatelessWidget {
     // 初期設定
     await vm.init();
     // 単語一覧 取得
-    vm.getQuizList(QuizTopicType.word);
+    vm.getQuizList(QuizTopicType.noun);
   }
 
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);

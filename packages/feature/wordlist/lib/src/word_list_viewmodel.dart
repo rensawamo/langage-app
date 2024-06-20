@@ -6,7 +6,6 @@ import 'package:feature_wordlist/src/word_list_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-
 /// 出題単語一覧 Viewmodel
 class WordListViewmodel extends WordListViewmodelInterface {
   /// コンストラクタ
@@ -68,7 +67,8 @@ class WordListViewmodel extends WordListViewmodelInterface {
   @override
   void selectDropDownMenu(String value, QuizTopicType quizTopicType) {
     // ドロップダウンメニューの選択
-    state = state.copyWith(selectDropDownValue: value, selectValue: quizTopicType);
+    state =
+        state.copyWith(selectDropDownValue: value, selectValue: quizTopicType);
   }
 
   @override
@@ -80,8 +80,8 @@ class WordListViewmodel extends WordListViewmodelInterface {
 
   @override
   String getTopic() {
-    if (state.selectDropDownValue == "単語") {
-      return QuizTopicType.word.name;
+    if (state.selectDropDownValue == "名詞") {
+      return QuizTopicType.noun.name;
     } else {
       return QuizTopicType.greet.name;
     }
@@ -95,8 +95,6 @@ class WordListViewmodel extends WordListViewmodelInterface {
     isFavorites[index] = !isFavorites[index];
     state = state.copyWith(isFavorites: isFavorites);
   }
-
-  
 
   /// 一覧クリア
   ///
@@ -140,7 +138,6 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
 
   // お気に入りの更新
   void updateFavorite(int index);
-
 
   // tts の言語設定
   late FlutterTts flutterTts;
