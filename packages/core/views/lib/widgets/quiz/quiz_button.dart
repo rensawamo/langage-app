@@ -1,7 +1,9 @@
+import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_model/model.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+
+import 'package:core_utility/utility.dart';
+
+
 import 'package:flutter/material.dart';
 
 class AppQuizbuttonWidget extends StatefulWidget {
@@ -12,7 +14,6 @@ class AppQuizbuttonWidget extends StatefulWidget {
     required this.ans_ind,
     required this.selected,
     required this.selected_ind,
-    this.mode,
     this.textType,
   }) : super(key: key);
 
@@ -21,7 +22,6 @@ class AppQuizbuttonWidget extends StatefulWidget {
   final bool selected;
   final int ans_ind;
   final int selected_ind;
-  final ThemeMode? mode;
   final AppTextSizeType? textType;
 
   @override
@@ -80,14 +80,14 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                       backgroundColor: widget.selected // 選択済み
                           ? (widget.quiz.options[ans_ind].isCorrect // 正解
                               ? MaterialStateProperty.all<Color>(// 正解の色
-                                  _collctColor.color(widget.mode))
+                                  _collctColor.color())
                               : (widget.selected_ind == ans_ind // 選択済みだが不正解
                                   ? MaterialStateProperty.all<Color>(
-                                      _wrongColor.color(widget.mode)) // 不正解の色
+                                      _wrongColor.color()) // 不正解の色
                                   : MaterialStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
                           : MaterialStateProperty.all<Color>(
-                              _quizTileColor.color(widget.mode),
+                              _quizTileColor.color(),
                             ), // 未選択
                     ),
                     child: Padding(

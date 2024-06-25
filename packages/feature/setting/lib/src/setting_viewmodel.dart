@@ -1,8 +1,6 @@
 import 'package:core_enums/enums.dart';
+import 'package:core_utility/utility.dart';
 import 'setting_state.dart';
-import 'package:core_views/utility/app_setting_info.dart';
-import 'package:core_views/utility/app_system_info.dart';
-import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -43,7 +41,6 @@ class SettingViewmodel extends SettingViewmodelInterface
   void changeThemeMode(ThemeMode mode) {
     AppSettingInfo().changeTheme(mode);
     state = state.copyWith(themeMode: mode);
-
   }
 
   /// テキストサイズの変更
@@ -52,7 +49,6 @@ class SettingViewmodel extends SettingViewmodelInterface
     AppSettingInfo().changeTextSize(sizeType);
     state = state.copyWith(textSize: sizeType);
   }
-
 
   /// アプリインストールタイプの変更
   @override

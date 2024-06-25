@@ -1,8 +1,5 @@
-import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_coach_mark_target_mixin.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +24,6 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
   /// [type]に応じてボタンレイアウトを変化させる
   /// [active]がfalseの場合、非活性表示する
   /// テキストサイズが固定の場合は[textType]で指定する
-  /// テーマモードが固定の場合は[mode]で指定する
   const AppTextButtonSmall({
     super.key,
     required this.text,
@@ -35,14 +31,12 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
     required this.type,
     required this.active,
     this.textType,
-    this.mode,
+    
   });
 
   /// 任意の文字サイズで固定する場合に定義する
   final AppTextSizeType? textType;
 
-  /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
 
   /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがMain)
       final _splashColor = const AppColorSet(type: AppColorType.appbar);
@@ -82,15 +76,15 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
         case AppTextButtonType.main:
           return _textButtonWidget(
             context: context,
-            splashColor: _splashColor.color(mode),
-            appTextColor: _splashColor.color(mode),
+            splashColor: _splashColor.color(),
+            appTextColor: _splashColor.color(),
           );
         // テキストボタンのレイアウトがErrorの場合
         case AppTextButtonType.error:
           return _textButtonWidget(
             context: context,
-            splashColor: _splashColor.color(mode),
-            appTextColor: _splashColor.color(mode),
+            splashColor: _splashColor.color(),
+            appTextColor: _splashColor.color(),
           );
       }
       // 非活性状態の場合
@@ -98,7 +92,7 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
       return _textButtonWidget(
         context: context,
         splashColor: Colors.transparent,
-        appTextColor: _splashColor.color(mode),
+        appTextColor: _splashColor.color(),
       );
     }
   }

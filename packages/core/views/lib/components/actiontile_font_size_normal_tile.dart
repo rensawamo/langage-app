@@ -1,6 +1,5 @@
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_radio.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +66,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: _effectColor.color(mode) ,
+        splashColor: _effectColor.color() ,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -80,7 +79,6 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
                 child: AppRadio(
                   selected: groupValue == radioValue,
                   active: active,
-                  mode: mode,
                 ),
               ),
               Expanded(
@@ -103,7 +101,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
           child: AppText(
             text: mainText,
             style: TextStyles.m(
-              color: _defaultColor.color(mode),
+              color: _defaultColor.color(),
               type: textType,
             ),
           ),
@@ -111,7 +109,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
         AppText(
           text: subText,
           style: TextStyles.s(
-            color: _defaultColor.color(mode),
+            color: _defaultColor.color(),
             type: textType,
           ),
         ),

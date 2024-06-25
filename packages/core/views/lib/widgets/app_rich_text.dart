@@ -1,6 +1,6 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/data/app_text_span.dart';
-import 'package:core_views/utility/url_launcher_utility.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

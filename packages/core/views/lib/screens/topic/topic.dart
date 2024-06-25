@@ -1,9 +1,10 @@
 import 'package:core_constants/constants.dart';
+import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_model/api/quiz_get_all/topic_param.dart';
+
+import 'package:core_utility/utility.dart';
 import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+
 import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class TopicPage extends StatelessWidget {
                       AppText(
                         text: "単語(300単語からランダム)",
                         style: TextStyles.xl(
-                          color: _defaultColor.color(mode),
+                          color: _defaultColor.color(),
                           type: textType,
                         ),
                       ),
@@ -63,7 +64,7 @@ class TopicPage extends StatelessWidget {
                           'ちょっとした空き時間に～！',
                           _question15Color,
                           _question15IconColor,
-                          QuizTopicType.word),
+                          QuizTopicType.noun),
                       SizedBox(height: context.mediaQueryHeight * .02),
                       _tile(
                           context,
@@ -72,15 +73,15 @@ class TopicPage extends StatelessWidget {
                           '休憩や余裕があるときに～！',
                           _question30Color,
                           _question30IconColor,
-                          QuizTopicType.word),
+                          QuizTopicType.noun),
                       SizedBox(height: context.mediaQueryHeight * .02),
                       _tile(context, 50, '問題数 50問', 'じっくりと～！', _question50Color,
-                          _question50IconColor, QuizTopicType.word),
+                          _question50IconColor, QuizTopicType.noun),
                       SizedBox(height: context.mediaQueryHeight * .035),
                       AppText(
                         text: "挨拶(20フレーズからランダム)",
                         style: TextStyles.xl(
-                          color: _defaultColor.color(mode),
+                          color: _defaultColor.color(),
                           type: textType,
                         ),
                       ),
@@ -97,7 +98,7 @@ class TopicPage extends StatelessWidget {
                       AppText(
                         text: "お気に入り",
                         style: TextStyles.xl(
-                          color: _defaultColor.color(mode),
+                          color: _defaultColor.color(),
                           type: textType,
                         ),
                       ),
@@ -118,7 +119,7 @@ class TopicPage extends StatelessWidget {
   Widget _tile(context, int questionCount, String title, String subTitle,
       AppColorSet color, AppColorSet iconColor, QuizTopicType quizTopicType) {
     return ListTile(
-      leading: Icon(Icons.question_answer, color: iconColor.color(mode)),
+      leading: Icon(Icons.question_answer, color: iconColor.color()),
       onTap: () =>
           GoRouter.of(context).pushNamed(MyAppRouteConstraint.quizRouteName,
               extra: TopicParam(
@@ -128,18 +129,18 @@ class TopicPage extends StatelessWidget {
       title: AppText(
         text: title,
         style: TextStyles.l(
-          color: _defaultColor.color(mode),
+          color: _defaultColor.color(),
           type: textType,
         ),
       ),
       subtitle: AppText(
         text: subTitle,
         style: TextStyles.m(
-          color: _defaultColor.color(mode),
+          color: _defaultColor.color(),
           type: textType,
         ),
       ),
-      tileColor: color.color(mode),
+      tileColor: color.color(),
     );
   }
 }

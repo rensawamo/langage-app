@@ -1,6 +1,5 @@
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -45,7 +44,7 @@ class QuizNextButton extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: _nextButtonColor.color(mode),
+              color: _nextButtonColor.color(),
             ),
             child: Text(
               "次へ",

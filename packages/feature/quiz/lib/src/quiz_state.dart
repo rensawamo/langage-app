@@ -1,4 +1,5 @@
-import 'package:core_model/model.dart';
+
+import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -10,8 +10,8 @@ environment:
 # Add regular dependencies here.
 dependencies:
   path: ^1.8.0
-  core_model: 
-    path: ../model
+  core_dao: 
+    path: ../dao
   core_views:
     path: ../views
 

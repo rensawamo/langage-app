@@ -1,6 +1,6 @@
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -40,7 +40,6 @@ class AppBaseFrame extends ConsumerStatefulWidget {
       this.drawer,
       this.scaffoldKey,
       this.onDrawerChanged,
-      this.mode,
       this.textType,
       this.backButtonKey,
       this.didPopEvent});
@@ -78,9 +77,6 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 
   /// ドロワーが開いたり閉じたりしたときに呼び出されるFunction 引数としてドロワーの状態(開閉)が渡される
   final Function(bool)? onDrawerChanged;
-
-  /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
 
   /// 任意の文字サイズで固定する場合に定義する
   final AppTextSizeType? textType;
@@ -161,14 +157,13 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
       canPop: false,
       child: Scaffold(
         key: widget.scaffoldKey,
-        backgroundColor: _backGroundColor.color(widget.mode),
+        backgroundColor: _backGroundColor.color(),
         drawer: widget.drawer,
         onDrawerChanged: widget.onDrawerChanged,
         drawerEnableOpenDragGesture: false,
         appBar: widget.appBar ??
             AppBarForScreen(
               textType: widget.textType,
-              mode: widget.mode,
               titleText: widget.title,
               leftWidget: _prevButton(context),
             ),

@@ -1,10 +1,11 @@
+import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_model/model.dart';
+
 import 'package:core_sql/sql.dart';
-import 'package:core_views/components/tile_empty_text.dart';
+import 'package:core_utility/utility.dart';
+
 import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,6 @@ class ResultPageWidget extends StatefulWidget {
       required this.scores,
       required this.installtype,
       required this.topicType,
-      this.mode,
       this.textType,
       Key? key})
       : super(key: key);
@@ -36,7 +36,6 @@ class ResultPageWidget extends StatefulWidget {
   final List<bool?> scores;
   final AppInstallType installtype;
   final QuizTopicType topicType;
-  final ThemeMode? mode;
   final AppTextSizeType? textType;
 
   @override
@@ -67,7 +66,7 @@ class _ResultPageState extends State<ResultPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: _backGroundColor.color(widget.mode),
+        backgroundColor: _backGroundColor.color(),
         body: Column(
           children: [
             SizedBox(
@@ -78,7 +77,7 @@ class _ResultPageState extends State<ResultPageWidget> {
               child: AppText(
                 text: "結果 ${widget.totalScore} / ${widget.count}",
                 style: TextStyles.xl(
-                  color: _defaultColor.color(widget.mode),
+                  color: _defaultColor.color(),
                   type: widget.textType,
                 ),
               ),
@@ -104,7 +103,7 @@ class _ResultPageState extends State<ResultPageWidget> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: _nextButtonColor.color(widget.mode),
+                    color: _nextButtonColor.color(),
                   ),
                   child: Text(
                     "トピックに戻る",
@@ -173,9 +172,7 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildVoiceCell(int index) => Container(
         height: 65,
-        color: index % 2 == 0
-            ? _cellOddColor.color(widget.mode)
-            : _cellEvenColor.color(widget.mode),
+        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -186,9 +183,7 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildFavoriteCell(int index) => Container(
         height: 65,
-        color: index % 2 == 0
-            ? _cellOddColor.color(widget.mode)
-            : _cellEvenColor.color(widget.mode),
+        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -218,11 +213,11 @@ class _ResultPageState extends State<ResultPageWidget> {
       Container(
         padding: const EdgeInsets.all(8),
         height: 58,
-        color: _cellTitleColor.color(widget.mode),
+        color: _cellTitleColor.color(),
         alignment: Alignment.center,
         child: Text(text,
             style: TextStyles.s(
-              color: _defaultColor.color(widget.mode),
+              color: _defaultColor.color(),
               type: widget.textType,
             )),
       );
@@ -230,9 +225,7 @@ class _ResultPageState extends State<ResultPageWidget> {
   Widget _buildSubtitleCell(String text, int index) => Container(
       height: 65,
       padding: const EdgeInsets.all(8),
-      color: index % 2 == 0
-          ? _cellOddColor.color(widget.mode)
-          : _cellEvenColor.color(widget.mode),
+      color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
       alignment: Alignment.center,
       child: Text(
         text,
@@ -242,7 +235,7 @@ class _ResultPageState extends State<ResultPageWidget> {
               ? Colors.red
               : text == '不正解'
                   ? Colors.blue
-                  : _defaultColor.color(widget.mode),
+                  : _defaultColor.color(),
           type: widget.textType,
         ),
       ));

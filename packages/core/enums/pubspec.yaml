@@ -12,6 +12,8 @@ dependencies:
   path: ^1.8.0
   core_views:
     path: ../views
+  core_utility:
+    path: ../utility
 
 dev_dependencies:
   lints: ^3.0.0

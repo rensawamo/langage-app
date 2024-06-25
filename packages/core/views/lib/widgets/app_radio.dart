@@ -1,6 +1,5 @@
-import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 
 /// アプリ専用ラジオボタン
@@ -10,13 +9,11 @@ class AppRadio extends StatelessWidget {
   /// [selected]がtrueのときボタンON
   /// [onPressed]でタップ時のイベントを設定
   /// [active]がtrueのとき活性化。デフォルト:true
-  /// テーマモードが固定の場合は[mode]で指定する
   const AppRadio({
     super.key,
     required this.selected,
     this.onPressed,
     this.active = true,
-    this.mode,
   });
 
   /// ボタン状態
@@ -30,9 +27,6 @@ class AppRadio extends StatelessWidget {
 
   /// アイコンサイズ固定
   final _size = 24.0;
-
-  /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
 
   /// ラジオボタンがOFF状態のアイコンの色
   final _radioOffColor = const AppColorSet(type: AppColorType.radioOff);
@@ -60,11 +54,11 @@ class AppRadio extends StatelessWidget {
   /// ラジオボタンOFF
   Widget _offButton() {
     return Icon(Icons.radio_button_unchecked,
-        color: _radioOffColor.color(mode), size: _size);
+        color: _radioOffColor.color(), size: _size);
   }
 
   /// ラジオボタンON状態
   Widget _onButton() {
-    return Icon(Icons.radio_button_checked, color: _radioOnColor.color(mode), size: _size);
+    return Icon(Icons.radio_button_checked, color: _radioOnColor.color(), size: _size);
   }
 }

@@ -1,7 +1,5 @@
-import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_coach_mark_target_mixin.dart';
-import 'package:core_views/views.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 
 /// アイコンボタンを表示するWidget
@@ -31,11 +29,9 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
     required this.onTap,
     required this.type,
     this.active = true,
-    this.mode,
   });
 
   /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
 
   /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがNeutral)
   final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
@@ -50,16 +46,16 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
         case AppIconButtonType.neutral:
           return _iconButtonWidget(
             context: context,
-            splashColor: _reverseColor.color(mode),
-            iconColor: _reverseColor.color(mode),
+            splashColor: _reverseColor.color(),
+            iconColor: _reverseColor.color(),
             onTapEvent: onTap,
           );
         // アイコンボタンのレイアウトがMainの場合
         case AppIconButtonType.main:
           return _iconButtonWidget(
             context: context,
-            splashColor: _reverseColor.color(mode),
-            iconColor: _reverseColor.color(mode),
+            splashColor: _reverseColor.color(),
+            iconColor: _reverseColor.color(),
             onTapEvent: onTap,
           );
       }
@@ -68,7 +64,7 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
       return _iconButtonWidget(
         context: context,
         splashColor: Colors.transparent,
-        iconColor: _reverseColor.color(mode),
+        iconColor: _reverseColor.color(),
         onTapEvent: null,
       );
     }

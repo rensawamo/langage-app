@@ -1,7 +1,6 @@
 
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_radio.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +35,6 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
   /// ラジオボタンの値を[radioValue]で設定する。[groupValue]と一致するとONになる
   /// [active]がfalseの場合、非活性表示する
   /// テキストサイズが固定の場合は[textType]で指定する
-  /// テーマモードが固定の場合は[mode]で指定する
   const ActiontileFontSizeExtraBigTile({
     super.key,
     required this.mainText,
@@ -46,14 +44,12 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
     required this.radioValue,
     this.active = true,
     this.textType,
-    this.mode,
   });
 
   /// 任意の文字サイズで固定する場合に定義する
   final AppTextSizeType? textType;
 
-  /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
+
 
   /// タイルタップ時のエフェクトの色
   final _effectColor = const AppColorSet(type: AppColorType.effectColor);
@@ -68,7 +64,7 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: _effectColor.color(mode),
+        splashColor: _effectColor.color(),
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -81,7 +77,6 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
                 child: AppRadio(
                   selected: groupValue == radioValue,
                   active: active,
-                  mode: mode,
                 ),
               ),
               Expanded(
@@ -104,7 +99,7 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
           child: AppText(
             text: mainText,
             style: TextStyles.mEL(
-              color: _defaultColor.color(mode),
+              color: _defaultColor.color(),
               type: textType,
             ),
           ),
@@ -112,7 +107,7 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
         AppText(
           text: subText,
           style: TextStyles.sEL(
-            color: _defaultColor.color(mode),
+            color: _defaultColor.color(),
             type: textType,
           ),
         ),

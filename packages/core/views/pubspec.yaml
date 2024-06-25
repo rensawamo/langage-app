@@ -18,10 +18,8 @@ dependencies:
   go_router: ^14.1.2
   flutter_tts: ^4.0.2
 
-  core_model:
-    path: ../model
-  core_repository:
-    path: ../repository
+  core_dao: 
+    path: ../dao
   core_data:
     path: ../data
   core_constants:
@@ -30,8 +28,11 @@ dependencies:
     path: ../enums
   core_sql:
     path: ../sql
+  core_utility: 
+    path: ../utility
   feature_setting:
     path: ../../feature/setting
+
   
 
 

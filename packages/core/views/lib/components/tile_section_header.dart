@@ -1,7 +1,8 @@
-import 'package:core_constants/constants.dart';
+
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+import 'package:core_utility/utility.dart';
+
+
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class TileSectionHeader extends StatelessWidget {
   /// テキスト[text]を表示する
   /// [hasFillingColor]がtrueの場合、背景色ありに変更する
   /// テキストサイズが固定の場合は[textType]で指定する
-  /// テーマモードが固定の場合は[mode]で指定する
+  
   const TileSectionHeader({
     super.key,
     required this.text,
@@ -53,7 +54,7 @@ class TileSectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: hasFillingColor ? _backGroundColor.color(mode) : Colors.transparent,
+      color: hasFillingColor ? _backGroundColor.color() : Colors.transparent,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(
         top: 16,
@@ -64,7 +65,7 @@ class TileSectionHeader extends StatelessWidget {
       child: AppText(
         text: text,
         style: TextStyles.s(
-          color: _defaultColor.color(mode),
+          color: _defaultColor.color(),
           type: textType,
         ),
       ),

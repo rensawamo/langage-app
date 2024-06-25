@@ -1,7 +1,5 @@
-import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_color_set.dart';
-import 'package:core_views/utility/text_styles.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_radio.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +34,7 @@ class ActionTileSingleRadioTile extends StatelessWidget {
   /// [active]がfalseの場合、非活性表示する
   /// [disabledPartical]がtrueの場合、ラジオボタンのみ非活性カラーにする
   /// テキストサイズが固定の場合は[textType]で指定する
-  /// テーマモードが固定の場合は[mode]で指定する
+  
   const ActionTileSingleRadioTile({
     super.key,
     required this.itemText,
@@ -46,14 +44,11 @@ class ActionTileSingleRadioTile extends StatelessWidget {
     this.active = true,
     this.disabledPartical = false,
     this.textType,
-    this.mode,
+    
   });
 
   /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
-
-  /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
+  final AppTextSizeType? textType; 
 
   /// タイルタップ時のエフェクトの色
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
@@ -76,7 +71,7 @@ class ActionTileSingleRadioTile extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        splashColor: active ? _defaultColor.color(mode) : Colors.transparent,
+        splashColor: active ? _defaultColor.color() : Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
@@ -101,7 +96,6 @@ class ActionTileSingleRadioTile extends StatelessWidget {
       child: AppRadio(
         selected: groupValue == radioValue,
         active: active,
-        mode: mode,
       ),
     );
   }
@@ -113,8 +107,8 @@ class ActionTileSingleRadioTile extends StatelessWidget {
         text: itemText,
         style: TextStyles.m(
           color: active || disabledPartical
-              ? _defaultColor.color(mode)
-              : _defaultColor.color(mode),
+              ? _defaultColor.color()
+              : _defaultColor.color(),
           type: textType,
         ),
       ),

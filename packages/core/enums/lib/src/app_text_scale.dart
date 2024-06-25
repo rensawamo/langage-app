@@ -1,5 +1,6 @@
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/app_setting_info.dart';
+import 'package:core_utility/utility.dart';
+
 
 /// 文字サイズ種別
 enum AppTextScale {

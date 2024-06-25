@@ -1,9 +1,8 @@
+import 'package:core_dao/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_model/model.dart';
-import 'package:core_model/sql/quiz_favorite/quiz_favorite_dao.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_views/components/tile_empty_text.dart';
 import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/utility/text_styles.dart';
 import 'package:core_views/views.dart';
 import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:core_views/widgets/app_delete_dialog.dart';
@@ -24,7 +23,7 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
         answers: [],
         isHideAnswers: [],
         scrollController: ScrollController(),
-        selectValue: QuizTopicType.word,
+        selectValue: QuizTopicType.noun,
         selectDropDownValue: "単語",
         speak: (String text) {
           FlutterTts().speak(text);
@@ -36,8 +35,8 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
 );
 
 /// Quiz の 問題を表示する画面
-class QuizFavorite extends StatelessWidget {
-  QuizFavorite({
+class QuizFavoritePage extends StatelessWidget {
+  QuizFavoritePage({
     Key? key,
     required this.dropDownMenu,
     this.mode,
@@ -52,7 +51,7 @@ class QuizFavorite extends StatelessWidget {
     final vm = ref.watch(QuizFavoriteProvider.notifier);
 
     // クイズのタイプ
-    vm.quizTopicType = QuizTopicType.word;
+    vm.quizTopicType = QuizTopicType.noun;
 
     // インジケータ表示
     vm.showIndicator = () {
@@ -66,7 +65,7 @@ class QuizFavorite extends StatelessWidget {
 
     // 初期設定
     await vm.init();
-    vm.getFavorites(QuizTopicType.word);
+    vm.getFavorites(QuizTopicType.noun);
   }
 
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
@@ -119,7 +118,7 @@ class QuizFavorite extends StatelessWidget {
 
       return Theme(
         data:
-            Theme.of(context).copyWith(canvasColor: _cellEvenColor.color(mode)),
+            Theme.of(context).copyWith(canvasColor: _cellEvenColor.color()),
         child: DropdownButton<String>(
           value: selectDropDownValue,
           items: dropDownMenu.keys
@@ -127,7 +126,7 @@ class QuizFavorite extends StatelessWidget {
                     value: key,
                     child: Text(
                       key,
-                      style: TextStyle(color: _defaultColor.color(mode)),
+                      style: TextStyle(color: _defaultColor.color()),
                     ),
                   ))
               .toList(),
@@ -199,8 +198,8 @@ class QuizFavorite extends StatelessWidget {
       Container(
         height: 65,
         color: index % 2 == 0
-            ? _cellOddColor.color(mode)
-            : _cellEvenColor.color(mode),
+            ? _cellOddColor.color()
+            : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -212,15 +211,15 @@ class QuizFavorite extends StatelessWidget {
   Widget _buildFavoriteCell(int index, context, ref) => Container(
         height: 65,
         color: index % 2 == 0
-            ? _cellOddColor.color(mode)
-            : _cellEvenColor.color(mode),
+            ? _cellOddColor.color()
+            : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
           icon: Icon(
               // 削除
               Icons.delete,
-              color: _defaultColor.color(mode)),
+              color: _defaultColor.color()),
           onPressed: () async => {
             ShowDeleteDialog(context, "削除しますか？").then((bool? result) async {
               if (result != null) {
@@ -236,10 +235,10 @@ class QuizFavorite extends StatelessWidget {
         height: 58,
         padding:
             const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
-        color: _cellTitleColor.color(mode),
+        color: _cellTitleColor.color(),
         alignment: Alignment.center,
         child: Text(text,
-            style: TextStyle(color: _defaultColor.color(mode)),
+            style: TextStyle(color: _defaultColor.color()),
             textAlign: TextAlign.left),
       );
 
@@ -249,8 +248,8 @@ class QuizFavorite extends StatelessWidget {
         height: 65,
         padding: EdgeInsets.all(5),
         color: index % 2 == 0
-            ? _cellOddColor.color(mode)
-            : _cellEvenColor.color(mode),
+            ? _cellOddColor.color()
+            : _cellEvenColor.color(),
         alignment: Alignment.center,
         child: InkWell(
           child: isHideAnswer == true
@@ -259,14 +258,14 @@ class QuizFavorite extends StatelessWidget {
                     toggleAnswer(index);
                   },
                   style: OutlinedButton.styleFrom(
-                    backgroundColor: _cellTitleColor.color(mode),
+                    backgroundColor: _cellTitleColor.color(),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                   child: Text('表示'),
                 )
-              : Text(text, style: TextStyle(color: _defaultColor.color(mode))),
+              : Text(text, style: TextStyle(color: _defaultColor.color())),
         ),
       );
 
@@ -274,13 +273,13 @@ class QuizFavorite extends StatelessWidget {
         height: 65,
         padding: const EdgeInsets.all(8),
         color: index % 2 == 0
-            ? _cellOddColor.color(mode)
-            : _cellEvenColor.color(mode),
+            ? _cellOddColor.color()
+            : _cellEvenColor.color(),
         alignment: Alignment.center,
         child: Text(text,
             textAlign: TextAlign.left,
             style: TextStyles.s(
-              color: _defaultColor.color(mode),
+              color: _defaultColor.color(),
             )),
       );
 

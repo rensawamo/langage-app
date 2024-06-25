@@ -3,8 +3,20 @@ enum QuizTopicType {
   /// お気に入り
   favorite,
 
-  /// 単語
-  word,
+  // 形容詞
+  adjective,
+
+  // 副詞
+  adverb,
+
+  // 動詞
+  verb,
+
+  // 名詞
+  noun,
+
+  // 代名詞
+  pronoun,
 
   /// 挨拶
   greet,

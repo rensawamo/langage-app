@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:core_enums/enums.dart';
-import 'package:core_views/utility/text_styles.dart';
-import 'package:core_views/views.dart';
+import 'package:core_utility/utility.dart';
+
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,12 +9,10 @@ import 'package:go_router/go_router.dart';
 /// 削除確認ダイアログ
 class DeleteDialog extends StatefulWidget {
   final String title;
-  final ThemeMode? mode;
   final AppTextSizeType? textType;
 
   const DeleteDialog({
     required this.title,
-    this.mode,
     this.textType,
     Key? key,
   }) : super(key: key);
@@ -30,11 +28,11 @@ class _ConfirmDialogState extends State<DeleteDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: _dialogColor.color(widget.mode),
+      backgroundColor: _dialogColor.color(),
       title: AppText(
         text: widget.title,
         style: TextStyles.xl(
-          color: _defaultColor.color(widget.mode),
+          color: _defaultColor.color(),
           type: widget.textType,
         ),
       ),
@@ -46,7 +44,7 @@ class _ConfirmDialogState extends State<DeleteDialog> {
           child: AppText(
             text: 'キャンセル',
             style: TextStyles.m(
-              color: _defaultColor.color(widget.mode),
+              color: _defaultColor.color(),
               type: widget.textType,
             ),
           ),
@@ -56,7 +54,7 @@ class _ConfirmDialogState extends State<DeleteDialog> {
           child: AppText(
             text: 'OK',
             style: TextStyles.m(
-              color: _defaultColor.color(widget.mode),
+              color: _defaultColor.color(),
               type: widget.textType,
             ),
           ),
