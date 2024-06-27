@@ -15,9 +15,7 @@ class App extends ConsumerWidget {
 
       debugShowCheckedModeBanner: false,
   
-      supportedLocales: const [
-        Locale('ja', 'JP'),
-      ],
+      
       routeInformationParser: router.routeInformationParser,
       routerDelegate: router.routerDelegate,
       routeInformationProvider: router.routeInformationProvider,
