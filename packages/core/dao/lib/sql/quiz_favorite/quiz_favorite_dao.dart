@@ -11,7 +11,9 @@ import 'package:core_utility/utility.dart';
 class QuizFavoriteDao implements QuizFavoriteDaoInterface {
   @override
   Future<QuizFavoriteResponse> getFavoriteList(
+    
       QuizFavoriteRequest request) async {
+        print(request.quizTopicType.name);
     return QuizFavoriteResponse(
         texts: await QuizFavoriteSql.getAllWords(
             request.quizTopicType.name, AppSettingInfo().appInstallType.name),

@@ -25,6 +25,7 @@ mixin _$WordListState {
   ScrollController get scrollController => throw _privateConstructorUsedError;
   String get selectDropDownValue => throw _privateConstructorUsedError;
   Function get speak => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   /// セレクトボックスの値
   QuizTopicType get selectValue => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $WordListStateCopyWith<$Res> {
       ScrollController scrollController,
       String selectDropDownValue,
       Function speak,
+      bool isLoading,
       QuizTopicType selectValue});
 }
 
@@ -71,6 +73,7 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
     Object? scrollController = null,
     Object? selectDropDownValue = null,
     Object? speak = null,
+    Object? isLoading = null,
     Object? selectValue = null,
   }) {
     return _then(_value.copyWith(
@@ -102,6 +105,10 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
               as Function,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectValue: null == selectValue
           ? _value.selectValue
           : selectValue // ignore: cast_nullable_to_non_nullable
@@ -126,6 +133,7 @@ abstract class _$$WordListStateImplCopyWith<$Res>
       ScrollController scrollController,
       String selectDropDownValue,
       Function speak,
+      bool isLoading,
       QuizTopicType selectValue});
 }
 
@@ -147,6 +155,7 @@ class __$$WordListStateImplCopyWithImpl<$Res>
     Object? scrollController = null,
     Object? selectDropDownValue = null,
     Object? speak = null,
+    Object? isLoading = null,
     Object? selectValue = null,
   }) {
     return _then(_$WordListStateImpl(
@@ -178,6 +187,10 @@ class __$$WordListStateImplCopyWithImpl<$Res>
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
               as Function,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectValue: null == selectValue
           ? _value.selectValue
           : selectValue // ignore: cast_nullable_to_non_nullable
@@ -197,6 +210,7 @@ class _$WordListStateImpl implements _WordListState {
       required this.scrollController,
       required this.selectDropDownValue,
       required this.speak,
+      this.isLoading = true,
       required this.selectValue})
       : _quizzes = quizzes,
         _answers = answers,
@@ -236,6 +250,9 @@ class _$WordListStateImpl implements _WordListState {
   final String selectDropDownValue;
   @override
   final Function speak;
+  @override
+  @JsonKey()
+  final bool isLoading;
 
   /// セレクトボックスの値
   @override
@@ -243,7 +260,7 @@ class _$WordListStateImpl implements _WordListState {
 
   @override
   String toString() {
-    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, currentPage: $currentPage, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, selectValue: $selectValue)';
+    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, currentPage: $currentPage, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
   }
 
   @override
@@ -262,6 +279,8 @@ class _$WordListStateImpl implements _WordListState {
             (identical(other.selectDropDownValue, selectDropDownValue) ||
                 other.selectDropDownValue == selectDropDownValue) &&
             (identical(other.speak, speak) || other.speak == speak) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.selectValue, selectValue) ||
                 other.selectValue == selectValue));
   }
@@ -276,6 +295,7 @@ class _$WordListStateImpl implements _WordListState {
       scrollController,
       selectDropDownValue,
       speak,
+      isLoading,
       selectValue);
 
   @JsonKey(ignore: true)
@@ -294,6 +314,7 @@ abstract class _WordListState implements WordListState {
       required final ScrollController scrollController,
       required final String selectDropDownValue,
       required final Function speak,
+      final bool isLoading,
       required final QuizTopicType selectValue}) = _$WordListStateImpl;
 
   @override
@@ -312,6 +333,8 @@ abstract class _WordListState implements WordListState {
   String get selectDropDownValue;
   @override
   Function get speak;
+  @override
+  bool get isLoading;
   @override
 
   /// セレクトボックスの値

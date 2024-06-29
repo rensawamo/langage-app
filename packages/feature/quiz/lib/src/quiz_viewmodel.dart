@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'quiz_state.dart';
@@ -30,9 +31,8 @@ class QuizViewmodel extends QuizViewmodelInterface {
   /// Quize の一覧取得
   @override
   Future<void> getQuizList() async {
-
-    // インジケータ表示
-    showIndicator();
+    // ローディング開始
+    state = state.copyWith(isLoading: true);
 
     // パラメータ生成
 
@@ -50,10 +50,8 @@ class QuizViewmodel extends QuizViewmodelInterface {
       print(error.toString());
       // エラー処理
     }).whenComplete(() {
-      // ロード中解除
-      isLoading = false;
-      // インジケータ非表示
-      hideIndicator();
+      // ローディング終了
+      state = state.copyWith(isLoading: false);
     });
   }
 
@@ -117,7 +115,7 @@ class QuizViewmodel extends QuizViewmodelInterface {
 
   @override
   void initializeTts() {
-    flutterTts.setLanguage('ko-KR'); // 韓国語に設定
+    flutterTts.setLanguage(AppSettingInfo().ftsSetting);
     flutterTts.setPitch(1.0);
     flutterTts.setSpeechRate(0.5);
   }
@@ -134,12 +132,6 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
 
   /// Application install type
   late AppInstallType appInstallType;
-
-  /// インジケータ表示メソッド
-  late Function showIndicator;
-
-  /// インジケータ破棄メソッド
-  late Function hideIndicator;
 
   /// ページサイズ(固定)
   final int pageSize = 50;

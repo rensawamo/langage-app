@@ -19,8 +19,14 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           observers: HomeBranch.$observers,
           routes: [
             GoRouteData.$route(
-              path: '/wordlist',
-              factory: $WordlistRouteDataExtension._fromState,
+              path: '/home',
+              factory: $HomePageDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'wordlist',
+                  factory: $WordlistRouteDataExtension._fromState,
+                ),
+              ],
             ),
           ],
         ),
@@ -49,8 +55,14 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           observers: FourthBranch.$observers,
           routes: [
             GoRouteData.$route(
-              path: '/setting',
-              factory: $SettingPageDataExtension._fromState,
+              path: '/setting_root',
+              factory: $SettingRootPageDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'setting',
+                  factory: $SettingPageDataExtension._fromState,
+                ),
+              ],
             ),
           ],
         ),
@@ -62,12 +74,29 @@ extension $AppShellRouteDataExtension on AppShellRouteData {
       const AppShellRouteData();
 }
 
+extension $HomePageDataExtension on HomePageData {
+  static HomePageData _fromState(GoRouterState state) => const HomePageData();
+
+  String get location => GoRouteData.$location(
+        '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 extension $WordlistRouteDataExtension on WordlistRouteData {
   static WordlistRouteData _fromState(GoRouterState state) =>
       const WordlistRouteData();
 
   String get location => GoRouteData.$location(
-        '/wordlist',
+        '/home/wordlist',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -116,12 +145,30 @@ extension $FavoriteRouteDataExtension on FavoriteRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $SettingRootPageDataExtension on SettingRootPageData {
+  static SettingRootPageData _fromState(GoRouterState state) =>
+      const SettingRootPageData();
+
+  String get location => GoRouteData.$location(
+        '/setting_root',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 extension $SettingPageDataExtension on SettingPageData {
   static SettingPageData _fromState(GoRouterState state) =>
       const SettingPageData();
 
   String get location => GoRouteData.$location(
-        '/setting',
+        '/setting_root/setting',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -17,9 +17,9 @@ class AppNavigationBar extends StatelessWidget {
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationShell.currentIndex,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'ex1'),
-          NavigationDestination(icon: Icon(Icons.favorite), label: 'ex2'),
-          NavigationDestination(icon: Icon(Icons.track_changes), label: 'ex3'),
+          NavigationDestination(icon: Icon(Icons.list), label: 'ex1'),
+          NavigationDestination(icon: Icon(Icons.question_mark), label: 'ex2'),
+          NavigationDestination(icon: Icon(Icons.star), label: 'ex3'),
           NavigationDestination(icon: Icon(Icons.settings), label: 'ex4'),
         ],
         onDestinationSelected: (index) {

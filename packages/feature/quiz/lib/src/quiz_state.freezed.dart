@@ -27,6 +27,7 @@ mixin _$QuizState {
   int get totalScore => throw _privateConstructorUsedError;
   int get gtotalScore => throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuizStateCopyWith<QuizState> get copyWith =>
@@ -49,7 +50,8 @@ abstract class $QuizStateCopyWith<$Res> {
       int selectedInd,
       int totalScore,
       int gtotalScore,
-      bool isFinished});
+      bool isFinished,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -76,6 +78,7 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
     Object? totalScore = null,
     Object? gtotalScore = null,
     Object? isFinished = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       quizs: null == quizs
@@ -122,6 +125,10 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -145,7 +152,8 @@ abstract class _$$QuizStateImplCopyWith<$Res>
       int selectedInd,
       int totalScore,
       int gtotalScore,
-      bool isFinished});
+      bool isFinished,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -170,6 +178,7 @@ class __$$QuizStateImplCopyWithImpl<$Res>
     Object? totalScore = null,
     Object? gtotalScore = null,
     Object? isFinished = null,
+    Object? isLoading = null,
   }) {
     return _then(_$QuizStateImpl(
       quizs: null == quizs
@@ -216,6 +225,10 @@ class __$$QuizStateImplCopyWithImpl<$Res>
           ? _value.isFinished
           : isFinished // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -234,7 +247,8 @@ class _$QuizStateImpl implements _QuizState {
       this.selectedInd = -1,
       this.totalScore = 0,
       this.gtotalScore = 0,
-      this.isFinished = false})
+      this.isFinished = false,
+      this.isLoading = false})
       : _quizs = quizs,
         _answers = answers,
         _isFavorites = isFavorites,
@@ -293,10 +307,13 @@ class _$QuizStateImpl implements _QuizState {
   @override
   @JsonKey()
   final bool isFinished;
+  @override
+  @JsonKey()
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'QuizState(quizs: $quizs, answers: $answers, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished)';
+    return 'QuizState(quizs: $quizs, answers: $answers, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished, isLoading: $isLoading)';
   }
 
   @override
@@ -321,7 +338,9 @@ class _$QuizStateImpl implements _QuizState {
             (identical(other.gtotalScore, gtotalScore) ||
                 other.gtotalScore == gtotalScore) &&
             (identical(other.isFinished, isFinished) ||
-                other.isFinished == isFinished));
+                other.isFinished == isFinished) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
@@ -337,7 +356,8 @@ class _$QuizStateImpl implements _QuizState {
       selectedInd,
       totalScore,
       gtotalScore,
-      isFinished);
+      isFinished,
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -358,7 +378,8 @@ abstract class _QuizState implements QuizState {
       final int selectedInd,
       final int totalScore,
       final int gtotalScore,
-      final bool isFinished}) = _$QuizStateImpl;
+      final bool isFinished,
+      final bool isLoading}) = _$QuizStateImpl;
 
   @override
   List<Quiz> get quizs;
@@ -382,6 +403,8 @@ abstract class _QuizState implements QuizState {
   int get gtotalScore;
   @override
   bool get isFinished;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$QuizStateImplCopyWith<_$QuizStateImpl> get copyWith =>

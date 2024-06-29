@@ -1,4 +1,3 @@
-
 import 'package:core_enums/enums.dart';
 
 import 'package:feature_quiz_favorite/quiz_favorite.dart';
@@ -10,11 +9,12 @@ class FavoriteRouteData extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return QuizFavoritePage(
-      dropDownMenu: {
-        '単語': QuizTopicType.noun,
-        '挨拶': QuizTopicType.greet,
-      }
-    );
+    return QuizFavoritePage(dropDownMenu: {
+      '名詞': QuizTopicType.noun,
+      '形容詞'  : QuizTopicType.adjective,
+      '動詞'  : QuizTopicType.verb,
+      '副詞'  : QuizTopicType.adverb,
+      '挨拶'  : QuizTopicType.greet,
+    });
   }
 }

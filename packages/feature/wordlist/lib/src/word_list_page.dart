@@ -19,7 +19,7 @@ final wordListProvider = StateNotifierProvider.autoDispose<
   (ref) {
     return WordListViewmodel(
       WordListState(
-        quizzes: [""],
+        quizzes: [],
         answers: [],
         isFavorites: [],
         currentPage: 1,
@@ -52,20 +52,12 @@ class WordListPage extends StatelessWidget {
     // クイズのタイプ
     vm.quizTopicType = QuizTopicType.noun;
 
-    // インジケータ表示
-    vm.showIndicator = () {
-      AppIndicator.show(context);
-    };
-    // viewmodel側にインジケータ破棄処理をセット
-    vm.hideIndicator = () {
-      AppIndicator.hide(context);
-    };
     vm.flutterTts = FlutterTts();
 
     // 初期設定
     await vm.init();
     // 単語一覧 取得
-    vm.getQuizList(QuizTopicType.noun);
+     vm.getQuizList(QuizTopicType.noun);
   }
 
   final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
@@ -98,10 +90,9 @@ class WordListPage extends StatelessWidget {
           body: Column(
             children: [
               _dropDown(),
-              quizzes.isEmpty
-                  ? _empty()
-                  : quizzes.first.isEmpty
-                      ? Container()
+              // loading
+              ref.watch(wordListProvider).isLoading
+                  ? const CircularProgressIndicator()
                       : Expanded(child: _table(quizzes))
             ],
           ));
@@ -147,7 +138,7 @@ class WordListPage extends StatelessWidget {
       Function speak = ref.read(wordListProvider).speak;
       ScrollController _scrollController =
           ref.read(wordListProvider).scrollController;
-      String topicType = ref.watch(wordListProvider.notifier).getTopic();
+      String selectValue = ref.watch(wordListProvider).selectValue.name;
 
       return Center(
           child: Container(
@@ -188,7 +179,7 @@ class WordListPage extends StatelessWidget {
                                   isFavorites[index],
                                   quizzes[index],
                                   answers[index],
-                                  topicType,
+                                  selectValue,
                                   context,
                                   ref)),
                         ],
@@ -217,7 +208,7 @@ class WordListPage extends StatelessWidget {
       );
 
   Widget _buildFavoriteCell(int index, bool isFavorite, String word,
-          String answer, String topicType, context, ref) =>
+          String answer, String selectValue, context, ref) =>
       Consumer(builder: (context, ref, child) {
         final vm = ref.watch(wordListProvider.notifier);
 
@@ -234,11 +225,12 @@ class WordListPage extends StatelessWidget {
               color: Colors.yellow[700],
             ),
             onPressed: () async {
+              print(selectValue);
               if (isFavorite) {
                 await QuizFavoriteSql.delete(
                     word, AppSettingInfo().appInstallType.name);
               } else {
-                await QuizFavoriteSql.insert(word, answer, topicType,
+                await QuizFavoriteSql.insert(word, answer, selectValue,
                     AppSettingInfo().appInstallType.name);
               }
               vm.updateFavorite(index);

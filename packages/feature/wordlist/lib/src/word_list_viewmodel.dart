@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_utility/utility.dart';
 import 'package:feature_wordlist/src/word_list_state.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,24 +23,23 @@ class WordListViewmodel extends WordListViewmodelInterface {
   Future<void> init() async {
     // tls初期化
     initializeTts();
-    final controller = state.scrollController;
-    controller.addListener(() {
-      // スクロール量が全体の95%になった時,APIを呼ぶ.
-      final scrollValue =
-          controller.offset / controller.position.maxScrollExtent;
-      if (scrollValue > 0.95) {
-        state = state.copyWith(currentPage: state.currentPage + 1);
-        getQuizList(state.selectValue);
-      }
-    });
+    // final controller = state.scrollController;
+    // controller.addListener(() {
+    //   // スクロール量が全体の95%になった時,DBを呼ぶ.
+    //   final scrollValue =
+    //       controller.offset / controller.position.maxScrollExtent;
+    //   if (scrollValue > 0.95) {
+    //     state = state.copyWith(currentPage: state.currentPage + 1);
+    //     getQuizList(state.selectValue);
+    //   }
+    // });
   }
 
   /// Quize の一覧取得
   @override
   Future<void> getQuizList(QuizTopicType quizTopicType) async {
     // インジケータ表示
-    showIndicator();
-
+    state = state.copyWith(isLoading: true);
     // ここで data から quizeを取得する
     dao
         .getWordList(WordGetAllRequest(
@@ -48,7 +48,6 @@ class WordListViewmodel extends WordListViewmodelInterface {
       pageSize: 20,
     ))
         .then((response) {
-      print(response);
       // 一覧に追加
       state = state.copyWith(
           quizzes: response.words,
@@ -60,7 +59,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
       // エラー処理
     }).whenComplete(() {
       // インジケータ非表示
-      hideIndicator();
+      state = state.copyWith(isLoading: false);
     });
   }
 
@@ -73,18 +72,9 @@ class WordListViewmodel extends WordListViewmodelInterface {
 
   @override
   void initializeTts() {
-    flutterTts.setLanguage('ko-KR'); // 韓国語に設定
+    flutterTts.setLanguage(AppSettingInfo().ftsSetting); // 韓国語に設定
     flutterTts.setPitch(1.0);
     flutterTts.setSpeechRate(0.5);
-  }
-
-  @override
-  String getTopic() {
-    if (state.selectDropDownValue == "名詞") {
-      return QuizTopicType.noun.name;
-    } else {
-      return QuizTopicType.greet.name;
-    }
   }
 
   @override
@@ -112,12 +102,6 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
   /// クイズの種別
   late QuizTopicType quizTopicType;
 
-  /// インジケータ表示メソッド
-  late Function showIndicator;
-
-  /// インジケータ破棄メソッド
-  late Function hideIndicator;
-
   /// ロード中か
   bool isLoading = false;
 
@@ -133,8 +117,7 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
   /// TTSの初期化
   void initializeTts();
 
-  // TOPICタイプの選択されてる文字列を返す
-  String getTopic();
+
 
   // お気に入りの更新
   void updateFavorite(int index);

@@ -27,6 +27,8 @@ dependencies:
     path: ../../core/sql
   core_utility:
     path: ../../core/utility
+  core_router:
+    path: ../../core/router
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0

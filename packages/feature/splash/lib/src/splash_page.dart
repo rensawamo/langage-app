@@ -1,5 +1,8 @@
 import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_router/data/app_route_data.dart';
+import 'package:core_router/data/quiz_favorite/quiz_favorite_page_data.dart';
+import 'package:core_router/data/wordlist/timeline_route_data.dart';
 import 'package:core_utility/utility.dart';
 
 import 'package:feature_setting/setting.dart';
@@ -45,7 +48,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           .changeAppInstallType(AppInstallType.koreanBeginner);
 
       // 2秒後にpushNamedを実行
-      GoRouter.of(context).pushNamed(MyAppRouteConstraint.homeRouteName);
+      HomePageData().go(context);
     });
   }
 

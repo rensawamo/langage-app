@@ -35,6 +35,16 @@ class AppSettingInfo {
   /// Getter: appInstallType
   AppInstallType get appInstallType => _appInstallType;
 
+  /// ftsの設定
+  String get ftsSetting {
+    switch (_appInstallType) {
+      case AppInstallType.koreanBeginner:
+        return 'ko-KR';
+      default:
+        return 'ja-JP';
+    }
+  }
+
   /// 文字サイズ変更
   Future<void> changeTextSize(AppTextSizeType type) async {
     final pref = await SharedPreferences.getInstance();

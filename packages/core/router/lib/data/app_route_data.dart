@@ -2,9 +2,11 @@ import 'package:core_router/data/favorite/favorite_page_data.dart';
 import 'package:core_router/data/quiz_favorite/quiz_favorite_page_data.dart';
 import 'package:core_router/data/setting/setting_page_data.dart';
 import 'package:core_router/data/topic/timer_route_data.dart';
+import 'package:core_router/data/wordlist/timeline_route_data.dart';
 
 import 'package:core_router/observer/transition_observer.dart';
 import 'package:core_router/router/routes.dart';
+import 'package:feature_setting/setting.dart';
 import 'package:feature_splash/splash.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -29,10 +31,10 @@ final fourthNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'fourth');
     TypedStatefulShellBranch<HomeBranch>(
       routes: [
         //// Apponitment
-        TypedGoRoute<WordlistRouteData>(
-          path: Routes.wordlist,
-          routes: [],
-        ),
+        TypedGoRoute<HomePageData>(path: Routes.home, routes: [
+          // Wordlist
+          TypedGoRoute<WordlistRouteData>(path: Routes.wordlist),
+        ]),
       ],
     ),
 
@@ -53,7 +55,11 @@ final fourthNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'fourth');
     /// bottom tab4
     TypedStatefulShellBranch<FourthBranch>(
       routes: [
-        TypedGoRoute<SettingPageData>(path: Routes.setting),
+        //// Apponitment
+        TypedGoRoute<SettingRootPageData>(path: Routes.setting_root, routes: [
+          // 
+          TypedGoRoute<SettingPageData>(path: Routes.setting),
+        ]),
       ],
     ),
   ],

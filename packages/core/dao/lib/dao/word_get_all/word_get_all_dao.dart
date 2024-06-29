@@ -3,10 +3,8 @@ import 'package:core_dao/dao/word_get_all/word_get_all_response.dart';
 import 'package:core_data/data.dart';
 import 'package:core_enums/enums.dart';
 
-
 import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
-
 
 // クイズの問題の data アクセスクラス
 class WordGetAllDao implements WordGetAllDaoInterface {
@@ -25,7 +23,7 @@ class WordGetAllDao implements WordGetAllDaoInterface {
             case QuizTopicType.noun:
               List<String> words = AppQuizData.korianBiginnerNouns
                   .take(request.pageSize * request.page)
-                  .map(( quiz) => quiz.text)
+                  .map((quiz) => quiz.text)
                   .toList();
               List<String> answers = AppQuizData.korianBiginnerNouns
                   .map((quiz) => quiz.options
@@ -46,6 +44,60 @@ class WordGetAllDao implements WordGetAllDaoInterface {
                   .map((quiz) => quiz.text)
                   .toList();
               List<String> answers = AppQuizData.korianBiginnerAdjectives
+                  .map((quiz) => quiz.options
+                      .firstWhere((option) => option.isCorrect)
+                      .text)
+                  .toList();
+              var favorites = await QuizFavoriteSql.getAllWords(
+                  request.quizTopicType.name,
+                  AppSettingInfo().appInstallType.name);
+              List<bool> isFavorites =
+                  words.map((quiz) => favorites.contains(quiz)).toList();
+              return Future.value(WordGetAllResponse(
+                  words: words, answers: answers, isFavorites: isFavorites));
+
+            // 副詞
+            case QuizTopicType.adverb:
+              List<String> words = AppQuizData.korianBiginnerAdvers
+                  .map((quiz) => quiz.text)
+                  .toList();
+              List<String> answers = AppQuizData.korianBiginnerAdvers
+                  .map((quiz) => quiz.options
+                      .firstWhere((option) => option.isCorrect)
+                      .text)
+                  .toList();
+              var favorites = await QuizFavoriteSql.getAllWords(
+                  request.quizTopicType.name,
+                  AppSettingInfo().appInstallType.name);
+              List<bool> isFavorites =
+                  words.map((quiz) => favorites.contains(quiz)).toList();
+              return Future.value(WordGetAllResponse(
+                  words: words, answers: answers, isFavorites: isFavorites));
+
+            // 動詞
+            case QuizTopicType.verb:
+              List<String> words = AppQuizData.korianBiginnerVerbs
+                  .map((quiz) => quiz.text)
+                  .toList();
+              List<String> answers = AppQuizData.korianBiginnerVerbs
+                  .map((quiz) => quiz.options
+                      .firstWhere((option) => option.isCorrect)
+                      .text)
+                  .toList();
+              var favorites = await QuizFavoriteSql.getAllWords(
+                  request.quizTopicType.name,
+                  AppSettingInfo().appInstallType.name);
+              List<bool> isFavorites =
+                  words.map((quiz) => favorites.contains(quiz)).toList();
+              return Future.value(WordGetAllResponse(
+                  words: words, answers: answers, isFavorites: isFavorites));
+
+            // 名詞
+            case QuizTopicType.noun:
+              List<String> words = AppQuizData.korianBiginnerNouns
+                  .map((quiz) => quiz.text)
+                  .toList();
+              List<String> answers = AppQuizData.korianBiginnerNouns
                   .map((quiz) => quiz.options
                       .firstWhere((option) => option.isCorrect)
                       .text)

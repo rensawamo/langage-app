@@ -21,6 +21,7 @@ class QuizFavoriteState with _$QuizFavoriteState {
       required ScrollController scrollController,
       required String selectDropDownValue,
       required Function speak,
+      @Default(true) bool isLoading,
 
       /// セレクトボックスの値
       required QuizTopicType selectValue}) = _QuizFavoriteState;
