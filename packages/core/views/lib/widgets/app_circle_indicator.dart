@@ -13,15 +13,11 @@ class AppCircleIndicator extends StatelessWidget {
 
   /// テーマを固定したい場合に指定する
 
-  /// サークルインジケータの色
-  final _splashColor = const AppColorSet(type: AppColorType.indicator);
-
   /// Widget生成
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
       backgroundColor: Colors.transparent,
-      color: _splashColor.color(),
     );
   }
 }

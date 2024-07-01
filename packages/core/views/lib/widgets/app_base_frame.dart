@@ -93,8 +93,6 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 }
 
 class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
-  /// 背景色
-  final _backGroundColor = const AppColorSet(type: AppColorType.background);
 
   @override
   void dispose() {
@@ -157,7 +155,7 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
       canPop: false,
       child: Scaffold(
         key: widget.scaffoldKey,
-        backgroundColor: _backGroundColor.color(),
+   
         drawer: widget.drawer,
         onDrawerChanged: widget.onDrawerChanged,
         drawerEnableOpenDragGesture: false,

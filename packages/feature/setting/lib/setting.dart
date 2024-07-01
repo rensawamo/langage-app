@@ -4,7 +4,5 @@
 library;
 
 
-export 'src/setting_state.dart';
 export 'src/setting_page.dart';
-export 'src/setting_viewmodel.dart';
 // TODO: Export any libraries intended for clients of this package.

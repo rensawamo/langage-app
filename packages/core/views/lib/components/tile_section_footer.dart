@@ -1,12 +1,11 @@
-
+import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_utility/utility.dart';
 import 'package:core_views/data/app_text_span.dart';
-
 
 import 'package:core_views/widgets/app_rich_text.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 /// テキストを表示するセクションフッタータイルWidget
 class TileSectionFooter extends StatelessWidget {
@@ -16,14 +15,12 @@ class TileSectionFooter extends StatelessWidget {
   /// [textList]で表示するテキストリストを設定する
   /// [type]に応じてテキストレイアウトを変化させる
   /// テキストサイズが固定の場合は[textType]で指定する
-  
+
   const TileSectionFooter({
     super.key,
     this.text,
     this.textList,
     this.type = TileSectionFooterType.neutral,
-    this.textType,
-    
   });
 
   /// 表示するテキスト
@@ -35,12 +32,6 @@ class TileSectionFooter extends StatelessWidget {
   /// テキストのレイアウトタイプ
   final TileSectionFooterType type;
 
-  /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
-
-  /// フッターテキストの色(テキストのレイアウトがNeutral)
-  final _defaultColor  = const AppColorSet(type: AppColorType.defaultColor);
-
   /// Widget生成
   @override
   Widget build(BuildContext context) {
@@ -49,13 +40,11 @@ class TileSectionFooter extends StatelessWidget {
       case TileSectionFooterType.neutral:
         return _generateMaterial(
           context: context,
-          fontColor: _defaultColor.color(),
         );
       // テキストのレイアウトがErrorの場合
       case TileSectionFooterType.error:
         return _generateMaterial(
           context: context,
-          fontColor: _defaultColor.color(),
         );
     }
   }
@@ -65,7 +54,6 @@ class TileSectionFooter extends StatelessWidget {
   /// [fontColor]は、表示するテキストの色
   Widget _generateMaterial({
     required BuildContext context,
-    required Color fontColor,
   }) {
     return Container(
       color: Colors.transparent,
@@ -77,7 +65,7 @@ class TileSectionFooter extends StatelessWidget {
         right: 16,
       ),
       child: _textWidget(
-        color: fontColor,
+        context: context,
       ),
     );
   }
@@ -86,25 +74,19 @@ class TileSectionFooter extends StatelessWidget {
   ///
   /// [color]は、テキストの色
   Widget _textWidget({
-    required Color color,
+    required BuildContext context,
   }) {
     if (textList == null) {
       // textListが空の場合、AppTextを使用する
       return AppText(
         text: text ?? '',
-        style: TextStyles.s(
-          color: color,
-          type: textType,
-        ),
+        style: AppTextStyles.body(context),
       );
     } else {
       // textListが空でない場合、AppRichTextを使用する
       return AppRichText(
         textList: textList!,
-        style: TextStyles.s(
-          color: color,
-          type: textType,
-        ),
+        style: AppTextStyles.body(context),
       );
     }
   }

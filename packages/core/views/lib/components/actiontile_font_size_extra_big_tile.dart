@@ -1,6 +1,5 @@
-
+import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_radio.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -43,19 +42,7 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
     required this.groupValue,
     required this.radioValue,
     this.active = true,
-    this.textType,
   });
-
-  /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
-
-
-
-  /// タイルタップ時のエフェクトの色
-  final _effectColor = const AppColorSet(type: AppColorType.effectColor);
-
-  /// テキストの色
-  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
 
   /// Widget生成
   @override
@@ -64,7 +51,6 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: _effectColor.color(),
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -80,7 +66,7 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: _textArea(),
+                child: _textArea(context),
               ),
             ],
           ),
@@ -90,7 +76,7 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
   }
 
   /// 二行テキスト表示部分
-  Widget _textArea() {
+  Widget _textArea(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -98,18 +84,12 @@ class ActiontileFontSizeExtraBigTile extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 2),
           child: AppText(
             text: mainText,
-            style: TextStyles.mEL(
-              color: _defaultColor.color(),
-              type: textType,
-            ),
+            style: AppTextStyles.caption(context),
           ),
         ),
         AppText(
           text: subText,
-          style: TextStyles.sEL(
-            color: _defaultColor.color(),
-            type: textType,
-          ),
+          style: AppTextStyles.caption(context),
         ),
       ],
     );

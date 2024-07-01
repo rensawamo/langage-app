@@ -46,7 +46,7 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           routes: [
             GoRouteData.$route(
               path: '/favorite',
-              factory: $FavoriteRouteDataExtension._fromState,
+              factory: $QuizSelectPageDataExtension._fromState,
             ),
           ],
         ),
@@ -127,9 +127,9 @@ extension $TopicRouteDataExtension on TopicRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $FavoriteRouteDataExtension on FavoriteRouteData {
-  static FavoriteRouteData _fromState(GoRouterState state) =>
-      const FavoriteRouteData();
+extension $QuizSelectPageDataExtension on QuizSelectPageData {
+  static QuizSelectPageData _fromState(GoRouterState state) =>
+      const QuizSelectPageData();
 
   String get location => GoRouteData.$location(
         '/favorite',

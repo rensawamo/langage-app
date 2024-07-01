@@ -16,7 +16,7 @@ dependencies:
     path: ../utility
   core_enums:
     path: ../enums
-  core_views: 
+  core_views:
     path: ../views
   feature_splash:
     path: ../../../packages/feature/splash
@@ -30,6 +30,8 @@ dependencies:
     path: ../../../packages/feature/quiz_favorite
   feature_home:
     path: ../../../packages/feature/home
+  feature_quiz_select:
+    path: ../../../packages/feature/quiz_select
 
   hooks_riverpod: ^2.5.1
   go_router: ^14.2.0

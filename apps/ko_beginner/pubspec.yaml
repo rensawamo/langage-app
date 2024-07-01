@@ -25,8 +25,10 @@ dependencies:
     path: ../../packages/core/enums
   core_utility:
     path: ../../packages/core/utility
-  core_router: 
+  core_router:
     path: ../../packages/core/router
+  core_designsystem:
+    path: ../../packages/core/designsystem
 
   #  feature
   feature_setting:

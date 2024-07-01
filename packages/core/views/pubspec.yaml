@@ -18,22 +18,24 @@ dependencies:
   go_router: ^14.1.2
   flutter_tts: ^4.0.2
 
-  core_dao: 
+  core_dao:
     path: ../dao
   core_data:
     path: ../data
   core_constants:
     path: ../constants
+  core_designsystem:
+    path: ../designsystem
   core_enums:
     path: ../enums
   core_sql:
     path: ../sql
-  core_utility: 
+  core_utility:
     path: ../utility
   feature_setting:
     path: ../../feature/setting
 
-  
+
 
 
   shared_preferences: ^2.2.3

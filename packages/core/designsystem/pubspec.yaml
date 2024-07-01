@@ -1,0 +1,49 @@
+name: core_designsystem
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+publish_to: "none"
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+# Add regular dependencies here.
+dependencies:
+  flutter:
+    sdk: flutter
+  core_enums:
+    path: ../enums
+  core_constants:
+    path: ../constants
+
+  flutter_riverpod: ^2.5.1
+  shared_preferences: ^2.2.3
+
+  # path: ^1.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+  build_runner: ^2.3.3
+  widgetbook_generator: ^3.7.0
+  flutter_gen_runner: 5.4.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  assets:
+    - assets/
+
+
+## Package Settings
+flutter_gen:
+  output: lib/generated/flutter_gen
+  colors:
+    inputs:
+      - assets/color/colors.xml
+  integrations:
+    flutter_svg: true

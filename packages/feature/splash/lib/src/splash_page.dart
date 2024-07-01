@@ -1,31 +1,8 @@
-import 'package:core_constants/constants.dart';
-import 'package:core_enums/enums.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/quiz_favorite/quiz_favorite_page_data.dart';
-import 'package:core_router/data/wordlist/timeline_route_data.dart';
-import 'package:core_utility/utility.dart';
-
-import 'package:feature_setting/setting.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-
-/// Provider
-final settingProvider =
-    StateNotifierProvider.autoDispose<SettingViewmodelInterface, SettingState>(
-  (ref) {
-    return SettingViewmodel(
-      const SettingState(
-        pushNotificationEnabled: false,
-        themeMode: ThemeMode.light,
-        textSize: AppTextSizeType.middle,
-        appInstallType: AppInstallType.koreanBeginner,
-      ),
-      AppSystemInfo(),
-    );
-  },
-);
 
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -43,10 +20,6 @@ class _SplashPageState extends ConsumerState<SplashPage> {
     Future.delayed(const Duration(seconds: 2), () {
       // contextが利用可能になった後でref.watchを呼び出す
 
-      ref
-          .watch(settingProvider.notifier)
-          .changeAppInstallType(AppInstallType.koreanBeginner);
-
       // 2秒後にpushNamedを実行
       HomePageData().go(context);
     });
@@ -56,7 +29,6 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: AppColors.orenge_0,
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

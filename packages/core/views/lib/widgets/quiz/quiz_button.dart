@@ -1,9 +1,6 @@
+import 'package:core_constants/constants.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
-
-import 'package:core_utility/utility.dart';
-
-
 import 'package:flutter/material.dart';
 
 class AppQuizbuttonWidget extends StatefulWidget {
@@ -53,14 +50,6 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
 
   @override
   Widget build(BuildContext context) {
-    /// 問題に正解したときの色
-    final _collctColor = const AppColorSet(type: AppColorType.collectAnswer);
-
-    /// 問題にミス回答したときの色
-    final _wrongColor = const AppColorSet(type: AppColorType.wrongAnswer);
-
-    final _quizTileColor = const AppColorSet(type: AppColorType.quizTile);
-
     return AnimatedBuilder(
         animation: animationController!,
         builder: (BuildContext context, Widget? child) {
@@ -80,14 +69,14 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                       backgroundColor: widget.selected // 選択済み
                           ? (widget.quiz.options[ans_ind].isCorrect // 正解
                               ? MaterialStateProperty.all<Color>(// 正解の色
-                                  _collctColor.color())
+                                  Colors.red)
                               : (widget.selected_ind == ans_ind // 選択済みだが不正解
                                   ? MaterialStateProperty.all<Color>(
-                                      _wrongColor.color()) // 不正解の色
+                                      Colors.blue) // 不正解の色
                                   : MaterialStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
                           : MaterialStateProperty.all<Color>(
-                              _quizTileColor.color(),
+                              Colors.green,
                             ), // 未選択
                     ),
                     child: Padding(
@@ -95,10 +84,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                       child: Text(
                         widget.quiz.options[ans_ind].text,
                         textAlign: TextAlign.center,
-                        style: TextStyles.xl(
-                          color: Color(0xFFFFFFFF),
-                          type: widget.textType,
-                        ),
+                        style: AppTextStyles.body(context),
                       ),
                     ),
                     onPressed: () {

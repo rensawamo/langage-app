@@ -33,9 +33,6 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
 
   /// テーマを固定したい場合に指定する
 
-  /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがNeutral)
-  final _reverseColor = const AppColorSet(type: AppColorType.reverseColor);
-
   /// Widget生成
   @override
   Widget build(BuildContext context) {
@@ -46,16 +43,12 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
         case AppIconButtonType.neutral:
           return _iconButtonWidget(
             context: context,
-            splashColor: _reverseColor.color(),
-            iconColor: _reverseColor.color(),
             onTapEvent: onTap,
           );
         // アイコンボタンのレイアウトがMainの場合
         case AppIconButtonType.main:
           return _iconButtonWidget(
             context: context,
-            splashColor: _reverseColor.color(),
-            iconColor: _reverseColor.color(),
             onTapEvent: onTap,
           );
       }
@@ -63,8 +56,6 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
     } else {
       return _iconButtonWidget(
         context: context,
-        splashColor: Colors.transparent,
-        iconColor: _reverseColor.color(),
         onTapEvent: null,
       );
     }
@@ -77,8 +68,6 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
   /// [onTapEvent]がfalseの場合は、タップを無効にする
   Widget _iconButtonWidget({
     required BuildContext context,
-    required Color splashColor,
-    required Color iconColor,
     required Function()? onTapEvent,
   }) {
     return Material(
@@ -87,7 +76,6 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
       borderRadius: const BorderRadius.all(Radius.circular(4.0)),
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: splashColor,
         onTap: onTapEvent,
         child: SizedBox(
           width: 44,
@@ -96,7 +84,6 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
             padding: const EdgeInsets.all(10),
             child: Icon(
               icon,
-              color: iconColor,
               size: 24,
             ),
           ),
