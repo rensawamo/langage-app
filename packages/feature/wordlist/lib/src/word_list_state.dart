@@ -19,6 +19,7 @@ class WordListState with _$WordListState {
       required ScrollController scrollController,
       required String selectDropDownValue,
       required Function speak,
+      @Default(true) bool isLoading,
 
       /// セレクトボックスの値
       required QuizTopicType selectValue}) = _WordListState;

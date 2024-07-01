@@ -1,5 +1,6 @@
-
-
+import 'package:core_designsystem/designsystem.dart';
+import 'package:core_designsystem/provider/theme_color_provider.dart';
+import 'package:core_designsystem/provider/theme_text_provider.dart';
 import 'package:core_router/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,14 +11,23 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
-    return MaterialApp.router(
-      title: 'テンプレアプリ', // TODO(shohei): アプリ名を設定  
+    final themeMode = ref.watch(themeNotifierProvider);
+    final textScale = ref.watch(textScalerProvider);
 
+    return MaterialApp.router(
+      title: 'C6OPocApp',
+      theme: getAppTheme(),
+      darkTheme: getAppThemeDark(),
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: textScale.factor,
+          ),
+          child: child!,
+        );
+      },
+      themeMode: themeMode,
       debugShowCheckedModeBanner: false,
-  
-      supportedLocales: const [
-        Locale('ja', 'JP'),
-      ],
       routeInformationParser: router.routeInformationParser,
       routerDelegate: router.routerDelegate,
       routeInformationProvider: router.routeInformationProvider,

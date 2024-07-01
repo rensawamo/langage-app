@@ -67,7 +67,7 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
                   answers: answers,
                   isFavorites: isFavorites));
 
-            ///
+            ///お気に入り
             case QuizTopicType.favorite:
               var favoriteWords = await QuizFavoriteSql.getAllWords(
                   "word", AppSettingInfo().appInstallType.name);

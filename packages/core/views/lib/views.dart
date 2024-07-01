@@ -7,7 +7,6 @@ library;
 export 'components/actiontile_font_size_big_tile.dart';
 export 'components/actiontile_font_size_extra_big_tile.dart';
 export 'components/actiontile_font_size_normal_tile.dart';
-export 'components/actiontile_single_radio_tile.dart';
 export 'components/app_snackbar.dart';
 export 'components/appbar_for_screen.dart';
 export 'components/tile_animation_loading_tile.dart';

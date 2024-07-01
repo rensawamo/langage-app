@@ -19,7 +19,7 @@ final wordListProvider = StateNotifierProvider.autoDispose<
   (ref) {
     return WordListViewmodel(
       WordListState(
-        quizzes: [""],
+        quizzes: [],
         answers: [],
         isFavorites: [],
         currentPage: 1,
@@ -52,14 +52,6 @@ class WordListPage extends StatelessWidget {
     // クイズのタイプ
     vm.quizTopicType = QuizTopicType.noun;
 
-    // インジケータ表示
-    vm.showIndicator = () {
-      AppIndicator.show(context);
-    };
-    // viewmodel側にインジケータ破棄処理をセット
-    vm.hideIndicator = () {
-      AppIndicator.hide(context);
-    };
     vm.flutterTts = FlutterTts();
 
     // 初期設定
@@ -68,16 +60,6 @@ class WordListPage extends StatelessWidget {
     vm.getQuizList(QuizTopicType.noun);
   }
 
-  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
-
-  // 表の タイトルの背景色
-  final _cellTitleColor = const AppColorSet(type: AppColorType.cellTitle);
-
-  // 表の奇数時の背景色
-  final _cellOddColor = const AppColorSet(type: AppColorType.cellOdd);
-  // 表の偶数時の背景色
-  final _cellEvenColor = const AppColorSet(type: AppColorType.cellEven);
-
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
@@ -85,7 +67,6 @@ class WordListPage extends StatelessWidget {
 
       return AppBaseFrame(
           screenContext: context,
-          hasPrevButton: false,
           shouldRemoveFocus: true,
           backOnTap: () {
             Navigator.pop(context);
@@ -98,11 +79,10 @@ class WordListPage extends StatelessWidget {
           body: Column(
             children: [
               _dropDown(),
-              quizzes.isEmpty
-                  ? _empty()
-                  : quizzes.first.isEmpty
-                      ? Container()
-                      : Expanded(child: _table(quizzes))
+              // loading
+              ref.watch(wordListProvider).isLoading
+                  ? const CircularProgressIndicator()
+                  : Expanded(child: _table(quizzes))
             ],
           ));
     });
@@ -117,7 +97,7 @@ class WordListPage extends StatelessWidget {
           ref.watch(wordListProvider).selectDropDownValue;
 
       return Theme(
-        data: Theme.of(context).copyWith(canvasColor: _cellEvenColor.color()),
+        data: Theme.of(context).copyWith(canvasColor: Colors.blue),
         child: DropdownButton<String>(
           value: selectDropDownValue,
           items: dropDownMenu.keys
@@ -125,7 +105,7 @@ class WordListPage extends StatelessWidget {
                     value: key,
                     child: Text(
                       key,
-                      style: TextStyle(color: _defaultColor.color()),
+                      // style: TextStyle(color: _defaultColor.color()),
                     ),
                   ))
               .toList(),
@@ -147,56 +127,74 @@ class WordListPage extends StatelessWidget {
       Function speak = ref.read(wordListProvider).speak;
       ScrollController _scrollController =
           ref.read(wordListProvider).scrollController;
-      String topicType = ref.watch(wordListProvider.notifier).getTopic();
+      String selectValue = ref.watch(wordListProvider).selectValue.name;
 
       return Center(
-          child: Container(
-        width: context.mediaQueryWidth * 0.95,
-        height: context.mediaQueryHeight * 0.7,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
-          child: Table(
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        child: Container(
+          width: context.mediaQueryWidth * 0.95,
+          height: context.mediaQueryHeight * 0.7,
+          child: Column(
             children: [
-              TableRow(
+              // Fixed Header
+              Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
-                  TableCell(
-                    child: _buildCell('Quiz'),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: _buildCell('Quiz'),
+                      ),
+                      TableCell(child: _buildCell('Mean')),
+                      TableCell(child: _buildCell('Voice')),
+                      TableCell(child: _buildCell('Star')),
+                    ],
                   ),
-                  TableCell(child: _buildCell('Mean')),
-                  TableCell(child: _buildCell('Voice')),
-                  TableCell(child: _buildCell('Star')),
                 ],
               ),
-              ...List.generate(
-                  quizzes.length,
-                  (index) => TableRow(
+              // Scrollable Content
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.vertical,
+                  child: Table(
+                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                    children: List.generate(
+                      quizzes.length,
+                      (index) => TableRow(
                         children: [
                           TableCell(
-                              child: _buildSubtitleCell(quizzes[index], index)),
+                            child: _buildSubtitleCell(quizzes[index], index),
+                          ),
                           TableCell(
-                              child: _buildSubtitleCell(answers[index], index)),
+                            child: _buildSubtitleCell(answers[index], index),
+                          ),
                           // TableCell(
                           //     child: _buildMeanCell(answers[index], index,
                           //         isHideAnswers[index], toggleAnswer)),
                           TableCell(
-                              child: _buildVoiceCell(index, quizzes, speak)),
+                            child: _buildVoiceCell(index, quizzes, speak),
+                          ),
                           TableCell(
-                              child: _buildFavoriteCell(
-                                  index,
-                                  isFavorites[index],
-                                  quizzes[index],
-                                  answers[index],
-                                  topicType,
-                                  context,
-                                  ref)),
+                            child: _buildFavoriteCell(
+                              index,
+                              isFavorites[index],
+                              quizzes[index],
+                              answers[index],
+                              selectValue,
+                              context,
+                              ref,
+                            ),
+                          ),
                         ],
-                      )),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-      ));
+      );
     });
   }
 
@@ -207,7 +205,7 @@ class WordListPage extends StatelessWidget {
   ) =>
       Container(
         height: 65,
-        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+        // color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -217,14 +215,14 @@ class WordListPage extends StatelessWidget {
       );
 
   Widget _buildFavoriteCell(int index, bool isFavorite, String word,
-          String answer, String topicType, context, ref) =>
+          String answer, String selectValue, context, ref) =>
       Consumer(builder: (context, ref, child) {
         final vm = ref.watch(wordListProvider.notifier);
 
         return Container(
           height: 65,
-          color:
-              index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+          // color:
+          // index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
           padding: const EdgeInsets.all(8),
           alignment: Alignment.center,
           child: IconButton(
@@ -234,11 +232,12 @@ class WordListPage extends StatelessWidget {
               color: Colors.yellow[700],
             ),
             onPressed: () async {
+              print(selectValue);
               if (isFavorite) {
                 await QuizFavoriteSql.delete(
                     word, AppSettingInfo().appInstallType.name);
               } else {
-                await QuizFavoriteSql.insert(word, answer, topicType,
+                await QuizFavoriteSql.insert(word, answer, selectValue,
                     AppSettingInfo().appInstallType.name);
               }
               vm.updateFavorite(index);
@@ -251,10 +250,11 @@ class WordListPage extends StatelessWidget {
         height: 58,
         padding:
             const EdgeInsets.only(top: 15, bottom: 10, left: 22, right: 22),
-        color: _cellTitleColor.color(),
+        // color: _cellTitleColor.color(),
         alignment: Alignment.center,
         child: Text(text,
-            style: TextStyle(color: _defaultColor.color()),
+            // style: TextStyle(color: _defaultColor.color()
+
             textAlign: TextAlign.left),
       );
 
@@ -263,7 +263,7 @@ class WordListPage extends StatelessWidget {
       Container(
         height: 65,
         padding: EdgeInsets.all(5),
-        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+        // color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         alignment: Alignment.center,
         child: InkWell(
           child: isHideAnswer == true
@@ -272,27 +272,29 @@ class WordListPage extends StatelessWidget {
                     toggleAnswer(index);
                   },
                   style: OutlinedButton.styleFrom(
-                    backgroundColor: _cellTitleColor.color(),
+                    // backgroundColor: _cellTitleColor.color(),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                   child: Text('表示'),
                 )
-              : Text(text, style: TextStyle(color: _defaultColor.color())),
+              : Text(text),
         ),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
         height: 65,
         padding: const EdgeInsets.all(8),
-        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+        // color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         alignment: Alignment.center,
-        child: Text(text,
-            textAlign: TextAlign.left,
-            style: TextStyles.s(
-              color: _defaultColor.color(),
-            )),
+        child: Text(
+          text,
+          textAlign: TextAlign.left,
+          // style: TextStyles.s(
+          //   color: _defaultColor.color(),
+          // )
+        ),
       );
 
   Widget _empty() {

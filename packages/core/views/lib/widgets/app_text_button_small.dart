@@ -1,3 +1,4 @@
+import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_text.dart';
@@ -30,17 +31,7 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
     required this.onTap,
     required this.type,
     required this.active,
-    this.textType,
-    
   });
-
-  /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
-
-
-  /// ボタンタップ時のエフェクトの色(ボタンのレイアウトがMain)
-      final _splashColor = const AppColorSet(type: AppColorType.appbar);
-
 
   /// ボタンテキストの色(ボタンのレイアウトがMain)
   // final _colorSet2 = const AppColorSet(
@@ -76,23 +67,17 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
         case AppTextButtonType.main:
           return _textButtonWidget(
             context: context,
-            splashColor: _splashColor.color(),
-            appTextColor: _splashColor.color(),
           );
         // テキストボタンのレイアウトがErrorの場合
         case AppTextButtonType.error:
           return _textButtonWidget(
             context: context,
-            splashColor: _splashColor.color(),
-            appTextColor: _splashColor.color(),
           );
       }
       // 非活性状態の場合
     } else {
       return _textButtonWidget(
         context: context,
-        splashColor: Colors.transparent,
-        appTextColor: _splashColor.color(),
       );
     }
   }
@@ -103,8 +88,6 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
   /// [appTextColor]は、ボタンテキスト(AppText)の色
   Widget _textButtonWidget({
     required BuildContext context,
-    required Color splashColor,
-    required Color appTextColor,
   }) {
     return Material(
       clipBehavior: Clip.hardEdge,
@@ -112,7 +95,6 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
       borderRadius: const BorderRadius.all(Radius.circular(4.0)),
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: splashColor,
         onTap: active ? onTap : null,
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -121,10 +103,7 @@ class AppTextButtonSmall extends StatelessWidget with AppCoachMarkTargetMixin {
           ),
           child: AppText(
             text: text,
-            style: TextStyles.s(
-              color: appTextColor,
-              type: textType,
-            ),
+            style: AppTextStyles.body(context),
           ),
         ),
       ),

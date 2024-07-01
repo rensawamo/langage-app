@@ -28,12 +28,6 @@ class AppRadio extends StatelessWidget {
   /// アイコンサイズ固定
   final _size = 24.0;
 
-  /// ラジオボタンがOFF状態のアイコンの色
-  final _radioOffColor = const AppColorSet(type: AppColorType.radioOff);
-
-  /// ラジオボタンがON状態のアイコンの色
-  final _radioOnColor = const AppColorSet(type: AppColorType.radioOn);
-
   /// Widget生成
   @override
   Widget build(BuildContext context) {
@@ -53,12 +47,13 @@ class AppRadio extends StatelessWidget {
 
   /// ラジオボタンOFF
   Widget _offButton() {
-    return Icon(Icons.radio_button_unchecked,
-        color: _radioOffColor.color(), size: _size);
+    return Icon(
+      Icons.radio_button_unchecked,
+    );
   }
 
   /// ラジオボタンON状態
   Widget _onButton() {
-    return Icon(Icons.radio_button_checked, color: _radioOnColor.color(), size: _size);
+    return Icon(Icons.radio_button_checked, size: _size);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
@@ -22,9 +23,6 @@ class QuizNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final _nextButtonColor = const AppColorSet(type: AppColorType.nextButton);
-
     return Padding(
         padding:
             EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 16),
@@ -44,14 +42,10 @@ class QuizNextButton extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: _nextButtonColor.color(),
             ),
             child: Text(
               "次へ",
-              style: TextStyles.l(
-                color: Color(0xFFFFFFFF),
-                type: textType,
-              ),
+              style: AppTextStyles.body(context),
             ),
           ),
         ));

@@ -2,14 +2,12 @@ import 'package:core_dao/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_dao/sql/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_enums/enums.dart';
 
-
 import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
 
 import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-
 
 /// E201.受診予約一覧 Viewmodel
 class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
@@ -21,18 +19,19 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   final QuizFavoriteDao dao;
 
   /// 初期設定
-  ///
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
     initializeTts();
+    await getFavorites(quizTopicType);
   }
 
   /// お気に入りの単語一覧取得
   @override
   Future<void> getFavorites(QuizTopicType quizTopicType) async {
-    // インジケータ表示
-    showIndicator();
+    // ローディング開始
+    state = state.copyWith(isLoading: true);
+
     // ここで data から quizeを取得する
     dao
         .getFavoriteList(QuizFavoriteRequest(
@@ -40,18 +39,16 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
       pageSize: pageSize,
     ))
         .then((response) {
+      print(response.texts);
       // 一覧に追加
       state = state.copyWith(
           quizzes: response.texts,
           answers: response.answers,
-          isHideAnswers: List.filled(response.texts.length, true));
+          isHideAnswers: List.filled(response.texts.length, true),
+          isLoading: false);
     }).catchError((error) {
-      print(error.toString());
       // エラー処理
-    }).whenComplete(() {
-      // ロード中解除
-      // インジケータ非表示
-      hideIndicator();
+      state = state.copyWith(isLoading: false);
     });
   }
 
@@ -71,7 +68,7 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
 
   @override
   void initializeTts() {
-    flutterTts.setLanguage('ko-KR'); // 韓国語に設定
+    flutterTts.setLanguage(AppSettingInfo().ftsSetting); // 韓国語に設定
     flutterTts.setPitch(1.0);
     flutterTts.setSpeechRate(0.5);
   }
@@ -103,12 +100,6 @@ abstract class QuizeFavoriteViewmodelInterface
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
-
-  /// インジケータ表示メソッド
-  late Function showIndicator;
-
-  /// インジケータ破棄メソッド
-  late Function hideIndicator;
 
   /// ページサイズ(固定)
   final int pageSize = 50;

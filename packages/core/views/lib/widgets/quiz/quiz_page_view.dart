@@ -1,3 +1,4 @@
+import 'package:core_constants/constants.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
 
@@ -52,18 +53,10 @@ class AppQuizPageView extends StatelessWidget {
     required this.tatalScore,
   }) : super(key: key);
 
-  // 背景
-  final _backGroundColor = const AppColorSet(type: AppColorType.background);
-
-  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
-
-  // 影
-  final _shadowColor = const AppColorSet(type: AppColorType.shadow);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _backGroundColor.color(),
       body: isFinished
           ? ResultPageWidget(
               speak: speak,
@@ -79,11 +72,10 @@ class AppQuizPageView extends StatelessWidget {
           : Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Quiz ${index + 1}',
-                    style: TextStyles.xl(
-                      color: _defaultColor.color(),
-                      type: textType,
-                    )),
+                Text(
+                  'Quiz ${index + 1}',
+                  style: AppTextStyles.body(context),
+                ),
                 SizedBox(
                   height: context.mediaQueryHeight * .02,
                 ),
@@ -105,7 +97,7 @@ class AppQuizPageView extends StatelessWidget {
                             topRight: Radius.circular(8.0)),
                         boxShadow: [
                           BoxShadow(
-                              color: _shadowColor.color(),
+
                               offset: Offset(1.1, 1.1),
                               blurRadius: 10.0),
                         ]),
@@ -115,9 +107,8 @@ class AppQuizPageView extends StatelessWidget {
                         Text(
                           quiz.text,
                           textAlign: TextAlign.center,
-                          style: TextStyles.xl(
-                            type: textType,
-                          ),
+                                      style: AppTextStyles.body(context),
+
                         ),
                         IconButton(
                           icon: Icon(Icons.volume_up, color: Colors.blue),

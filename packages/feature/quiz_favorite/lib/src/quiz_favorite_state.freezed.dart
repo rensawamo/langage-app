@@ -26,6 +26,7 @@ mixin _$QuizFavoriteState {
   ScrollController get scrollController => throw _privateConstructorUsedError;
   String get selectDropDownValue => throw _privateConstructorUsedError;
   Function get speak => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   /// セレクトボックスの値
   QuizTopicType get selectValue => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $QuizFavoriteStateCopyWith<$Res> {
       ScrollController scrollController,
       String selectDropDownValue,
       Function speak,
+      bool isLoading,
       QuizTopicType selectValue});
 }
 
@@ -70,6 +72,7 @@ class _$QuizFavoriteStateCopyWithImpl<$Res, $Val extends QuizFavoriteState>
     Object? scrollController = null,
     Object? selectDropDownValue = null,
     Object? speak = null,
+    Object? isLoading = null,
     Object? selectValue = null,
   }) {
     return _then(_value.copyWith(
@@ -97,6 +100,10 @@ class _$QuizFavoriteStateCopyWithImpl<$Res, $Val extends QuizFavoriteState>
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
               as Function,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectValue: null == selectValue
           ? _value.selectValue
           : selectValue // ignore: cast_nullable_to_non_nullable
@@ -120,6 +127,7 @@ abstract class _$$QuizFavoriteStateImplCopyWith<$Res>
       ScrollController scrollController,
       String selectDropDownValue,
       Function speak,
+      bool isLoading,
       QuizTopicType selectValue});
 }
 
@@ -140,6 +148,7 @@ class __$$QuizFavoriteStateImplCopyWithImpl<$Res>
     Object? scrollController = null,
     Object? selectDropDownValue = null,
     Object? speak = null,
+    Object? isLoading = null,
     Object? selectValue = null,
   }) {
     return _then(_$QuizFavoriteStateImpl(
@@ -167,6 +176,10 @@ class __$$QuizFavoriteStateImplCopyWithImpl<$Res>
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
               as Function,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       selectValue: null == selectValue
           ? _value.selectValue
           : selectValue // ignore: cast_nullable_to_non_nullable
@@ -185,6 +198,7 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
       required this.scrollController,
       required this.selectDropDownValue,
       required this.speak,
+      this.isLoading = true,
       required this.selectValue})
       : _quizzes = quizzes,
         _answers = answers,
@@ -224,6 +238,9 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
   final String selectDropDownValue;
   @override
   final Function speak;
+  @override
+  @JsonKey()
+  final bool isLoading;
 
   /// セレクトボックスの値
   @override
@@ -231,7 +248,7 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
 
   @override
   String toString() {
-    return 'QuizFavoriteState(quizzes: $quizzes, answers: $answers, isHideAnswers: $isHideAnswers, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, selectValue: $selectValue)';
+    return 'QuizFavoriteState(quizzes: $quizzes, answers: $answers, isHideAnswers: $isHideAnswers, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
   }
 
   @override
@@ -248,6 +265,8 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
             (identical(other.selectDropDownValue, selectDropDownValue) ||
                 other.selectDropDownValue == selectDropDownValue) &&
             (identical(other.speak, speak) || other.speak == speak) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.selectValue, selectValue) ||
                 other.selectValue == selectValue));
   }
@@ -261,6 +280,7 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
       scrollController,
       selectDropDownValue,
       speak,
+      isLoading,
       selectValue);
 
   @JsonKey(ignore: true)
@@ -279,6 +299,7 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
       required final ScrollController scrollController,
       required final String selectDropDownValue,
       required final Function speak,
+      final bool isLoading,
       required final QuizTopicType selectValue}) = _$QuizFavoriteStateImpl;
 
   @override
@@ -297,6 +318,8 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
   String get selectDropDownValue;
   @override
   Function get speak;
+  @override
+  bool get isLoading;
   @override
 
   /// セレクトボックスの値

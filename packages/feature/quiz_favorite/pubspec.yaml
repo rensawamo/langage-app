@@ -11,9 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^2.4.1
+  go_router: ^14.2.0
   cupertino_icons: ^1.0.6
   flutter_tts: ^4.0.2
-  core_dao: 
+  core_dao:
     path: ../../core/dao
   core_data:
     path: ../../core/data

@@ -1,3 +1,4 @@
+import 'package:core_constants/constants.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
 
@@ -50,73 +51,55 @@ class _ResultPageState extends State<ResultPageWidget> {
     super.initState();
   }
 
-  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
-  final _backGroundColor = const AppColorSet(type: AppColorType.background);
-  // トピックへ戻る
-  final _nextButtonColor = const AppColorSet(type: AppColorType.nextButton);
-
-  // 表の タイトルの背景色
-  final _cellTitleColor = const AppColorSet(type: AppColorType.cellTitle);
-
-  // 表の奇数時の背景色
-  final _cellOddColor = const AppColorSet(type: AppColorType.cellOdd);
-  // 表の偶数時の背景色
-  final _cellEvenColor = const AppColorSet(type: AppColorType.cellEven);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: _backGroundColor.color(),
         body: Column(
-          children: [
-            SizedBox(
-              height: context.mediaQueryHeight * .025,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: AppText(
-                text: "結果 ${widget.totalScore} / ${widget.count}",
-                style: TextStyles.xl(
-                  color: _defaultColor.color(),
-                  type: widget.textType,
+      children: [
+        SizedBox(
+          height: context.mediaQueryHeight * .025,
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: AppText(
+            text: "結果 ${widget.totalScore} / ${widget.count}",
+            style: AppTextStyles.body(context),
+          ),
+        ),
+        SizedBox(
+          height: context.mediaQueryHeight * .025,
+        ),
+        _table(),
+        SizedBox(
+          height: context.mediaQueryHeight * .04,
+        ),
+        Container(
+          child: InkWell(
+            onTap: () {
+              GoRouter.of(context).pop();
+            },
+            child: Container(
+              padding: EdgeInsets.only(
+                left: 48.0,
+                right: 48.0,
+                top: 10,
+                bottom: 10,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(
+                "トピックに戻る",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFFFFFFFF),
                 ),
               ),
             ),
-            SizedBox(
-              height: context.mediaQueryHeight * .025,
-            ),
-            _table(),
-            SizedBox(
-              height: context.mediaQueryHeight * .04,
-            ),
-            Container(
-              child: InkWell(
-                onTap: () {
-                  GoRouter.of(context).pop();
-                },
-                child: Container(
-                  padding: EdgeInsets.only(
-                    left: 48.0,
-                    right: 48.0,
-                    top: 10,
-                    bottom: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: _nextButtonColor.color(),
-                  ),
-                  child: Text(
-                    "トピックに戻る",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xFFFFFFFF),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ));
+          ),
+        ),
+      ],
+    ));
   }
 
   Widget _table() {
@@ -172,7 +155,7 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildVoiceCell(int index) => Container(
         height: 65,
-        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+        // color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -183,7 +166,7 @@ class _ResultPageState extends State<ResultPageWidget> {
 
   Widget _buildFavoriteCell(int index) => Container(
         height: 65,
-        color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+        // color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         child: IconButton(
@@ -213,30 +196,22 @@ class _ResultPageState extends State<ResultPageWidget> {
       Container(
         padding: const EdgeInsets.all(8),
         height: 58,
-        color: _cellTitleColor.color(),
+        // color: _cellTitleColor.color(),
         alignment: Alignment.center,
-        child: Text(text,
-            style: TextStyles.s(
-              color: _defaultColor.color(),
-              type: widget.textType,
-            )),
+        child: Text(
+          text,
+          style: AppTextStyles.body(context),
+        ),
       );
 
   Widget _buildSubtitleCell(String text, int index) => Container(
       height: 65,
       padding: const EdgeInsets.all(8),
-      color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
+      // color: index % 2 == 0 ? _cellOddColor.color() : _cellEvenColor.color(),
       alignment: Alignment.center,
       child: Text(
         text,
         textAlign: TextAlign.left,
-        style: TextStyles.s(
-          color: text == '正解'
-              ? Colors.red
-              : text == '不正解'
-                  ? Colors.blue
-                  : _defaultColor.color(),
-          type: widget.textType,
-        ),
+        style: AppTextStyles.body(context),
       ));
 }

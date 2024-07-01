@@ -4,7 +4,8 @@ mixin Routes {
   static const String top = '/top';
 
   /////// bottom tab1   ///////
-  static const String wordlist = '/wordlist';
+  static const String home = '/home';
+  static const String wordlist = 'wordlist';
   // Appointment
   static const String timeline = 'timeline';
   // web
@@ -19,5 +20,6 @@ mixin Routes {
   static const String favorite = '/favorite';
 
   /////// bottom tab4   ///////
-  static const String setting = '/setting';
+  static const String setting_root = '/setting_root';
+  static const String setting = 'setting';
 }

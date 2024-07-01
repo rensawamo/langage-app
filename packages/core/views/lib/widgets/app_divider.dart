@@ -20,9 +20,6 @@ class AppDivider extends StatelessWidget {
     this.rightIndent = 0,
   });
 
-  /// 下線の色
-    final _splashColor = const AppColorSet(type: AppColorType.appbar);
-
   /// Widget生成
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,6 @@ class AppDivider extends StatelessWidget {
       thickness: 0.5,
       indent: leftIndent,
       endIndent: rightIndent,
-      color: _splashColor.color(),
     );
   }
 }

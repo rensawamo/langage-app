@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_utility/utility.dart';
 
@@ -22,19 +23,12 @@ class DeleteDialog extends StatefulWidget {
 }
 
 class _ConfirmDialogState extends State<DeleteDialog> {
-  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
-  final _dialogColor = const AppColorSet(type: AppColorType.cellEven);
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: _dialogColor.color(),
       title: AppText(
         text: widget.title,
-        style: TextStyles.xl(
-          color: _defaultColor.color(),
-          type: widget.textType,
-        ),
+        style: AppTextStyles.body(context),
       ),
       content: const Column(
         mainAxisSize: MainAxisSize.min,
@@ -43,20 +37,14 @@ class _ConfirmDialogState extends State<DeleteDialog> {
         TextButton(
           child: AppText(
             text: 'キャンセル',
-            style: TextStyles.m(
-              color: _defaultColor.color(),
-              type: widget.textType,
-            ),
+            style: AppTextStyles.body(context),
           ),
           onPressed: () => GoRouter.of(context).pop(),
         ),
         TextButton(
           child: AppText(
             text: 'OK',
-            style: TextStyles.m(
-              color: _defaultColor.color(),
-              type: widget.textType,
-            ),
+            style: AppTextStyles.body(context),
           ),
           onPressed: () => GoRouter.of(context).pop(true),
         ),

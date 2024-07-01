@@ -1,3 +1,4 @@
+import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
 import 'package:core_utility/utility.dart';
 import 'package:core_views/widgets/app_radio.dart';
@@ -33,8 +34,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
   /// ラジオボタン共通の状態を[groupValue]で設定する。[groupValue]を変化させることでON/OFFを切り替える
   /// ラジオボタンの値を[radioValue]で設定する。[groupValue]と一致するとONになる
   /// [active]がfalseの場合、非活性表示する
-  /// テキストサイズが固定の場合は[textType]で指定する
-  /// テーマモードが固定の場合は[mode]で指定する
+
   const ActiontileFontSizeNormalTile({
     super.key,
     required this.mainText,
@@ -43,21 +43,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
     required this.groupValue,
     required this.radioValue,
     this.active = true,
-    this.textType,
-    this.mode,
   });
-
-  /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
-
-  /// テーマを固定したい場合に指定する
-  final ThemeMode? mode;
-
-  /// タイルタップ時の エフェクトの色
-  final _defaultColor = const AppColorSet(type: AppColorType.defaultColor);
-
-  /// テキストの色
-  final _effectColor = const AppColorSet(type: AppColorType.effectColor);
 
   /// Widget生成
   @override
@@ -66,7 +52,6 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         highlightColor: Colors.transparent,
-        splashColor: _effectColor.color() ,
         onTap: active ? () => onTap(radioValue) : null,
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -82,7 +67,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: _textArea(),
+                child: _textArea(context),
               ),
             ],
           ),
@@ -92,7 +77,7 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
   }
 
   /// 二行テキスト表示部分
-  Widget _textArea() {
+  Widget _textArea(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -100,18 +85,12 @@ class ActiontileFontSizeNormalTile extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 2),
           child: AppText(
             text: mainText,
-            style: TextStyles.m(
-              color: _defaultColor.color(),
-              type: textType,
-            ),
+            style: AppTextStyles.caption(context),
           ),
         ),
         AppText(
           text: subText,
-          style: TextStyles.s(
-            color: _defaultColor.color(),
-            type: textType,
-          ),
+          style: AppTextStyles.caption(context),
         ),
       ],
     );

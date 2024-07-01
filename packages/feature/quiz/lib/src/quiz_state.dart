@@ -23,5 +23,6 @@ class QuizState with _$QuizState {
     @Default(0) int totalScore,
     @Default(0) int gtotalScore,
     @Default(false) bool isFinished,
+    @Default(false) bool isLoading,
   }) = _QuizState;
 }

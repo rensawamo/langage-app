@@ -15,7 +15,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   cupertino_icons: ^1.0.6
   flutter_tts: ^4.0.2
-  core_dao: 
+  core_dao:
     path: ../../core/dao
   core_data:
     path: ../../core/data
@@ -27,6 +27,10 @@ dependencies:
     path: ../../core/sql
   core_utility:
     path: ../../core/utility
+  core_router:
+    path: ../../core/router
+  core_designsystem:
+    path: ../../core/designsystem
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0
