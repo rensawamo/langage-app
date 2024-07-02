@@ -18,6 +18,8 @@ dependencies:
     path: ../enums
   core_views:
     path: ../views
+  core_dao:
+    path: ../dao
   feature_splash:
     path: ../../../packages/feature/splash
   feature_wordlist:
@@ -28,10 +30,8 @@ dependencies:
     path: ../../../packages/feature/setting
   feature_quiz_favorite:
     path: ../../../packages/feature/quiz_favorite
-  feature_home:
-    path: ../../../packages/feature/home
-  feature_quiz_select:
-    path: ../../../packages/feature/quiz_select
+
+
 
   hooks_riverpod: ^2.5.1
   go_router: ^14.2.0

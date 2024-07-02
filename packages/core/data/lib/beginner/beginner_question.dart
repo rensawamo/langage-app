@@ -1,5 +1,3 @@
-
-
 //  basic プラン
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 
@@ -7,672 +5,1736 @@ class AppQuizData {
   ////////////////////     形容詞      ////////////////////
   static final List<Quiz> korianBiginnerAdjectives = [
     Quiz(
-      text: "빠르다",
+      text: "크다",
+      sentence: "그는 큰 사람이다.",
+      translation: "彼は大きな人だ。",
+      pronunciation: "クダ",
       options: [
-        Option(text: "遅い", isCorrect: false),
-        Option(text: "速い", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
+        Option(text: "大きい", isCorrect: true),
         Option(text: "小さい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "춥다",
-      options: [
-        Option(text: "暑い", isCorrect: false),
-        Option(text: "寒い", isCorrect: true),
-        Option(text: "涼しい", isCorrect: false),
-        Option(text: "暖かい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "아름답다",
-      options: [
-        Option(text: "美しい", isCorrect: true),
-        Option(text: "醜い", isCorrect: false),
-        Option(text: "優しい", isCorrect: false),
-        Option(text: "愚か", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "좋다",
-      options: [
-        Option(text: "良い", isCorrect: true),
-        Option(text: "悪い", isCorrect: false),
-        Option(text: "難しい", isCorrect: false),
-        Option(text: "簡単な", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "느리다",
-      options: [
-        Option(text: "速い", isCorrect: false),
-        Option(text: "遅い", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "小さい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "덥다",
-      options: [
-        Option(text: "寒い", isCorrect: false),
-        Option(text: "暑い", isCorrect: true),
-        Option(text: "涼しい", isCorrect: false),
-        Option(text: "暖かい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "깨끗하다",
-      options: [
-        Option(text: "汚い", isCorrect: false),
-        Option(text: "綺麗な", isCorrect: true),
-        Option(text: "古い", isCorrect: false),
-        Option(text: "新しい", isCorrect: false),
+        Option(text: "多い", isCorrect: false),
+        Option(text: "少ない", isCorrect: false),
       ],
     ),
     Quiz(
       text: "작다",
+      sentence: "그녀는 작은 집에서 산다.",
+      translation: "彼女は小さな家に住んでいる。",
+      pronunciation: "チャクタ",
       options: [
-        Option(text: "大きい", isCorrect: false),
         Option(text: "小さい", isCorrect: true),
-        Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: false),
+        Option(text: "大きい", isCorrect: false),
+        Option(text: "多い", isCorrect: false),
+        Option(text: "少ない", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "싸다",
+      text: "많다",
+      sentence: "나는 많은 책을 읽었다.",
+      translation: "私はたくさんの本を読んだ。",
+      pronunciation: "マンタ",
       options: [
-        Option(text: "高い", isCorrect: false),
-        Option(text: "安い", isCorrect: true),
+        Option(text: "多い", isCorrect: true),
+        Option(text: "少ない", isCorrect: false),
         Option(text: "大きい", isCorrect: false),
         Option(text: "小さい", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "무겁다",
+      text: "적다",
+      sentence: "이 방에는 사람이 적다.",
+      translation: "この部屋には人が少ない。",
+      pronunciation: "ジョクタ",
       options: [
-        Option(text: "軽い", isCorrect: false),
-        Option(text: "重い", isCorrect: true),
-        Option(text: "速い", isCorrect: false),
-        Option(text: "遅い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "비싸다",
-      options: [
-        Option(text: "安い", isCorrect: false),
-        Option(text: "高い", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "小さい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "쉽다",
-      options: [
-        Option(text: "難しい", isCorrect: false),
-        Option(text: "易しい", isCorrect: true),
-        Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "어렵다",
-      options: [
-        Option(text: "簡単な", isCorrect: false),
-        Option(text: "難しい", isCorrect: true),
-        Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "높다",
-      options: [
-        Option(text: "低い", isCorrect: false),
-        Option(text: "高い", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "小さい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "낮다",
-      options: [
-        Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: true),
+        Option(text: "少ない", isCorrect: true),
+        Option(text: "多い", isCorrect: false),
         Option(text: "大きい", isCorrect: false),
         Option(text: "小さい", isCorrect: false),
       ],
     ),
     Quiz(
       text: "길다",
+      sentence: "그녀의 머리는 길다.",
+      translation: "彼女の髪は長い。",
+      pronunciation: "キルダ",
       options: [
-        Option(text: "短い", isCorrect: false),
         Option(text: "長い", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "小さい", isCorrect: false),
+        Option(text: "短い", isCorrect: false),
+        Option(text: "高い", isCorrect: false),
+        Option(text: "低い", isCorrect: false),
       ],
     ),
     Quiz(
       text: "짧다",
+      sentence: "이 연필은 짧다.",
+      translation: "この鉛筆は短い。",
+      pronunciation: "チャルダ",
       options: [
-        Option(text: "長い", isCorrect: false),
         Option(text: "短い", isCorrect: true),
+        Option(text: "長い", isCorrect: false),
         Option(text: "高い", isCorrect: false),
         Option(text: "低い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "새롭다",
+      text: "높다",
+      sentence: "산이 높다.",
+      translation: "山が高い。",
+      pronunciation: "ノプタ",
       options: [
-        Option(text: "古い", isCorrect: false),
-        Option(text: "新しい", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "小さい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "오래되다",
-      options: [
-        Option(text: "新しい", isCorrect: false),
-        Option(text: "古い", isCorrect: true),
-        Option(text: "高い", isCorrect: false),
+        Option(text: "高い", isCorrect: true),
         Option(text: "低い", isCorrect: false),
+        Option(text: "重い", isCorrect: false),
+        Option(text: "軽い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "예쁘다",
+      text: "낮다",
+      sentence: "그 건물은 낮다.",
+      translation: "その建物は低い。",
+      pronunciation: "ナッタ",
       options: [
-        Option(text: "醜い", isCorrect: false),
-        Option(text: "綺麗な", isCorrect: true),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "小さい", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "추하다",
-      options: [
-        Option(text: "綺麗な", isCorrect: false),
-        Option(text: "醜い", isCorrect: true),
+        Option(text: "低い", isCorrect: true),
         Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: false),
+        Option(text: "重い", isCorrect: false),
+        Option(text: "軽い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "즐겁다",
+      text: "무겁다",
+      sentence: "이 가방은 무겁다.",
+      translation: "このカバンは重い。",
+      pronunciation: "ムゴプタ",
       options: [
-        Option(text: "悲しい", isCorrect: false),
-        Option(text: "楽しい", isCorrect: true),
-        Option(text: "怒っている", isCorrect: false),
-        Option(text: "驚いた", isCorrect: false),
+        Option(text: "重い", isCorrect: true),
+        Option(text: "軽い", isCorrect: false),
+        Option(text: "柔らかい", isCorrect: false),
+        Option(text: "細かい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "가볍다",
+      sentence: "그 책은 가볍다.",
+      translation: "その本は軽い。",
+      pronunciation: "カビョプタ",
+      options: [
+        Option(text: "軽い", isCorrect: true),
+        Option(text: "重い", isCorrect: false),
+        Option(text: "柔らかい", isCorrect: false),
+        Option(text: "細かい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "부드럽다",
+      sentence: "이 이불은 부드럽다.",
+      translation: "この布団は柔らかい。",
+      pronunciation: "プドゥロプタ",
+      options: [
+        Option(text: "柔らかい", isCorrect: true),
+        Option(text: "荒い", isCorrect: false),
+        Option(text: "細かい", isCorrect: false),
+        Option(text: "狭い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "엉성하다",
+      sentence: "그의 계획은 엉성하다.",
+      translation: "彼の計画は荒い。",
+      pronunciation: "オンソンハダ",
+      options: [
+        Option(text: "荒い", isCorrect: true),
+        Option(text: "柔らかい", isCorrect: false),
+        Option(text: "細かい", isCorrect: false),
+        Option(text: "狭い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "세세하다",
+      sentence: "그는 일을 세세하게 한다.",
+      translation: "彼は細かく仕事をする。",
+      pronunciation: "セセハダ",
+      options: [
+        Option(text: "細かい", isCorrect: true),
+        Option(text: "荒い", isCorrect: false),
+        Option(text: "広い", isCorrect: false),
+        Option(text: "狭い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "넓다",
+      sentence: "이 방은 넓다.",
+      translation: "この部屋は広い。",
+      pronunciation: "ノルダ",
+      options: [
+        Option(text: "広い", isCorrect: true),
+        Option(text: "狭い", isCorrect: false),
+        Option(text: "深い", isCorrect: false),
+        Option(text: "浅い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "좁다",
+      sentence: "그 길은 좁다.",
+      translation: "その道は狭い。",
+      pronunciation: "チョプタ",
+      options: [
+        Option(text: "狭い", isCorrect: true),
+        Option(text: "広い", isCorrect: false),
+        Option(text: "深い", isCorrect: false),
+        Option(text: "浅い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "깊다",
+      sentence: "바다가 깊다.",
+      translation: "海が深い。",
+      pronunciation: "キプタ",
+      options: [
+        Option(text: "深い", isCorrect: true),
+        Option(text: "浅い", isCorrect: false),
+        Option(text: "広い", isCorrect: false),
+        Option(text: "狭い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "얕다",
+      sentence: "강이 얕다.",
+      translation: "川が浅い。",
+      pronunciation: "ヤッタ",
+      options: [
+        Option(text: "浅い", isCorrect: true),
+        Option(text: "深い", isCorrect: false),
+        Option(text: "広い", isCorrect: false),
+        Option(text: "狭い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "굵다",
+      sentence: "이 나무는 굵다.",
+      translation: "この木は太い。",
+      pronunciation: "クルダ",
+      options: [
+        Option(text: "太い", isCorrect: true),
+        Option(text: "細い", isCorrect: false),
+        Option(text: "厚い", isCorrect: false),
+        Option(text: "薄い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "가늘다",
+      sentence: "그녀의 손가락은 가늘다.",
+      translation: "彼女の指は細い。",
+      pronunciation: "カヌルダ",
+      options: [
+        Option(text: "細い", isCorrect: true),
+        Option(text: "太い", isCorrect: false),
+        Option(text: "厚い", isCorrect: false),
+        Option(text: "薄い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "두껍다",
+      sentence: "이 책은 두껍다.",
+      translation: "この本は厚い。",
+      pronunciation: "トゥコプタ",
+      options: [
+        Option(text: "厚い", isCorrect: true),
+        Option(text: "薄い", isCorrect: false),
+        Option(text: "太い", isCorrect: false),
+        Option(text: "細い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "얇다",
+      sentence: "이 종이는 얇다.",
+      translation: "この紙は薄い。",
+      pronunciation: "ヤルダ",
+      options: [
+        Option(text: "薄い", isCorrect: true),
+        Option(text: "厚い", isCorrect: false),
+        Option(text: "太い", isCorrect: false),
+        Option(text: "細い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "나쁘다",
+      sentence: "그 소식은 나쁘다.",
+      translation: "その知らせは悪い。",
+      pronunciation: "ナップダ",
+      options: [
+        Option(text: "悪い", isCorrect: true),
+        Option(text: "良い", isCorrect: false),
+        Option(text: "速い", isCorrect: false),
+        Option(text: "遅い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "빠르다",
+      sentence: "그녀는 달리기가 빠르다.",
+      translation: "彼女は走るのが速い。",
+      pronunciation: "パルダ",
+      options: [
+        Option(text: "速い", isCorrect: true),
+        Option(text: "遅い", isCorrect: false),
+        Option(text: "良い", isCorrect: false),
+        Option(text: "悪い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "느리다",
+      sentence: "그 차는 느리다.",
+      translation: "その車は遅い。",
+      pronunciation: "ヌリダ",
+      options: [
+        Option(text: "遅い", isCorrect: true),
+        Option(text: "速い", isCorrect: false),
+        Option(text: "良い", isCorrect: false),
+        Option(text: "悪い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "이르다",
+      sentence: "그는 아침에 이르다.",
+      translation: "彼は朝が早い。",
+      pronunciation: "イルダ",
+      options: [
+        Option(text: "早い", isCorrect: true),
+        Option(text: "遅い", isCorrect: false),
+        Option(text: "速い", isCorrect: false),
+        Option(text: "悪い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "늦다",
+      sentence: "그는 항상 늦다.",
+      translation: "彼はいつも遅い。",
+      pronunciation: "ヌッタ",
+      options: [
+        Option(text: "遅い", isCorrect: true),
+        Option(text: "早い", isCorrect: false),
+        Option(text: "速い", isCorrect: false),
+        Option(text: "悪い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "멀다",
+      sentence: "학교는 집에서 멀다.",
+      translation: "学校は家から遠い。",
+      pronunciation: "モルダ",
+      options: [
+        Option(text: "遠い", isCorrect: true),
+        Option(text: "近い", isCorrect: false),
+        Option(text: "強い", isCorrect: false),
+        Option(text: "弱い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "가깝다",
+      sentence: "시내는 가깝다.",
+      translation: "市内は近い。",
+      pronunciation: "カカプタ",
+      options: [
+        Option(text: "近い", isCorrect: true),
+        Option(text: "遠い", isCorrect: false),
+        Option(text: "強い", isCorrect: false),
+        Option(text: "弱い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "강하다",
+      sentence: "그는 정신적으로 강하다.",
+      translation: "彼は精神的に強い。",
+      pronunciation: "カンハダ",
+      options: [
+        Option(text: "強い", isCorrect: true),
+        Option(text: "弱い", isCorrect: false),
+        Option(text: "暑い", isCorrect: false),
+        Option(text: "寒い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "약하다",
+      sentence: "그녀는 체력이 약하다.",
+      translation: "彼女は体力が弱い。",
+      pronunciation: "ヤカダ",
+      options: [
+        Option(text: "弱い", isCorrect: true),
+        Option(text: "強い", isCorrect: false),
+        Option(text: "暑い", isCorrect: false),
+        Option(text: "寒い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "덥다",
+      sentence: "오늘은 날씨가 덥다.",
+      translation: "今日は天気が暑い。",
+      pronunciation: "トプタ",
+      options: [
+        Option(text: "暑い", isCorrect: true),
+        Option(text: "寒い", isCorrect: false),
+        Option(text: "温かい", isCorrect: false),
+        Option(text: "冷たい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "춥다",
+      sentence: "겨울에는 춥다.",
+      translation: "冬は寒い。",
+      pronunciation: "チュプタ",
+      options: [
+        Option(text: "寒い", isCorrect: true),
+        Option(text: "暑い", isCorrect: false),
+        Option(text: "温かい", isCorrect: false),
+        Option(text: "冷たい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "뜨겁다",
+      sentence: "차 한 잔이 뜨겁다.",
+      translation: "お茶一杯が熱い。",
+      pronunciation: "トゥゴプタ",
+      options: [
+        Option(text: "熱い", isCorrect: true),
+        Option(text: "冷たい", isCorrect: false),
+        Option(text: "温かい", isCorrect: false),
+        Option(text: "寒い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "차갑다",
+      sentence: "그녀의 손이 차갑다.",
+      translation: "彼女の手が冷たい。",
+      pronunciation: "チャガプタ",
+      options: [
+        Option(text: "冷たい", isCorrect: true),
+        Option(text: "熱い", isCorrect: false),
+        Option(text: "温かい", isCorrect: false),
+        Option(text: "寒い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "따뜻하다",
+      sentence: "봄날은 따뜻하다.",
+      translation: "春の日は温かい。",
+      pronunciation: "タットゥタダ",
+      options: [
+        Option(text: "温かい", isCorrect: true),
+        Option(text: "熱い", isCorrect: false),
+        Option(text: "冷たい", isCorrect: false),
+        Option(text: "寒い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "시원하다",
+      sentence: "여름에는 바다가 시원하다.",
+      translation: "夏には海が涼しい。",
+      pronunciation: "シウォンハダ",
+      options: [
+        Option(text: "涼しい", isCorrect: true),
+        Option(text: "暖かい", isCorrect: false),
+        Option(text: "辛い", isCorrect: false),
+        Option(text: "苦い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "선선하다",
+      sentence: "가을에는 날씨가 선선하다.",
+      translation: "秋には天気が涼しい。",
+      pronunciation: "ソンソンハダ",
+      options: [
+        Option(text: "涼しい", isCorrect: true),
+        Option(text: "暖かい", isCorrect: false),
+        Option(text: "甘い", isCorrect: false),
+        Option(text: "酸っぱい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "맛없다",
+      sentence: "이 음식은 맛없다.",
+      translation: "この料理はまずい。",
+      pronunciation: "マドプタ",
+      options: [
+        Option(text: "まずい", isCorrect: true),
+        Option(text: "美味しい", isCorrect: false),
+        Option(text: "辛い", isCorrect: false),
+        Option(text: "苦い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "달다",
+      sentence: "이 사탕은 달다.",
+      translation: "このキャンディーは甘い。",
+      pronunciation: "タルダ",
+      options: [
+        Option(text: "甘い", isCorrect: true),
+        Option(text: "辛い", isCorrect: false),
+        Option(text: "酸っぱい", isCorrect: false),
+        Option(text: "苦い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "맵다",
+      sentence: "이 음식은 맵다.",
+      translation: "この料理は辛い。",
+      pronunciation: "メプタ",
+      options: [
+        Option(text: "辛い", isCorrect: true),
+        Option(text: "甘い", isCorrect: false),
+        Option(text: "酸っぱい", isCorrect: false),
+        Option(text: "苦い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "시다",
+      sentence: "이 레몬은 시다.",
+      translation: "このレモンは酸っぱい。",
+      pronunciation: "シダ",
+      options: [
+        Option(text: "酸っぱい", isCorrect: true),
+        Option(text: "辛い", isCorrect: false),
+        Option(text: "甘い", isCorrect: false),
+        Option(text: "苦い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "짜다",
+      sentence: "이 김치는 짜다.",
+      translation: "このキムチはしょっぱい。",
+      pronunciation: "チャダ",
+      options: [
+        Option(text: "しょっぱい", isCorrect: true),
+        Option(text: "甘い", isCorrect: false),
+        Option(text: "酸っぱい", isCorrect: false),
+        Option(text: "苦い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "쓰다",
+      sentence: "이 약은 쓰다.",
+      translation: "この薬は苦い。",
+      pronunciation: "スダ",
+      options: [
+        Option(text: "苦い", isCorrect: true),
+        Option(text: "甘い", isCorrect: false),
+        Option(text: "酸っぱい", isCorrect: false),
+        Option(text: "しょっぱい", isCorrect: false),
       ],
     ),
     Quiz(
       text: "기쁘다",
+      sentence: "좋은 소식을 들어서 기쁘다.",
+      translation: "良い知らせを聞いて嬉しい。",
+      pronunciation: "キプダ",
       options: [
-        Option(text: "悲しい", isCorrect: false),
         Option(text: "嬉しい", isCorrect: true),
-        Option(text: "怒っている", isCorrect: false),
-        Option(text: "驚いた", isCorrect: false),
+        Option(text: "悲しい", isCorrect: false),
+        Option(text: "難しい", isCorrect: false),
+        Option(text: "静かだ", isCorrect: false),
       ],
     ),
     Quiz(
       text: "슬프다",
+      sentence: "그 영화는 슬프다.",
+      translation: "その映画は悲しい。",
+      pronunciation: "スルプダ",
       options: [
-        Option(text: "嬉しい", isCorrect: false),
         Option(text: "悲しい", isCorrect: true),
-        Option(text: "怒っている", isCorrect: false),
-        Option(text: "驚いた", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "화나다",
-      options: [
-        Option(text: "悲しい", isCorrect: false),
-        Option(text: "怒っている", isCorrect: true),
         Option(text: "嬉しい", isCorrect: false),
-        Option(text: "驚いた", isCorrect: false),
+        Option(text: "難しい", isCorrect: false),
+        Option(text: "静かだ", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "놀라다",
+      text: "쉽다",
+      sentence: "이 문제는 쉽다.",
+      translation: "この問題は易しい。",
+      pronunciation: "シュィプダ",
       options: [
-        Option(text: "驚いた", isCorrect: true),
-        Option(text: "悲しい", isCorrect: false),
-        Option(text: "怒っている", isCorrect: false),
+        Option(text: "易しい", isCorrect: true),
+        Option(text: "難しい", isCorrect: false),
+        Option(text: "静かだ", isCorrect: false),
+        Option(text: "騒がしい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "죄송하다",
+      sentence: "늦어서 죄송하다.",
+      translation: "遅れて申し訳ない。",
+      pronunciation: "チョソンハダ",
+      options: [
+        Option(text: "申し訳ない", isCorrect: true),
         Option(text: "嬉しい", isCorrect: false),
+        Option(text: "難しい", isCorrect: false),
+        Option(text: "騒がしい", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "피곤하다",
+      text: "시끄럽다",
+      sentence: "그 도로는 시끄럽다.",
+      translation: "その道路はうるさい。",
+      pronunciation: "シックロプダ",
       options: [
-        Option(text: "元気な", isCorrect: false),
-        Option(text: "疲れた", isCorrect: true),
-        Option(text: "嬉しい", isCorrect: false),
-        Option(text: "悲しい", isCorrect: false),
+        Option(text: "うるさい", isCorrect: true),
+        Option(text: "静かだ", isCorrect: false),
+        Option(text: "綺麗だ", isCorrect: false),
+        Option(text: "汚い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "건강하다",
+      text: "조용하다",
+      sentence: "이 도서관은 조용하다.",
+      translation: "この図書館は静かだ。",
+      pronunciation: "チョヨンハダ",
       options: [
-        Option(text: "病気の", isCorrect: false),
-        Option(text: "健康な", isCorrect: true),
-        Option(text: "元気な", isCorrect: false),
-        Option(text: "疲れた", isCorrect: false),
+        Option(text: "静かだ", isCorrect: true),
+        Option(text: "うるさい", isCorrect: false),
+        Option(text: "綺麗だ", isCorrect: false),
+        Option(text: "汚い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "부지런하다",
+      text: "깨끗하다",
+      sentence: "방이 깨끗하다.",
+      translation: "部屋が綺麗だ。",
+      pronunciation: "ケックタダ",
       options: [
-        Option(text: "怠惰な", isCorrect: false),
-        Option(text: "勤勉な", isCorrect: true),
-        Option(text: "元気な", isCorrect: false),
-        Option(text: "疲れた", isCorrect: false),
+        Option(text: "綺麗だ", isCorrect: true),
+        Option(text: "汚い", isCorrect: false),
+        Option(text: "新しい", isCorrect: false),
+        Option(text: "古い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "게으르다",
+      text: "더럽다",
+      sentence: "그 거리는 더럽다.",
+      translation: "その通りは汚い。",
+      pronunciation: "ドロプダ",
       options: [
-        Option(text: "勤勉な", isCorrect: false),
-        Option(text: "怠惰な", isCorrect: true),
-        Option(text: "元気な", isCorrect: false),
-        Option(text: "疲れた", isCorrect: false),
+        Option(text: "汚い", isCorrect: true),
+        Option(text: "綺麗だ", isCorrect: false),
+        Option(text: "新しい", isCorrect: false),
+        Option(text: "古い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "새롭다",
+      sentence: "새로운 아이디어를 얻었다.",
+      translation: "新しいアイデアを得た。",
+      pronunciation: "セロプダ",
+      options: [
+        Option(text: "新しい", isCorrect: true),
+        Option(text: "古い", isCorrect: false),
+        Option(text: "綺麗だ", isCorrect: false),
+        Option(text: "汚い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "낡다",
+      sentence: "그 건물은 낡다.",
+      translation: "その建物は古い。",
+      pronunciation: "ナルダ",
+      options: [
+        Option(text: "古い", isCorrect: true),
+        Option(text: "新しい", isCorrect: false),
+        Option(text: "明るい", isCorrect: false),
+        Option(text: "暗い", isCorrect: false),
       ],
     ),
     Quiz(
       text: "밝다",
+      sentence: "그 방은 밝다.",
+      translation: "その部屋は明るい。",
+      pronunciation: "パルダ",
       options: [
-        Option(text: "暗い", isCorrect: false),
         Option(text: "明るい", isCorrect: true),
+        Option(text: "暗い", isCorrect: false),
         Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: false),
+        Option(text: "安い", isCorrect: false),
       ],
     ),
     Quiz(
       text: "어둡다",
+      sentence: "그 방은 어둡다.",
+      translation: "その部屋は暗い。",
+      pronunciation: "オドゥプダ",
       options: [
-        Option(text: "明るい", isCorrect: false),
         Option(text: "暗い", isCorrect: true),
+        Option(text: "明るい", isCorrect: false),
         Option(text: "高い", isCorrect: false),
-        Option(text: "低い", isCorrect: false),
+        Option(text: "安い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "멋있다",
+      text: "비싸다",
+      sentence: "그 가방은 비싸다.",
+      translation: "そのカバンは高い。",
+      pronunciation: "ピッサダ",
       options: [
-        Option(text: "格好悪い", isCorrect: false),
-        Option(text: "格好いい", isCorrect: true),
-        Option(text: "綺麗な", isCorrect: false),
-        Option(text: "醜い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "지루하다",
-      options: [
-        Option(text: "面白い", isCorrect: false),
-        Option(text: "退屈な", isCorrect: true),
+        Option(text: "高い", isCorrect: true),
+        Option(text: "安い", isCorrect: false),
         Option(text: "楽しい", isCorrect: false),
-        Option(text: "嬉しい", isCorrect: false),
+        Option(text: "苦しい", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "재미있다",
+      text: "싸다",
+      sentence: "이 물건은 싸다.",
+      translation: "この品物は安い。",
+      pronunciation: "サダ",
       options: [
-        Option(text: "退屈な", isCorrect: false),
-        Option(text: "面白い", isCorrect: true),
-        Option(text: "嬉しい", isCorrect: false),
-        Option(text: "悲しい", isCorrect: false),
+        Option(text: "安い", isCorrect: true),
+        Option(text: "高い", isCorrect: false),
+        Option(text: "楽しい", isCorrect: false),
+        Option(text: "苦しい", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "졸리다",
+      text: "즐겁다",
+      sentence: "그 파티는 즐겁다.",
+      translation: "そのパーティーは楽しい。",
+      pronunciation: "ジュルゴプダ",
       options: [
-        Option(text: "元気な", isCorrect: false),
-        Option(text: "眠い", isCorrect: true),
-        Option(text: "疲れた", isCorrect: false),
-        Option(text: "嬉しい", isCorrect: false),
+        Option(text: "楽しい", isCorrect: true),
+        Option(text: "苦しい", isCorrect: false),
+        Option(text: "寂しい", isCorrect: false),
+        Option(text: "面白くない", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "괴롭다",
+      sentence: "그 일은 정말 괴롭다.",
+      translation: "その仕事は本当に苦しい。",
+      pronunciation: "コィロプダ",
+      options: [
+        Option(text: "苦しい", isCorrect: true),
+        Option(text: "楽しい", isCorrect: false),
+        Option(text: "寂しい", isCorrect: false),
+        Option(text: "面白くない", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "외롭다",
+      sentence: "혼자 집에 있을 때 외롭다.",
+      translation: "一人で家にいると寂しい。",
+      pronunciation: "ウェロプダ",
+      options: [
+        Option(text: "寂しい", isCorrect: true),
+        Option(text: "楽しい", isCorrect: false),
+        Option(text: "苦しい", isCorrect: false),
+        Option(text: "面白くない", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "재미없다",
+      sentence: "이 영화는 재미없다.",
+      translation: "この映画は面白くない。",
+      pronunciation: "ジェミオプダ",
+      options: [
+        Option(text: "面白くない", isCorrect: true),
+        Option(text: "楽しい", isCorrect: false),
+        Option(text: "苦しい", isCorrect: false),
+        Option(text: "寂しい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "바쁘다",
+      sentence: "그는 항상 바쁘다.",
+      translation: "彼はいつも忙しい。",
+      pronunciation: "パプダ",
+      options: [
+        Option(text: "忙しい", isCorrect: true),
+        Option(text: "暇だ", isCorrect: false),
+        Option(text: "同じだ", isCorrect: false),
+        Option(text: "違う", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "심심하다",
+      sentence: "오늘은 심심하다.",
+      translation: "今日は暇だ。",
+      pronunciation: "シムシムハダ",
+      options: [
+        Option(text: "暇だ", isCorrect: true),
+        Option(text: "忙しい", isCorrect: false),
+        Option(text: "同じだ", isCorrect: false),
+        Option(text: "違う", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "같다",
+      sentence: "우리는 생각이 같다.",
+      translation: "私たちは考えが同じだ。",
+      pronunciation: "カッタ",
+      options: [
+        Option(text: "同じだ", isCorrect: true),
+        Option(text: "違う", isCorrect: false),
+        Option(text: "便利だ", isCorrect: false),
+        Option(text: "不便だ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "다르다",
+      sentence: "그녀와 나는 다르다.",
+      translation: "彼女と私は違う。",
+      pronunciation: "タルダ",
+      options: [
+        Option(text: "違う", isCorrect: true),
+        Option(text: "同じだ", isCorrect: false),
+        Option(text: "便利だ", isCorrect: false),
+        Option(text: "不便だ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "편리하다",
+      sentence: "이 어플은 매우 편리하다.",
+      translation: "このアプリはとても便利だ。",
+      pronunciation: "ピョンリハダ",
+      options: [
+        Option(text: "便利だ", isCorrect: true),
+        Option(text: "不便だ", isCorrect: false),
+        Option(text: "太っている", isCorrect: false),
+        Option(text: "濃い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "불편하다",
+      sentence: "그 의자는 불편하다.",
+      translation: "その椅子は不便だ。",
+      pronunciation: "プルピョンハダ",
+      options: [
+        Option(text: "不便だ", isCorrect: true),
+        Option(text: "便利だ", isCorrect: false),
+        Option(text: "太っている", isCorrect: false),
+        Option(text: "濃い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "뚱뚱하다",
+      sentence: "그 고양이는 뚱뚱하다.",
+      translation: "その猫は太っている。",
+      pronunciation: "トゥントゥンハダ",
+      options: [
+        Option(text: "太っている", isCorrect: true),
+        Option(text: "濃い", isCorrect: false),
+        Option(text: "薄い", isCorrect: false),
+        Option(text: "甘い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "진하다",
+      sentence: "커피가 진하다.",
+      translation: "コーヒーが濃い。",
+      pronunciation: "ジナダ",
+      options: [
+        Option(text: "濃い", isCorrect: true),
+        Option(text: "薄い", isCorrect: false),
+        Option(text: "太っている", isCorrect: false),
+        Option(text: "甘い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "싱겁다",
+      sentence: "이 국은 싱겁다.",
+      translation: "このスープは薄い。",
+      pronunciation: "シンゴプダ",
+      options: [
+        Option(text: "薄い", isCorrect: true),
+        Option(text: "濃い", isCorrect: false),
+        Option(text: "太っている", isCorrect: false),
+        Option(text: "甘い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "엄하다",
+      sentence: "그 선생님은 엄하다.",
+      translation: "その先生は厳しい。",
+      pronunciation: "オムハダ",
+      options: [
+        Option(text: "厳しい", isCorrect: true),
+        Option(text: "憎い", isCorrect: false),
+        Option(text: "怖い", isCorrect: false),
+        Option(text: "羨ましい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "밉다",
+      sentence: "그 사람은 미운 사람이다.",
+      translation: "その人は憎い人だ。",
+      pronunciation: "ミプダ",
+      options: [
+        Option(text: "憎い", isCorrect: true),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "怖い", isCorrect: false),
+        Option(text: "羨ましい", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "무섭다",
+      sentence: "그 영화는 무섭다.",
+      translation: "その映画は怖い。",
+      pronunciation: "ムソプダ",
+      options: [
+        Option(text: "怖い", isCorrect: true),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "두렵다",
+      sentence: "미래가 두렵다.",
+      translation: "未来が怖い。",
+      pronunciation: "トゥリョプダ",
+      options: [
+        Option(text: "怖い", isCorrect: true),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "부럽다",
+      sentence: "그의 성공이 부럽다.",
+      translation: "彼の成功が羨ましい。",
+      pronunciation: "プロプダ",
+      options: [
+        Option(text: "羨ましい", isCorrect: true),
+        Option(text: "怖い", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "분하다",
+      sentence: "시험에 떨어져서 분하다.",
+      translation: "試験に落ちて悔しい。",
+      pronunciation: "プンハダ",
+      options: [
+        Option(text: "悔しい", isCorrect: true),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
       ],
     ),
     Quiz(
       text: "아프다",
+      sentence: "어깨가 아프다.",
+      translation: "肩が痛い。",
+      pronunciation: "アプダ",
       options: [
-        Option(text: "健康な", isCorrect: false),
         Option(text: "痛い", isCorrect: true),
-        Option(text: "元気な", isCorrect: false),
-        Option(text: "疲れた", isCorrect: false),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "행복하다",
+      text: "그립다",
+      sentence: "고향이 그립다.",
+      translation: "故郷が恋しい。",
+      pronunciation: "クリプダ",
       options: [
-        Option(text: "悲しい", isCorrect: false),
-        Option(text: "幸せな", isCorrect: true),
-        Option(text: "怒っている", isCorrect: false),
-        Option(text: "驚いた", isCorrect: false),
+        Option(text: "恋しい", isCorrect: true),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "사랑스럽다",
+      text: "부끄럽다",
+      sentence: "그 실수가 부끄럽다.",
+      translation: "そのミスが恥ずかしい。",
+      pronunciation: "プックロプダ",
       options: [
-        Option(text: "憎らしい", isCorrect: false),
-        Option(text: "愛しい", isCorrect: true),
-        Option(text: "悲しい", isCorrect: false),
-        Option(text: "嬉しい", isCorrect: false),
+        Option(text: "恥ずかしい", isCorrect: true),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "이상하다",
+      sentence: "그 행동은 이상하다.",
+      translation: "その行動は変だ。",
+      pronunciation: "イサンハダ",
+      options: [
+        Option(text: "変だ", isCorrect: true),
+        Option(text: "羨ましい", isCorrect: false),
+        Option(text: "厳しい", isCorrect: false),
+        Option(text: "憎い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "친하다",
+      sentence: "우리는 아주 친하다.",
+      translation: "私たちはとても親しい。",
+      pronunciation: "チナダ",
+      options: [
+        Option(text: "親しい", isCorrect: true),
+        Option(text: "美しい", isCorrect: false),
+        Option(text: "優しい", isCorrect: false),
+        Option(text: "若い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "아름답다",
+      sentence: "그녀는 정말 아름답다.",
+      translation: "彼女は本当に美しい。",
+      pronunciation: "アルムダプダ",
+      options: [
+        Option(text: "美しい", isCorrect: true),
+        Option(text: "親しい", isCorrect: false),
+        Option(text: "優しい", isCorrect: false),
+        Option(text: "若い", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "상냥하다",
+      sentence: "그는 항상 상냥하다.",
+      translation: "彼はいつも優しい。",
+      pronunciation: "サンニャンハダ",
+      options: [
+        Option(text: "優しい", isCorrect: true),
+        Option(text: "美しい", isCorrect: false),
+        Option(text: "親しい", isCorrect: false),
+        Option(text: "若い", isCorrect: false),
       ],
     ),
   ];
-
-  //////////////  副詞　/////////////////////
+  //////////// 副詞　/////////////////////
   static final List<Quiz> korianBiginnerAdvers = [
     Quiz(
-      text: "빨리",
+      text: "아주",
+      sentence: "그는 아주 똑똑하다.",
+      translation: "彼はとても賢い。",
+      pronunciation: "アジュ",
       options: [
-        Option(text: "遅く", isCorrect: false),
-        Option(text: "早く", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: false),
+        Option(text: "とても", isCorrect: true),
+        Option(text: "ほとんど", isCorrect: false),
+        Option(text: "完全に", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "천천히",
+      text: "매우",
+      sentence: "그녀는 매우 바쁘다.",
+      translation: "彼女は非常に忙しい。",
+      pronunciation: "メウ",
       options: [
-        Option(text: "早く", isCorrect: false),
-        Option(text: "遅く", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "조용히",
-      options: [
-        Option(text: "大きく", isCorrect: false),
-        Option(text: "静かに", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "크게",
-      options: [
-        Option(text: "小さく", isCorrect: false),
-        Option(text: "大きく", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "早く", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "작게",
-      options: [
-        Option(text: "大きく", isCorrect: false),
-        Option(text: "小さく", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "早く", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "정확히",
-      options: [
-        Option(text: "適当に", isCorrect: false),
-        Option(text: "正確に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "대충",
-      options: [
-        Option(text: "正確に", isCorrect: false),
-        Option(text: "適当に", isCorrect: true),
-        Option(text: "ゆっくり", isCorrect: false),
-        Option(text: "早く", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "조금",
-      options: [
-        Option(text: "多く", isCorrect: false),
-        Option(text: "少し", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "早く", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "많이",
-      options: [
+        Option(text: "非常に", isCorrect: true),
         Option(text: "少し", isCorrect: false),
-        Option(text: "多く", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "全然", isCorrect: false),
+        Option(text: "普通", isCorrect: false),
       ],
     ),
     Quiz(
       text: "자주",
+      sentence: "나는 자주 여행을 간다.",
+      translation: "私は頻繁に旅行に行く。",
+      pronunciation: "ジャジュ",
       options: [
-        Option(text: "時々", isCorrect: false),
         Option(text: "頻繁に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "まったく", isCorrect: false),
+        Option(text: "たまに", isCorrect: false),
+        Option(text: "ちょっと", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "계속",
+      text: "대단히",
+      sentence: "대단히 감사합니다.",
+      translation: "大変ありがとうございます。",
+      pronunciation: "デダニ",
       options: [
-        Option(text: "一度", isCorrect: false),
-        Option(text: "ずっと", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "大変", isCorrect: true),
+        Option(text: "普通", isCorrect: false),
+        Option(text: "まったく", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "꽤",
+      sentence: "그 책은 꽤 흥미롭다.",
+      translation: "その本はかなり興味深い。",
+      pronunciation: "クェ",
+      options: [
+        Option(text: "かなり", isCorrect: true),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "ほとんど", isCorrect: false),
+        Option(text: "まったく", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "너무",
+      sentence: "그 영화는 너무 슬프다.",
+      translation: "その映画はあまりにも悲しい。",
+      pronunciation: "ノム",
+      options: [
+        Option(text: "あまりにも", isCorrect: true),
+        Option(text: "ほとんど", isCorrect: false),
+        Option(text: "完全に", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "거의",
+      sentence: "거의 모든 사람이 참석했다.",
+      translation: "ほとんど全ての人が参加した。",
+      pronunciation: "コイ",
+      options: [
+        Option(text: "ほとんど", isCorrect: true),
+        Option(text: "全然", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "普通", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "전혀",
+      sentence: "그는 전혀 모른다.",
+      translation: "彼は全然知らない。",
+      pronunciation: "チョンヒョ",
+      options: [
+        Option(text: "全然", isCorrect: true),
+        Option(text: "とても", isCorrect: false),
+        Option(text: "完全に", isCorrect: false),
+        Option(text: "頻繁に", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "완전히",
+      sentence: "그 계획은 완전히 실패했다.",
+      translation: "その計画は完全に失敗した。",
+      pronunciation: "ワンジョニ",
+      options: [
+        Option(text: "完全に", isCorrect: true),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "まったく", isCorrect: false),
+        Option(text: "ほとんど", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "가장",
+      sentence: "나는 가장 좋아하는 색은 파란색이다.",
+      translation: "私が一番好きな色は青だ。",
+      pronunciation: "カジャン",
+      options: [
+        Option(text: "一番", isCorrect: true),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "完全に", isCorrect: false),
+        Option(text: "ほとんど", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "대부분",
+      sentence: "대부분의 사람들이 동의했다.",
+      translation: "大部分の人が同意した。",
+      pronunciation: "デブブン",
+      options: [
+        Option(text: "大部分", isCorrect: true),
+        Option(text: "まったく", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "대개",
+      sentence: "대개 학생들은 열심히 공부한다.",
+      translation: "大概の学生は一生懸命勉強する。",
+      pronunciation: "デゲ",
+      options: [
+        Option(text: "大概", isCorrect: true),
+        Option(text: "全然", isCorrect: false),
+        Option(text: "頻繁に", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "대체로",
+      sentence: "대체로 그 영화는 재미있었다.",
+      translation: "大抵その映画は面白かった。",
+      pronunciation: "デチェロ",
+      options: [
+        Option(text: "大抵", isCorrect: true),
+        Option(text: "全然", isCorrect: false),
+        Option(text: "ほとんど", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "보통은",
+      sentence: "보통은 아침에 운동을 한다.",
+      translation: "普通は朝に運動する。",
+      pronunciation: "ボトンウン",
+      options: [
+        Option(text: "普通は", isCorrect: true),
+        Option(text: "たまに", isCorrect: false),
+        Option(text: "全然", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "특히",
+      sentence: "저는 특히 음악을 좋아합니다.",
+      translation: "私は特に音楽が好きです。",
+      pronunciation: "トゥキ",
+      options: [
+        Option(text: "特に", isCorrect: true),
+        Option(text: "いつも", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+        Option(text: "しっかり", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "언제나",
+      sentence: "그는 언제나 웃고 있다.",
+      translation: "彼はいつも笑っている。",
+      pronunciation: "オンジェナ",
+      options: [
+        Option(text: "いつも", isCorrect: true),
+        Option(text: "時々", isCorrect: false),
+        Option(text: "特に", isCorrect: false),
+        Option(text: "きちんと", isCorrect: false),
       ],
     ),
     Quiz(
       text: "가끔",
+      sentence: "그는 가끔 산책을 한다.",
+      translation: "彼は時々散歩をする。",
+      pronunciation: "カクム",
       options: [
-        Option(text: "頻繁に", isCorrect: false),
         Option(text: "時々", isCorrect: true),
-        Option(text: "ずっと", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "いつも", isCorrect: false),
+        Option(text: "特に", isCorrect: false),
+        Option(text: "全く", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "한번",
+      text: "분별없게",
+      sentence: "분별없게 행동하지 마세요.",
+      translation: "分別なく行動しないでください。",
+      pronunciation: "プンビョルオプケ",
       options: [
-        Option(text: "頻繁に", isCorrect: false),
-        Option(text: "一度", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "分別なく", isCorrect: true),
+        Option(text: "しっかり", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+        Option(text: "完全に", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "다시",
+      text: "충분히",
+      sentence: "시간이 충분히 있습니다.",
+      translation: "時間は十分にあります。",
+      pronunciation: "チュンブニ",
       options: [
-        Option(text: "一度", isCorrect: false),
-        Option(text: "もう一度", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "아마도",
-      options: [
-        Option(text: "絶対に", isCorrect: false),
-        Option(text: "たぶん", isCorrect: true),
-        Option(text: "ずっと", isCorrect: false),
-        Option(text: "一度", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "확실히",
-      options: [
-        Option(text: "たぶん", isCorrect: false),
-        Option(text: "確かに", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "조심스럽게",
-      options: [
-        Option(text: "大胆に", isCorrect: false),
-        Option(text: "慎重に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "용감하게",
-      options: [
-        Option(text: "慎重に", isCorrect: false),
-        Option(text: "勇敢に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "예의 바르게",
-      options: [
-        Option(text: "失礼に", isCorrect: false),
-        Option(text: "礼儀正しく", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "실례되게",
-      options: [
-        Option(text: "礼儀正しく", isCorrect: false),
-        Option(text: "失礼に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "신속하게",
-      options: [
-        Option(text: "遅く", isCorrect: false),
-        Option(text: "迅速に", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "천천히",
-      options: [
-        Option(text: "迅速に", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "쉽게",
-      options: [
-        Option(text: "難しく", isCorrect: false),
-        Option(text: "簡単に", isCorrect: true),
-        Option(text: "ゆっくり", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "어렵게",
-      options: [
-        Option(text: "簡単に", isCorrect: false),
-        Option(text: "難しく", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "조용히",
-      options: [
-        Option(text: "うるさく", isCorrect: false),
-        Option(text: "静かに", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "시끄럽게",
-      options: [
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "うるさく", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "ゆっくり", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "아주",
-      options: [
+        Option(text: "十分に", isCorrect: true),
         Option(text: "少し", isCorrect: false),
-        Option(text: "とても", isCorrect: true),
-        Option(text: "静かに", isCorrect: false),
-        Option(text: "早く", isCorrect: false),
+        Option(text: "完全に", isCorrect: false),
+        Option(text: "全く", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "조금",
+      text: "겨우",
+      sentence: "그는 겨우 도착했다.",
+      translation: "彼はやっと到着した。",
+      pronunciation: "キョウ",
       options: [
-        Option(text: "とても", isCorrect: false),
-        Option(text: "少し", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "やっと", isCorrect: true),
+        Option(text: "きちんと", isCorrect: false),
+        Option(text: "必ず", isCorrect: false),
+        Option(text: "おそらく", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "혼자",
+      text: "반드시",
+      sentence: "약속을 반드시 지켜야 한다.",
+      translation: "約束を必ず守らなければならない。",
+      pronunciation: "パンドゥシ",
       options: [
+        Option(text: "必ず", isCorrect: true),
+        Option(text: "やっと", isCorrect: false),
+        Option(text: "十分に", isCorrect: false),
+        Option(text: "もちろん", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "아마",
+      sentence: "아마 그는 올 것이다.",
+      translation: "おそらく彼は来るだろう。",
+      pronunciation: "アマ",
+      options: [
+        Option(text: "おそらく", isCorrect: true),
+        Option(text: "もちろん", isCorrect: false),
+        Option(text: "特に", isCorrect: false),
+        Option(text: "きちんと", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "물론",
+      sentence: "물론 나는 동의한다.",
+      translation: "もちろん私は同意する。",
+      pronunciation: "ムルロン",
+      options: [
+        Option(text: "もちろん", isCorrect: true),
+        Option(text: "必ず", isCorrect: false),
+        Option(text: "おそらく", isCorrect: false),
+        Option(text: "やっと", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "굳이",
+      sentence: "굳이 그럴 필요는 없다.",
+      translation: "あえてそうする必要はない。",
+      pronunciation: "クジ",
+      options: [
+        Option(text: "あえて", isCorrect: true),
+        Option(text: "もちろん", isCorrect: false),
+        Option(text: "必ず", isCorrect: false),
+        Option(text: "時々", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "또",
+      sentence: "그는 또 왔다.",
+      translation: "彼はまた来た。",
+      pronunciation: "ト",
+      options: [
+        Option(text: "また", isCorrect: true),
+        Option(text: "必ず", isCorrect: false),
+        Option(text: "もちろん", isCorrect: false),
+        Option(text: "特に", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "모두",
+      sentence: "모두가 모였다.",
+      translation: "全部が集まった。",
+      pronunciation: "モドゥ",
+      options: [
+        Option(text: "全部", isCorrect: true),
         Option(text: "一緒に", isCorrect: false),
-        Option(text: "一人で", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "別に", isCorrect: false),
+        Option(text: "また", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "함께",
+      sentence: "우리 함께 가자.",
+      translation: "一緒に行こう。",
+      pronunciation: "ハムケ",
+      options: [
+        Option(text: "一緒に", isCorrect: true),
+        Option(text: "全部", isCorrect: false),
+        Option(text: "別に", isCorrect: false),
+        Option(text: "また", isCorrect: false),
       ],
     ),
     Quiz(
       text: "같이",
+      sentence: "같이 공부하자.",
+      translation: "一緒に勉強しよう。",
+      pronunciation: "カチ",
       options: [
-        Option(text: "一人で", isCorrect: false),
         Option(text: "一緒に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "全部", isCorrect: false),
+        Option(text: "別に", isCorrect: false),
+        Option(text: "また", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "밤에",
+      text: "별로",
+      sentence: "별로 좋지 않다.",
+      translation: "別に良くない。",
+      pronunciation: "ピョルロ",
       options: [
-        Option(text: "昼に", isCorrect: false),
-        Option(text: "夜に", isCorrect: true),
-        Option(text: "朝に", isCorrect: false),
-        Option(text: "夕方に", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "낮에",
-      options: [
-        Option(text: "夜に", isCorrect: false),
-        Option(text: "昼に", isCorrect: true),
-        Option(text: "朝に", isCorrect: false),
-        Option(text: "夕方に", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "먼저",
-      options: [
-        Option(text: "後に", isCorrect: false),
-        Option(text: "先に", isCorrect: true),
+        Option(text: "別に", isCorrect: true),
+        Option(text: "全部", isCorrect: false),
         Option(text: "一緒に", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "また", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "나중에",
+      text: "혹시",
+      sentence: "혹시 내일 비가 올까요?",
+      translation: "もしかして明日雨が降るかな?",
+      pronunciation: "ホクシ",
       options: [
-        Option(text: "先に", isCorrect: false),
-        Option(text: "後に", isCorrect: true),
-        Option(text: "早く", isCorrect: false),
-        Option(text: "静かに", isCorrect: false),
+        Option(text: "もしかして", isCorrect: true),
+        Option(text: "やはり", isCorrect: false),
+        Option(text: "本当に", isCorrect: false),
+        Option(text: "すぐに", isCorrect: false),
       ],
     ),
-  ];
+    Quiz(
+      text: "역시",
+      sentence: "역시 그는 천재다.",
+      translation: "やはり彼は天才だ。",
+      pronunciation: "ヨクシ",
+      options: [
+        Option(text: "やはり", isCorrect: true),
+        Option(text: "もしかして", isCorrect: false),
+        Option(text: "本当に", isCorrect: false),
+        Option(text: "すぐに", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "정말로",
+      sentence: "정말로 믿을 수 없다.",
+      translation: "本当に信じられない。",
+      pronunciation: "チョンマルロ",
+      options: [
+        Option(text: "本当に", isCorrect: true),
+        Option(text: "やはり", isCorrect: false),
+        Option(text: "すぐに", isCorrect: false),
+        Option(text: "まだ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "곧",
+      sentence: "곧 봄이 온다.",
+      translation: "すぐに春が来る。",
+      pronunciation: "コッ",
+      options: [
+        Option(text: "すぐに", isCorrect: true),
+        Option(text: "まだ", isCorrect: false),
+        Option(text: "今", isCorrect: false),
+        Option(text: "もう", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "아직",
+      sentence: "아직 끝나지 않았다.",
+      translation: "まだ終わっていない。",
+      pronunciation: "アジク",
+      options: [
+        Option(text: "まだ", isCorrect: true),
+        Option(text: "すぐに", isCorrect: false),
+        Option(text: "今", isCorrect: false),
+        Option(text: "もう", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "이제",
+      sentence: "이제 시작하자.",
+      translation: "今始めよう。",
+      pronunciation: "イジェ",
+      options: [
+        Option(text: "今", isCorrect: true),
+        Option(text: "もう", isCorrect: false),
+        Option(text: "まだ", isCorrect: false),
+        Option(text: "すぐに", isCorrect: false),
+      ],
+    ),
 
-  /////////////  動詞　　/////////////////////
-  static final List<Quiz> korianBiginnerVerbs = [
+    Quiz(
+      text: "벌써",
+      sentence: "벌써 해가 졌다.",
+      translation: "もう日が沈んだ。",
+      pronunciation: "ポルソ",
+      options: [
+        Option(text: "もう", isCorrect: true),
+        Option(text: "今", isCorrect: false),
+        Option(text: "まだ", isCorrect: false),
+        Option(text: "すぐに", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "분명히",
+      sentence: "그것은 분명히 사실이다.",
+      translation: "それは明らかに事実だ。",
+      pronunciation: "プンミョンヒ",
+      options: [
+        Option(text: "明らかに", isCorrect: true),
+        Option(text: "即", isCorrect: false),
+        Option(text: "まさか", isCorrect: false),
+        Option(text: "お互いに", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "즉",
+      sentence: "즉, 그는 거짓말을 했다.",
+      translation: "即ち、彼は嘘をついた。",
+      pronunciation: "チュク",
+      options: [
+        Option(text: "即", isCorrect: true),
+        Option(text: "明らかに", isCorrect: false),
+        Option(text: "まさか", isCorrect: false),
+        Option(text: "お互いに", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "설마",
+      sentence: "설마 그럴 리가 없다.",
+      translation: "まさかそんなことはない。",
+      pronunciation: "ソルマ",
+      options: [
+        Option(text: "まさか", isCorrect: true),
+        Option(text: "即", isCorrect: false),
+        Option(text: "明らかに", isCorrect: false),
+        Option(text: "お互いに", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "서로",
+      sentence: "서로 도와주자.",
+      translation: "お互いに助け合おう。",
+      pronunciation: "ソロ",
+      options: [
+        Option(text: "お互いに", isCorrect: true),
+        Option(text: "即", isCorrect: false),
+        Option(text: "まさか", isCorrect: false),
+        Option(text: "明らかに", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "게다가",
+      sentence: "그는 친절하다. 게다가 똑똑하다.",
+      translation: "彼は親切だ。さらに賢い。",
+      pronunciation: "ケダガ",
+      options: [
+        Option(text: "さらに", isCorrect: true),
+        Option(text: "別に", isCorrect: false),
+        Option(text: "もう", isCorrect: false),
+        Option(text: "また", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "틀림없이",
+      sentence: "그는 틀림없이 올 것이다.",
+      translation: "彼は間違いなく来るだろう。",
+      pronunciation: "トゥルリムオプシ",
+      options: [
+        Option(text: "間違いなく", isCorrect: true),
+        Option(text: "また", isCorrect: false),
+        Option(text: "かなり", isCorrect: false),
+        Option(text: "とても", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "다시",
+      sentence: "다시 시작하자.",
+      translation: "また始めよう。",
+      pronunciation: "タシ",
+      options: [
+        Option(text: "また", isCorrect: true),
+        Option(text: "かなり", isCorrect: false),
+        Option(text: "とても", isCorrect: false),
+        Option(text: "本当に", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "상당히",
+      sentence: "그의 설명은 상당히 이해하기 쉬웠다.",
+      translation: "彼の説明はかなり理解しやすかった。",
+      pronunciation: "サンダンヒ",
+      options: [
+        Option(text: "かなり", isCorrect: true),
+        Option(text: "とても", isCorrect: false),
+        Option(text: "本当に", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "굉장히",
+      sentence: "그는 굉장히 똑똑하다.",
+      translation: "彼はとても賢い。",
+      pronunciation: "クィンジャンヒ",
+      options: [
+        Option(text: "とても", isCorrect: true),
+        Option(text: "本当に", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "たくさん", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "진짜",
+      sentence: "그것은 진짜다.",
+      translation: "それは本当にある。",
+      pronunciation: "チンチャ",
+      options: [
+        Option(text: "本当に", isCorrect: true),
+        Option(text: "とても", isCorrect: false),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "たくさん", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "조금",
+      sentence: "조금만 기다려 주세요.",
+      translation: "少し待ってください。",
+      pronunciation: "チョグム",
+      options: [
+        Option(text: "少し", isCorrect: true),
+        Option(text: "たくさん", isCorrect: false),
+        Option(text: "とても", isCorrect: false),
+        Option(text: "本当に", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "많이",
+      sentence: "많이 먹어요.",
+      translation: "たくさん食べてください。",
+      pronunciation: "マニ",
+      options: [
+        Option(text: "たくさん", isCorrect: true),
+        Option(text: "少し", isCorrect: false),
+        Option(text: "とても", isCorrect: false),
+        Option(text: "本当に", isCorrect: false),
+      ],
+    ),
+
+// 代名詞
+    Quiz(
+      text: "나",
+      sentence: "나는 학생이다.",
+      translation: "私は学生だ。",
+      pronunciation: "ナ",
+      options: [
+        Option(text: "私", isCorrect: true),
+        Option(text: "君", isCorrect: false),
+        Option(text: "彼", isCorrect: false),
+        Option(text: "彼女", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "저",
+      sentence: "저는 회사원입니다.",
+      translation: "私は会社員です。",
+      pronunciation: "チョ",
+      options: [
+        Option(text: "私", isCorrect: true),
+        Option(text: "君", isCorrect: false),
+        Option(text: "彼", isCorrect: false),
+        Option(text: "彼女", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "저희",
+      sentence: "저희 가족은 여기에 산다.",
+      translation: "私たちの家族はここに住んでいる。",
+      pronunciation: "チョヒ",
+      options: [
+        Option(text: "私たち", isCorrect: true),
+        Option(text: "君たち", isCorrect: false),
+        Option(text: "彼ら", isCorrect: false),
+        Option(text: "彼女たち", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "너",
+      sentence: "너는 내 친구야.",
+      translation: "君は私の友達だ。",
+      pronunciation: "ノ",
+      options: [
+        Option(text: "君", isCorrect: true),
+        Option(text: "私", isCorrect: false),
+        Option(text: "彼", isCorrect: false),
+        Option(text: "彼女", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "너희",
+      sentence: "너희들은 어디 가니?",
+      translation: "君たちはどこに行くの?",
+      pronunciation: "ノヒ",
+      options: [
+        Option(text: "君たち", isCorrect: true),
+        Option(text: "私たち", isCorrect: false),
+        Option(text: "彼ら", isCorrect: false),
+        Option(text: "彼女たち", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "당신",
+      sentence: "당신은 누구입니까?",
+      translation: "あなたは誰ですか?",
+      pronunciation: "タンシン",
+      options: [
+        Option(text: "あなた", isCorrect: true),
+        Option(text: "私", isCorrect: false),
+        Option(text: "彼", isCorrect: false),
+        Option(text: "彼女", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "당신들",
+      sentence: "당신들은 무엇을 하고 있습니까?",
+      translation: "あなたたちは何をしていますか?",
+      pronunciation: "タンシンドゥル",
+      options: [
+        Option(text: "あなたたち", isCorrect: true),
+        Option(text: "私たち", isCorrect: false),
+        Option(text: "彼ら", isCorrect: false),
+        Option(text: "彼女たち", isCorrect: false),
+      ],
+    ),
+
+    Quiz(
+      text: "그",
+      sentence: "그는 내 친구다.",
+      translation: "彼は私の友達だ。",
+      pronunciation: "ク",
+      options: [
+        Option(text: "彼", isCorrect: true),
+        Option(text: "彼女", isCorrect: false),
+        Option(text: "君", isCorrect: false),
+        Option(text: "私", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "그들",
+      sentence: "그들은 축구를 좋아한다.",
+      translation: "彼らはサッカーが好きだ。",
+      pronunciation: "クドゥル",
+      options: [
+        Option(text: "彼ら", isCorrect: true),
+        Option(text: "彼女たち", isCorrect: false),
+        Option(text: "君たち", isCorrect: false),
+        Option(text: "私たち", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "그녀",
+      sentence: "그녀는 아름답다.",
+      translation: "彼女は美しい。",
+      pronunciation: "クニョ",
+      options: [
+        Option(text: "彼女", isCorrect: true),
+        Option(text: "彼", isCorrect: false),
+        Option(text: "君", isCorrect: false),
+        Option(text: "私", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "그녀들",
+      sentence: "그녀들은 같이 공부한다.",
+      translation: "彼女たちは一緒に勉強する。",
+      pronunciation: "クニョドゥル",
+      options: [
+        Option(text: "彼女たち", isCorrect: true),
+        Option(text: "彼ら", isCorrect: false),
+        Option(text: "君たち", isCorrect: false),
+        Option(text: "私たち", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "우리",
+      sentence: "우리는 친구다.",
+      translation: "私たちは友達だ。",
+      pronunciation: "ウリ",
+      options: [
+        Option(text: "私たち", isCorrect: true),
+        Option(text: "君たち", isCorrect: false),
+        Option(text: "彼ら", isCorrect: false),
+        Option(text: "彼女たち", isCorrect: false),
+      ],
+    ),
+
+// 動詞
+
     Quiz(
       text: "먹다",
+      sentence: "나는 밥을 먹는다.",
+      translation: "私はご飯を食べる。",
+      pronunciation: "モクタ",
       options: [
         Option(text: "飲む", isCorrect: false),
         Option(text: "食べる", isCorrect: true),
@@ -682,6 +1744,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "마시다",
+      sentence: "나는 물을 마신다.",
+      translation: "私は水を飲む。",
+      pronunciation: "マシダ",
       options: [
         Option(text: "食べる", isCorrect: false),
         Option(text: "飲む", isCorrect: true),
@@ -691,6 +1756,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "보다",
+      sentence: "나는 영화를 본다.",
+      translation: "私は映画を見る。",
+      pronunciation: "ポダ",
       options: [
         Option(text: "聞く", isCorrect: false),
         Option(text: "見る", isCorrect: true),
@@ -700,6 +1768,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "듣다",
+      sentence: "나는 음악을 듣는다.",
+      translation: "私は音楽を聞く。",
+      pronunciation: "トゥッタ",
       options: [
         Option(text: "話す", isCorrect: false),
         Option(text: "聞く", isCorrect: true),
@@ -709,6 +1780,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "읽다",
+      sentence: "나는 책을 읽는다.",
+      translation: "私は本を読む。",
+      pronunciation: "イクタ",
       options: [
         Option(text: "書く", isCorrect: false),
         Option(text: "読む", isCorrect: true),
@@ -718,6 +1792,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "쓰다",
+      sentence: "나는 편지를 쓴다.",
+      translation: "私は手紙を書く。",
+      pronunciation: "スダ",
       options: [
         Option(text: "読む", isCorrect: false),
         Option(text: "書く", isCorrect: true),
@@ -727,6 +1804,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "걷다",
+      sentence: "나는 공원을 걷는다.",
+      translation: "私は公園を歩く。",
+      pronunciation: "コッタ",
       options: [
         Option(text: "走る", isCorrect: false),
         Option(text: "歩く", isCorrect: true),
@@ -736,6 +1816,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "달리다",
+      sentence: "나는 빨리 달린다.",
+      translation: "私は早く走る。",
+      pronunciation: "タルリダ",
       options: [
         Option(text: "歩く", isCorrect: false),
         Option(text: "走る", isCorrect: true),
@@ -745,6 +1828,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "날다",
+      sentence: "새가 하늘을 난다.",
+      translation: "鳥が空を飛ぶ。",
+      pronunciation: "ナルダ",
       options: [
         Option(text: "泳ぐ", isCorrect: false),
         Option(text: "飛ぶ", isCorrect: true),
@@ -754,6 +1840,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "수영하다",
+      sentence: "나는 바다에서 수영한다.",
+      translation: "私は海で泳ぐ。",
+      pronunciation: "スヨンハダ",
       options: [
         Option(text: "飛ぶ", isCorrect: false),
         Option(text: "泳ぐ", isCorrect: true),
@@ -763,6 +1852,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "자다",
+      sentence: "나는 침대에서 잔다.",
+      translation: "私はベッドで寝る。",
+      pronunciation: "ジャダ",
       options: [
         Option(text: "起きる", isCorrect: false),
         Option(text: "寝る", isCorrect: true),
@@ -772,6 +1864,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "일어나다",
+      sentence: "나는 아침 일찍 일어난다.",
+      translation: "私は朝早く起きる。",
+      pronunciation: "イロナダ",
       options: [
         Option(text: "寝る", isCorrect: false),
         Option(text: "起きる", isCorrect: true),
@@ -781,6 +1876,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "앉다",
+      sentence: "나는 의자에 앉는다.",
+      translation: "私は椅子に座る。",
+      pronunciation: "アンタ",
       options: [
         Option(text: "立つ", isCorrect: false),
         Option(text: "座る", isCorrect: true),
@@ -790,6 +1888,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "서다",
+      sentence: "나는 줄에 선다.",
+      translation: "私は列に立つ。",
+      pronunciation: "ソダ",
       options: [
         Option(text: "座る", isCorrect: false),
         Option(text: "立つ", isCorrect: true),
@@ -799,6 +1900,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "만나다",
+      sentence: "나는 친구를 만난다.",
+      translation: "私は友達に会う。",
+      pronunciation: "マンナダ",
       options: [
         Option(text: "別れる", isCorrect: false),
         Option(text: "会う", isCorrect: true),
@@ -808,6 +1912,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "헤어지다",
+      sentence: "우리는 공항에서 헤어졌다.",
+      translation: "私たちは空港で別れた。",
+      pronunciation: "ヘオジダ",
       options: [
         Option(text: "会う", isCorrect: false),
         Option(text: "別れる", isCorrect: true),
@@ -817,6 +1924,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "가르치다",
+      sentence: "그는 아이들에게 영어를 가르친다.",
+      translation: "彼は子供たちに英語を教える。",
+      pronunciation: "カルチダ",
       options: [
         Option(text: "学ぶ", isCorrect: false),
         Option(text: "教える", isCorrect: true),
@@ -826,6 +1936,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "배우다",
+      sentence: "나는 일본어를 배운다.",
+      translation: "私は日本語を学ぶ。",
+      pronunciation: "ペウダ",
       options: [
         Option(text: "教える", isCorrect: false),
         Option(text: "学ぶ", isCorrect: true),
@@ -835,6 +1948,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "가다",
+      sentence: "나는 학교에 간다.",
+      translation: "私は学校に行く。",
+      pronunciation: "カダ",
       options: [
         Option(text: "来る", isCorrect: false),
         Option(text: "行く", isCorrect: true),
@@ -844,6 +1960,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "오다",
+      sentence: "친구가 우리 집에 온다.",
+      translation: "友達が私の家に来る。",
+      pronunciation: "オダ",
       options: [
         Option(text: "行く", isCorrect: false),
         Option(text: "来る", isCorrect: true),
@@ -853,6 +1972,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "사다",
+      sentence: "나는 책을 산다.",
+      translation: "私は本を買う。",
+      pronunciation: "サダ",
       options: [
         Option(text: "売る", isCorrect: false),
         Option(text: "買う", isCorrect: true),
@@ -862,6 +1984,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "팔다",
+      sentence: "그는 물건을 판다.",
+      translation: "彼は物を売る。",
+      pronunciation: "パルダ",
       options: [
         Option(text: "買う", isCorrect: false),
         Option(text: "売る", isCorrect: true),
@@ -871,6 +1996,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "빌리다",
+      sentence: "나는 도서관에서 책을 빌린다.",
+      translation: "私は図書館で本を借りる。",
+      pronunciation: "ビルリダ",
       options: [
         Option(text: "貸す", isCorrect: false),
         Option(text: "借りる", isCorrect: true),
@@ -880,6 +2008,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "빌려주다",
+      sentence: "나는 친구에게 돈을 빌려준다.",
+      translation: "私は友達にお金を貸す。",
+      pronunciation: "ビルリョジュダ",
       options: [
         Option(text: "借りる", isCorrect: false),
         Option(text: "貸す", isCorrect: true),
@@ -889,6 +2020,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "만들다",
+      sentence: "나는 케이크를 만든다.",
+      translation: "私はケーキを作る。",
+      pronunciation: "マンドゥルダ",
       options: [
         Option(text: "壊す", isCorrect: false),
         Option(text: "作る", isCorrect: true),
@@ -898,6 +2032,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "부수다",
+      sentence: "나는 장난감을 부순다.",
+      translation: "私はおもちゃを壊す。",
+      pronunciation: "ブスダ",
       options: [
         Option(text: "作る", isCorrect: false),
         Option(text: "壊す", isCorrect: true),
@@ -907,6 +2044,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "알다",
+      sentence: "나는 그 사실을 안다.",
+      translation: "私はその事実を知っている。",
+      pronunciation: "アルダ",
       options: [
         Option(text: "知らない", isCorrect: false),
         Option(text: "知っている", isCorrect: true),
@@ -916,6 +2056,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "모르다",
+      sentence: "나는 그 사실을 모른다.",
+      translation: "私はその事実を知らない。",
+      pronunciation: "モルダ",
       options: [
         Option(text: "知っている", isCorrect: false),
         Option(text: "知らない", isCorrect: true),
@@ -925,6 +2068,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "기다리다",
+      sentence: "나는 버스를 기다린다.",
+      translation: "私はバスを待つ。",
+      pronunciation: "キダリダ",
       options: [
         Option(text: "待つ", isCorrect: true),
         Option(text: "急ぐ", isCorrect: false),
@@ -934,6 +2080,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "맡다",
+      sentence: "나는 일을 맡는다.",
+      translation: "私は仕事を任せる。",
+      pronunciation: "マッタ",
       options: [
         Option(text: "頼む", isCorrect: false),
         Option(text: "任せる", isCorrect: true),
@@ -943,6 +2092,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "부탁하다",
+      sentence: "나는 친구에게 도움을 부탁한다.",
+      translation: "私は友達に助けを頼む。",
+      pronunciation: "プタカダ",
       options: [
         Option(text: "頼む", isCorrect: true),
         Option(text: "任せる", isCorrect: false),
@@ -950,8 +2102,12 @@ class AppQuizData {
         Option(text: "聞く", isCorrect: false),
       ],
     ),
+
     Quiz(
       text: "돕다",
+      sentence: "나는 친구를 돕는다.",
+      translation: "私は友達を手伝う。",
+      pronunciation: "トプダ",
       options: [
         Option(text: "手伝う", isCorrect: true),
         Option(text: "頼む", isCorrect: false),
@@ -961,6 +2117,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "도와주다",
+      sentence: "나는 어머니를 도와준다.",
+      translation: "私は母を手伝う。",
+      pronunciation: "トワジュダ",
       options: [
         Option(text: "手伝う", isCorrect: true),
         Option(text: "頼む", isCorrect: false),
@@ -968,8 +2127,12 @@ class AppQuizData {
         Option(text: "聞く", isCorrect: false),
       ],
     ),
+
     Quiz(
       text: "연습하다",
+      sentence: "나는 피아노를 연습한다.",
+      translation: "私はピアノを練習する。",
+      pronunciation: "ヨンスパダ",
       options: [
         Option(text: "練習する", isCorrect: true),
         Option(text: "勉強する", isCorrect: false),
@@ -979,6 +2142,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "공부하다",
+      sentence: "나는 한국어를 공부한다.",
+      translation: "私は韓国語を勉強する。",
+      pronunciation: "コンブハダ",
       options: [
         Option(text: "練習する", isCorrect: false),
         Option(text: "勉強する", isCorrect: true),
@@ -988,6 +2154,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "이해하다",
+      sentence: "나는 그 문제를 이해했다.",
+      translation: "私はその問題を理解した。",
+      pronunciation: "イヘハダ",
       options: [
         Option(text: "理解する", isCorrect: true),
         Option(text: "思う", isCorrect: false),
@@ -997,6 +2166,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "생각하다",
+      sentence: "나는 그에 대해 생각한다.",
+      translation: "私は彼について思う。",
+      pronunciation: "センガカダ",
       options: [
         Option(text: "理解する", isCorrect: false),
         Option(text: "思う", isCorrect: true),
@@ -1006,6 +2178,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "말하다",
+      sentence: "나는 친구에게 말한다.",
+      translation: "私は友達に話す。",
+      pronunciation: "マラダ",
       options: [
         Option(text: "話す", isCorrect: true),
         Option(text: "聞く", isCorrect: false),
@@ -1015,6 +2190,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "자다",
+      sentence: "나는 침대에서 잔다.",
+      translation: "私はベッドで寝る。",
+      pronunciation: "ジャダ",
       options: [
         Option(text: "起きる", isCorrect: false),
         Option(text: "寝る", isCorrect: true),
@@ -1024,6 +2202,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "입다",
+      sentence: "나는 옷을 입는다.",
+      translation: "私は服を着る。",
+      pronunciation: "イプダ",
       options: [
         Option(text: "脱ぐ", isCorrect: false),
         Option(text: "着る", isCorrect: true),
@@ -1033,6 +2214,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "끝나다",
+      sentence: "회의가 끝났다.",
+      translation: "会議が終わった。",
+      pronunciation: "クンナダ",
       options: [
         Option(text: "始める", isCorrect: false),
         Option(text: "終わる", isCorrect: true),
@@ -1042,6 +2226,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "앉다",
+      sentence: "나는 의자에 앉는다.",
+      translation: "私は椅子に座る。",
+      pronunciation: "アンタ",
       options: [
         Option(text: "立つ", isCorrect: false),
         Option(text: "座る", isCorrect: true),
@@ -1051,6 +2238,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "내리다",
+      sentence: "나는 버스에서 내린다.",
+      translation: "私はバスを降りる。",
+      pronunciation: "ネリダ",
       options: [
         Option(text: "乗る", isCorrect: false),
         Option(text: "降りる", isCorrect: true),
@@ -1060,6 +2250,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "자르다",
+      sentence: "나는 종이를 자른다.",
+      translation: "私は紙を切る。",
+      pronunciation: "チャルダ",
       options: [
         Option(text: "切る", isCorrect: true),
         Option(text: "貼る", isCorrect: false),
@@ -1069,6 +2262,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "증발하다",
+      sentence: "물이 증발한다.",
+      translation: "水が蒸発する。",
+      pronunciation: "チュンバルハダ",
       options: [
         Option(text: "焼く", isCorrect: false),
         Option(text: "蒸す", isCorrect: true),
@@ -1078,15 +2274,21 @@ class AppQuizData {
     ),
     Quiz(
       text: "운전하다",
+      sentence: "나는 차를 운전한다.",
+      translation: "私は車を運転する。",
+      pronunciation: "ウンジョンハダ",
       options: [
         Option(text: "乗る", isCorrect: false),
         Option(text: "運転する", isCorrect: true),
-        Option(text: "내리다", isCorrect: false),
+        Option(text: "降りる", isCorrect: false),
         Option(text: "泳ぐ", isCorrect: false),
       ],
     ),
     Quiz(
       text: "축하하다",
+      sentence: "그녀의 생일을 축하한다.",
+      translation: "彼女の誕生日を祝う。",
+      pronunciation: "チュカハダ",
       options: [
         Option(text: "祝う", isCorrect: true),
         Option(text: "感謝する", isCorrect: false),
@@ -1096,6 +2298,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "시작하다",
+      sentence: "나는 공부를 시작한다.",
+      translation: "私は勉強を始める。",
+      pronunciation: "シジャカダ",
       options: [
         Option(text: "始める", isCorrect: true),
         Option(text: "終わる", isCorrect: false),
@@ -1105,6 +2310,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "결혼하다",
+      sentence: "그들은 결혼했다.",
+      translation: "彼らは結婚した。",
+      pronunciation: "キョルホンハダ",
       options: [
         Option(text: "結婚する", isCorrect: true),
         Option(text: "別れる", isCorrect: false),
@@ -1114,6 +2322,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "사과하다",
+      sentence: "나는 실수에 대해 사과했다.",
+      translation: "私はミスについて謝った。",
+      pronunciation: "サグァハダ",
       options: [
         Option(text: "謝る", isCorrect: true),
         Option(text: "許す", isCorrect: false),
@@ -1123,6 +2334,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "대답하다",
+      sentence: "나는 질문에 대답했다.",
+      translation: "私は質問に答えた。",
+      pronunciation: "テダパダ",
       options: [
         Option(text: "聞く", isCorrect: false),
         Option(text: "話す", isCorrect: false),
@@ -1132,6 +2346,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "약속하다",
+      sentence: "우리는 내일 만날 것을 약속했다.",
+      translation: "私たちは明日会うことを約束した。",
+      pronunciation: "ヤクソカダ",
       options: [
         Option(text: "約束する", isCorrect: true),
         Option(text: "忘れる", isCorrect: false),
@@ -1141,6 +2358,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "걱정하다",
+      sentence: "나는 그의 건강을 걱정한다.",
+      translation: "私は彼の健康を心配する。",
+      pronunciation: "コクジョンハダ",
       options: [
         Option(text: "心配する", isCorrect: true),
         Option(text: "安心する", isCorrect: false),
@@ -1150,6 +2370,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "준비하다",
+      sentence: "나는 여행을 준비한다.",
+      translation: "私は旅行を準備する。",
+      pronunciation: "ジュンビハダ",
       options: [
         Option(text: "準備する", isCorrect: true),
         Option(text: "終わる", isCorrect: false),
@@ -1159,6 +2382,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "전화하다",
+      sentence: "나는 친구에게 전화한다.",
+      translation: "私は友達に電話する。",
+      pronunciation: "チョナハダ",
       options: [
         Option(text: "電話する", isCorrect: true),
         Option(text: "話す", isCorrect: false),
@@ -1168,6 +2394,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "운동하다",
+      sentence: "나는 매일 운동한다.",
+      translation: "私は毎日運動する。",
+      pronunciation: "ウンドンハダ",
       options: [
         Option(text: "運動する", isCorrect: true),
         Option(text: "遊ぶ", isCorrect: false),
@@ -1177,6 +2406,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "산책하다",
+      sentence: "나는 아침에 산책한다.",
+      translation: "私は朝に散歩する。",
+      pronunciation: "サンチェカダ",
       options: [
         Option(text: "散歩する", isCorrect: true),
         Option(text: "遊ぶ", isCorrect: false),
@@ -1186,6 +2418,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "세탁하다",
+      sentence: "나는 옷을 세탁한다.",
+      translation: "私は服を洗濯する。",
+      pronunciation: "セタカダ",
       options: [
         Option(text: "洗濯する", isCorrect: true),
         Option(text: "遊ぶ", isCorrect: false),
@@ -1195,6 +2430,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "요리하다",
+      sentence: "나는 저녁을 요리한다.",
+      translation: "私は夕食を料理する。",
+      pronunciation: "ヨリハダ",
       options: [
         Option(text: "料理する", isCorrect: true),
         Option(text: "食べる", isCorrect: false),
@@ -1204,6 +2442,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "청소하다",
+      sentence: "나는 방을 청소한다.",
+      translation: "私は部屋を掃除する。",
+      pronunciation: "チョンソハダ",
       options: [
         Option(text: "掃除する", isCorrect: true),
         Option(text: "遊ぶ", isCorrect: false),
@@ -1213,6 +2454,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "일하다",
+      sentence: "나는 사무실에서 일한다.",
+      translation: "私はオフィスで働く。",
+      pronunciation: "イルハダ",
       options: [
         Option(text: "働く", isCorrect: true),
         Option(text: "休む", isCorrect: false),
@@ -1222,6 +2466,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "느끼다",
+      sentence: "나는 기쁨을 느낀다.",
+      translation: "私は喜びを感じる。",
+      pronunciation: "ヌッキダ",
       options: [
         Option(text: "感じる", isCorrect: true),
         Option(text: "考える", isCorrect: false),
@@ -1231,15 +2478,21 @@ class AppQuizData {
     ),
     Quiz(
       text: "낚시하다",
+      sentence: "나는 주말에 낚시를 한다.",
+      translation: "私は週末に釣りをする。",
+      pronunciation: "ナクシハダ",
       options: [
         Option(text: "釣りをする", isCorrect: true),
-        Option(text: "つかむ", isCorrect: false),
+        Option(text: "捕まえる", isCorrect: false),
         Option(text: "つかむ", isCorrect: false),
         Option(text: "引く", isCorrect: false),
       ],
     ),
     Quiz(
       text: "눕다",
+      sentence: "나는 침대에 눕는다.",
+      translation: "私はベッドに横になる。",
+      pronunciation: "ヌプダ",
       options: [
         Option(text: "横になる", isCorrect: true),
         Option(text: "座る", isCorrect: false),
@@ -1249,6 +2502,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "구우다",
+      sentence: "나는 고기를 구운다.",
+      translation: "私は肉を焼く。",
+      pronunciation: "クウダ",
       options: [
         Option(text: "焼く", isCorrect: true),
         Option(text: "茹でる", isCorrect: false),
@@ -1258,6 +2514,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "도와주다",
+      sentence: "나는 친구를 도와준다.",
+      translation: "私は友達を手伝う。",
+      pronunciation: "トワジュダ",
       options: [
         Option(text: "手伝う", isCorrect: true),
         Option(text: "助ける", isCorrect: false),
@@ -1267,6 +2526,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "잡다",
+      sentence: "나는 손을 잡는다.",
+      translation: "私は手を掴む。",
+      pronunciation: "チャプダ",
       options: [
         Option(text: "掴む", isCorrect: true),
         Option(text: "持ってくる", isCorrect: false),
@@ -1276,6 +2538,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "들다",
+      sentence: "나는 가방을 든다.",
+      translation: "私はカバンを持つ。",
+      pronunciation: "トゥルダ",
       options: [
         Option(text: "持つ", isCorrect: true),
         Option(text: "耳を傾ける", isCorrect: false),
@@ -1285,15 +2550,21 @@ class AppQuizData {
     ),
     Quiz(
       text: "물어보다",
+      sentence: "나는 길을 물어본다.",
+      translation: "私は道を尋ねる。",
+      pronunciation: "ムロボダ",
       options: [
         Option(text: "尋ねる", isCorrect: true),
-        Option(text: "尋ねる", isCorrect: false),
+        Option(text: "探す", isCorrect: false),
         Option(text: "答える", isCorrect: false),
         Option(text: "話す", isCorrect: false),
       ],
     ),
     Quiz(
       text: "지우다",
+      sentence: "나는 칠판을 지운다.",
+      translation: "私は黒板を消す。",
+      pronunciation: "ジウダ",
       options: [
         Option(text: "消す", isCorrect: true),
         Option(text: "捨てる", isCorrect: false),
@@ -1303,6 +2574,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "화나다",
+      sentence: "그는 화가 났다.",
+      translation: "彼は怒った。",
+      pronunciation: "ファナダ",
       options: [
         Option(text: "怒る", isCorrect: true),
         Option(text: "腹を立てる", isCorrect: false),
@@ -1312,6 +2586,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "내리다",
+      sentence: "나는 커튼을 내린다.",
+      translation: "私はカーテンを下げる。",
+      pronunciation: "ネリダ",
       options: [
         Option(text: "下げる", isCorrect: true),
         Option(text: "上がる", isCorrect: false),
@@ -1321,6 +2598,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "말리다",
+      sentence: "나는 빨래를 말린다.",
+      translation: "私は洗濯物を干す。",
+      pronunciation: "マルリダ",
       options: [
         Option(text: "干す", isCorrect: true),
         Option(text: "濡らす", isCorrect: false),
@@ -1330,6 +2610,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "들다",
+      sentence: "나는 가방을 든다.",
+      translation: "私はカバンを持つ。",
+      pronunciation: "トゥルダ",
       options: [
         Option(text: "持つ", isCorrect: true),
         Option(text: "聞く", isCorrect: false),
@@ -1339,6 +2622,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "살다",
+      sentence: "나는 서울에 산다.",
+      translation: "私はソウルに住む。",
+      pronunciation: "サルダ",
       options: [
         Option(text: "住む", isCorrect: true),
         Option(text: "生き返る", isCorrect: false),
@@ -1348,6 +2634,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "걸다",
+      sentence: "나는 그림을 벽에 건다.",
+      translation: "私は絵を壁に掛ける。",
+      pronunciation: "コルダ",
       options: [
         Option(text: "掛ける", isCorrect: true),
         Option(text: "捕まえる", isCorrect: false),
@@ -1357,6 +2646,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "울다",
+      sentence: "그 아이가 울고 있다.",
+      translation: "その子が泣いている。",
+      pronunciation: "ウルダ",
       options: [
         Option(text: "泣く", isCorrect: true),
         Option(text: "泣かせる", isCorrect: false),
@@ -1366,6 +2658,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "누르다",
+      sentence: "버튼을 눌러주세요.",
+      translation: "ボタンを押してください。",
+      pronunciation: "ヌルダ",
       options: [
         Option(text: "押す", isCorrect: true),
         Option(text: "押し付ける", isCorrect: false),
@@ -1375,6 +2670,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "불다",
+      sentence: "바람이 분다.",
+      translation: "風が吹く。",
+      pronunciation: "ブルダ",
       options: [
         Option(text: "吹く", isCorrect: true),
         Option(text: "炊く", isCorrect: false),
@@ -1384,6 +2682,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "웃다",
+      sentence: "그녀가 웃는다.",
+      translation: "彼女が笑う。",
+      pronunciation: "ウッタ",
       options: [
         Option(text: "笑う", isCorrect: true),
         Option(text: "웃기다", isCorrect: false),
@@ -1393,6 +2694,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "찍다",
+      sentence: "사진을 찍다.",
+      translation: "写真を撮る。",
+      pronunciation: "チクタ",
       options: [
         Option(text: "撮る", isCorrect: true),
         Option(text: "찍다", isCorrect: false),
@@ -1402,15 +2706,21 @@ class AppQuizData {
     ),
     Quiz(
       text: "올리다",
+      sentence: "가격을 올리다.",
+      translation: "価格を上げる。",
+      pronunciation: "オルリダ",
       options: [
         Option(text: "上げる", isCorrect: true),
-        Option(text: "내리다", isCorrect: false),
+        Option(text: "下げる", isCorrect: false),
         Option(text: "ひっくり返す", isCorrect: false),
         Option(text: "持ち上げる", isCorrect: false),
       ],
     ),
     Quiz(
       text: "배우다",
+      sentence: "나는 피아노를 배우고 있다.",
+      translation: "私はピアノを習っている。",
+      pronunciation: "ペウダ",
       options: [
         Option(text: "習う", isCorrect: true),
         Option(text: "教える", isCorrect: false),
@@ -1420,6 +2730,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "벗다",
+      sentence: "나는 코트를 벗는다.",
+      translation: "私はコートを脱ぐ。",
+      pronunciation: "ポッタ",
       options: [
         Option(text: "脱ぐ", isCorrect: true),
         Option(text: "着る", isCorrect: false),
@@ -1429,6 +2742,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "신다",
+      sentence: "나는 신발을 신는다.",
+      translation: "私は靴を履く。",
+      pronunciation: "シンタ",
       options: [
         Option(text: "履く", isCorrect: true),
         Option(text: "はく", isCorrect: false),
@@ -1438,6 +2754,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "토하다",
+      sentence: "그는 속이 아파서 토했다.",
+      translation: "彼はお腹が痛くて吐いた。",
+      pronunciation: "トハダ",
       options: [
         Option(text: "吐く", isCorrect: true),
         Option(text: "食べる", isCorrect: false),
@@ -1447,6 +2766,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "받다",
+      sentence: "나는 선물을 받았다.",
+      translation: "私はプレゼントをもらった。",
+      pronunciation: "パッタ",
       options: [
         Option(text: "もらう", isCorrect: true),
         Option(text: "あげる", isCorrect: false),
@@ -1456,6 +2778,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "씹다",
+      sentence: "나는 껌을 씹는다.",
+      translation: "私はガムを噛む。",
+      pronunciation: "シプタ",
       options: [
         Option(text: "噛む", isCorrect: true),
         Option(text: "食べる", isCorrect: false),
@@ -1465,6 +2790,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "잊다",
+      sentence: "나는 중요한 것을 잊었다.",
+      translation: "私は重要なことを忘れた。",
+      pronunciation: "イッタ",
       options: [
         Option(text: "忘れる", isCorrect: true),
         Option(text: "覚える", isCorrect: false),
@@ -1474,6 +2802,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "버리다",
+      sentence: "나는 쓰레기를 버린다.",
+      translation: "私はゴミを捨てる。",
+      pronunciation: "ポリダ",
       options: [
         Option(text: "捨てる", isCorrect: true),
         Option(text: "持つ", isCorrect: false),
@@ -1483,6 +2814,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "당기다",
+      sentence: "문을 당겨주세요.",
+      translation: "ドアを引いてください。",
+      pronunciation: "タンギダ",
       options: [
         Option(text: "引く", isCorrect: true),
         Option(text: "押す", isCorrect: false),
@@ -1492,6 +2826,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "깔다",
+      sentence: "나는 이불을 깐다.",
+      translation: "私は布団を敷く。",
+      pronunciation: "カルダ",
       options: [
         Option(text: "敷く", isCorrect: true),
         Option(text: "置く", isCorrect: false),
@@ -1501,6 +2838,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "즐기다",
+      sentence: "나는 휴가를 즐긴다.",
+      translation: "私は休暇を楽しむ。",
+      pronunciation: "ジュルギダ",
       options: [
         Option(text: "楽しむ", isCorrect: true),
         Option(text: "喜ぶ", isCorrect: false),
@@ -1510,6 +2850,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "이기다",
+      sentence: "나는 게임에서 이겼다.",
+      translation: "私はゲームで勝った。",
+      pronunciation: "イギダ",
       options: [
         Option(text: "勝つ", isCorrect: true),
         Option(text: "負ける", isCorrect: false),
@@ -1519,6 +2862,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "지다",
+      sentence: "나는 시합에서 졌다.",
+      translation: "私は試合で負けた。",
+      pronunciation: "ジダ",
       options: [
         Option(text: "負ける", isCorrect: true),
         Option(text: "勝つ", isCorrect: false),
@@ -1528,6 +2874,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "나가다",
+      sentence: "나는 집에서 나간다.",
+      translation: "私は家から出る。",
+      pronunciation: "ナガダ",
       options: [
         Option(text: "出る", isCorrect: true),
         Option(text: "入る", isCorrect: false),
@@ -1535,8 +2884,12 @@ class AppQuizData {
         Option(text: "閉じる", isCorrect: false),
       ],
     ),
+
     Quiz(
       text: "들어가다",
+      sentence: "나는 집에 들어간다.",
+      translation: "私は家に入る。",
+      pronunciation: "トゥロガダ",
       options: [
         Option(text: "入る", isCorrect: true),
         Option(text: "出る", isCorrect: false),
@@ -1546,6 +2899,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "태어나다",
+      sentence: "나는 1990년에 태어났다.",
+      translation: "私は1990年に生まれた。",
+      pronunciation: "テオナダ",
       options: [
         Option(text: "生まれる", isCorrect: true),
         Option(text: "生きる", isCorrect: false),
@@ -1557,422 +2913,12 @@ class AppQuizData {
 
   /////////////  名詞　　/////////////////////
   static final List<Quiz> korianBiginnerNouns = [
-    Quiz(
-      text: "사람",
-      options: [
-        Option(text: "星", isCorrect: false),
-        Option(text: "人間", isCorrect: true),
-        Option(text: "動物", isCorrect: false),
-        Option(text: "植物", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "우리",
-      options: [
-        Option(text: "彼ら", isCorrect: false),
-        Option(text: "彼女", isCorrect: false),
-        Option(text: "私たち", isCorrect: true),
-        Option(text: "あなた", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "하늘",
-      options: [
-        Option(text: "大地", isCorrect: false),
-        Option(text: "山", isCorrect: false),
-        Option(text: "空", isCorrect: true),
-        Option(text: "海", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "나무",
-      options: [
-        Option(text: "木", isCorrect: true),
-        Option(text: "花", isCorrect: false),
-        Option(text: "葉", isCorrect: false),
-        Option(text: "果物", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "바나나",
-      options: [
-        Option(text: "りんご", isCorrect: false),
-        Option(text: "ぶどう", isCorrect: false),
-        Option(text: "バナナ", isCorrect: true),
-        Option(text: "オレンジ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "포도",
-      options: [
-        Option(text: "りんご", isCorrect: false),
-        Option(text: "バナナ", isCorrect: false),
-        Option(text: "ぶどう", isCorrect: true),
-        Option(text: "オレンジ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "문화",
-      options: [
-        Option(text: "科学", isCorrect: false),
-        Option(text: "芸術", isCorrect: false),
-        Option(text: "歴史", isCorrect: false),
-        Option(text: "文化", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "가방",
-      options: [
-        Option(text: "かばん", isCorrect: true),
-        Option(text: "帽子", isCorrect: false),
-        Option(text: "靴", isCorrect: false),
-        Option(text: "コート", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "학교",
-      options: [
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "病院", isCorrect: false),
-        Option(text: "学校", isCorrect: true),
-        Option(text: "銀行", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "연필",
-      options: [
-        Option(text: "鉛筆", isCorrect: true),
-        Option(text: "ペン", isCorrect: false),
-        Option(text: "ノート", isCorrect: false),
-        Option(text: "机", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "가수",
-      options: [
-        Option(text: "俳優", isCorrect: false),
-        Option(text: "作家", isCorrect: false),
-        Option(text: "歌手", isCorrect: true),
-        Option(text: "画家", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사진",
-      options: [
-        Option(text: "絵", isCorrect: false),
-        Option(text: "彫刻", isCorrect: false),
-        Option(text: "写真", isCorrect: true),
-        Option(text: "映画", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "목요일",
-      options: [
-        Option(text: "木曜日", isCorrect: true),
-        Option(text: "火曜日", isCorrect: false),
-        Option(text: "水曜日", isCorrect: false),
-        Option(text: "金曜日", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "토요일",
-      options: [
-        Option(text: "日曜日", isCorrect: false),
-        Option(text: "月曜日", isCorrect: false),
-        Option(text: "水曜日", isCorrect: false),
-        Option(text: "土曜日", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "지난주",
-      options: [
-        Option(text: "今週", isCorrect: false),
-        Option(text: "来週", isCorrect: false),
-        Option(text: "再来週", isCorrect: false),
-        Option(text: "先週", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "커피",
-      options: [
-        Option(text: "コーヒー", isCorrect: true),
-        Option(text: "紅茶", isCorrect: false),
-        Option(text: "お茶", isCorrect: false),
-        Option(text: "牛乳", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "가구",
-      options: [
-        Option(text: "食器", isCorrect: false),
-        Option(text: "寝具", isCorrect: false),
-        Option(text: "家具", isCorrect: true),
-        Option(text: "洗濯物", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "옷",
-      options: [
-        Option(text: "帽子", isCorrect: false),
-        Option(text: "靴", isCorrect: false),
-        Option(text: "バッグ", isCorrect: false),
-        Option(text: "服", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "숟가락",
-      options: [
-        Option(text: "ナイフ", isCorrect: false),
-        Option(text: "フォーク", isCorrect: false),
-        Option(text: "お皿", isCorrect: false),
-        Option(text: "スプーン", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "편지",
-      options: [
-        Option(text: "雑誌", isCorrect: false),
-        Option(text: "新聞", isCorrect: false),
-        Option(text: "本", isCorrect: false),
-        Option(text: "手紙", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "컴퓨터",
-      options: [
-        Option(text: "コンピュータ", isCorrect: true),
-        Option(text: "テレビ", isCorrect: false),
-        Option(text: "携帯電話", isCorrect: false),
-        Option(text: "冷蔵庫", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사물",
-      options: [
-        Option(text: "場所", isCorrect: false),
-        Option(text: "時間", isCorrect: false),
-        Option(text: "人", isCorrect: false),
-        Option(text: "事物", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "별",
-      options: [
-        Option(text: "星", isCorrect: true),
-        Option(text: "月", isCorrect: false),
-        Option(text: "太陽", isCorrect: false),
-        Option(text: "宇宙", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "달",
-      options: [
-        Option(text: "月", isCorrect: true),
-        Option(text: "太陽", isCorrect: false),
-        Option(text: "星", isCorrect: false),
-        Option(text: "宇宙", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "병원",
-      options: [
-        Option(text: "学校", isCorrect: false),
-        Option(text: "銀行", isCorrect: false),
-        Option(text: "病院", isCorrect: true),
-        Option(text: "レストラン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "카메라",
-      options: [
-        Option(text: "スマートフォン", isCorrect: false),
-        Option(text: "テレビ", isCorrect: false),
-        Option(text: "コンピュータ", isCorrect: false),
-        Option(text: "カメラ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "도서관",
-      options: [
-        Option(text: "学校", isCorrect: false),
-        Option(text: "病院", isCorrect: false),
-        Option(text: "銀行", isCorrect: false),
-        Option(text: "図書館", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "음식",
-      options: [
-        Option(text: "調味", isCorrect: false),
-        Option(text: "料理", isCorrect: false),
-        Option(text: "野菜", isCorrect: false),
-        Option(text: "食べ物", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "핸드폰",
-      options: [
-        Option(text: "テレビ", isCorrect: false),
-        Option(text: "コンピュータ", isCorrect: false),
-        Option(text: "携帯電話", isCorrect: true),
-        Option(text: "ラジオ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "테이블",
-      options: [
-        Option(text: "椅子", isCorrect: false),
-        Option(text: "ベッド", isCorrect: false),
-        Option(text: "ソファ", isCorrect: false),
-        Option(text: "テーブル", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "이야기",
-      options: [
-        Option(text: "本", isCorrect: false),
-        Option(text: "映画", isCorrect: false),
-        Option(text: "話", isCorrect: true),
-        Option(text: "音楽", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "과일",
-      options: [
-        Option(text: "野菜", isCorrect: false),
-        Option(text: "肉", isCorrect: false),
-        Option(text: "魚", isCorrect: false),
-        Option(text: "果物", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "컵",
-      options: [
-        Option(text: "お皿", isCorrect: false),
-        Option(text: "ナイフ", isCorrect: false),
-        Option(text: "カップ", isCorrect: true),
-        Option(text: "フォーク", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "얼굴",
-      options: [
-        Option(text: "顔", isCorrect: true),
-        Option(text: "頭", isCorrect: false),
-        Option(text: "手", isCorrect: false),
-        Option(text: "足", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "매일",
-      options: [
-        Option(text: "週末", isCorrect: false),
-        Option(text: "月曜日", isCorrect: false),
-        Option(text: "毎日", isCorrect: true),
-        Option(text: "年間", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "물",
-      options: [
-        Option(text: "お茶", isCorrect: false),
-        Option(text: "牛乳", isCorrect: false),
-        Option(text: "水", isCorrect: true),
-        Option(text: "ジュース", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "우유",
-      options: [
-        Option(text: "コーヒー", isCorrect: false),
-        Option(text: "紅茶", isCorrect: false),
-        Option(text: "お茶", isCorrect: false),
-        Option(text: "牛乳", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "지하철",
-      options: [
-        Option(text: "地下鉄", isCorrect: true),
-        Option(text: "バス", isCorrect: false),
-        Option(text: "電車", isCorrect: false),
-        Option(text: "タクシー", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "자전거",
-      options: [
-        Option(text: "車", isCorrect: false),
-        Option(text: "自転車", isCorrect: true),
-        Option(text: "バス", isCorrect: false),
-        Option(text: "電車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사랑",
-      options: [
-        Option(text: "友情", isCorrect: false),
-        Option(text: "結婚", isCorrect: false),
-        Option(text: "愛", isCorrect: true),
-        Option(text: "家族", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "눈",
-      options: [
-        Option(text: "雪", isCorrect: true),
-        Option(text: "花", isCorrect: false),
-        Option(text: "氷", isCorrect: false),
-        Option(text: "水", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "꽃",
-      options: [
-        Option(text: "草", isCorrect: false),
-        Option(text: "木", isCorrect: false),
-        Option(text: "葉", isCorrect: false),
-        Option(text: "花", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "모자",
-      options: [
-        Option(text: "帽子", isCorrect: true),
-        Option(text: "靴", isCorrect: false),
-        Option(text: "服", isCorrect: false),
-        Option(text: "バッグ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "교실",
-      options: [
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "校庭", isCorrect: false),
-        Option(text: "事務室", isCorrect: false),
-        Option(text: "教室", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "방",
-      options: [
-        Option(text: "部屋", isCorrect: true),
-        Option(text: "廊下", isCorrect: false),
-        Option(text: "玄関", isCorrect: false),
-        Option(text: "台所", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "어머니",
-      options: [
-        Option(text: "父", isCorrect: false),
-        Option(text: "姉", isCorrect: false),
-        Option(text: "母", isCorrect: true),
-        Option(text: "兄", isCorrect: false),
-      ],
-    ),
+    /// 家族
     Quiz(
       text: "아버지",
+      sentence: "아버지는 직장에서 일한다.",
+      translation: "父は職場で働く。",
+      pronunciation: "アボジ",
       options: [
         Option(text: "父", isCorrect: true),
         Option(text: "母", isCorrect: false),
@@ -1981,1249 +2927,1099 @@ class AppQuizData {
       ],
     ),
     Quiz(
-      text: "펜",
-      options: [
-        Option(text: "ペン", isCorrect: true),
-        Option(text: "下敷き", isCorrect: false),
-        Option(text: "消しゴム", isCorrect: false),
-        Option(text: "定規", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "손",
-      options: [
-        Option(text: "足", isCorrect: false),
-        Option(text: "腕", isCorrect: false),
-        Option(text: "頭", isCorrect: false),
-        Option(text: "手", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "손가락",
-      options: [
-        Option(text: "指", isCorrect: true),
-        Option(text: "手", isCorrect: false),
-        Option(text: "足", isCorrect: false),
-        Option(text: "耳", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사실",
-      options: [
-        Option(text: "事実", isCorrect: true),
-        Option(text: "真実", isCorrect: false),
-        Option(text: "意見", isCorrect: false),
-        Option(text: "感情", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "꿈",
-      options: [
-        Option(text: "夢", isCorrect: true),
-        Option(text: "現実", isCorrect: false),
-        Option(text: "思い出", isCorrect: false),
-        Option(text: "目標", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "학생",
-      options: [
-        Option(text: "先生", isCorrect: false),
-        Option(text: "医者", isCorrect: false),
-        Option(text: "学生", isCorrect: true),
-        Option(text: "弁護士", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "새",
-      options: [
-        Option(text: "鳥", isCorrect: true),
-        Option(text: "猫", isCorrect: false),
-        Option(text: "犬", isCorrect: false),
-        Option(text: "魚", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "키",
-      options: [
-        Option(text: "身長", isCorrect: true),
-        Option(text: "体重", isCorrect: false),
-        Option(text: "年齢", isCorrect: false),
-        Option(text: "顔", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "머리",
-      options: [
-        Option(text: "頭", isCorrect: true),
-        Option(text: "顔", isCorrect: false),
-        Option(text: "首", isCorrect: false),
-        Option(text: "目", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "발견",
-      options: [
-        Option(text: "発見", isCorrect: true),
-        Option(text: "見つける", isCorrect: false),
-        Option(text: "探す", isCorrect: false),
-        Option(text: "失くす", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "기억",
-      options: [
-        Option(text: "記憶", isCorrect: true),
-        Option(text: "忘れる", isCorrect: false),
-        Option(text: "思い出す", isCorrect: false),
-        Option(text: "覚える", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "소리",
-      options: [
-        Option(text: "音", isCorrect: true),
-        Option(text: "におい", isCorrect: false),
-        Option(text: "歌", isCorrect: false),
-        Option(text: "音楽", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "길",
-      options: [
-        Option(text: "道", isCorrect: true),
-        Option(text: "川", isCorrect: false),
-        Option(text: "山", isCorrect: false),
-        Option(text: "森", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "지도",
-      options: [
-        Option(text: "地図", isCorrect: true),
-        Option(text: "本", isCorrect: false),
-        Option(text: "写真", isCorrect: false),
-        Option(text: "記事", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "강아지",
-      options: [
-        Option(text: "猫", isCorrect: false),
-        Option(text: "子犬", isCorrect: true),
-        Option(text: "鳥", isCorrect: false),
-        Option(text: "魚", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "바다",
-      options: [
-        Option(text: "湖", isCorrect: false),
-        Option(text: "川", isCorrect: false),
-        Option(text: "海", isCorrect: true),
-        Option(text: "池", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "눈물",
-      options: [
-        Option(text: "血", isCorrect: false),
-        Option(text: "汗", isCorrect: false),
-        Option(text: "唾", isCorrect: false),
-        Option(text: "涙", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "밥",
-      options: [
-        Option(text: "ご飯", isCorrect: true),
-        Option(text: "肉", isCorrect: false),
-        Option(text: "野菜", isCorrect: false),
-        Option(text: "魚", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "친구",
-      options: [
-        Option(text: "家族", isCorrect: false),
-        Option(text: "同僚", isCorrect: false),
-        Option(text: "友達", isCorrect: true),
-        Option(text: "先生", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "생일",
-      options: [
-        Option(text: "クリスマス", isCorrect: false),
-        Option(text: "年末", isCorrect: false),
-        Option(text: "誕生日", isCorrect: true),
-        Option(text: "お正月", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "거울",
-      options: [
-        Option(text: "窓", isCorrect: false),
-        Option(text: "ドア", isCorrect: false),
-        Option(text: "鏡", isCorrect: true),
-        Option(text: "テーブル", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "자동차",
-      options: [
-        Option(text: "自転車", isCorrect: false),
-        Option(text: "バス", isCorrect: false),
-        Option(text: "飛行機", isCorrect: false),
-        Option(text: "車", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "우산",
-      options: [
-        Option(text: "コート", isCorrect: false),
-        Option(text: "帽子", isCorrect: false),
-        Option(text: "スカーフ", isCorrect: false),
-        Option(text: "傘", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "실수",
-      options: [
-        Option(text: "成功", isCorrect: false),
-        Option(text: "リトライ", isCorrect: false),
-        Option(text: "試み", isCorrect: false),
-        Option(text: "間違い", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "일",
-      options: [
-        Option(text: "休息", isCorrect: false),
-        Option(text: "勉強", isCorrect: false),
-        Option(text: "仕事", isCorrect: true),
-        Option(text: "遊び", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "추억",
-      options: [
-        Option(text: "思い出", isCorrect: true),
-        Option(text: "未来", isCorrect: false),
-        Option(text: "出来事", isCorrect: false),
-        Option(text: "現在", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "평소",
-      options: [
-        Option(text: "今日", isCorrect: false),
-        Option(text: "昨日", isCorrect: false),
-        Option(text: "明日", isCorrect: false),
-        Option(text: "普段", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "전화",
-      options: [
-        Option(text: "メール", isCorrect: false),
-        Option(text: "手紙", isCorrect: false),
-        Option(text: "電話", isCorrect: true),
-        Option(text: "FAX", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "기쁨",
-      options: [
-        Option(text: "悲しみ", isCorrect: false),
-        Option(text: "驚き", isCorrect: false),
-        Option(text: "怒り", isCorrect: false),
-        Option(text: "喜び", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "추천",
-      options: [
-        Option(text: "評価", isCorrect: false),
-        Option(text: "提案", isCorrect: false),
-        Option(text: "要求", isCorrect: false),
-        Option(text: "推薦", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "여행",
-      options: [
-        Option(text: "旅行", isCorrect: true),
-        Option(text: "休暇", isCorrect: false),
-        Option(text: "出張", isCorrect: false),
-        Option(text: "遠足", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "외국",
-      options: [
-        Option(text: "国内", isCorrect: false),
-        Option(text: "国境", isCorrect: false),
-        Option(text: "外国", isCorrect: true),
-        Option(text: "自国", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "관심",
-      options: [
-        Option(text: "興味", isCorrect: false),
-        Option(text: "注意", isCorrect: false),
-        Option(text: "関心", isCorrect: true),
-        Option(text: "集中", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "신문",
-      options: [
-        Option(text: "雑誌", isCorrect: false),
-        Option(text: "書籍", isCorrect: false),
-        Option(text: "広告", isCorrect: false),
-        Option(text: "新聞", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "행복",
-      options: [
-        Option(text: "悲しみ", isCorrect: false),
-        Option(text: "怒り", isCorrect: false),
-        Option(text: "不安", isCorrect: false),
-        Option(text: "幸せ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "집중",
-      options: [
-        Option(text: "集中", isCorrect: true),
-        Option(text: "分散", isCorrect: false),
-        Option(text: "心配", isCorrect: false),
-        Option(text: "疲れ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "이름",
-      options: [
-        Option(text: "夏", isCorrect: false),
-        Option(text: "ニックネーム", isCorrect: false),
-        Option(text: "称号", isCorrect: false),
-        Option(text: "名前", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "회의",
-      options: [
-        Option(text: "会議", isCorrect: true),
-        Option(text: "干渉", isCorrect: false),
-        Option(text: "同窓会", isCorrect: false),
-        Option(text: "相談", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "공부",
-      options: [
-        Option(text: "研究", isCorrect: false),
-        Option(text: "実践", isCorrect: false),
-        Option(text: "練習", isCorrect: false),
-        Option(text: "勉強", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "가격",
-      options: [
-        Option(text: "価格", isCorrect: true),
-        Option(text: "負担", isCorrect: false),
-        Option(text: "費用", isCorrect: false),
-        Option(text: "コスト", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "휴가",
-      options: [
-        Option(text: "休暇", isCorrect: true),
-        Option(text: "祝日", isCorrect: false),
-        Option(text: "明日", isCorrect: false),
-        Option(text: "正月", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "계절",
-      options: [
-        Option(text: "季節", isCorrect: true),
-        Option(text: "天気", isCorrect: false),
-        Option(text: "気候", isCorrect: false),
-        Option(text: "季風", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "일요일",
-      options: [
-        Option(text: "日曜日", isCorrect: true),
-        Option(text: "月曜日", isCorrect: false),
-        Option(text: "火曜日", isCorrect: false),
-        Option(text: "水曜日", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "방학",
-      options: [
-        Option(text: "冬休み", isCorrect: false),
-        Option(text: "春休み", isCorrect: false),
-        Option(text: "欠席", isCorrect: false),
-        Option(text: "長期休暇", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "여름",
-      options: [
-        Option(text: "冬", isCorrect: false),
-        Option(text: "春", isCorrect: false),
-        Option(text: "夏", isCorrect: true),
-        Option(text: "秋", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "산책",
-      options: [
-        Option(text: "ジョギング", isCorrect: false),
-        Option(text: "ランニング", isCorrect: false),
-        Option(text: "休憩", isCorrect: false),
-        Option(text: "散歩", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "이중",
-      options: [
-        Option(text: "一重", isCorrect: false),
-        Option(text: "二重", isCorrect: true),
-        Option(text: "三重", isCorrect: false),
-        Option(text: "重ねる", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "손수건",
-      options: [
-        Option(text: "タオル", isCorrect: false),
-        Option(text: "シャツ", isCorrect: false),
-        Option(text: "ハンカチ", isCorrect: true),
-        Option(text: "ズボン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "다리",
-      options: [
-        Option(text: "脚", isCorrect: true),
-        Option(text: "筋肉", isCorrect: false),
-        Option(text: "手", isCorrect: false),
-        Option(text: "腕", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "남자",
-      options: [
-        Option(text: "女", isCorrect: false),
-        Option(text: "子供", isCorrect: false),
-        Option(text: "男", isCorrect: true),
-        Option(text: "おじさん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "여자",
-      options: [
-        Option(text: "男", isCorrect: false),
-        Option(text: "子供", isCorrect: false),
-        Option(text: "女", isCorrect: true),
-        Option(text: "おばさん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "피아노",
-      options: [
-        Option(text: "ピアノ", isCorrect: true),
-        Option(text: "ギター", isCorrect: false),
-        Option(text: "バイオリン", isCorrect: false),
-        Option(text: "トランペット", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "음악",
-      options: [
-        Option(text: "歌唱", isCorrect: false),
-        Option(text: "楽器", isCorrect: false),
-        Option(text: "音楽", isCorrect: true),
-        Option(text: "演奏", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "미래",
-      options: [
-        Option(text: "未来", isCorrect: true),
-        Option(text: "過去", isCorrect: false),
-        Option(text: "現在", isCorrect: false),
-        Option(text: "昔", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "방법",
-      options: [
-        Option(text: "手段", isCorrect: false),
-        Option(text: "方法", isCorrect: true),
-        Option(text: "往復", isCorrect: false),
-        Option(text: "助け", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "국가",
-      options: [
-        Option(text: "政府", isCorrect: false),
-        Option(text: "国土", isCorrect: false),
-        Option(text: "国家", isCorrect: true),
-        Option(text: "国民", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "전화번호",
-      options: [
-        Option(text: "住所", isCorrect: false),
-        Option(text: "名前", isCorrect: false),
-        Option(text: "電話番号", isCorrect: true),
-        Option(text: "国", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "도착",
-      options: [
-        Option(text: "出発", isCorrect: false),
-        Option(text: "遅延", isCorrect: false),
-        Option(text: "到着", isCorrect: true),
-        Option(text: "旅行", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "배우",
-      options: [
-        Option(text: "演歌歌手", isCorrect: false),
-        Option(text: "歌手", isCorrect: false),
-        Option(text: "俳優", isCorrect: true),
-        Option(text: "ダンサー", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "운동화",
-      options: [
-        Option(text: "スニーカー", isCorrect: true),
-        Option(text: "サンダル", isCorrect: false),
-        Option(text: "靴", isCorrect: false),
-        Option(text: "ブーツ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "샴푸",
-      options: [
-        Option(text: "シャンプー", isCorrect: true),
-        Option(text: "リンス", isCorrect: false),
-        Option(text: "石鹸", isCorrect: false),
-        Option(text: "クリーム", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "목욕",
-      options: [
-        Option(text: "シャワー", isCorrect: false),
-        Option(text: "トイレ", isCorrect: false),
-        Option(text: "お風呂", isCorrect: true),
-        Option(text: "洗面所", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "공원",
-      options: [
-        Option(text: "動物園", isCorrect: false),
-        Option(text: "遊園地", isCorrect: false),
-        Option(text: "公園", isCorrect: true),
-        Option(text: "庭", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "선물",
-      options: [
-        Option(text: "作物", isCorrect: false),
-        Option(text: "お中元", isCorrect: false),
-        Option(text: "おもちゃ", isCorrect: false),
-        Option(text: "プレゼント", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "소금",
-      options: [
-        Option(text: "砂糖", isCorrect: false),
-        Option(text: "コショウ", isCorrect: false),
-        Option(text: "塩", isCorrect: true),
-        Option(text: "味噌", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "청소",
-      options: [
-        Option(text: "洗濯", isCorrect: false),
-        Option(text: "料理", isCorrect: false),
-        Option(text: "片付け", isCorrect: false),
-        Option(text: "掃除", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "신발",
-      options: [
-        Option(text: "帽子", isCorrect: false),
-        Option(text: "服", isCorrect: false),
-        Option(text: "靴", isCorrect: true),
-        Option(text: "ズボン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "고양이",
-      options: [
-        Option(text: "犬", isCorrect: false),
-        Option(text: "鳥", isCorrect: false),
-        Option(text: "魚", isCorrect: false),
-        Option(text: "猫", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "주말",
-      options: [
-        Option(text: "平日", isCorrect: false),
-        Option(text: "月曜日", isCorrect: false),
-        Option(text: "火曜日", isCorrect: false),
-        Option(text: "週末", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "시장",
-      options: [
-        Option(text: "商店街", isCorrect: false),
-        Option(text: "デパート", isCorrect: false),
-        Option(text: "市場", isCorrect: true),
-        Option(text: "スーパー", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "공책",
-      options: [
-        Option(text: "本", isCorrect: false),
-        Option(text: "教科書", isCorrect: false),
-        Option(text: "ノート", isCorrect: true),
-        Option(text: "雑誌", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "신문지",
-      options: [
-        Option(text: "雑誌", isCorrect: false),
-        Option(text: "ノート", isCorrect: false),
-        Option(text: "新聞紙", isCorrect: true),
-        Option(text: "本", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "침대",
-      options: [
-        Option(text: "ソファー", isCorrect: false),
-        Option(text: "机", isCorrect: false),
-        Option(text: "椅子", isCorrect: false),
-        Option(text: "ベッド", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "계란",
-      options: [
-        Option(text: "鶏肉", isCorrect: false),
-        Option(text: "豆腐", isCorrect: false),
-        Option(text: "チーズ", isCorrect: false),
-        Option(text: "卵", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "어린이",
-      options: [
-        Option(text: "大人", isCorrect: false),
-        Option(text: "老人", isCorrect: false),
-        Option(text: "子供", isCorrect: true),
-        Option(text: "赤ちゃん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "닭",
-      options: [
-        Option(text: "鳥", isCorrect: false),
-        Option(text: "魚", isCorrect: false),
-        Option(text: "牛", isCorrect: false),
-        Option(text: "鶏", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "돼지",
-      options: [
-        Option(text: "牛", isCorrect: false),
-        Option(text: "羊", isCorrect: false),
-        Option(text: "鶏", isCorrect: false),
-        Option(text: "豚", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "물고기",
-      options: [
-        Option(text: "鳥", isCorrect: false),
-        Option(text: "牛", isCorrect: false),
-        Option(text: "魚", isCorrect: true),
-        Option(text: "猫", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "감자",
-      options: [
-        Option(text: "人参", isCorrect: false),
-        Option(text: "たまねぎ", isCorrect: false),
-        Option(text: "じゃがいも", isCorrect: true),
-        Option(text: "にんじん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "양파",
-      options: [
-        Option(text: "じゃがいも", isCorrect: false),
-        Option(text: "にんじん", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: false),
-        Option(text: "たまねぎ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "당근",
-      options: [
-        Option(text: "じゃがいも", isCorrect: false),
-        Option(text: "人参", isCorrect: true),
-        Option(text: "たまねぎ", isCorrect: false),
-        Option(text: "にんじん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "감기",
-      options: [
-        Option(text: "胃痛", isCorrect: false),
-        Option(text: "頭痛", isCorrect: false),
-        Option(text: "腹痛", isCorrect: false),
-        Option(text: "風邪", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "주스",
-      options: [
-        Option(text: "ジュース", isCorrect: true),
-        Option(text: "紅茶", isCorrect: false),
-        Option(text: "コーヒー", isCorrect: false),
-        Option(text: "ミルク", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "우체국",
-      options: [
-        Option(text: "郵便局", isCorrect: true),
-        Option(text: "銀行", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "学校", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "미용실",
-      options: [
-        Option(text: "美容室", isCorrect: true),
-        Option(text: "病院", isCorrect: false),
-        Option(text: "エステ", isCorrect: false),
-        Option(text: "マッサージ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "가을",
-      options: [
-        Option(text: "春", isCorrect: false),
-        Option(text: "夏", isCorrect: false),
-        Option(text: "秋", isCorrect: true),
-        Option(text: "冬", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "창문",
-      options: [
-        Option(text: "窓", isCorrect: true),
-        Option(text: "ドア", isCorrect: false),
-        Option(text: "床", isCorrect: false),
-        Option(text: "壁", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "흰색",
-      options: [
-        Option(text: "白", isCorrect: true),
-        Option(text: "黒", isCorrect: false),
-        Option(text: "赤", isCorrect: false),
-        Option(text: "青", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "마음",
-      options: [
-        Option(text: "頭", isCorrect: false),
-        Option(text: "心", isCorrect: true),
-        Option(text: "体", isCorrect: false),
-        Option(text: "手", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "신호",
-      options: [
-        Option(text: "合図", isCorrect: false),
-        Option(text: "音", isCorrect: false),
-        Option(text: "信号", isCorrect: true),
-        Option(text: "光", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "식품",
-      options: [
-        Option(text: "飲み物", isCorrect: false),
-        Option(text: "野菜", isCorrect: false),
-        Option(text: "果物", isCorrect: false),
-        Option(text: "食品", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "기차",
-      options: [
-        Option(text: "汽車", isCorrect: true),
-        Option(text: "バス", isCorrect: false),
-        Option(text: "自動車", isCorrect: false),
-        Option(text: "自転車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사무실",
-      options: [
-        Option(text: "教室", isCorrect: false),
-        Option(text: "部屋", isCorrect: false),
-        Option(text: "事務所", isCorrect: true),
-        Option(text: "会議室", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "전자우편",
-      options: [
-        Option(text: "電子メール", isCorrect: true),
-        Option(text: "手紙", isCorrect: false),
-        Option(text: "郵便", isCorrect: false),
-        Option(text: "封筒", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "영화",
-      options: [
-        Option(text: "テレビ", isCorrect: false),
-        Option(text: "ドラマ", isCorrect: false),
-        Option(text: "漫画", isCorrect: false),
-        Option(text: "映画", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "지갑",
-      options: [
-        Option(text: "バッグ", isCorrect: false),
-        Option(text: "カード", isCorrect: false),
-        Option(text: "お金", isCorrect: false),
-        Option(text: "財布", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "직업",
-      options: [
-        Option(text: "職業", isCorrect: true),
-        Option(text: "学生", isCorrect: false),
-        Option(text: "職員", isCorrect: false),
-        Option(text: "作業", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "남편",
-      options: [
-        Option(text: "夫", isCorrect: true),
-        Option(text: "妻", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "娘", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "아내",
-      options: [
-        Option(text: "妻", isCorrect: true),
-        Option(text: "夫", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "娘", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "언니",
-      options: [
-        Option(text: "姉", isCorrect: true),
+      text: "어머니",
+      sentence: "어머니는 집에서 요리한다.",
+      translation: "母は家で料理する。",
+      pronunciation: "オモニ",
+      options: [
+        Option(text: "母", isCorrect: true),
+        Option(text: "父", isCorrect: false),
         Option(text: "妹", isCorrect: false),
-        Option(text: "おばさん", isCorrect: false),
-        Option(text: "おじさん", isCorrect: false),
+        Option(text: "弟", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "누나",
+      text: "아빠",
+      sentence: "아빠가 아이와 놀고 있다.",
+      translation: "お父さんが子供と遊んでいる。",
+      pronunciation: "アッパ",
       options: [
-        Option(text: "姉", isCorrect: true),
+        Option(text: "お父さん", isCorrect: true),
+        Option(text: "お母さん", isCorrect: false),
+        Option(text: "兄", isCorrect: false),
+        Option(text: "姉", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "엄마",
+      sentence: "엄마가 밥을 차리고 있다.",
+      translation: "お母さんがご飯を準備している。",
+      pronunciation: "オンマ",
+      options: [
+        Option(text: "お母さん", isCorrect: true),
+        Option(text: "お父さん", isCorrect: false),
         Option(text: "妹", isCorrect: false),
-        Option(text: "おばさん", isCorrect: false),
-        Option(text: "おじさん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "오빠",
-      options: [
-        Option(text: "兄", isCorrect: true),
         Option(text: "弟", isCorrect: false),
-        Option(text: "兄弟", isCorrect: false),
-        Option(text: "友達", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "형",
-      options: [
-        Option(text: "兄", isCorrect: true),
-        Option(text: "弟", isCorrect: false),
-        Option(text: "兄弟", isCorrect: false),
-        Option(text: "友達", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "누이",
-      options: [
-        Option(text: "兄、弟", isCorrect: false),
-        Option(text: "姉、妹", isCorrect: true),
-        Option(text: "おばさん", isCorrect: false),
-        Option(text: "おじさん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "동생",
-      options: [
-        Option(text: "兄、姉", isCorrect: false),
-        Option(text: "おばさん", isCorrect: false),
-        Option(text: "弟、妹", isCorrect: true),
-        Option(text: "おじさん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "동료",
-      options: [
-        Option(text: "友達", isCorrect: false),
-        Option(text: "家族", isCorrect: false),
-        Option(text: "同僚", isCorrect: true),
-        Option(text: "先生", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "연인",
-      options: [
-        Option(text: "夫婦", isCorrect: false),
-        Option(text: "友達", isCorrect: false),
-        Option(text: "恋人", isCorrect: true),
-        Option(text: "家族", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "부부",
-      options: [
-        Option(text: "恋人", isCorrect: false),
-        Option(text: "友達", isCorrect: false),
-        Option(text: "家族", isCorrect: false),
-        Option(text: "夫婦", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "아이",
-      options: [
-        Option(text: "大人", isCorrect: false),
-        Option(text: "親", isCorrect: false),
-        Option(text: "子供", isCorrect: true),
-        Option(text: "祖父母", isCorrect: false),
       ],
     ),
     Quiz(
       text: "부모",
+      sentence: "부모님이 함께 산책을 간다.",
+      translation: "両親が一緒に散歩に行く。",
+      pronunciation: "プモ",
       options: [
-        Option(text: "子供", isCorrect: false),
+        Option(text: "両親", isCorrect: true),
+        Option(text: "兄弟", isCorrect: false),
         Option(text: "祖父母", isCorrect: false),
-        Option(text: "兄弟姉妹", isCorrect: false),
-        Option(text: "親", isCorrect: true),
+        Option(text: "親戚", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "할아버지",
+      text: "형제",
+      sentence: "형제가 같이 놀고 있다.",
+      translation: "兄弟が一緒に遊んでいる。",
+      pronunciation: "ヒョンジェ",
       options: [
-        Option(text: "祖母", isCorrect: false),
-        Option(text: "祖父", isCorrect: true),
-        Option(text: "父", isCorrect: false),
-        Option(text: "母", isCorrect: false),
+        Option(text: "兄弟", isCorrect: true),
+        Option(text: "両親", isCorrect: false),
+        Option(text: "祖父母", isCorrect: false),
+        Option(text: "親戚", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "할머니",
+      text: "형",
+      sentence: "형이 동생을 도와준다.",
+      translation: "兄が弟を手伝う。",
+      pronunciation: "ヒョン",
       options: [
-        Option(text: "祖母", isCorrect: true),
-        Option(text: "祖父", isCorrect: false),
-        Option(text: "父", isCorrect: false),
-        Option(text: "母", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "아들",
-      options: [
-        Option(text: "息子", isCorrect: true),
-        Option(text: "娘", isCorrect: false),
-        Option(text: "兄", isCorrect: false),
+        Option(text: "兄", isCorrect: true),
         Option(text: "弟", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "딸",
-      options: [
-        Option(text: "娘", isCorrect: true),
-        Option(text: "息子", isCorrect: false),
         Option(text: "姉", isCorrect: false),
         Option(text: "妹", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "소년",
+      text: "오빠",
+      sentence: "오빠가 여동생을 데려온다.",
+      translation: "兄がお姉さんを連れてくる。",
+      pronunciation: "オッパ",
       options: [
-        Option(text: "少年", isCorrect: true),
-        Option(text: "青年", isCorrect: false),
-        Option(text: "男の子", isCorrect: false),
-        Option(text: "男性", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "소녀",
-      options: [
-        Option(text: "少女", isCorrect: true),
+        Option(text: "兄", isCorrect: true),
+        Option(text: "弟", isCorrect: false),
+        Option(text: "姉", isCorrect: false),
         Option(text: "妹", isCorrect: false),
-        Option(text: "女性", isCorrect: false),
-        Option(text: "青年", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "웃음",
+      text: "누나",
+      sentence: "누나가 동생과 공부한다.",
+      translation: "姉が弟と勉強する。",
+      pronunciation: "ヌナ",
       options: [
-        Option(text: "笑顔", isCorrect: true),
-        Option(text: "涙", isCorrect: false),
-        Option(text: "怒り", isCorrect: false),
-        Option(text: "恐怖", isCorrect: false),
+        Option(text: "姉", isCorrect: true),
+        Option(text: "妹", isCorrect: false),
+        Option(text: "兄", isCorrect: false),
+        Option(text: "弟", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "즐거움",
+      text: "언니",
+      sentence: "언니가 동생에게 책을 읽어준다.",
+      translation: "姉が妹に本を読んであげる。",
+      pronunciation: "オンニ",
       options: [
-        Option(text: "楽しみ", isCorrect: true),
-        Option(text: "幸せ", isCorrect: false),
-        Option(text: "喜び", isCorrect: false),
-        Option(text: "愛", isCorrect: false),
+        Option(text: "姉", isCorrect: true),
+        Option(text: "妹", isCorrect: false),
+        Option(text: "兄", isCorrect: false),
+        Option(text: "弟", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "슬픔",
+      text: "남동생",
+      sentence: "남동생이 학교에 간다.",
+      translation: "弟が学校に行く。",
+      pronunciation: "ナムドンセン",
       options: [
-        Option(text: "悲しみ", isCorrect: true),
-        Option(text: "恐怖", isCorrect: false),
-        Option(text: "苦しみ", isCorrect: false),
-        Option(text: "寂しさ", isCorrect: false),
+        Option(text: "弟", isCorrect: true),
+        Option(text: "兄", isCorrect: false),
+        Option(text: "姉", isCorrect: false),
+        Option(text: "妹", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "두려움",
+      text: "여동생",
+      sentence: "여동생이 그림을 그린다.",
+      translation: "妹が絵を描く。",
+      pronunciation: "ヨドンセン",
       options: [
-        Option(text: "不安", isCorrect: false),
-        Option(text: "怒り", isCorrect: false),
-        Option(text: "恐怖", isCorrect: true),
-        Option(text: "驚き", isCorrect: false),
+        Option(text: "妹", isCorrect: true),
+        Option(text: "姉", isCorrect: false),
+        Option(text: "兄", isCorrect: false),
+        Option(text: "弟", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "잔소리",
+      text: "할아버지",
+      sentence: "할아버지가 이야기를 들려준다.",
+      translation: "祖父が話を聞かせる。",
+      pronunciation: "ハラボジ",
       options: [
-        Option(text: "小言", isCorrect: true),
-        Option(text: "忠告", isCorrect: false),
-        Option(text: "批判", isCorrect: false),
-        Option(text: "助言", isCorrect: false),
+        Option(text: "祖父", isCorrect: true),
+        Option(text: "祖母", isCorrect: false),
+        Option(text: "お父さん", isCorrect: false),
+        Option(text: "お母さん", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "진실",
+      text: "할머니",
+      sentence: "할머니가 손자를 돌본다.",
+      translation: "祖母が孫を世話する。",
+      pronunciation: "ハルモニ",
       options: [
-        Option(text: "未来", isCorrect: false),
-        Option(text: "現実", isCorrect: false),
-        Option(text: "真実", isCorrect: true),
-        Option(text: "信仰", isCorrect: false),
+        Option(text: "祖母", isCorrect: true),
+        Option(text: "祖父", isCorrect: false),
+        Option(text: "お母さん", isCorrect: false),
+        Option(text: "お父さん", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "감사",
+      text: "아이",
+      sentence: "아이가 놀이터에서 논다.",
+      translation: "子供が遊び場で遊ぶ。",
+      pronunciation: "アイ",
       options: [
-        Option(text: "感謝", isCorrect: true),
-        Option(text: "謝罪", isCorrect: false),
-        Option(text: "社交", isCorrect: false),
-        Option(text: "許し", isCorrect: false),
+        Option(text: "子供", isCorrect: true),
+        Option(text: "息子", isCorrect: false),
+        Option(text: "娘", isCorrect: false),
+        Option(text: "孫息子", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "아들",
+      sentence: "아들이 아버지를 돕는다.",
+      translation: "息子が父を手伝う。",
+      pronunciation: "アドル",
+      options: [
+        Option(text: "息子", isCorrect: true),
+        Option(text: "子供", isCorrect: false),
+        Option(text: "娘", isCorrect: false),
+        Option(text: "孫娘", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "딸",
+      sentence: "딸이 어머니를 돕는다.",
+      translation: "娘が母を手伝う。",
+      pronunciation: "タル",
+      options: [
+        Option(text: "娘", isCorrect: true),
+        Option(text: "息子", isCorrect: false),
+        Option(text: "子供", isCorrect: false),
+        Option(text: "孫娘", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "손자",
+      sentence: "할아버지가 손자를 사랑한다.",
+      translation: "祖父が孫息子を愛する。",
+      pronunciation: "ソンジャ",
+      options: [
+        Option(text: "孫息子", isCorrect: true),
+        Option(text: "孫娘", isCorrect: false),
+        Option(text: "息子", isCorrect: false),
+        Option(text: "娘", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "손녀",
+      sentence: "할머니가 손녀를 사랑한다.",
+      translation: "祖母が孫娘を愛する。",
+      pronunciation: "ソンニョ",
+      options: [
+        Option(text: "孫娘", isCorrect: true),
+        Option(text: "孫息子", isCorrect: false),
+        Option(text: "息子", isCorrect: false),
+        Option(text: "娘", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "남편",
+      sentence: "남편이 아내를 도와준다.",
+      translation: "夫が妻を手伝う。",
+      pronunciation: "ナムピョン",
+      options: [
+        Option(text: "夫", isCorrect: true),
+        Option(text: "妻", isCorrect: false),
+        Option(text: "親戚", isCorrect: false),
+        Option(text: "両親", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "아내",
+      sentence: "아내가 남편을 사랑한다.",
+      translation: "妻が夫を愛する。",
+      pronunciation: "アネ",
+      options: [
+        Option(text: "妻", isCorrect: true),
+        Option(text: "夫", isCorrect: false),
+        Option(text: "親戚", isCorrect: false),
+        Option(text: "両親", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "친척",
+      sentence: "친척들이 모두 모였다.",
+      translation: "親戚がみんな集まった。",
+      pronunciation: "チンチョク",
+      options: [
+        Option(text: "親戚", isCorrect: true),
+        Option(text: "両親", isCorrect: false),
+        Option(text: "祖父母", isCorrect: false),
+        Option(text: "兄弟", isCorrect: false),
+      ],
+    ),
+
+    /// 場所
+    Quiz(
+      text: "역",
+      sentence: "나는 역에서 친구를 만난다.",
+      translation: "私は駅で友達に会う。",
+      pronunciation: "ヨク",
+      options: [
+        Option(text: "駅", isCorrect: true),
+        Option(text: "学校", isCorrect: false),
+        Option(text: "空港", isCorrect: false),
+        Option(text: "病院", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "학교",
+      sentence: "나는 학교에 간다.",
+      translation: "私は学校に行く。",
+      pronunciation: "ハッキョ",
+      options: [
+        Option(text: "学校", isCorrect: true),
+        Option(text: "駅", isCorrect: false),
+        Option(text: "空港", isCorrect: false),
+        Option(text: "病院", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "공항",
+      sentence: "공항에서 비행기를 탄다.",
+      translation: "空港で飛行機に乗る。",
+      pronunciation: "コンハン",
+      options: [
+        Option(text: "空港", isCorrect: true),
+        Option(text: "学校", isCorrect: false),
+        Option(text: "駅", isCorrect: false),
+        Option(text: "病院", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "병원",
+      sentence: "나는 병원에 간다.",
+      translation: "私は病院に行く。",
+      pronunciation: "ビョンウォン",
+      options: [
+        Option(text: "病院", isCorrect: true),
+        Option(text: "空港", isCorrect: false),
+        Option(text: "学校", isCorrect: false),
+        Option(text: "駅", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "공원",
+      sentence: "공원에서 산책을 한다.",
+      translation: "公園で散歩をする。",
+      pronunciation: "コンウォン",
+      options: [
+        Option(text: "公園", isCorrect: true),
+        Option(text: "美術館", isCorrect: false),
+        Option(text: "博物館", isCorrect: false),
+        Option(text: "水族館", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "미술관",
+      sentence: "미술관에서 그림을 본다.",
+      translation: "美術館で絵を見る。",
+      pronunciation: "ミスルグァン",
+      options: [
+        Option(text: "美術館", isCorrect: true),
+        Option(text: "公園", isCorrect: false),
+        Option(text: "博物館", isCorrect: false),
+        Option(text: "水族館", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "박물관",
+      sentence: "박물관에서 역사적인 유물을 본다.",
+      translation: "博物館で歴史的な遺物を見る。",
+      pronunciation: "バクムルグァン",
+      options: [
+        Option(text: "博物館", isCorrect: true),
+        Option(text: "美術館", isCorrect: false),
+        Option(text: "公園", isCorrect: false),
+        Option(text: "水族館", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "수족관",
+      sentence: "수족관에서 물고기를 본다.",
+      translation: "水族館で魚を見る。",
+      pronunciation: "スジョクグァン",
+      options: [
+        Option(text: "水族館", isCorrect: true),
+        Option(text: "博物館", isCorrect: false),
+        Option(text: "美術館", isCorrect: false),
+        Option(text: "公園", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "슈퍼",
+      sentence: "슈퍼에서 장을 본다.",
+      translation: "スーパーで買い物をする。",
+      pronunciation: "シュポ",
+      options: [
+        Option(text: "スーパー", isCorrect: true),
+        Option(text: "図書館", isCorrect: false),
+        Option(text: "コンビニ", isCorrect: false),
+        Option(text: "薬局", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "도서관",
+      sentence: "도서관에서 책을 읽는다.",
+      translation: "図書館で本を読む。",
+      pronunciation: "ドソグァン",
+      options: [
+        Option(text: "図書館", isCorrect: true),
+        Option(text: "スーパー", isCorrect: false),
+        Option(text: "コンビニ", isCorrect: false),
+        Option(text: "薬局", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "편의점",
+      sentence: "편의점에서 간식을 산다.",
+      translation: "コンビニでおやつを買う。",
+      pronunciation: "ピョンウィジョム",
+      options: [
+        Option(text: "コンビニ", isCorrect: true),
+        Option(text: "スーパー", isCorrect: false),
+        Option(text: "図書館", isCorrect: false),
+        Option(text: "薬局", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "약국",
+      sentence: "약국에서 약을 산다.",
+      translation: "薬局で薬を買う。",
+      pronunciation: "ヤックク",
+      options: [
+        Option(text: "薬局", isCorrect: true),
+        Option(text: "スーパー", isCorrect: false),
+        Option(text: "図書館", isCorrect: false),
+        Option(text: "コンビニ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "은행",
+      sentence: "은행에서 돈을 찾는다.",
+      translation: "銀行でお金を下ろす。",
+      pronunciation: "ウネン",
+      options: [
+        Option(text: "銀行", isCorrect: true),
+        Option(text: "デパート", isCorrect: false),
+        Option(text: "ホテル", isCorrect: false),
+        Option(text: "レストラン", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "백화점",
+      sentence: "백화점에서 옷을 산다.",
+      translation: "デパートで服を買う。",
+      pronunciation: "ペクァジョム",
+      options: [
+        Option(text: "デパート", isCorrect: true),
+        Option(text: "銀行", isCorrect: false),
+        Option(text: "ホテル", isCorrect: false),
+        Option(text: "レストラン", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "호텔",
+      sentence: "호텔에서 머무른다.",
+      translation: "ホテルに泊まる。",
+      pronunciation: "ホテル",
+      options: [
+        Option(text: "ホテル", isCorrect: true),
+        Option(text: "デパート", isCorrect: false),
+        Option(text: "銀行", isCorrect: false),
+        Option(text: "レストラン", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "레스토랑",
+      sentence: "레스토랑에서 식사한다.",
+      translation: "レストランで食事する。",
+      pronunciation: "レストラン",
+      options: [
+        Option(text: "レストラン", isCorrect: true),
+        Option(text: "ホテル", isCorrect: false),
+        Option(text: "デパート", isCorrect: false),
+        Option(text: "カフェ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "카페",
+      sentence: "카페에서 커피를 마신다.",
+      translation: "カフェでコーヒーを飲む。",
+      pronunciation: "カペ",
+      options: [
+        Option(text: "カフェ", isCorrect: true),
+        Option(text: "レストラン", isCorrect: false),
+        Option(text: "ホテル", isCorrect: false),
+        Option(text: "デパート", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "경찰서",
+      sentence: "경찰서에 신고한다.",
+      translation: "警察署に通報する。",
+      pronunciation: "ギョンチャルソ",
+      options: [
+        Option(text: "警察署", isCorrect: true),
+        Option(text: "日本大使館", isCorrect: false),
+        Option(text: "図書館", isCorrect: false),
+        Option(text: "公園", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "일본대사관",
+      sentence: "일본대사관에 문의한다.",
+      translation: "日本大使館に問い合わせる。",
+      pronunciation: "イルボンデサグァン",
+      options: [
+        Option(text: "日本大使館", isCorrect: true),
+        Option(text: "警察署", isCorrect: false),
+        Option(text: "図書館", isCorrect: false),
+        Option(text: "公園", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "주유소",
+      sentence: "주유소에서 기름을 넣는다.",
+      translation: "ガソリンスタンドで給油する。",
+      pronunciation: "ジュユソ",
+      options: [
+        Option(text: "ガソリンスタンド", isCorrect: true),
+        Option(text: "警察署", isCorrect: false),
+        Option(text: "図書館", isCorrect: false),
+        Option(text: "公園", isCorrect: false),
+      ],
+    ),
+
+    /// 体の部位
+    Quiz(
+      text: "머리",
+      sentence: "머리가 아프다.",
+      translation: "頭が痛い。",
+      pronunciation: "モリ",
+      options: [
+        Option(text: "頭", isCorrect: true),
+        Option(text: "顔", isCorrect: false),
+        Option(text: "髪", isCorrect: false),
+        Option(text: "目", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "얼굴",
+      sentence: "얼굴이 예쁘다.",
+      translation: "顔がきれいだ。",
+      pronunciation: "オルグル",
+      options: [
+        Option(text: "顔", isCorrect: true),
+        Option(text: "頭", isCorrect: false),
+        Option(text: "髪", isCorrect: false),
+        Option(text: "目", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "머리카락",
+      sentence: "머리카락이 길다.",
+      translation: "髪が長い。",
+      pronunciation: "モリカラク",
+      options: [
+        Option(text: "髪", isCorrect: true),
+        Option(text: "顔", isCorrect: false),
+        Option(text: "頭", isCorrect: false),
+        Option(text: "目", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "눈",
+      sentence: "눈이 크다.",
+      translation: "目が大きい。",
+      pronunciation: "ヌン",
+      options: [
+        Option(text: "目", isCorrect: true),
+        Option(text: "耳", isCorrect: false),
+        Option(text: "鼻", isCorrect: false),
+        Option(text: "口", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "귀",
+      sentence: "귀가 잘 들린다.",
+      translation: "耳がよく聞こえる。",
+      pronunciation: "クィ",
+      options: [
+        Option(text: "耳", isCorrect: true),
+        Option(text: "目", isCorrect: false),
+        Option(text: "鼻", isCorrect: false),
+        Option(text: "口", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "코",
+      sentence: "코가 높다.",
+      translation: "鼻が高い。",
+      pronunciation: "コ",
+      options: [
+        Option(text: "鼻", isCorrect: true),
+        Option(text: "耳", isCorrect: false),
+        Option(text: "目", isCorrect: false),
+        Option(text: "口", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "입",
+      sentence: "입을 다물다.",
+      translation: "口を閉じる。",
+      pronunciation: "イプ",
+      options: [
+        Option(text: "口", isCorrect: true),
+        Option(text: "鼻", isCorrect: false),
+        Option(text: "耳", isCorrect: false),
+        Option(text: "目", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "이",
+      sentence: "이가 아프다.",
+      translation: "歯が痛い。",
+      pronunciation: "イ",
+      options: [
+        Option(text: "歯", isCorrect: true),
+        Option(text: "口", isCorrect: false),
+        Option(text: "耳", isCorrect: false),
+        Option(text: "目", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "어깨",
+      sentence: "어깨가 넓다.",
+      translation: "肩が広い。",
+      pronunciation: "オッケ",
+      options: [
+        Option(text: "肩", isCorrect: true),
+        Option(text: "胸", isCorrect: false),
+        Option(text: "背中", isCorrect: false),
+        Option(text: "腹", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "가슴",
+      sentence: "가슴이 답답하다.",
+      translation: "胸が息苦しい。",
+      pronunciation: "カスム",
+      options: [
+        Option(text: "胸", isCorrect: true),
+        Option(text: "肩", isCorrect: false),
+        Option(text: "背中", isCorrect: false),
+        Option(text: "腹", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "등",
+      sentence: "등이 아프다.",
+      translation: "背中が痛い。",
+      pronunciation: "トゥン",
+      options: [
+        Option(text: "背中", isCorrect: true),
+        Option(text: "胸", isCorrect: false),
+        Option(text: "肩", isCorrect: false),
+        Option(text: "腹", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "배",
+      sentence: "배가 고프다.",
+      translation: "お腹がすいた。",
+      pronunciation: "ペ",
+      options: [
+        Option(text: "腹", isCorrect: true),
+        Option(text: "背中", isCorrect: false),
+        Option(text: "肩", isCorrect: false),
+        Option(text: "胸", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "손",
+      sentence: "손을 잡다.",
+      translation: "手を握る。",
+      pronunciation: "ソン",
+      options: [
+        Option(text: "手", isCorrect: true),
+        Option(text: "足", isCorrect: false),
+        Option(text: "腕", isCorrect: false),
+        Option(text: "ひじ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "팔",
+      sentence: "팔을 뻗다.",
+      translation: "腕を伸ばす。",
+      pronunciation: "パル",
+      options: [
+        Option(text: "腕", isCorrect: true),
+        Option(text: "手", isCorrect: false),
+        Option(text: "足", isCorrect: false),
+        Option(text: "ひじ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "팔꿈치",
+      sentence: "팔꿈치가 아프다.",
+      translation: "ひじが痛い。",
+      pronunciation: "パルクムチ",
+      options: [
+        Option(text: "ひじ", isCorrect: true),
+        Option(text: "腕", isCorrect: false),
+        Option(text: "手", isCorrect: false),
+        Option(text: "足", isCorrect: false),
+      ],
+    ),
+
+    Quiz(
+      text: "허리",
+      sentence: "허리가 아프다.",
+      translation: "腰が痛い。",
+      pronunciation: "ホリ",
+      options: [
+        Option(text: "腰", isCorrect: true),
+        Option(text: "腕", isCorrect: false),
+        Option(text: "足", isCorrect: false),
+        Option(text: "ひじ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "다리",
+      sentence: "다리가 길다.",
+      translation: "足が長い。",
+      pronunciation: "タリ",
+      options: [
+        Option(text: "足", isCorrect: true),
+        Option(text: "手", isCorrect: false),
+        Option(text: "腕", isCorrect: false),
+        Option(text: "ひじ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "발",
+      sentence: "발이 크다.",
+      translation: "足が大きい。",
+      pronunciation: "パル",
+      options: [
+        Option(text: "足", isCorrect: true),
+        Option(text: "手", isCorrect: false),
+        Option(text: "腕", isCorrect: false),
+        Option(text: "ひじ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "무릎",
+      sentence: "무릎이 아프다.",
+      translation: "膝が痛い。",
+      pronunciation: "ムルプ",
+      options: [
+        Option(text: "膝", isCorrect: true),
+        Option(text: "足", isCorrect: false),
+        Option(text: "手", isCorrect: false),
+        Option(text: "腕", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "손톱",
+      sentence: "손톱을 깎다.",
+      translation: "爪を切る。",
+      pronunciation: "ソントプ",
+      options: [
+        Option(text: "爪", isCorrect: true),
+        Option(text: "手", isCorrect: false),
+        Option(text: "足", isCorrect: false),
+        Option(text: "腕", isCorrect: false),
+      ],
+    ),
+
+    /// 食べ物
+    Quiz(
+      text: "김치",
+      sentence: "김치를 먹는다.",
+      translation: "キムチを食べる。",
+      pronunciation: "キムチ",
+      options: [
+        Option(text: "キムチ", isCorrect: true),
+        Option(text: "ビビンバ", isCorrect: false),
+        Option(text: "冷麺", isCorrect: false),
+        Option(text: "サムゲタン", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "비빔밥",
+      sentence: "비빔밥을 먹는다.",
+      translation: "ビビンバを食べる。",
+      pronunciation: "ビビンバ",
+      options: [
+        Option(text: "ビビンバ", isCorrect: true),
+        Option(text: "キムチ", isCorrect: false),
+        Option(text: "冷麺", isCorrect: false),
+        Option(text: "サムゲタン", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "물냉면",
+      sentence: "물냉면을 먹는다.",
+      translation: "冷麺を食べる。",
+      pronunciation: "ムルネンミョン",
+      options: [
+        Option(text: "冷麺", isCorrect: true),
+        Option(text: "ビビンバ", isCorrect: false),
+        Option(text: "キムチ", isCorrect: false),
+        Option(text: "サムゲタン", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "삼계탕",
+      sentence: "삼계탕을 먹는다.",
+      translation: "サムゲタンを食べる。",
+      pronunciation: "サムゲタン",
+      options: [
+        Option(text: "サムゲタン", isCorrect: true),
+        Option(text: "冷麺", isCorrect: false),
+        Option(text: "ビビンバ", isCorrect: false),
+        Option(text: "キムチ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "감자탕",
+      sentence: "감자탕을 먹는다.",
+      translation: "カムジャタンを食べる。",
+      pronunciation: "カムジャタン",
+      options: [
+        Option(text: "カムジャタン", isCorrect: true),
+        Option(text: "サムゲタン", isCorrect: false),
+        Option(text: "冷麺", isCorrect: false),
+        Option(text: "ビビンバ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "순두부찌개",
+      sentence: "순두부찌개를 먹는다.",
+      translation: "スンドゥブチゲを食べる。",
+      pronunciation: "スンドゥブチゲ",
+      options: [
+        Option(text: "スンドゥブチゲ", isCorrect: true),
+        Option(text: "カムジャタン", isCorrect: false),
+        Option(text: "サムゲタン", isCorrect: false),
+        Option(text: "ビビンバ", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "양파",
+      sentence: "양파를 자른다.",
+      translation: "玉ねぎを切る。",
+      pronunciation: "ヤンパ",
+      options: [
+        Option(text: "玉ねぎ", isCorrect: true),
+        Option(text: "白菜", isCorrect: false),
+        Option(text: "キャベツ", isCorrect: false),
+        Option(text: "レタス", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "배추",
+      sentence: "배추를 산다.",
+      translation: "白菜を買う。",
+      pronunciation: "ペチュ",
+      options: [
+        Option(text: "白菜", isCorrect: true),
+        Option(text: "玉ねぎ", isCorrect: false),
+        Option(text: "キャベツ", isCorrect: false),
+        Option(text: "レタス", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "양배추",
+      sentence: "양배추를 자른다.",
+      translation: "キャベツを切る。",
+      pronunciation: "ヤンベチュ",
+      options: [
+        Option(text: "キャベツ", isCorrect: true),
+        Option(text: "玉ねぎ", isCorrect: false),
+        Option(text: "白菜", isCorrect: false),
+        Option(text: "レタス", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "양상추",
+      sentence: "양상추를 먹는다.",
+      translation: "レタスを食べる。",
+      pronunciation: "ヤンサンチュ",
+      options: [
+        Option(text: "レタス", isCorrect: true),
+        Option(text: "キャベツ", isCorrect: false),
+        Option(text: "玉ねぎ", isCorrect: false),
+        Option(text: "白菜", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "감자",
+      sentence: "감자를 먹는다.",
+      translation: "じゃがいもを食べる。",
+      pronunciation: "カムジャ",
+      options: [
+        Option(text: "じゃがいも", isCorrect: true),
+        Option(text: "人参", isCorrect: false),
+        Option(text: "玉ねぎ", isCorrect: false),
+        Option(text: "大根", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "고려인삼",
+      sentence: "고려인삼을 먹는다.",
+      translation: "高麗人参を食べる。",
+      pronunciation: "コリョインサム",
+      options: [
+        Option(text: "高麗人参", isCorrect: true),
+        Option(text: "玉ねぎ", isCorrect: false),
+        Option(text: "白菜", isCorrect: false),
+        Option(text: "じゃがいも", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "마늘",
+      sentence: "마늘을 넣는다.",
+      translation: "にんにくを入れる。",
+      pronunciation: "マヌル",
+      options: [
+        Option(text: "にんにく", isCorrect: true),
+        Option(text: "じゃがいも", isCorrect: false),
+        Option(text: "人参", isCorrect: false),
+        Option(text: "大根", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "버섯",
+      sentence: "버섯을 넣는다.",
+      translation: "きのこを入れる。",
+      pronunciation: "ボソッ",
+      options: [
+        Option(text: "きのこ", isCorrect: true),
+        Option(text: "じゃがいも", isCorrect: false),
+        Option(text: "人参", isCorrect: false),
+        Option(text: "大根", isCorrect: false),
+      ],
+    ),
+    Quiz(
+      text: "고추",
+      sentence: "고추를 넣는다.",
+      translation: "唐辛子を入れる。",
+      pronunciation: "コチュ",
+      options: [
+        Option(text: "唐辛子", isCorrect: true),
+        Option(text: "じゃがいも", isCorrect: false),
+        Option(text: "きのこ", isCorrect: false),
+        Option(text: "にんにく", isCorrect: false),
       ],
     ),
     Quiz(
       text: "사과",
+      sentence: "사과를 먹는다.",
+      translation: "りんごを食べる。",
+      pronunciation: "サグァ",
       options: [
-        Option(text: "感謝", isCorrect: false),
-        Option(text: "謝辞", isCorrect: false),
-        Option(text: "謝罪", isCorrect: true),
-        Option(text: "許し", isCorrect: false),
+        Option(text: "りんご", isCorrect: true),
+        Option(text: "みかん", isCorrect: false),
+        Option(text: "梨", isCorrect: false),
+        Option(text: "桃", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "방문",
+      text: "귤",
+      sentence: "귤을 먹는다.",
+      translation: "みかんを食べる。",
+      pronunciation: "ギュル",
       options: [
-        Option(text: "来日", isCorrect: false),
-        Option(text: "出かける", isCorrect: false),
-        Option(text: "部屋", isCorrect: false),
-        Option(text: "訪問", isCorrect: true),
+        Option(text: "みかん", isCorrect: true),
+        Option(text: "りんご", isCorrect: false),
+        Option(text: "梨", isCorrect: false),
+        Option(text: "桃", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "숙제",
+      text: "딸기",
+      sentence: "딸기를 먹는다.",
+      translation: "いちごを食べる。",
+      pronunciation: "タルギ",
       options: [
-        Option(text: "掃除", isCorrect: false),
-        Option(text: "仕事", isCorrect: false),
-        Option(text: "宿題", isCorrect: true),
-        Option(text: "職業", isCorrect: false),
+        Option(text: "いちご", isCorrect: true),
+        Option(text: "レモン", isCorrect: false),
+        Option(text: "桃", isCorrect: false),
+        Option(text: "卵", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "생각",
+      text: "레몬",
+      sentence: "레몬을 넣는다.",
+      translation: "レモンを入れる。",
+      pronunciation: "レモン",
       options: [
-        Option(text: "感じ", isCorrect: false),
-        Option(text: "聞こえ", isCorrect: false),
-        Option(text: "考え", isCorrect: true),
-        Option(text: "話", isCorrect: false),
+        Option(text: "レモン", isCorrect: true),
+        Option(text: "いちご", isCorrect: false),
+        Option(text: "桃", isCorrect: false),
+        Option(text: "卵", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "노래방",
+      text: "복숭아",
+      sentence: "복숭아를 먹는다.",
+      translation: "桃を食べる。",
+      pronunciation: "ポクスンア",
       options: [
-        Option(text: "音楽堂", isCorrect: false),
-        Option(text: "歌舞伎", isCorrect: false),
-        Option(text: "コンサートホール", isCorrect: false),
-        Option(text: "カラオケ", isCorrect: true),
+        Option(text: "桃", isCorrect: true),
+        Option(text: "いちご", isCorrect: false),
+        Option(text: "レモン", isCorrect: false),
+        Option(text: "卵", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "잠",
+      text: "계란",
+      sentence: "계란을 먹는다.",
+      translation: "卵を食べる。",
+      pronunciation: "ケラン",
       options: [
-        Option(text: "休息", isCorrect: false),
-        Option(text: "休憩", isCorrect: false),
-        Option(text: "眠り", isCorrect: true),
-        Option(text: "眠気", isCorrect: false),
+        Option(text: "卵", isCorrect: true),
+        Option(text: "いちご", isCorrect: false),
+        Option(text: "レモン", isCorrect: false),
+        Option(text: "桃", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "잡지",
+      text: "소고기",
+      sentence: "소고기를 먹는다.",
+      translation: "牛肉を食べる。",
+      pronunciation: "ソゴギ",
       options: [
-        Option(text: "新聞", isCorrect: false),
-        Option(text: "本", isCorrect: false),
-        Option(text: "漫画", isCorrect: false),
-        Option(text: "雑誌", isCorrect: true),
+        Option(text: "牛肉", isCorrect: true),
+        Option(text: "豚肉", isCorrect: false),
+        Option(text: "鶏肉", isCorrect: false),
+        Option(text: "魚", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "연습",
+      text: "돼지고기",
+      sentence: "돼지고기를 먹는다.",
+      translation: "豚肉を食べる。",
+      pronunciation: "テジゴギ",
       options: [
-        Option(text: "練り歩く", isCorrect: false),
-        Option(text: "稽古", isCorrect: false),
-        Option(text: "実践", isCorrect: false),
-        Option(text: "練習", isCorrect: true),
+        Option(text: "豚肉", isCorrect: true),
+        Option(text: "牛肉", isCorrect: false),
+        Option(text: "鶏肉", isCorrect: false),
+        Option(text: "魚", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "연극",
+      text: "닭고기",
+      sentence: "닭고기를 먹는다.",
+      translation: "鶏肉を食べる。",
+      pronunciation: "タルゴギ",
       options: [
-        Option(text: "映画", isCorrect: false),
-        Option(text: "演奏会", isCorrect: false),
-        Option(text: "演劇", isCorrect: true),
-        Option(text: "学会", isCorrect: false),
+        Option(text: "鶏肉", isCorrect: true),
+        Option(text: "牛肉", isCorrect: false),
+        Option(text: "豚肉", isCorrect: false),
+        Option(text: "魚", isCorrect: false),
+      ],
+    ),
+
+// 方向・方角
+    Quiz(
+      text: "동쪽",
+      sentence: "해가 동쪽에서 뜬다.",
+      translation: "日が東から昇る。",
+      pronunciation: "トンチョク",
+      options: [
+        Option(text: "東", isCorrect: true),
+        Option(text: "西", isCorrect: false),
+        Option(text: "南", isCorrect: false),
+        Option(text: "北", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "평소",
+      text: "서쪽",
+      sentence: "해가 서쪽에서 진다.",
+      translation: "日が西に沈む。",
+      pronunciation: "ソチョク",
       options: [
-        Option(text: "病院", isCorrect: false),
-        Option(text: "平等", isCorrect: false),
-        Option(text: "普段", isCorrect: true),
-        Option(text: "平和", isCorrect: false),
+        Option(text: "西", isCorrect: true),
+        Option(text: "東", isCorrect: false),
+        Option(text: "南", isCorrect: false),
+        Option(text: "北", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "직장",
+      text: "남쪽",
+      sentence: "남쪽으로 가다.",
+      translation: "南へ行く。",
+      pronunciation: "ナムチョク",
       options: [
-        Option(text: "会社", isCorrect: false),
-        Option(text: "店", isCorrect: false),
-        Option(text: "工場", isCorrect: false),
-        Option(text: "職場", isCorrect: true),
+        Option(text: "南", isCorrect: true),
+        Option(text: "北", isCorrect: false),
+        Option(text: "東", isCorrect: false),
+        Option(text: "西", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "상자",
+      text: "북쪽",
+      sentence: "북쪽으로 가다.",
+      translation: "北へ行く。",
+      pronunciation: "プクチョク",
       options: [
-        Option(text: "箱", isCorrect: true),
-        Option(text: "ケース", isCorrect: false),
-        Option(text: "カバー", isCorrect: false),
-        Option(text: "袋", isCorrect: false),
+        Option(text: "北", isCorrect: true),
+        Option(text: "南", isCorrect: false),
+        Option(text: "東", isCorrect: false),
+        Option(text: "西", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "어제",
+      text: "오른쪽",
+      sentence: "오른쪽으로 돌다.",
+      translation: "右に曲がる。",
+      pronunciation: "オルンチョク",
       options: [
-        Option(text: "昨日", isCorrect: true),
-        Option(text: "明日", isCorrect: false),
-        Option(text: "今日", isCorrect: false),
-        Option(text: "毎日", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "내일",
-      options: [
-        Option(text: "明日", isCorrect: true),
-        Option(text: "昨日", isCorrect: false),
-        Option(text: "今日", isCorrect: false),
-        Option(text: "毎日", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "모레",
-      options: [
-        Option(text: "明後日", isCorrect: true),
-        Option(text: "昨日", isCorrect: false),
-        Option(text: "今日", isCorrect: false),
-        Option(text: "明日", isCorrect: false),
+        Option(text: "右", isCorrect: true),
+        Option(text: "左", isCorrect: false),
+        Option(text: "上", isCorrect: false),
+        Option(text: "下", isCorrect: false),
       ],
     ),
     Quiz(
       text: "왼쪽",
+      sentence: "왼쪽으로 돌다.",
+      translation: "左に曲がる。",
+      pronunciation: "ウェンチョク",
       options: [
         Option(text: "左", isCorrect: true),
         Option(text: "右", isCorrect: false),
@@ -3232,957 +4028,135 @@ class AppQuizData {
       ],
     ),
     Quiz(
-      text: "오른쪽",
-      options: [
-        Option(text: "左", isCorrect: false),
-        Option(text: "右", isCorrect: true),
-        Option(text: "上", isCorrect: false),
-        Option(text: "下", isCorrect: false),
-      ],
-    ),
-    Quiz(
       text: "위",
+      sentence: "위로 올라가다.",
+      translation: "上へ登る。",
+      pronunciation: "ウィ",
       options: [
         Option(text: "上", isCorrect: true),
         Option(text: "下", isCorrect: false),
-        Option(text: "左", isCorrect: false),
-        Option(text: "右", isCorrect: false),
+        Option(text: "前", isCorrect: false),
+        Option(text: "後ろ", isCorrect: false),
       ],
     ),
     Quiz(
       text: "아래",
+      sentence: "아래로 내려가다.",
+      translation: "下へ降りる。",
+      pronunciation: "アレ",
       options: [
         Option(text: "下", isCorrect: true),
         Option(text: "上", isCorrect: false),
-        Option(text: "左", isCorrect: false),
-        Option(text: "右", isCorrect: false),
+        Option(text: "前", isCorrect: false),
+        Option(text: "後ろ", isCorrect: false),
       ],
     ),
     Quiz(
       text: "앞",
+      sentence: "앞으로 가다.",
+      translation: "前へ行く。",
+      pronunciation: "アプ",
       options: [
         Option(text: "前", isCorrect: true),
-        Option(text: "後", isCorrect: false),
-        Option(text: "右", isCorrect: false),
-        Option(text: "左", isCorrect: false),
+        Option(text: "後ろ", isCorrect: false),
+        Option(text: "上", isCorrect: false),
+        Option(text: "下", isCorrect: false),
       ],
     ),
     Quiz(
       text: "뒤",
+      sentence: "뒤로 가다.",
+      translation: "後ろへ行く。",
+      pronunciation: "トゥィ",
       options: [
-        Option(text: "後", isCorrect: true),
+        Option(text: "後ろ", isCorrect: true),
         Option(text: "前", isCorrect: false),
-        Option(text: "右", isCorrect: false),
-        Option(text: "左", isCorrect: false),
+        Option(text: "上", isCorrect: false),
+        Option(text: "下", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "손목",
+      text: "안",
+      sentence: "안으로 들어가다.",
+      translation: "中へ入る。",
+      pronunciation: "アン",
       options: [
-        Option(text: "手首", isCorrect: true),
-        Option(text: "指", isCorrect: false),
-        Option(text: "手", isCorrect: false),
-        Option(text: "腕", isCorrect: false),
+        Option(text: "内", isCorrect: true),
+        Option(text: "外", isCorrect: false),
+        Option(text: "前", isCorrect: false),
+        Option(text: "後ろ", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "콩나물",
+      text: "밖",
+      sentence: "밖으로 나가다.",
+      translation: "外へ出る。",
+      pronunciation: "パク",
       options: [
-        Option(text: "ほうれん草", isCorrect: false),
-        Option(text: "レタス", isCorrect: false),
-        Option(text: "もやし", isCorrect: true),
-        Option(text: "キャベツ", isCorrect: false),
+        Option(text: "外", isCorrect: true),
+        Option(text: "内", isCorrect: false),
+        Option(text: "前", isCorrect: false),
+        Option(text: "後ろ", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "시금치",
+      text: "앞면",
+      sentence: "책의 앞면을 보다.",
+      translation: "本の表面を見る。",
+      pronunciation: "アプミョン",
       options: [
-        Option(text: "もやし", isCorrect: false),
-        Option(text: "レタス", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: false),
-        Option(text: "ほうれん草", isCorrect: true),
+        Option(text: "表面", isCorrect: true),
+        Option(text: "裏面", isCorrect: false),
+        Option(text: "内", isCorrect: false),
+        Option(text: "外", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "양배추",
+      text: "뒷면",
+      sentence: "책의 뒷면을 보다.",
+      translation: "本の裏面を見る。",
+      pronunciation: "トゥィミョン",
       options: [
-        Option(text: "もやし", isCorrect: false),
-        Option(text: "レタス", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: true),
-        Option(text: "ほうれん草", isCorrect: false),
+        Option(text: "裏面", isCorrect: true),
+        Option(text: "表面", isCorrect: false),
+        Option(text: "内", isCorrect: false),
+        Option(text: "外", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "상추",
+      text: "여기",
+      sentence: "여기에 있다.",
+      translation: "ここにいる。",
+      pronunciation: "ヨギ",
       options: [
-        Option(text: "もやし", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: false),
-        Option(text: "ほうれん草", isCorrect: false),
-        Option(text: "レタス", isCorrect: true),
+        Option(text: "ここ", isCorrect: true),
+        Option(text: "そこ", isCorrect: false),
+        Option(text: "あそこ", isCorrect: false),
+        Option(text: "後ろ", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "설탕",
+      text: "거기",
+      sentence: "거기에 있다.",
+      translation: "そこにいる。",
+      pronunciation: "コギ",
       options: [
-        Option(text: "砂糖", isCorrect: true),
-        Option(text: "塩", isCorrect: false),
-        Option(text: "醤油", isCorrect: false),
-        Option(text: "味噌", isCorrect: false),
+        Option(text: "そこ", isCorrect: true),
+        Option(text: "ここ", isCorrect: false),
+        Option(text: "あそこ", isCorrect: false),
+        Option(text: "前", isCorrect: false),
       ],
     ),
     Quiz(
-      text: "간장",
+      text: "저기",
+      sentence: "저기에 있다.",
+      translation: "あそこにいる。",
+      pronunciation: "ジョギ",
       options: [
-        Option(text: "醤油", isCorrect: true),
-        Option(text: "塩", isCorrect: false),
-        Option(text: "砂糖", isCorrect: false),
-        Option(text: "味噌", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "된장",
-      options: [
-        Option(text: "醤油", isCorrect: false),
-        Option(text: "塩", isCorrect: false),
-        Option(text: "味噌", isCorrect: true),
-        Option(text: "砂糖", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "과자",
-      options: [
-        Option(text: "ごはん", isCorrect: false),
-        Option(text: "お菓子", isCorrect: true),
-        Option(text: "砂糖", isCorrect: false),
-        Option(text: "チョコレート", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사탕",
-      options: [
-        Option(text: "キャンディ", isCorrect: true),
-        Option(text: "ガム", isCorrect: false),
-        Option(text: "駄菓子", isCorrect: false),
-        Option(text: "レモン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "해산물",
-      options: [
-        Option(text: "海鮮物", isCorrect: true),
-        Option(text: "燻製", isCorrect: false),
-        Option(text: "魚類", isCorrect: false),
-        Option(text: "肉", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "빵",
-      options: [
-        Option(text: "パン", isCorrect: true),
-        Option(text: "ご飯", isCorrect: false),
-        Option(text: "ごはん", isCorrect: false),
-        Option(text: "麺", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "국수",
-      options: [
-        Option(text: "パン", isCorrect: false),
-        Option(text: "ご飯", isCorrect: false),
-        Option(text: "麺", isCorrect: true),
-        Option(text: "ごはん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "돈가스",
-      options: [
-        Option(text: "トンカツ", isCorrect: true),
-        Option(text: "ご飯", isCorrect: false),
-        Option(text: "カレーライス", isCorrect: false),
-        Option(text: "ラーメン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "소바",
-      options: [
-        Option(text: "そば", isCorrect: true),
-        Option(text: "うどん", isCorrect: false),
-        Option(text: "ラーメン", isCorrect: false),
-        Option(text: "そうめん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "우동",
-      options: [
-        Option(text: "そば", isCorrect: false),
-        Option(text: "ラーメン", isCorrect: false),
-        Option(text: "うどん", isCorrect: true),
-        Option(text: "そうめん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "라면",
-      options: [
-        Option(text: "ラーメン", isCorrect: true),
-        Option(text: "うどん", isCorrect: false),
-        Option(text: "そば", isCorrect: false),
-        Option(text: "そうめん", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "그림",
-      options: [
-        Option(text: "写真", isCorrect: false),
-        Option(text: "影", isCorrect: false),
-        Option(text: "絵", isCorrect: true),
-        Option(text: "ポスター", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "의자",
-      options: [
-        Option(text: "机", isCorrect: false),
-        Option(text: "本棚", isCorrect: false),
-        Option(text: "ベッド", isCorrect: false),
-        Option(text: "椅子", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "책장",
-      options: [
-        Option(text: "机", isCorrect: false),
-        Option(text: "椅子", isCorrect: false),
-        Option(text: "本棚", isCorrect: true),
-        Option(text: "ベッド", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "식탁",
-      options: [
-        Option(text: "食卓", isCorrect: true),
-        Option(text: "机", isCorrect: false),
-        Option(text: "椅子", isCorrect: false),
-        Option(text: "ベッド", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "낮",
-      options: [
-        Option(text: "夜", isCorrect: false),
-        Option(text: "朝", isCorrect: false),
-        Option(text: "午後", isCorrect: false),
-        Option(text: "昼", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "아침",
-      options: [
-        Option(text: "朝", isCorrect: true),
-        Option(text: "夜", isCorrect: false),
-        Option(text: "昼", isCorrect: false),
-        Option(text: "午後", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "오후",
-      options: [
-        Option(text: "夜", isCorrect: false),
-        Option(text: "午後", isCorrect: true),
-        Option(text: "昼", isCorrect: false),
-        Option(text: "朝", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "크기",
-      options: [
-        Option(text: "小さい", isCorrect: false),
-        Option(text: "大きい", isCorrect: false),
-        Option(text: "容積", isCorrect: false),
-        Option(text: "サイズ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "두께",
-      options: [
-        Option(text: "太さ", isCorrect: false),
-        Option(text: "広さ", isCorrect: false),
-        Option(text: "厚み", isCorrect: true),
-        Option(text: "長さ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "양",
-      options: [
-        Option(text: "大きさ", isCorrect: false),
-        Option(text: "サイズ", isCorrect: false),
-        Option(text: "量", isCorrect: true),
-        Option(text: "容積", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "면적",
-      options: [
-        Option(text: "面積", isCorrect: true),
-        Option(text: "大きさ", isCorrect: false),
-        Option(text: "サイズ", isCorrect: false),
-        Option(text: "容積", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "너비",
-      options: [
-        Option(text: "幅", isCorrect: true),
-        Option(text: "太さ", isCorrect: false),
-        Option(text: "長さ", isCorrect: false),
-        Option(text: "高さ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "높이",
-      options: [
-        Option(text: "高く", isCorrect: true),
-        Option(text: "幅", isCorrect: false),
-        Option(text: "長く", isCorrect: false),
-        Option(text: "太く", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "양쪽",
-      options: [
-        Option(text: "両側", isCorrect: true),
-        Option(text: "片側", isCorrect: false),
-        Option(text: "右側", isCorrect: false),
-        Option(text: "側面", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "그림자",
-      options: [
-        Option(text: "影", isCorrect: true),
-        Option(text: "影響", isCorrect: false),
-        Option(text: "影像", isCorrect: false),
-        Option(text: "印象", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "영향",
-      options: [
-        Option(text: "影響", isCorrect: true),
-        Option(text: "影", isCorrect: false),
-        Option(text: "影像", isCorrect: false),
-        Option(text: "印象", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "효과",
-      options: [
-        Option(text: "効率", isCorrect: false),
-        Option(text: "効果", isCorrect: true),
-        Option(text: "評価", isCorrect: false),
-        Option(text: "評論", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "인상",
-      options: [
-        Option(text: "人相", isCorrect: true),
-        Option(text: "人物", isCorrect: false),
-        Option(text: "影響", isCorrect: false),
-        Option(text: "影像", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "자리",
-      options: [
-        Option(text: "場所", isCorrect: true),
-        Option(text: "時", isCorrect: false),
-        Option(text: "席替え", isCorrect: false),
-        Option(text: "時間", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "좌석",
-      options: [
-        Option(text: "順", isCorrect: false),
-        Option(text: "居酒屋", isCorrect: false),
-        Option(text: "座席", isCorrect: true),
-        Option(text: "自身", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "장소",
-      options: [
-        Option(text: "場所", isCorrect: true),
-        Option(text: "座席", isCorrect: false),
-        Option(text: "席順", isCorrect: false),
-        Option(text: "場面", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "극장",
-      options: [
-        Option(text: "映画館", isCorrect: false),
-        Option(text: "劇場", isCorrect: true),
-        Option(text: "会場", isCorrect: false),
-        Option(text: "スタジオ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "드라마",
-      options: [
-        Option(text: "映画", isCorrect: false),
-        Option(text: "漫画", isCorrect: false),
-        Option(text: "ドラマ", isCorrect: true),
-        Option(text: "小説", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "대회",
-      options: [
-        Option(text: "競争", isCorrect: false),
-        Option(text: "試合", isCorrect: false),
-        Option(text: "競技", isCorrect: false),
-        Option(text: "大会", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "경쟁",
-      options: [
-        Option(text: "大会", isCorrect: false),
-        Option(text: "試合", isCorrect: false),
-        Option(text: "競争", isCorrect: true),
-        Option(text: "競技", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "경기",
-      options: [
-        Option(text: "競技", isCorrect: true),
-        Option(text: "大会", isCorrect: false),
-        Option(text: "戦争", isCorrect: false),
-        Option(text: "協定", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "대항전",
-      options: [
-        Option(text: "対抗戦", isCorrect: true),
-        Option(text: "大会", isCorrect: false),
-        Option(text: "協調", isCorrect: false),
-        Option(text: "紛争", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "전쟁",
-      options: [
-        Option(text: "戦闘", isCorrect: false),
-        Option(text: "軍隊", isCorrect: false),
-        Option(text: "戦争", isCorrect: true),
-        Option(text: "攻撃", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "전투",
-      options: [
-        Option(text: "戦闘", isCorrect: true),
-        Option(text: "船体", isCorrect: false),
-        Option(text: "軍隊", isCorrect: false),
-        Option(text: "攻撃", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "군대",
-      options: [
-        Option(text: "戦争", isCorrect: false),
-        Option(text: "戦闘", isCorrect: false),
-        Option(text: "軍隊", isCorrect: true),
-        Option(text: "攻撃", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "공격",
-      options: [
-        Option(text: "戦争", isCorrect: false),
-        Option(text: "戦闘", isCorrect: false),
-        Option(text: "攻撃", isCorrect: true),
-        Option(text: "軍隊", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "요금",
-      options: [
-        Option(text: "相場", isCorrect: false),
-        Option(text: "出費", isCorrect: false),
-        Option(text: "破格", isCorrect: false),
-        Option(text: "料金", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "비용",
-      options: [
-        Option(text: "費用", isCorrect: true),
-        Option(text: "料金", isCorrect: false),
-        Option(text: "価格", isCorrect: false),
-        Option(text: "値段", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "값",
-      options: [
-        Option(text: "値", isCorrect: true),
-        Option(text: "金", isCorrect: false),
-        Option(text: "借金", isCorrect: false),
-        Option(text: "値引き", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "기록",
-      options: [
-        Option(text: "記憶", isCorrect: false),
-        Option(text: "思い出", isCorrect: false),
-        Option(text: "感じ", isCorrect: false),
-        Option(text: "記録", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "느낌",
-      options: [
-        Option(text: "感じ", isCorrect: true),
-        Option(text: "思い出", isCorrect: false),
-        Option(text: "記録", isCorrect: false),
-        Option(text: "記憶", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "우정",
-      options: [
-        Option(text: "愛", isCorrect: false),
-        Option(text: "友情", isCorrect: true),
-        Option(text: "仲間", isCorrect: false),
-        Option(text: "家族", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "가족",
-      options: [
-        Option(text: "友達", isCorrect: false),
-        Option(text: "仲間", isCorrect: false),
-        Option(text: "恋人", isCorrect: false),
-        Option(text: "家族", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "잡다",
-      options: [
-        Option(text: "つかむ", isCorrect: true),
-        Option(text: "離す", isCorrect: false),
-        Option(text: "抱擁", isCorrect: false),
-        Option(text: "握手", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "열쇠",
-      options: [
-        Option(text: "ドア", isCorrect: false),
-        Option(text: "窓", isCorrect: false),
-        Option(text: "倉庫", isCorrect: false),
-        Option(text: "カギ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "문",
-      options: [
-        Option(text: "ドア", isCorrect: true),
-        Option(text: "窓", isCorrect: false),
-        Option(text: "床", isCorrect: false),
-        Option(text: "天井", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "바닥",
-      options: [
-        Option(text: "ドア", isCorrect: false),
-        Option(text: "窓", isCorrect: false),
-        Option(text: "床", isCorrect: true),
-        Option(text: "天井", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "천장",
-      options: [
-        Option(text: "ドア", isCorrect: false),
-        Option(text: "窓", isCorrect: false),
-        Option(text: "天井", isCorrect: true),
-        Option(text: "床", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "주방",
-      options: [
-        Option(text: "洗面所", isCorrect: false),
-        Option(text: "厨房", isCorrect: true),
-        Option(text: "浴室", isCorrect: false),
-        Option(text: "客間", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "욕실",
-      options: [
-        Option(text: "浴室", isCorrect: true),
-        Option(text: "洗面所", isCorrect: false),
-        Option(text: "台所", isCorrect: false),
-        Option(text: "客間", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "세면실",
-      options: [
-        Option(text: "浴室", isCorrect: false),
-        Option(text: "台所", isCorrect: false),
-        Option(text: "洗面所", isCorrect: true),
-        Option(text: "客間", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "침실",
-      options: [
-        Option(text: "居間", isCorrect: false),
-        Option(text: "客間", isCorrect: false),
-        Option(text: "寝室", isCorrect: true),
-        Option(text: "台所", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "거실",
-      options: [
-        Option(text: "教室", isCorrect: false),
-        Option(text: "寝室", isCorrect: false),
-        Option(text: "居間", isCorrect: true),
-        Option(text: "台所", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "회의실",
-      options: [
-        Option(text: "教室", isCorrect: false),
-        Option(text: "職員室", isCorrect: false),
-        Option(text: "会議室", isCorrect: true),
-        Option(text: "事務所", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "샤워",
-      options: [
-        Option(text: "シャワー", isCorrect: true),
-        Option(text: "風呂", isCorrect: false),
-        Option(text: "浴槽", isCorrect: false),
-        Option(text: "トイレ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "욕조",
-      options: [
-        Option(text: "シャワー", isCorrect: false),
-        Option(text: "風呂", isCorrect: false),
-        Option(text: "浴槽", isCorrect: true),
-        Option(text: "トイレ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "화장실",
-      options: [
-        Option(text: "トイレ", isCorrect: true),
-        Option(text: "シャワー", isCorrect: false),
-        Option(text: "浴槽", isCorrect: false),
-        Option(text: "風呂", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "오토바이",
-      options: [
-        Option(text: "自動車", isCorrect: false),
-        Option(text: "自転車", isCorrect: false),
-        Option(text: "バイク", isCorrect: true),
-        Option(text: "電車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "전차",
-      options: [
-        Option(text: "自動車", isCorrect: false),
-        Option(text: "バイク", isCorrect: false),
-        Option(text: "自転車", isCorrect: false),
-        Option(text: "電車", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "보트",
-      options: [
-        Option(text: "ボート", isCorrect: true),
-        Option(text: "飛行機", isCorrect: false),
-        Option(text: "バス", isCorrect: false),
-        Option(text: "自動車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "버스",
-      options: [
-        Option(text: "バス", isCorrect: true),
-        Option(text: "飛行機", isCorrect: false),
-        Option(text: "船", isCorrect: false),
-        Option(text: "自動車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "비행기",
-      options: [
-        Option(text: "自動車", isCorrect: false),
-        Option(text: "バイク", isCorrect: false),
-        Option(text: "飛行機", isCorrect: true),
-        Option(text: "電車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "배",
-      options: [
-        Option(text: "飛行機", isCorrect: false),
-        Option(text: "バス", isCorrect: false),
-        Option(text: "船", isCorrect: true),
-        Option(text: "自動車", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "종류",
-      options: [
-        Option(text: "種類", isCorrect: true),
-        Option(text: "形", isCorrect: false),
-        Option(text: "大きさ", isCorrect: false),
-        Option(text: "色", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "맛",
-      options: [
-        Option(text: "形", isCorrect: false),
-        Option(text: "味", isCorrect: true),
-        Option(text: "種類", isCorrect: false),
-        Option(text: "大きさ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "모양",
-      options: [
-        Option(text: "種類", isCorrect: false),
-        Option(text: "大きさ", isCorrect: false),
-        Option(text: "形", isCorrect: true),
-        Option(text: "変形", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "체중",
-      options: [
-        Option(text: "身長", isCorrect: false),
-        Option(text: "体重", isCorrect: true),
-        Option(text: "年齢", isCorrect: false),
-        Option(text: "体温", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "나이",
-      options: [
-        Option(text: "身長", isCorrect: false),
-        Option(text: "体重", isCorrect: false),
-        Option(text: "年齢", isCorrect: true),
-        Option(text: "体温", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "온도",
-      options: [
-        Option(text: "身長", isCorrect: false),
-        Option(text: "体重", isCorrect: false),
-        Option(text: "年齢", isCorrect: false),
-        Option(text: "温度", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "살",
-      options: [
-        Option(text: "身長", isCorrect: false),
-        Option(text: "歳", isCorrect: true),
-        Option(text: "体重", isCorrect: false),
-        Option(text: "体温", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "시간",
-      options: [
-        Option(text: "日", isCorrect: false),
-        Option(text: "週", isCorrect: false),
-        Option(text: "年", isCorrect: false),
-        Option(text: "時間", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "주",
-      options: [
-        Option(text: "曜日", isCorrect: false),
-        Option(text: "日付", isCorrect: false),
-        Option(text: "年", isCorrect: false),
-        Option(text: "週", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "년",
-      options: [
-        Option(text: "週", isCorrect: false),
-        Option(text: "曜日", isCorrect: false),
-        Option(text: "年", isCorrect: true),
-        Option(text: "日付", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "새벽",
-      options: [
-        Option(text: "夕方", isCorrect: false),
-        Option(text: "夜明け", isCorrect: true),
-        Option(text: "昼", isCorrect: false),
-        Option(text: "夜", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "저녁",
-      options: [
-        Option(text: "夜明け", isCorrect: false),
-        Option(text: "昼", isCorrect: false),
-        Option(text: "夜", isCorrect: false),
-        Option(text: "夕方", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "거짓",
-      options: [
-        Option(text: "真実", isCorrect: false),
-        Option(text: "正しい", isCorrect: false),
-        Option(text: "間違い", isCorrect: false),
-        Option(text: "偽", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "위험",
-      options: [
-        Option(text: "危険", isCorrect: true),
-        Option(text: "安全", isCorrect: false),
-        Option(text: "事故", isCorrect: false),
-        Option(text: "怖い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "안전",
-      options: [
-        Option(text: "危険", isCorrect: false),
-        Option(text: "安全", isCorrect: true),
-        Option(text: "事故", isCorrect: false),
-        Option(text: "怖い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "사고",
-      options: [
-        Option(text: "安全", isCorrect: false),
-        Option(text: "危険", isCorrect: false),
-        Option(text: "事故", isCorrect: true),
-        Option(text: "怖い", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "셔츠",
-      options: [
-        Option(text: "靴", isCorrect: false),
-        Option(text: "ズボン", isCorrect: false),
-        Option(text: "シャツ", isCorrect: true),
-        Option(text: "帽子", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "코트",
-      options: [
-        Option(text: "コート", isCorrect: true),
-        Option(text: "帽子", isCorrect: false),
-        Option(text: "靴", isCorrect: false),
-        Option(text: "ズボン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "안경",
-      options: [
-        Option(text: "ネクタイ", isCorrect: false),
-        Option(text: "時計", isCorrect: false),
-        Option(text: "イヤリング", isCorrect: false),
-        Option(text: "眼鏡", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "넥타이",
-      options: [
-        Option(text: "眼鏡", isCorrect: false),
-        Option(text: "時計", isCorrect: false),
-        Option(text: "イヤリング", isCorrect: false),
-        Option(text: "ネクタイ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "시계",
-      options: [
-        Option(text: "眼鏡", isCorrect: false),
-        Option(text: "ネクタイ", isCorrect: false),
-        Option(text: "時計", isCorrect: true),
-        Option(text: "イヤリング", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "바늘",
-      options: [
-        Option(text: "眼鏡", isCorrect: false),
-        Option(text: "時計", isCorrect: false),
-        Option(text: "針", isCorrect: true),
-        Option(text: "イヤリング", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "귀걸이",
-      options: [
-        Option(text: "眼鏡", isCorrect: false),
-        Option(text: "ネクタイ", isCorrect: false),
-        Option(text: "時計", isCorrect: false),
-        Option(text: "イヤリング", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "손목시계",
-      options: [
-        Option(text: "眼鏡", isCorrect: false),
-        Option(text: "ネクタイ", isCorrect: false),
-        Option(text: "イヤリング", isCorrect: false),
-        Option(text: "腕時計", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "구름",
-      options: [
-        Option(text: "雨", isCorrect: false),
-        Option(text: "雲", isCorrect: true),
-        Option(text: "風", isCorrect: false),
-        Option(text: "雷", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "미움",
-      options: [
-        Option(text: "憎しみ", isCorrect: true),
-        Option(text: "愛", isCorrect: false),
-        Option(text: "友情", isCorrect: false),
-        Option(text: "喜び", isCorrect: false),
+        Option(text: "あそこ", isCorrect: true),
+        Option(text: "そこ", isCorrect: false),
+        Option(text: "ここ", isCorrect: false),
+        Option(text: "前", isCorrect: false),
       ],
     ),
   ];
@@ -4191,6 +4165,9 @@ class AppQuizData {
   static final List<Quiz> korianBiginnerGreets = [
     Quiz(
       text: "실례합니다",
+      sentence: "실례합니다, 질문이 있습니다.",
+      translation: "失礼します、質問があります。",
+      pronunciation: "シルレハムニダ",
       options: [
         Option(text: "失礼します", isCorrect: true),
         Option(text: "こんにちは", isCorrect: false),
@@ -4200,6 +4177,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "또 만나요",
+      sentence: "그럼, 또 만나요.",
+      translation: "それでは、また会いましょう。",
+      pronunciation: "ト マンナヨ",
       options: [
         Option(text: "どうぞよろしく", isCorrect: false),
         Option(text: "ごめんなさい", isCorrect: false),
@@ -4209,6 +4189,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "고마워",
+      sentence: "도와줘서 고마워.",
+      translation: "助けてくれてありがとう。",
+      pronunciation: "ゴマウォ",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),
@@ -4218,6 +4201,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "미안해",
+      sentence: "늦어서 미안해.",
+      translation: "遅れてごめんね。",
+      pronunciation: "ミアネ",
       options: [
         Option(text: "ありがとうございます", isCorrect: false),
         Option(text: "おはようございます", isCorrect: false),
@@ -4227,6 +4213,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "잘 먹겠습니다",
+      sentence: "잘 먹겠습니다, 맛있게 먹을게요.",
+      translation: "いただきます、美味しくいただきます。",
+      pronunciation: "チャル モッケッスムニダ",
       options: [
         Option(text: "お疲れ様です", isCorrect: false),
         Option(text: "またね", isCorrect: false),
@@ -4236,6 +4225,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "잘 지내세요?",
+      sentence: "잘 지내세요? 오랜만이에요.",
+      translation: "お元気ですか？久しぶりです。",
+      pronunciation: "チャル チネセヨ?",
       options: [
         Option(text: "お元気ですか？", isCorrect: true),
         Option(text: "おはようございます", isCorrect: false),
@@ -4245,6 +4237,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "보고 싶었어요",
+      sentence: "정말 보고 싶었어요.",
+      translation: "本当に会いたかったです。",
+      pronunciation: "ボゴ シポッソヨ",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "いただきます", isCorrect: false),
@@ -4254,6 +4249,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "좋은 하루 보내세요",
+      sentence: "좋은 하루 보내세요!",
+      translation: "良い一日を過ごしてください！",
+      pronunciation: "ジョウン ハル ボネセヨ",
       options: [
         Option(text: "良い一日を", isCorrect: true),
         Option(text: "おはようございます", isCorrect: false),
@@ -4263,6 +4261,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "잘 부탁합니다",
+      sentence: "잘 부탁합니다, 열심히 하겠습니다.",
+      translation: "よろしくお願いします、一生懸命やります。",
+      pronunciation: "チャル ブタッカムニダ",
       options: [
         Option(text: "おはようございます", isCorrect: false),
         Option(text: "おやすみなさい", isCorrect: false),
@@ -4272,6 +4273,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "성함이 어떻게 되세요?",
+      sentence: "성함이 어떻게 되세요?",
+      translation: "お名前は何ですか？",
+      pronunciation: "ソンハミ オトケ デセヨ?",
       options: [
         Option(text: "お元気ですか？", isCorrect: false),
         Option(text: "どこから来ましたか？", isCorrect: false),
@@ -4281,6 +4285,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "나이가 어떻게 되세요?",
+      sentence: "나이가 어떻게 되세요?",
+      translation: "おいくつですか？",
+      pronunciation: "ナイガ オトケ デセヨ?",
       options: [
         Option(text: "お名前は何ですか？", isCorrect: false),
         Option(text: "おいくつですか？", isCorrect: true),
@@ -4290,6 +4297,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "~에서 왔습니다",
+      sentence: "저는 한국에서 왔습니다.",
+      translation: "私は韓国から来ました。",
+      pronunciation: "エソ ワッスムニダ",
       options: [
         Option(text: "～へいきます", isCorrect: false),
         Option(text: "～へ送ります", isCorrect: false),
@@ -4299,6 +4309,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "안녕하세요",
+      sentence: "안녕하세요, 만나서 반갑습니다.",
+      translation: "こんにちは、お会いできて嬉しいです。",
+      pronunciation: "アンニョンハセヨ",
       options: [
         Option(text: "ありがとう", isCorrect: false),
         Option(text: "おやすみ", isCorrect: false),
@@ -4308,6 +4321,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "감사합니다",
+      sentence: "도와주셔서 감사합니다.",
+      translation: "助けていただいてありがとうございます。",
+      pronunciation: "カムサハムニダ",
       options: [
         Option(text: "こんにちは", isCorrect: false),
         Option(text: "こんばんは", isCorrect: false),
@@ -4317,6 +4333,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "잘 자요",
+      sentence: "오늘 밤 잘 자요.",
+      translation: "今夜おやすみなさい。",
+      pronunciation: "チャル ジャヨ",
       options: [
         Option(text: "こんにちは", isCorrect: false),
         Option(text: "ありがとう", isCorrect: false),
@@ -4326,6 +4345,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "수고하셨습니다",
+      sentence: "오늘도 수고하셨습니다.",
+      translation: "今日もお疲れ様でした。",
+      pronunciation: "スゴハショッスムニダ",
       options: [
         Option(text: "お疲れ様です", isCorrect: true),
         Option(text: "ありがとう", isCorrect: false),
@@ -4335,6 +4357,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "처음 뵙겠습니다",
+      sentence: "처음 뵙겠습니다, 만나서 반갑습니다.",
+      translation: "はじめまして、お会いできて嬉しいです。",
+      pronunciation: "チョウム ベプケッスムニダ",
       options: [
         Option(text: "はじめまして", isCorrect: true),
         Option(text: "おやすみなさい", isCorrect: false),
@@ -4344,6 +4369,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "안녕히 가세요",
+      sentence: "안녕히 가세요, 다음에 봐요.",
+      translation: "さようなら、また会いましょう。",
+      pronunciation: "アンニョンヒ ガセヨ",
       options: [
         Option(text: "おはようございます", isCorrect: false),
         Option(text: "こんにちは", isCorrect: false),
@@ -4353,6 +4381,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "오랜만입니다",
+      sentence: "오랜만입니다, 잘 지내셨나요?",
+      translation: "久しぶりです、お元気でしたか？",
+      pronunciation: "オレンマニムニダ",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "ありがとうございます", isCorrect: false),
@@ -4362,6 +4393,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "죄송합니다",
+      sentence: "늦어서 죄송합니다.",
+      translation: "遅れてごめんなさい。",
+      pronunciation: "チェソンハムニダ",
       options: [
         Option(text: "こんにちは", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),
@@ -4371,6 +4405,9 @@ class AppQuizData {
     ),
     Quiz(
       text: "어서 오세요",
+      sentence: "어서 오세요, 저희 가게에 오신 걸 환영합니다.",
+      translation: "いらっしゃいませ、当店へようこそ。",
+      pronunciation: "オソ オセヨ",
       options: [
         Option(text: "ありがとう", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),

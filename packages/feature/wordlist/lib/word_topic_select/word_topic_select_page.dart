@@ -1,6 +1,8 @@
+import 'package:core_router/data/app_route_data.dart';
+import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:flutter/material.dart';
 
-class TopicPage extends StatelessWidget {
+class WordTopicSelectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +16,7 @@ class TopicPage extends StatelessWidget {
             children: [
               _buildHeader(),
               SizedBox(height: 20),
-              _buildQuizList(),
+              _buildQuizList(context),
             ],
           ),
         ),
@@ -59,7 +61,7 @@ class TopicPage extends StatelessWidget {
     );
   }
 
-  Widget _buildQuizList() {
+  Widget _buildQuizList(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -71,17 +73,18 @@ class TopicPage extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10),
-        _buildQuizListItem('Android', 'History and People', '9 mins'),
+        _buildQuizListItem(context, 'Android', 'History and People', '9 mins'),
         _buildQuizListItem(
-            'Programming', 'Basic Programming Concepts', '13 mins'),
-        _buildQuizListItem(
-            'Web Development', 'Introduction to Web Technologies', '12 mins'),
-        _buildQuizListItem('Science', 'Biology and Chemistry', '15 mins'),
+            context, 'Programming', 'Basic Programming Concepts', '13 mins'),
+        _buildQuizListItem(context, 'Web Development',
+            'Introduction to Web Technologies', '12 mins'),
+        _buildQuizListItem(context, 'Science', 'Biology and Chemistry', '15 mins'),
       ],
     );
   }
 
-  Widget _buildQuizListItem(String title, String subtitle, String duration) {
+  Widget _buildQuizListItem(
+      BuildContext context, String title, String subtitle, String duration) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
@@ -99,7 +102,7 @@ class TopicPage extends StatelessWidget {
           ],
         ),
         onTap: () {
-          // Add your onTap functionality here
+          WordlistPageData().go(context);
         },
       ),
     );

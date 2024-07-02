@@ -1,5 +1,5 @@
 import 'package:core_router/data/app_route_data.dart';
-import 'package:core_router/data/quiz_favorite/quiz_favorite_page_data.dart';
+import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,7 +21,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       // contextが利用可能になった後でref.watchを呼び出す
 
       // 2秒後にpushNamedを実行
-      HomePageData().go(context);
+      WordTopicPageData().go(context);
     });
   }
 

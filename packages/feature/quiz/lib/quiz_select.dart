@@ -3,6 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'src/home_page.dart';
+export 'quiz_select/quiz_select_page.dart';
 
 // TODO: Export any libraries intended for clients of this package.

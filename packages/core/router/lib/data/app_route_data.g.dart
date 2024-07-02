@@ -19,12 +19,16 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           observers: HomeBranch.$observers,
           routes: [
             GoRouteData.$route(
-              path: '/home',
-              factory: $HomePageDataExtension._fromState,
+              path: '/wordTopic',
+              factory: $WordTopicPageDataExtension._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'wordlist',
-                  factory: $WordlistRouteDataExtension._fromState,
+                  factory: $WordlistPageDataExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'wordDetail',
+                  factory: $wordDetailPageDataExtension._fromState,
                 ),
               ],
             ),
@@ -35,18 +39,14 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           observers: SecoundBranch.$observers,
           routes: [
             GoRouteData.$route(
-              path: '/topic',
-              factory: $TopicRouteDataExtension._fromState,
-            ),
-          ],
-        ),
-        StatefulShellBranchData.$branch(
-          navigatorKey: ThirdBranch.$navigatorKey,
-          observers: ThirdBranch.$observers,
-          routes: [
-            GoRouteData.$route(
-              path: '/favorite',
+              path: '/quizSelect',
               factory: $QuizSelectPageDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'quiz',
+                  factory: $QuizPageDataExtension._fromState,
+                ),
+              ],
             ),
           ],
         ),
@@ -56,13 +56,7 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           routes: [
             GoRouteData.$route(
               path: '/setting_root',
-              factory: $SettingRootPageDataExtension._fromState,
-              routes: [
-                GoRouteData.$route(
-                  path: 'setting',
-                  factory: $SettingPageDataExtension._fromState,
-                ),
-              ],
+              factory: $SettingPageDataExtension._fromState,
             ),
           ],
         ),
@@ -74,11 +68,12 @@ extension $AppShellRouteDataExtension on AppShellRouteData {
       const AppShellRouteData();
 }
 
-extension $HomePageDataExtension on HomePageData {
-  static HomePageData _fromState(GoRouterState state) => const HomePageData();
+extension $WordTopicPageDataExtension on WordTopicPageData {
+  static WordTopicPageData _fromState(GoRouterState state) =>
+      const WordTopicPageData();
 
   String get location => GoRouteData.$location(
-        '/home',
+        '/wordTopic',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -91,12 +86,12 @@ extension $HomePageDataExtension on HomePageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $WordlistRouteDataExtension on WordlistRouteData {
-  static WordlistRouteData _fromState(GoRouterState state) =>
-      const WordlistRouteData();
+extension $WordlistPageDataExtension on WordlistPageData {
+  static WordlistPageData _fromState(GoRouterState state) =>
+      const WordlistPageData();
 
   String get location => GoRouteData.$location(
-        '/home/wordlist',
+        '/wordTopic/wordlist',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -109,12 +104,12 @@ extension $WordlistRouteDataExtension on WordlistRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $TopicRouteDataExtension on TopicRouteData {
-  static TopicRouteData _fromState(GoRouterState state) =>
-      const TopicRouteData();
+extension $wordDetailPageDataExtension on wordDetailPageData {
+  static wordDetailPageData _fromState(GoRouterState state) =>
+      const wordDetailPageData();
 
   String get location => GoRouteData.$location(
-        '/topic',
+        '/wordTopic/wordDetail',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -132,7 +127,7 @@ extension $QuizSelectPageDataExtension on QuizSelectPageData {
       const QuizSelectPageData();
 
   String get location => GoRouteData.$location(
-        '/favorite',
+        '/quizSelect',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -145,12 +140,11 @@ extension $QuizSelectPageDataExtension on QuizSelectPageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SettingRootPageDataExtension on SettingRootPageData {
-  static SettingRootPageData _fromState(GoRouterState state) =>
-      const SettingRootPageData();
+extension $QuizPageDataExtension on QuizPageData {
+  static QuizPageData _fromState(GoRouterState state) => const QuizPageData();
 
   String get location => GoRouteData.$location(
-        '/setting_root',
+        '/quizSelect/quiz',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -168,7 +162,7 @@ extension $SettingPageDataExtension on SettingPageData {
       const SettingPageData();
 
   String get location => GoRouteData.$location(
-        '/setting_root/setting',
+        '/setting_root',
       );
 
   void go(BuildContext context) => context.go(location);

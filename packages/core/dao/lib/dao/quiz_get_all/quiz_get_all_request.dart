@@ -3,8 +3,8 @@ import 'package:core_enums/enums.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/api/quiz_get_all/quiz_get_all_request.freezed.dart';
-part '../../generated/api/quiz_get_all/quiz_get_all_request.g.dart';
+part '../../generated/dao/quiz_get_all/quiz_get_all_request.freezed.dart';
+part '../../generated/dao/quiz_get_all/quiz_get_all_request.g.dart';
 
 ///  RequestEntity
 @freezed

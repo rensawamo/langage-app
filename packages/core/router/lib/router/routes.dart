@@ -4,17 +4,13 @@ mixin Routes {
   static const String top = '/top';
 
   /////// bottom tab1   ///////
-  static const String home = '/home';
+  static const String wordTopic = '/wordTopic';
   static const String wordlist = 'wordlist';
-  // Appointment
-  static const String timeline = 'timeline';
-  // web
-  static const String web = 'web';
-  // Hospital
-  static const String hospital = 'hospital';
+  static const String wordDetail = 'wordDetail';
 
   /////// bottom tab2   ///////
-  static const String topic = '/topic';
+  static const String quizSelect = '/quizSelect';
+  static const String quiz = 'quiz';
 
   /////// bottom tab3   ///////
   static const String favorite = '/favorite';

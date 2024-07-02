@@ -76,10 +76,10 @@ class WordGetAllDao implements WordGetAllDaoInterface {
 
             // 動詞
             case QuizTopicType.verb:
-              List<String> words = AppQuizData.korianBiginnerVerbs
+              List<String> words = AppQuizData.korianBiginnerAdjectives
                   .map((quiz) => quiz.text)
                   .toList();
-              List<String> answers = AppQuizData.korianBiginnerVerbs
+              List<String> answers = AppQuizData.korianBiginnerAdjectives
                   .map((quiz) => quiz.options
                       .firstWhere((option) => option.isCorrect)
                       .text)
