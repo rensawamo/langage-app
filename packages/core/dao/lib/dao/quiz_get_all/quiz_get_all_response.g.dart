@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../dao/quiz_get_all/quiz_get_all_response.dart';
+part of 'quiz_get_all_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -29,6 +29,9 @@ Map<String, dynamic> _$$QuizGetAllResponseImplToJson(
 
 _$QuizImpl _$$QuizImplFromJson(Map<String, dynamic> json) => _$QuizImpl(
       text: json['text'] as String,
+      sentence: json['sentence'] as String,
+      translation: json['translation'] as String,
+      pronunciation: json['pronunciation'] as String,
       options: (json['options'] as List<dynamic>)
           .map((e) => Option.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -41,6 +44,9 @@ _$QuizImpl _$$QuizImplFromJson(Map<String, dynamic> json) => _$QuizImpl(
 Map<String, dynamic> _$$QuizImplToJson(_$QuizImpl instance) =>
     <String, dynamic>{
       'text': instance.text,
+      'sentence': instance.sentence,
+      'translation': instance.translation,
+      'pronunciation': instance.pronunciation,
       'options': instance.options,
       'isLocked': instance.isLocked,
       'selectedOption': instance.selectedOption,

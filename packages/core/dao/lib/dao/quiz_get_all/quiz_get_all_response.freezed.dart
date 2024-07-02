@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of '../../../dao/quiz_get_all/quiz_get_all_response.dart';
+part of 'quiz_get_all_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -221,7 +221,11 @@ Quiz _$QuizFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Quiz {
-  String get text => throw _privateConstructorUsedError;
+// 単語
+  String get text => throw _privateConstructorUsedError; // 例文
+  String get sentence => throw _privateConstructorUsedError; // 例文の翻訳
+  String get translation => throw _privateConstructorUsedError; // 発音
+  String get pronunciation => throw _privateConstructorUsedError;
   List<Option> get options => throw _privateConstructorUsedError;
   bool get isLocked => throw _privateConstructorUsedError;
   Option? get selectedOption => throw _privateConstructorUsedError;
@@ -238,6 +242,9 @@ abstract class $QuizCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
+      String sentence,
+      String translation,
+      String pronunciation,
       List<Option> options,
       bool isLocked,
       Option? selectedOption});
@@ -259,6 +266,9 @@ class _$QuizCopyWithImpl<$Res, $Val extends Quiz>
   @override
   $Res call({
     Object? text = null,
+    Object? sentence = null,
+    Object? translation = null,
+    Object? pronunciation = null,
     Object? options = null,
     Object? isLocked = null,
     Object? selectedOption = freezed,
@@ -267,6 +277,18 @@ class _$QuizCopyWithImpl<$Res, $Val extends Quiz>
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      sentence: null == sentence
+          ? _value.sentence
+          : sentence // ignore: cast_nullable_to_non_nullable
+              as String,
+      translation: null == translation
+          ? _value.translation
+          : translation // ignore: cast_nullable_to_non_nullable
+              as String,
+      pronunciation: null == pronunciation
+          ? _value.pronunciation
+          : pronunciation // ignore: cast_nullable_to_non_nullable
               as String,
       options: null == options
           ? _value.options
@@ -305,6 +327,9 @@ abstract class _$$QuizImplCopyWith<$Res> implements $QuizCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
+      String sentence,
+      String translation,
+      String pronunciation,
       List<Option> options,
       bool isLocked,
       Option? selectedOption});
@@ -324,6 +349,9 @@ class __$$QuizImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? text = null,
+    Object? sentence = null,
+    Object? translation = null,
+    Object? pronunciation = null,
     Object? options = null,
     Object? isLocked = null,
     Object? selectedOption = freezed,
@@ -332,6 +360,18 @@ class __$$QuizImplCopyWithImpl<$Res>
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      sentence: null == sentence
+          ? _value.sentence
+          : sentence // ignore: cast_nullable_to_non_nullable
+              as String,
+      translation: null == translation
+          ? _value.translation
+          : translation // ignore: cast_nullable_to_non_nullable
+              as String,
+      pronunciation: null == pronunciation
+          ? _value.pronunciation
+          : pronunciation // ignore: cast_nullable_to_non_nullable
               as String,
       options: null == options
           ? _value._options
@@ -354,6 +394,9 @@ class __$$QuizImplCopyWithImpl<$Res>
 class _$QuizImpl implements _Quiz {
   const _$QuizImpl(
       {required this.text,
+      required this.sentence,
+      required this.translation,
+      required this.pronunciation,
       required final List<Option> options,
       this.isLocked = false,
       this.selectedOption})
@@ -362,8 +405,18 @@ class _$QuizImpl implements _Quiz {
   factory _$QuizImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizImplFromJson(json);
 
+// 単語
   @override
   final String text;
+// 例文
+  @override
+  final String sentence;
+// 例文の翻訳
+  @override
+  final String translation;
+// 発音
+  @override
+  final String pronunciation;
   final List<Option> _options;
   @override
   List<Option> get options {
@@ -380,7 +433,7 @@ class _$QuizImpl implements _Quiz {
 
   @override
   String toString() {
-    return 'Quiz(text: $text, options: $options, isLocked: $isLocked, selectedOption: $selectedOption)';
+    return 'Quiz(text: $text, sentence: $sentence, translation: $translation, pronunciation: $pronunciation, options: $options, isLocked: $isLocked, selectedOption: $selectedOption)';
   }
 
   @override
@@ -389,6 +442,12 @@ class _$QuizImpl implements _Quiz {
         (other.runtimeType == runtimeType &&
             other is _$QuizImpl &&
             (identical(other.text, text) || other.text == text) &&
+            (identical(other.sentence, sentence) ||
+                other.sentence == sentence) &&
+            (identical(other.translation, translation) ||
+                other.translation == translation) &&
+            (identical(other.pronunciation, pronunciation) ||
+                other.pronunciation == pronunciation) &&
             const DeepCollectionEquality().equals(other._options, _options) &&
             (identical(other.isLocked, isLocked) ||
                 other.isLocked == isLocked) &&
@@ -398,8 +457,15 @@ class _$QuizImpl implements _Quiz {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text,
-      const DeepCollectionEquality().hash(_options), isLocked, selectedOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      text,
+      sentence,
+      translation,
+      pronunciation,
+      const DeepCollectionEquality().hash(_options),
+      isLocked,
+      selectedOption);
 
   @JsonKey(ignore: true)
   @override
@@ -418,14 +484,23 @@ class _$QuizImpl implements _Quiz {
 abstract class _Quiz implements Quiz {
   const factory _Quiz(
       {required final String text,
+      required final String sentence,
+      required final String translation,
+      required final String pronunciation,
       required final List<Option> options,
       final bool isLocked,
       final Option? selectedOption}) = _$QuizImpl;
 
   factory _Quiz.fromJson(Map<String, dynamic> json) = _$QuizImpl.fromJson;
 
-  @override
+  @override // 単語
   String get text;
+  @override // 例文
+  String get sentence;
+  @override // 例文の翻訳
+  String get translation;
+  @override // 発音
+  String get pronunciation;
   @override
   List<Option> get options;
   @override

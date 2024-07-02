@@ -23,16 +23,18 @@ class WordListViewmodel extends WordListViewmodelInterface {
   Future<void> init() async {
     // tls初期化
     initializeTts();
-    // final controller = state.scrollController;
-    // controller.addListener(() {
-    //   // スクロール量が全体の95%になった時,DBを呼ぶ.
-    //   final scrollValue =
-    //       controller.offset / controller.position.maxScrollExtent;
-    //   if (scrollValue > 0.95) {
-    //     state = state.copyWith(currentPage: state.currentPage + 1);
-    //     getQuizList(state.selectValue);
-    //   }
-    // });
+
+    getQuizList(quizTopicType);
+    final controller = state.scrollController;
+    controller.addListener(() {
+      // スクロール量が全体の95%になった時,DBを呼ぶ.
+      final scrollValue =
+          controller.offset / controller.position.maxScrollExtent;
+      if (scrollValue > 0.95) {
+        state = state.copyWith(currentPage: state.currentPage + 1);
+        getQuizList(state.selectValue);
+      }
+    });
   }
 
   /// Quize の一覧取得
@@ -48,7 +50,8 @@ class WordListViewmodel extends WordListViewmodelInterface {
       pageSize: 20,
     ))
         .then((response) {
-      // 一覧に追加
+          print(response.answers);
+      // 一覧に追加z
       state = state.copyWith(
           quizzes: response.words,
           answers: response.answers,
@@ -61,13 +64,6 @@ class WordListViewmodel extends WordListViewmodelInterface {
       // インジケータ非表示
       state = state.copyWith(isLoading: false);
     });
-  }
-
-  @override
-  void selectDropDownMenu(String value, QuizTopicType quizTopicType) {
-    // ドロップダウンメニューの選択
-    state =
-        state.copyWith(selectDropDownValue: value, selectValue: quizTopicType);
   }
 
   @override
@@ -109,15 +105,10 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
 
   Future<void> getQuizList(QuizTopicType quizTopicType);
 
-  // dropDownMenu の選択
-  void selectDropDownMenu(String value, QuizTopicType quizTopicType);
-
   void clearList();
 
   /// TTSの初期化
   void initializeTts();
-
-
 
   // お気に入りの更新
   void updateFavorite(int index);

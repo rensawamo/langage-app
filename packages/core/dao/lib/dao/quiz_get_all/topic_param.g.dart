@@ -1,24 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../dao/quiz_get_all/quiz_get_all_request.dart';
+part of 'topic_param.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$QuizGetAllRequestImpl _$$QuizGetAllRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$QuizGetAllRequestImpl(
-      questionCount: (json['question_count'] as num).toInt(),
-      quizTopicType:
-          $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
+_$TopicParamImpl _$$TopicParamImplFromJson(Map<String, dynamic> json) =>
+    _$TopicParamImpl(
+      quizTopicType: $enumDecode(_$QuizTopicTypeEnumMap, json['quizTopicType']),
+      extra: (json['extra'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$QuizGetAllRequestImplToJson(
-        _$QuizGetAllRequestImpl instance) =>
+Map<String, dynamic> _$$TopicParamImplToJson(_$TopicParamImpl instance) =>
     <String, dynamic>{
-      'question_count': instance.questionCount,
-      'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
+      'quizTopicType': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
+      'extra': instance.extra,
     };
 
 const _$QuizTopicTypeEnumMap = {

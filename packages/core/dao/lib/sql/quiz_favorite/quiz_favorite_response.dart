@@ -3,8 +3,8 @@
 import 'package:core_dao/json_serializable_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/sql/quiz_favorite/quiz_favorite_response.freezed.dart';
-part '../../generated/sql/quiz_favorite/quiz_favorite_response.g.dart';
+part 'quiz_favorite_response.freezed.dart';
+part 'quiz_favorite_response.g.dart';
 
 ///  RequestEntity
 @freezed

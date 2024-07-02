@@ -1,4 +1,3 @@
-import 'package:core_utility/utility.dart';
 import 'package:core_utility/utility/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

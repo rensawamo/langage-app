@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../sql/quiz_favorite/quiz_favorite_response.dart';
+part of 'quiz_favorite_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

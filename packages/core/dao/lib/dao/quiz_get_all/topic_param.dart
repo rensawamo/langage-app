@@ -1,8 +1,8 @@
 import 'package:core_enums/enums.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/api/quiz_get_all/topic_param.freezed.dart';
-part '../../generated/api/quiz_get_all/topic_param.g.dart';
+part 'topic_param.freezed.dart';
+part 'topic_param.g.dart';
 
 /// トピックページで選択された問題の種類をDaoに渡すパラメータを定義するクラス
 @freezed

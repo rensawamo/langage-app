@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../dao/word_get_all/word_get_all_response.dart';
+part of 'word_get_all_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

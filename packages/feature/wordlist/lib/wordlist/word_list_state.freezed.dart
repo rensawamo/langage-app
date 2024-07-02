@@ -23,7 +23,6 @@ mixin _$WordListState {
 
   /// All 表示にきりかえる
   ScrollController get scrollController => throw _privateConstructorUsedError;
-  String get selectDropDownValue => throw _privateConstructorUsedError;
   Function get speak => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
@@ -47,7 +46,6 @@ abstract class $WordListStateCopyWith<$Res> {
       List<bool> isFavorites,
       int currentPage,
       ScrollController scrollController,
-      String selectDropDownValue,
       Function speak,
       bool isLoading,
       QuizTopicType selectValue});
@@ -71,7 +69,6 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
     Object? isFavorites = null,
     Object? currentPage = null,
     Object? scrollController = null,
-    Object? selectDropDownValue = null,
     Object? speak = null,
     Object? isLoading = null,
     Object? selectValue = null,
@@ -97,10 +94,6 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      selectDropDownValue: null == selectDropDownValue
-          ? _value.selectDropDownValue
-          : selectDropDownValue // ignore: cast_nullable_to_non_nullable
-              as String,
       speak: null == speak
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
@@ -131,7 +124,6 @@ abstract class _$$WordListStateImplCopyWith<$Res>
       List<bool> isFavorites,
       int currentPage,
       ScrollController scrollController,
-      String selectDropDownValue,
       Function speak,
       bool isLoading,
       QuizTopicType selectValue});
@@ -153,7 +145,6 @@ class __$$WordListStateImplCopyWithImpl<$Res>
     Object? isFavorites = null,
     Object? currentPage = null,
     Object? scrollController = null,
-    Object? selectDropDownValue = null,
     Object? speak = null,
     Object? isLoading = null,
     Object? selectValue = null,
@@ -179,10 +170,6 @@ class __$$WordListStateImplCopyWithImpl<$Res>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      selectDropDownValue: null == selectDropDownValue
-          ? _value.selectDropDownValue
-          : selectDropDownValue // ignore: cast_nullable_to_non_nullable
-              as String,
       speak: null == speak
           ? _value.speak
           : speak // ignore: cast_nullable_to_non_nullable
@@ -208,7 +195,6 @@ class _$WordListStateImpl implements _WordListState {
       required final List<bool> isFavorites,
       required this.currentPage,
       required this.scrollController,
-      required this.selectDropDownValue,
       required this.speak,
       this.isLoading = true,
       required this.selectValue})
@@ -247,8 +233,6 @@ class _$WordListStateImpl implements _WordListState {
   @override
   final ScrollController scrollController;
   @override
-  final String selectDropDownValue;
-  @override
   final Function speak;
   @override
   @JsonKey()
@@ -260,7 +244,7 @@ class _$WordListStateImpl implements _WordListState {
 
   @override
   String toString() {
-    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, currentPage: $currentPage, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
+    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, currentPage: $currentPage, scrollController: $scrollController, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
   }
 
   @override
@@ -276,8 +260,6 @@ class _$WordListStateImpl implements _WordListState {
                 other.currentPage == currentPage) &&
             (identical(other.scrollController, scrollController) ||
                 other.scrollController == scrollController) &&
-            (identical(other.selectDropDownValue, selectDropDownValue) ||
-                other.selectDropDownValue == selectDropDownValue) &&
             (identical(other.speak, speak) || other.speak == speak) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
@@ -293,7 +275,6 @@ class _$WordListStateImpl implements _WordListState {
       const DeepCollectionEquality().hash(_isFavorites),
       currentPage,
       scrollController,
-      selectDropDownValue,
       speak,
       isLoading,
       selectValue);
@@ -312,7 +293,6 @@ abstract class _WordListState implements WordListState {
       required final List<bool> isFavorites,
       required final int currentPage,
       required final ScrollController scrollController,
-      required final String selectDropDownValue,
       required final Function speak,
       final bool isLoading,
       required final QuizTopicType selectValue}) = _$WordListStateImpl;
@@ -329,8 +309,6 @@ abstract class _WordListState implements WordListState {
 
   /// All 表示にきりかえる
   ScrollController get scrollController;
-  @override
-  String get selectDropDownValue;
   @override
   Function get speak;
   @override

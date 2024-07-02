@@ -3,8 +3,8 @@ import 'package:core_enums/enums.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/sql/quiz_favorite/quiz_favorite_request.freezed.dart';
-part '../../generated/sql/quiz_favorite/quiz_favorite_request.g.dart';
+part 'quiz_favorite_request.freezed.dart';
+part 'quiz_favorite_request.g.dart';
 
 ///  RequestEntity
 @freezed

@@ -1,8 +1,8 @@
 import 'package:core_dao/json_serializable_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/dao/quiz_get_all/quiz_get_all_response.freezed.dart';
-part '../../generated/dao/quiz_get_all/quiz_get_all_response.g.dart';
+part 'quiz_get_all_response.freezed.dart';
+part 'quiz_get_all_response.g.dart';
 
 /// ResponseEntity
 @freezed

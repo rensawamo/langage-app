@@ -51,6 +51,16 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
           ],
         ),
         StatefulShellBranchData.$branch(
+          navigatorKey: ThirdBranch.$navigatorKey,
+          observers: ThirdBranch.$observers,
+          routes: [
+            GoRouteData.$route(
+              path: '/favorite',
+              factory: $QuizFavoritePageDataExtension._fromState,
+            ),
+          ],
+        ),
+        StatefulShellBranchData.$branch(
           navigatorKey: FourthBranch.$navigatorKey,
           observers: FourthBranch.$observers,
           routes: [
@@ -145,6 +155,24 @@ extension $QuizPageDataExtension on QuizPageData {
 
   String get location => GoRouteData.$location(
         '/quizSelect/quiz',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $QuizFavoritePageDataExtension on QuizFavoritePageData {
+  static QuizFavoritePageData _fromState(GoRouterState state) =>
+      const QuizFavoritePageData();
+
+  String get location => GoRouteData.$location(
+        '/favorite',
       );
 
   void go(BuildContext context) => context.go(location);

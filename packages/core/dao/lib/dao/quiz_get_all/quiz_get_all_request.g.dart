@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../sql/quiz_favorite/quiz_favorite_request.dart';
+part of 'quiz_get_all_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$QuizFavoriteRequestImpl _$$QuizFavoriteRequestImplFromJson(
+_$QuizGetAllRequestImpl _$$QuizGetAllRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$QuizFavoriteRequestImpl(
+    _$QuizGetAllRequestImpl(
+      questionCount: (json['question_count'] as num).toInt(),
       quizTopicType:
           $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
-      pageSize: (json['page_size'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$QuizFavoriteRequestImplToJson(
-        _$QuizFavoriteRequestImpl instance) =>
+Map<String, dynamic> _$$QuizGetAllRequestImplToJson(
+        _$QuizGetAllRequestImpl instance) =>
     <String, dynamic>{
+      'question_count': instance.questionCount,
       'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
-      'page_size': instance.pageSize,
     };
 
 const _$QuizTopicTypeEnumMap = {

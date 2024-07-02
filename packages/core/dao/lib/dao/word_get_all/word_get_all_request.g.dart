@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../dao/word_get_all/word_get_all_request.dart';
+part of 'word_get_all_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -25,7 +25,11 @@ Map<String, dynamic> _$$WordGetAllRequestImplToJson(
 
 const _$QuizTopicTypeEnumMap = {
   QuizTopicType.favorite: 'favorite',
+  QuizTopicType.adjective: 'adjective',
+  QuizTopicType.adverb: 'adverb',
+  QuizTopicType.verb: 'verb',
   QuizTopicType.noun: 'noun',
+  QuizTopicType.pronoun: 'pronoun',
   QuizTopicType.greet: 'greet',
   QuizTopicType.proverb: 'proverb',
   QuizTopicType.phrase: 'phrase',

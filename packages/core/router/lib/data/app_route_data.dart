@@ -1,6 +1,6 @@
 import 'package:core_router/data/quiz/quiz_page_data.dart';
+import 'package:core_router/data/quiz_favorite/quiz_favorite_page_data.dart';
 import 'package:core_router/data/setting/setting_page_data.dart';
-import 'package:core_router/data/topic/timer_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:core_router/observer/transition_observer.dart';
 import 'package:core_router/router/routes.dart';
@@ -44,12 +44,12 @@ final fourthNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'fourth');
       ],
     ),
 
-    // /// bottom tab3
-    // TypedStatefulShellBranch<ThirdBranch>(
-    //   routes: [
-    //     TypedGoRoute<QuizSelectPageData>(path: Routes.favorite),
-    //   ],
-    // ),
+    /// bottom tab3
+    TypedStatefulShellBranch<ThirdBranch>(
+      routes: [
+        TypedGoRoute<QuizFavoritePageData>(path: Routes.favorite),
+      ],
+    ),
 
     /// bottom tab4
     TypedStatefulShellBranch<FourthBranch>(

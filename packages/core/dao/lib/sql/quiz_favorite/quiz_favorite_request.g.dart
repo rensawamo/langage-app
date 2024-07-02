@@ -1,29 +1,33 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../dao/quiz_get_all/quiz_get_all_request.dart';
+part of 'quiz_favorite_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$QuizGetAllRequestImpl _$$QuizGetAllRequestImplFromJson(
+_$QuizFavoriteRequestImpl _$$QuizFavoriteRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$QuizGetAllRequestImpl(
-      questionCount: (json['question_count'] as num).toInt(),
+    _$QuizFavoriteRequestImpl(
       quizTopicType:
           $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
+      pageSize: (json['page_size'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$QuizGetAllRequestImplToJson(
-        _$QuizGetAllRequestImpl instance) =>
+Map<String, dynamic> _$$QuizFavoriteRequestImplToJson(
+        _$QuizFavoriteRequestImpl instance) =>
     <String, dynamic>{
-      'question_count': instance.questionCount,
       'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
+      'page_size': instance.pageSize,
     };
 
 const _$QuizTopicTypeEnumMap = {
   QuizTopicType.favorite: 'favorite',
+  QuizTopicType.adjective: 'adjective',
+  QuizTopicType.adverb: 'adverb',
+  QuizTopicType.verb: 'verb',
   QuizTopicType.noun: 'noun',
+  QuizTopicType.pronoun: 'pronoun',
   QuizTopicType.greet: 'greet',
   QuizTopicType.proverb: 'proverb',
   QuizTopicType.phrase: 'phrase',

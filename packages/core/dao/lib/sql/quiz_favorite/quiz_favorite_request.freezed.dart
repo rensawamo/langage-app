@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of '../../../dao/word_get_all/word_get_all_request.dart';
+part of 'quiz_favorite_request.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,36 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-WordGetAllRequest _$WordGetAllRequestFromJson(Map<String, dynamic> json) {
-  return _WordGetAllRequest.fromJson(json);
+QuizFavoriteRequest _$QuizFavoriteRequestFromJson(Map<String, dynamic> json) {
+  return _QuizFavoriteRequest.fromJson(json);
 }
 
 /// @nodoc
-mixin _$WordGetAllRequest {
-// 使用中のアプリのタイプ
-  QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
-  int get page => throw _privateConstructorUsedError;
+mixin _$QuizFavoriteRequest {
+// トピックのタイプ
+  QuizTopicType get quizTopicType =>
+      throw _privateConstructorUsedError; // 取得数固定
   int get pageSize => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WordGetAllRequestCopyWith<WordGetAllRequest> get copyWith =>
+  $QuizFavoriteRequestCopyWith<QuizFavoriteRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WordGetAllRequestCopyWith<$Res> {
-  factory $WordGetAllRequestCopyWith(
-          WordGetAllRequest value, $Res Function(WordGetAllRequest) then) =
-      _$WordGetAllRequestCopyWithImpl<$Res, WordGetAllRequest>;
+abstract class $QuizFavoriteRequestCopyWith<$Res> {
+  factory $QuizFavoriteRequestCopyWith(
+          QuizFavoriteRequest value, $Res Function(QuizFavoriteRequest) then) =
+      _$QuizFavoriteRequestCopyWithImpl<$Res, QuizFavoriteRequest>;
   @useResult
-  $Res call({QuizTopicType quizTopicType, int page, int pageSize});
+  $Res call({QuizTopicType quizTopicType, int pageSize});
 }
 
 /// @nodoc
-class _$WordGetAllRequestCopyWithImpl<$Res, $Val extends WordGetAllRequest>
-    implements $WordGetAllRequestCopyWith<$Res> {
-  _$WordGetAllRequestCopyWithImpl(this._value, this._then);
+class _$QuizFavoriteRequestCopyWithImpl<$Res, $Val extends QuizFavoriteRequest>
+    implements $QuizFavoriteRequestCopyWith<$Res> {
+  _$QuizFavoriteRequestCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -54,7 +54,6 @@ class _$WordGetAllRequestCopyWithImpl<$Res, $Val extends WordGetAllRequest>
   @override
   $Res call({
     Object? quizTopicType = null,
-    Object? page = null,
     Object? pageSize = null,
   }) {
     return _then(_value.copyWith(
@@ -62,10 +61,6 @@ class _$WordGetAllRequestCopyWithImpl<$Res, $Val extends WordGetAllRequest>
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
               as QuizTopicType,
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
       pageSize: null == pageSize
           ? _value.pageSize
           : pageSize // ignore: cast_nullable_to_non_nullable
@@ -75,40 +70,35 @@ class _$WordGetAllRequestCopyWithImpl<$Res, $Val extends WordGetAllRequest>
 }
 
 /// @nodoc
-abstract class _$$WordGetAllRequestImplCopyWith<$Res>
-    implements $WordGetAllRequestCopyWith<$Res> {
-  factory _$$WordGetAllRequestImplCopyWith(_$WordGetAllRequestImpl value,
-          $Res Function(_$WordGetAllRequestImpl) then) =
-      __$$WordGetAllRequestImplCopyWithImpl<$Res>;
+abstract class _$$QuizFavoriteRequestImplCopyWith<$Res>
+    implements $QuizFavoriteRequestCopyWith<$Res> {
+  factory _$$QuizFavoriteRequestImplCopyWith(_$QuizFavoriteRequestImpl value,
+          $Res Function(_$QuizFavoriteRequestImpl) then) =
+      __$$QuizFavoriteRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({QuizTopicType quizTopicType, int page, int pageSize});
+  $Res call({QuizTopicType quizTopicType, int pageSize});
 }
 
 /// @nodoc
-class __$$WordGetAllRequestImplCopyWithImpl<$Res>
-    extends _$WordGetAllRequestCopyWithImpl<$Res, _$WordGetAllRequestImpl>
-    implements _$$WordGetAllRequestImplCopyWith<$Res> {
-  __$$WordGetAllRequestImplCopyWithImpl(_$WordGetAllRequestImpl _value,
-      $Res Function(_$WordGetAllRequestImpl) _then)
+class __$$QuizFavoriteRequestImplCopyWithImpl<$Res>
+    extends _$QuizFavoriteRequestCopyWithImpl<$Res, _$QuizFavoriteRequestImpl>
+    implements _$$QuizFavoriteRequestImplCopyWith<$Res> {
+  __$$QuizFavoriteRequestImplCopyWithImpl(_$QuizFavoriteRequestImpl _value,
+      $Res Function(_$QuizFavoriteRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? quizTopicType = null,
-    Object? page = null,
     Object? pageSize = null,
   }) {
-    return _then(_$WordGetAllRequestImpl(
+    return _then(_$QuizFavoriteRequestImpl(
       quizTopicType: null == quizTopicType
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
               as QuizTopicType,
-      page: null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
       pageSize: null == pageSize
           ? _value.pageSize
           : pageSize // ignore: cast_nullable_to_non_nullable
@@ -120,76 +110,69 @@ class __$$WordGetAllRequestImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$WordGetAllRequestImpl implements _WordGetAllRequest {
-  const _$WordGetAllRequestImpl(
-      {required this.quizTopicType,
-      required this.page,
-      required this.pageSize});
+class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
+  const _$QuizFavoriteRequestImpl(
+      {required this.quizTopicType, required this.pageSize});
 
-  factory _$WordGetAllRequestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WordGetAllRequestImplFromJson(json);
+  factory _$QuizFavoriteRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$QuizFavoriteRequestImplFromJson(json);
 
-// 使用中のアプリのタイプ
+// トピックのタイプ
   @override
   final QuizTopicType quizTopicType;
-  @override
-  final int page;
+// 取得数固定
   @override
   final int pageSize;
 
   @override
   String toString() {
-    return 'WordGetAllRequest(quizTopicType: $quizTopicType, page: $page, pageSize: $pageSize)';
+    return 'QuizFavoriteRequest(quizTopicType: $quizTopicType, pageSize: $pageSize)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WordGetAllRequestImpl &&
+            other is _$QuizFavoriteRequestImpl &&
             (identical(other.quizTopicType, quizTopicType) ||
                 other.quizTopicType == quizTopicType) &&
-            (identical(other.page, page) || other.page == page) &&
             (identical(other.pageSize, pageSize) ||
                 other.pageSize == pageSize));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, quizTopicType, page, pageSize);
+  int get hashCode => Object.hash(runtimeType, quizTopicType, pageSize);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WordGetAllRequestImplCopyWith<_$WordGetAllRequestImpl> get copyWith =>
-      __$$WordGetAllRequestImplCopyWithImpl<_$WordGetAllRequestImpl>(
+  _$$QuizFavoriteRequestImplCopyWith<_$QuizFavoriteRequestImpl> get copyWith =>
+      __$$QuizFavoriteRequestImplCopyWithImpl<_$QuizFavoriteRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$WordGetAllRequestImplToJson(
+    return _$$QuizFavoriteRequestImplToJson(
       this,
     );
   }
 }
 
-abstract class _WordGetAllRequest implements WordGetAllRequest {
-  const factory _WordGetAllRequest(
+abstract class _QuizFavoriteRequest implements QuizFavoriteRequest {
+  const factory _QuizFavoriteRequest(
       {required final QuizTopicType quizTopicType,
-      required final int page,
-      required final int pageSize}) = _$WordGetAllRequestImpl;
+      required final int pageSize}) = _$QuizFavoriteRequestImpl;
 
-  factory _WordGetAllRequest.fromJson(Map<String, dynamic> json) =
-      _$WordGetAllRequestImpl.fromJson;
+  factory _QuizFavoriteRequest.fromJson(Map<String, dynamic> json) =
+      _$QuizFavoriteRequestImpl.fromJson;
 
-  @override // 使用中のアプリのタイプ
+  @override // トピックのタイプ
   QuizTopicType get quizTopicType;
-  @override
-  int get page;
-  @override
+  @override // 取得数固定
   int get pageSize;
   @override
   @JsonKey(ignore: true)
-  _$$WordGetAllRequestImplCopyWith<_$WordGetAllRequestImpl> get copyWith =>
+  _$$QuizFavoriteRequestImplCopyWith<_$QuizFavoriteRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

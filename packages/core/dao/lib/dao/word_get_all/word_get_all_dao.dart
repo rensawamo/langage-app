@@ -1,3 +1,4 @@
+import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_response.dart';
 import 'package:core_data/data.dart';
@@ -10,6 +11,8 @@ import 'package:core_utility/utility.dart';
 class WordGetAllDao implements WordGetAllDaoInterface {
   @override
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request) async {
+    
+    print(AppSettingInfo().appInstallType);
     try {
       // インストールされるアプリの種類
       switch (AppSettingInfo().appInstallType) {
@@ -21,15 +24,19 @@ class WordGetAllDao implements WordGetAllDaoInterface {
             /// トピックに応じてクイズ解答を取得する
             /// 名詞
             case QuizTopicType.noun:
-              List<String> words = AppQuizData.korianBiginnerNouns
+              List<Quiz> quizs = AppQuizData.korianBiginnerNouns
                   .take(request.pageSize * request.page)
-                  .map((quiz) => quiz.text)
                   .toList();
-              List<String> answers = AppQuizData.korianBiginnerNouns
+              // 単語一覧を取得
+              List<String> words = quizs.map((quizs) => quizs.text).toList();
+              
+              // 正解一覧を取得
+              List<String> answers = quizs
                   .map((quiz) => quiz.options
-                      .firstWhere((option) => option.isCorrect)
+                      .firstWhere((option) => option.isCorrect == true)
                       .text)
                   .toList();
+
               var favorites = await QuizFavoriteSql.getAllWords(
                   request.quizTopicType.name,
                   AppSettingInfo().appInstallType.name);
