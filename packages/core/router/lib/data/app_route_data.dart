@@ -1,8 +1,7 @@
+import 'package:core_router/data/quiz/quiz_page_data.dart';
 import 'package:core_router/data/quiz_favorite/quiz_favorite_page_data.dart';
-import 'package:core_router/data/quiz_select/quiz_select_page_data.dart';
 import 'package:core_router/data/setting/setting_page_data.dart';
-import 'package:core_router/data/topic/timer_route_data.dart';
-import 'package:core_router/data/wordlist/timeline_route_data.dart';
+import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:core_router/observer/transition_observer.dart';
 import 'package:core_router/router/routes.dart';
 import 'package:feature_splash/splash.dart';
@@ -27,9 +26,11 @@ final fourthNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'fourth');
     TypedStatefulShellBranch<HomeBranch>(
       routes: [
         //// Apponitment
-        TypedGoRoute<HomePageData>(path: Routes.home, routes: [
+        TypedGoRoute<WordTopicPageData>(path: Routes.wordTopic, routes: [
           // Wordlist
-          TypedGoRoute<WordlistRouteData>(path: Routes.wordlist),
+          TypedGoRoute<WordlistPageData>(path: Routes.wordlist),
+          // detail
+          TypedGoRoute<wordDetailPageData>(path: Routes.wordDetail),
         ]),
       ],
     ),
@@ -37,25 +38,23 @@ final fourthNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'fourth');
     /// bottom tab2
     TypedStatefulShellBranch<SecoundBranch>(
       routes: [
-        TypedGoRoute<TopicRouteData>(path: Routes.topic),
+        TypedGoRoute<QuizSelectPageData>(path: Routes.quizSelect, routes: [
+          TypedGoRoute<QuizPageData>(path: Routes.quiz),
+        ]),
       ],
     ),
 
     /// bottom tab3
     TypedStatefulShellBranch<ThirdBranch>(
       routes: [
-        TypedGoRoute<QuizSelectPageData>(path: Routes.favorite),
+        TypedGoRoute<QuizFavoritePageData>(path: Routes.favorite),
       ],
     ),
 
     /// bottom tab4
     TypedStatefulShellBranch<FourthBranch>(
       routes: [
-        //// Apponitment
-        TypedGoRoute<SettingRootPageData>(path: Routes.setting_root, routes: [
-          //
-          TypedGoRoute<SettingPageData>(path: Routes.setting),
-        ]),
+        TypedGoRoute<SettingPageData>(path: Routes.setting_root, routes: []),
       ],
     ),
   ],

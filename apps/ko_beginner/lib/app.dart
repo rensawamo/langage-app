@@ -1,7 +1,9 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_designsystem/provider/theme_color_provider.dart';
 import 'package:core_designsystem/provider/theme_text_provider.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_router/router/app_router.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,7 +15,7 @@ class App extends ConsumerWidget {
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themeNotifierProvider);
     final textScale = ref.watch(textScalerProvider);
-
+    AppSettingInfo().changeAppInstallType(AppInstallType.koreanBeginner);
     return MaterialApp.router(
       title: 'C6OPocApp',
       theme: getAppTheme(),

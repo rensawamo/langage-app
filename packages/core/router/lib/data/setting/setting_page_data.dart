@@ -1,4 +1,3 @@
-import 'package:feature_setting/settin_root/setting_root.dart';
 import 'package:feature_setting/setting.dart';
 
 import 'package:flutter/material.dart';
@@ -10,14 +9,5 @@ class SettingPageData extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return SettingPage();
-  }
-}
-
-class SettingRootPageData extends GoRouteData {
-  const SettingRootPageData();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return SettingRootPage();
   }
 }
