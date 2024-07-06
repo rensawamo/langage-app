@@ -22,6 +22,9 @@ QuizGetAllResponse _$QuizGetAllResponseFromJson(Map<String, dynamic> json) {
 mixin _$QuizGetAllResponse {
   List<Quiz> get quizes => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
+  List<String> get sentences => throw _privateConstructorUsedError;
+  List<String> get translations => throw _privateConstructorUsedError;
+  List<String> get pronunciations => throw _privateConstructorUsedError;
   List<bool> get isFavorites => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +39,13 @@ abstract class $QuizGetAllResponseCopyWith<$Res> {
           QuizGetAllResponse value, $Res Function(QuizGetAllResponse) then) =
       _$QuizGetAllResponseCopyWithImpl<$Res, QuizGetAllResponse>;
   @useResult
-  $Res call({List<Quiz> quizes, List<String> answers, List<bool> isFavorites});
+  $Res call(
+      {List<Quiz> quizes,
+      List<String> answers,
+      List<String> sentences,
+      List<String> translations,
+      List<String> pronunciations,
+      List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -54,6 +63,9 @@ class _$QuizGetAllResponseCopyWithImpl<$Res, $Val extends QuizGetAllResponse>
   $Res call({
     Object? quizes = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
+    Object? pronunciations = null,
     Object? isFavorites = null,
   }) {
     return _then(_value.copyWith(
@@ -64,6 +76,18 @@ class _$QuizGetAllResponseCopyWithImpl<$Res, $Val extends QuizGetAllResponse>
       answers: null == answers
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sentences: null == sentences
+          ? _value.sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value.translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pronunciations: null == pronunciations
+          ? _value.pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isFavorites: null == isFavorites
           ? _value.isFavorites
@@ -81,7 +105,13 @@ abstract class _$$QuizGetAllResponseImplCopyWith<$Res>
       __$$QuizGetAllResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Quiz> quizes, List<String> answers, List<bool> isFavorites});
+  $Res call(
+      {List<Quiz> quizes,
+      List<String> answers,
+      List<String> sentences,
+      List<String> translations,
+      List<String> pronunciations,
+      List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -97,6 +127,9 @@ class __$$QuizGetAllResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? quizes = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
+    Object? pronunciations = null,
     Object? isFavorites = null,
   }) {
     return _then(_$QuizGetAllResponseImpl(
@@ -107,6 +140,18 @@ class __$$QuizGetAllResponseImplCopyWithImpl<$Res>
       answers: null == answers
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sentences: null == sentences
+          ? _value._sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value._translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pronunciations: null == pronunciations
+          ? _value._pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isFavorites: null == isFavorites
           ? _value._isFavorites
@@ -123,9 +168,15 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
   const _$QuizGetAllResponseImpl(
       {required final List<Quiz> quizes,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
+      required final List<String> pronunciations,
       required final List<bool> isFavorites})
       : _quizes = quizes,
         _answers = answers,
+        _sentences = sentences,
+        _translations = translations,
+        _pronunciations = pronunciations,
         _isFavorites = isFavorites;
 
   factory _$QuizGetAllResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -147,6 +198,30 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
     return EqualUnmodifiableListView(_answers);
   }
 
+  final List<String> _sentences;
+  @override
+  List<String> get sentences {
+    if (_sentences is EqualUnmodifiableListView) return _sentences;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sentences);
+  }
+
+  final List<String> _translations;
+  @override
+  List<String> get translations {
+    if (_translations is EqualUnmodifiableListView) return _translations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_translations);
+  }
+
+  final List<String> _pronunciations;
+  @override
+  List<String> get pronunciations {
+    if (_pronunciations is EqualUnmodifiableListView) return _pronunciations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pronunciations);
+  }
+
   final List<bool> _isFavorites;
   @override
   List<bool> get isFavorites {
@@ -157,7 +232,7 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
 
   @override
   String toString() {
-    return 'QuizGetAllResponse(quizes: $quizes, answers: $answers, isFavorites: $isFavorites)';
+    return 'QuizGetAllResponse(quizes: $quizes, answers: $answers, sentences: $sentences, translations: $translations, pronunciations: $pronunciations, isFavorites: $isFavorites)';
   }
 
   @override
@@ -168,6 +243,12 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
             const DeepCollectionEquality().equals(other._quizes, _quizes) &&
             const DeepCollectionEquality().equals(other._answers, _answers) &&
             const DeepCollectionEquality()
+                .equals(other._sentences, _sentences) &&
+            const DeepCollectionEquality()
+                .equals(other._translations, _translations) &&
+            const DeepCollectionEquality()
+                .equals(other._pronunciations, _pronunciations) &&
+            const DeepCollectionEquality()
                 .equals(other._isFavorites, _isFavorites));
   }
 
@@ -177,6 +258,9 @@ class _$QuizGetAllResponseImpl implements _QuizGetAllResponse {
       runtimeType,
       const DeepCollectionEquality().hash(_quizes),
       const DeepCollectionEquality().hash(_answers),
+      const DeepCollectionEquality().hash(_sentences),
+      const DeepCollectionEquality().hash(_translations),
+      const DeepCollectionEquality().hash(_pronunciations),
       const DeepCollectionEquality().hash(_isFavorites));
 
   @JsonKey(ignore: true)
@@ -198,6 +282,9 @@ abstract class _QuizGetAllResponse implements QuizGetAllResponse {
   const factory _QuizGetAllResponse(
       {required final List<Quiz> quizes,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
+      required final List<String> pronunciations,
       required final List<bool> isFavorites}) = _$QuizGetAllResponseImpl;
 
   factory _QuizGetAllResponse.fromJson(Map<String, dynamic> json) =
@@ -207,6 +294,12 @@ abstract class _QuizGetAllResponse implements QuizGetAllResponse {
   List<Quiz> get quizes;
   @override
   List<String> get answers;
+  @override
+  List<String> get sentences;
+  @override
+  List<String> get translations;
+  @override
+  List<String> get pronunciations;
   @override
   List<bool> get isFavorites;
   @override
@@ -222,7 +315,8 @@ Quiz _$QuizFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Quiz {
 // 単語
-  String get text => throw _privateConstructorUsedError; // 例文
+  String get text => throw _privateConstructorUsedError; // 答え
+  String? get answer => throw _privateConstructorUsedError; // 例文
   String get sentence => throw _privateConstructorUsedError; // 例文の翻訳
   String get translation => throw _privateConstructorUsedError; // 発音
   String get pronunciation => throw _privateConstructorUsedError;
@@ -242,6 +336,7 @@ abstract class $QuizCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
+      String? answer,
       String sentence,
       String translation,
       String pronunciation,
@@ -266,6 +361,7 @@ class _$QuizCopyWithImpl<$Res, $Val extends Quiz>
   @override
   $Res call({
     Object? text = null,
+    Object? answer = freezed,
     Object? sentence = null,
     Object? translation = null,
     Object? pronunciation = null,
@@ -278,6 +374,10 @@ class _$QuizCopyWithImpl<$Res, $Val extends Quiz>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      answer: freezed == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String?,
       sentence: null == sentence
           ? _value.sentence
           : sentence // ignore: cast_nullable_to_non_nullable
@@ -327,6 +427,7 @@ abstract class _$$QuizImplCopyWith<$Res> implements $QuizCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
+      String? answer,
       String sentence,
       String translation,
       String pronunciation,
@@ -349,6 +450,7 @@ class __$$QuizImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? text = null,
+    Object? answer = freezed,
     Object? sentence = null,
     Object? translation = null,
     Object? pronunciation = null,
@@ -361,6 +463,10 @@ class __$$QuizImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      answer: freezed == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as String?,
       sentence: null == sentence
           ? _value.sentence
           : sentence // ignore: cast_nullable_to_non_nullable
@@ -394,6 +500,7 @@ class __$$QuizImplCopyWithImpl<$Res>
 class _$QuizImpl implements _Quiz {
   const _$QuizImpl(
       {required this.text,
+      this.answer,
       required this.sentence,
       required this.translation,
       required this.pronunciation,
@@ -408,6 +515,9 @@ class _$QuizImpl implements _Quiz {
 // 単語
   @override
   final String text;
+// 答え
+  @override
+  final String? answer;
 // 例文
   @override
   final String sentence;
@@ -433,7 +543,7 @@ class _$QuizImpl implements _Quiz {
 
   @override
   String toString() {
-    return 'Quiz(text: $text, sentence: $sentence, translation: $translation, pronunciation: $pronunciation, options: $options, isLocked: $isLocked, selectedOption: $selectedOption)';
+    return 'Quiz(text: $text, answer: $answer, sentence: $sentence, translation: $translation, pronunciation: $pronunciation, options: $options, isLocked: $isLocked, selectedOption: $selectedOption)';
   }
 
   @override
@@ -442,6 +552,7 @@ class _$QuizImpl implements _Quiz {
         (other.runtimeType == runtimeType &&
             other is _$QuizImpl &&
             (identical(other.text, text) || other.text == text) &&
+            (identical(other.answer, answer) || other.answer == answer) &&
             (identical(other.sentence, sentence) ||
                 other.sentence == sentence) &&
             (identical(other.translation, translation) ||
@@ -460,6 +571,7 @@ class _$QuizImpl implements _Quiz {
   int get hashCode => Object.hash(
       runtimeType,
       text,
+      answer,
       sentence,
       translation,
       pronunciation,
@@ -484,6 +596,7 @@ class _$QuizImpl implements _Quiz {
 abstract class _Quiz implements Quiz {
   const factory _Quiz(
       {required final String text,
+      final String? answer,
       required final String sentence,
       required final String translation,
       required final String pronunciation,
@@ -495,6 +608,8 @@ abstract class _Quiz implements Quiz {
 
   @override // 単語
   String get text;
+  @override // 答え
+  String? get answer;
   @override // 例文
   String get sentence;
   @override // 例文の翻訳

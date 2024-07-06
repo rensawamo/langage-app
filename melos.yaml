@@ -38,6 +38,14 @@ scripts:
     run: flutter pub get
     description: Install all dependencies
 
+  gen:
+    run: |
+      melos exec -c 1 -- \
+        dart run build_runner build --delete-conflicting-outputs
+    description: Run generate code.
+    packageFilters:
+      dirExists: lib
+      dependsOn: "build_runner"
   upgrade:
     run: |
       melos exec -- \

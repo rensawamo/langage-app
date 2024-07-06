@@ -22,6 +22,9 @@ WordGetAllResponse _$WordGetAllResponseFromJson(Map<String, dynamic> json) {
 mixin _$WordGetAllResponse {
   List<String> get words => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
+  List<String> get sentences => throw _privateConstructorUsedError;
+  List<String> get translations => throw _privateConstructorUsedError;
+  List<String> get pronunciations => throw _privateConstructorUsedError;
   List<bool> get isFavorites => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +39,13 @@ abstract class $WordGetAllResponseCopyWith<$Res> {
           WordGetAllResponse value, $Res Function(WordGetAllResponse) then) =
       _$WordGetAllResponseCopyWithImpl<$Res, WordGetAllResponse>;
   @useResult
-  $Res call({List<String> words, List<String> answers, List<bool> isFavorites});
+  $Res call(
+      {List<String> words,
+      List<String> answers,
+      List<String> sentences,
+      List<String> translations,
+      List<String> pronunciations,
+      List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -54,6 +63,9 @@ class _$WordGetAllResponseCopyWithImpl<$Res, $Val extends WordGetAllResponse>
   $Res call({
     Object? words = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
+    Object? pronunciations = null,
     Object? isFavorites = null,
   }) {
     return _then(_value.copyWith(
@@ -64,6 +76,18 @@ class _$WordGetAllResponseCopyWithImpl<$Res, $Val extends WordGetAllResponse>
       answers: null == answers
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sentences: null == sentences
+          ? _value.sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value.translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pronunciations: null == pronunciations
+          ? _value.pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isFavorites: null == isFavorites
           ? _value.isFavorites
@@ -81,7 +105,13 @@ abstract class _$$WordGetAllResponseImplCopyWith<$Res>
       __$$WordGetAllResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> words, List<String> answers, List<bool> isFavorites});
+  $Res call(
+      {List<String> words,
+      List<String> answers,
+      List<String> sentences,
+      List<String> translations,
+      List<String> pronunciations,
+      List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -97,6 +127,9 @@ class __$$WordGetAllResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? words = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
+    Object? pronunciations = null,
     Object? isFavorites = null,
   }) {
     return _then(_$WordGetAllResponseImpl(
@@ -107,6 +140,18 @@ class __$$WordGetAllResponseImplCopyWithImpl<$Res>
       answers: null == answers
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sentences: null == sentences
+          ? _value._sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value._translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pronunciations: null == pronunciations
+          ? _value._pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isFavorites: null == isFavorites
           ? _value._isFavorites
@@ -123,9 +168,15 @@ class _$WordGetAllResponseImpl implements _WordGetAllResponse {
   const _$WordGetAllResponseImpl(
       {required final List<String> words,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
+      required final List<String> pronunciations,
       required final List<bool> isFavorites})
       : _words = words,
         _answers = answers,
+        _sentences = sentences,
+        _translations = translations,
+        _pronunciations = pronunciations,
         _isFavorites = isFavorites;
 
   factory _$WordGetAllResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -147,6 +198,30 @@ class _$WordGetAllResponseImpl implements _WordGetAllResponse {
     return EqualUnmodifiableListView(_answers);
   }
 
+  final List<String> _sentences;
+  @override
+  List<String> get sentences {
+    if (_sentences is EqualUnmodifiableListView) return _sentences;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sentences);
+  }
+
+  final List<String> _translations;
+  @override
+  List<String> get translations {
+    if (_translations is EqualUnmodifiableListView) return _translations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_translations);
+  }
+
+  final List<String> _pronunciations;
+  @override
+  List<String> get pronunciations {
+    if (_pronunciations is EqualUnmodifiableListView) return _pronunciations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pronunciations);
+  }
+
   final List<bool> _isFavorites;
   @override
   List<bool> get isFavorites {
@@ -157,7 +232,7 @@ class _$WordGetAllResponseImpl implements _WordGetAllResponse {
 
   @override
   String toString() {
-    return 'WordGetAllResponse(words: $words, answers: $answers, isFavorites: $isFavorites)';
+    return 'WordGetAllResponse(words: $words, answers: $answers, sentences: $sentences, translations: $translations, pronunciations: $pronunciations, isFavorites: $isFavorites)';
   }
 
   @override
@@ -168,6 +243,12 @@ class _$WordGetAllResponseImpl implements _WordGetAllResponse {
             const DeepCollectionEquality().equals(other._words, _words) &&
             const DeepCollectionEquality().equals(other._answers, _answers) &&
             const DeepCollectionEquality()
+                .equals(other._sentences, _sentences) &&
+            const DeepCollectionEquality()
+                .equals(other._translations, _translations) &&
+            const DeepCollectionEquality()
+                .equals(other._pronunciations, _pronunciations) &&
+            const DeepCollectionEquality()
                 .equals(other._isFavorites, _isFavorites));
   }
 
@@ -177,6 +258,9 @@ class _$WordGetAllResponseImpl implements _WordGetAllResponse {
       runtimeType,
       const DeepCollectionEquality().hash(_words),
       const DeepCollectionEquality().hash(_answers),
+      const DeepCollectionEquality().hash(_sentences),
+      const DeepCollectionEquality().hash(_translations),
+      const DeepCollectionEquality().hash(_pronunciations),
       const DeepCollectionEquality().hash(_isFavorites));
 
   @JsonKey(ignore: true)
@@ -198,6 +282,9 @@ abstract class _WordGetAllResponse implements WordGetAllResponse {
   const factory _WordGetAllResponse(
       {required final List<String> words,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
+      required final List<String> pronunciations,
       required final List<bool> isFavorites}) = _$WordGetAllResponseImpl;
 
   factory _WordGetAllResponse.fromJson(Map<String, dynamic> json) =
@@ -207,6 +294,12 @@ abstract class _WordGetAllResponse implements WordGetAllResponse {
   List<String> get words;
   @override
   List<String> get answers;
+  @override
+  List<String> get sentences;
+  @override
+  List<String> get translations;
+  @override
+  List<String> get pronunciations;
   @override
   List<bool> get isFavorites;
   @override

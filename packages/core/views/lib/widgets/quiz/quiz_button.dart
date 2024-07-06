@@ -1,4 +1,4 @@
-import 'package:core_constants/constants.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
   }) : super(key: key);
 
   final Function selectAns;
-  final Quiz quiz;
+  final  quiz;
   final bool selected;
   final int ans_ind;
   final int selected_ind;
@@ -68,16 +68,15 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                     style: ButtonStyle(
                       backgroundColor: widget.selected // 選択済み
                           ? (widget.quiz.options[ans_ind].isCorrect // 正解
-                              ? MaterialStateProperty.all<Color>(// 正解の色
+                              ? WidgetStateProperty.all<Color>(// 正解の色
                                   Colors.red)
                               : (widget.selected_ind == ans_ind // 選択済みだが不正解
-                                  ? MaterialStateProperty.all<Color>(
+                                  ? WidgetStateProperty.all<Color>(
                                       Colors.blue) // 不正解の色
-                                  : MaterialStateProperty.all<Color>(
+                                  : WidgetStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
-                          : MaterialStateProperty.all<Color>(
-                              Colors.green,
-                            ), // 未選択
+                          : WidgetStateProperty.all<Color>(
+                              AppColorsSet.getQuizTileColor(context)), // 未選択
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),

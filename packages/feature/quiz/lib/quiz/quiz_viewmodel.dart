@@ -22,10 +22,10 @@ class QuizViewmodel extends QuizViewmodelInterface {
   ///
   @override
   Future<void> init() async {
-    getQuizList();
+    await getQuizList();
     initializeTts();
     state =
-        state.copyWith(controller: PageController(initialPage: 0), counter: 0);
+        state.copyWith(controller: PageController(initialPage: 1), counter: 0);
   }
 
   /// Quize の一覧取得
@@ -35,7 +35,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
     state = state.copyWith(isLoading: true);
 
     // パラメータ生成
-
     // ここで data から quizeを取得する
     dao
         .getQuizList(QuizGetAllRequest(
@@ -43,8 +42,11 @@ class QuizViewmodel extends QuizViewmodelInterface {
         .then((response) {
       // 一覧に追加
       state = state.copyWith(
-          quizs: response.quizes,
+          quizzs: response.quizes,
           answers: response.answers,
+          sentences: response.sentences,
+          translations: response.translations,
+          pronunciations: response.pronunciations,
           isFavorites: response.isFavorites);
     }).catchError((error) {
       print(error.toString());
@@ -64,7 +66,7 @@ class QuizViewmodel extends QuizViewmodelInterface {
   /// 一覧クリア
   @override
   void clearList() {
-    state = state.copyWith(quizs: []);
+    state = state.copyWith(quizzs: []);
   }
 
   /// クイズの質問の移動
@@ -72,7 +74,7 @@ class QuizViewmodel extends QuizViewmodelInterface {
   @override
   void nextQuestion(bool isSelected) {
     // まだ問題が残っている場合は 次の問題へ
-    if (state.counter < state.quizs.length - 1) {
+    if (state.counter < state.quizzs.length - 1) {
       state.controller.nextPage(
           duration: const Duration(milliseconds: 200), curve: Curves.linear);
       state = state.copyWith(
@@ -129,9 +131,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
 /// Quize Viewmodel インターフェース
 abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
   QuizViewmodelInterface(super.state);
-
-  /// Application install type
-  late AppInstallType appInstallType;
 
   /// ページサイズ(固定)
   final int pageSize = 50;

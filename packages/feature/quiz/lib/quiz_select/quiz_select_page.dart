@@ -1,23 +1,60 @@
+import 'package:core_designsystem/designsystem.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/quiz/quiz_page_data.dart';
-import 'package:core_router/data/wordlist/wordlist_route_data.dart';
+import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter/cupertino.dart';
 
 class QuizSelectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quizzy App'),
-      ),
-      body: SingleChildScrollView(
+    return AppBaseFrame(
+      title: "問題",
+      hasPrevButton: false,
+      screenContext: context,
+      body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildHeader(),
-              SizedBox(height: 20),
-              _buildQuizList(context),
+
+              Text(
+                'ランダム15問の問題を解いてみよう！',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+                textAlign: TextAlign.left,
+              ),
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  padding: EdgeInsets.all(16.0),
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                  children: [
+                    _buildTopicCard(
+                      context,
+                      Icons.color_lens,
+                      '形容詞',Colors.blue,
+                      '',
+                      QuizTopicType.adjective,
+                    ),
+                    _buildTopicCard(context, Icons.speed, '副詞',Colors.green, '',
+                        QuizTopicType.adjective),
+                    _buildTopicCard(context, Icons.directions_run, '動詞', Colors.red,'',
+                        QuizTopicType.adjective),
+                    _buildTopicCard(context, Icons.category, '名詞', Colors.purple,'',
+                        QuizTopicType.adjective),
+                    _buildTopicCard(context, Icons.person, '代名詞',Colors.grey, '',
+                        QuizTopicType.adjective),
+                    _buildTopicCard(context, Icons.handshake, '挨拶',Colors.orange, '',
+                        QuizTopicType.greet),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -25,87 +62,36 @@ class QuizSelectPage extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return Container(
-      padding: EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            'assets/header_image.png',
-            height: 100,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(height: 10),
-          Text(
-            'Quizzy App',
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            'Lets play this awesome quiz app to enhance your knowledge',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white70,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildQuizList(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'All Items',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 10),
-        _buildQuizListItem(context, 'Android', 'History and People', '9 mins'),
-        _buildQuizListItem(
-            context, 'Programming', 'Basic Programming Concepts', '13 mins'),
-        _buildQuizListItem(context, 'Web Development',
-            'Introduction to Web Technologies', '12 mins'),
-        _buildQuizListItem(context, 'Science', 'Biology and Chemistry', '15 mins'),
-      ],
-    );
-  }
-
-  Widget _buildQuizListItem(
-      BuildContext context, String title, String subtitle, String duration) {
+  Widget _buildTopicCard(BuildContext context, IconData icon, String title,
+  MaterialColor color,
+      String subtitle, QuizTopicType quizTopicType) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      child: ListTile(
-        leading: Icon(Icons.book, size: 40),
-        title: Text(title),
-        subtitle: Text(subtitle),
-        trailing: Column(
+      child: InkWell(
+        onTap: () {
+          QuizPageData(
+            quizTopicType,
+            15,
+          ).push(context);
+        },
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.access_time),
+            Icon(icon, size: 64, color: color),
+            SizedBox(height: 10),
+            Text(
+              title,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: 5),
-            Text(duration),
+            Text(
+              subtitle,
+              style: AppTextStyles.caption(context),
+            ),
           ],
         ),
-        onTap: () {
-          QuizPageData().go(context);
-          // ().go(context);
-        },
       ),
     );
   }

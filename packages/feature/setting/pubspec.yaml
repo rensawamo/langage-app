@@ -31,6 +31,8 @@ dependencies:
     path: ../../core/router
   core_designsystem:
     path: ../../core/designsystem
+  core_views:
+    path: ../../core/views
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0

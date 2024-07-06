@@ -139,10 +139,10 @@ class AppQuizData {
     Quiz(
       text: "엉성하다",
       sentence: "그의 계획은 엉성하다.",
-      translation: "彼の計画は荒い。",
+      translation: "彼の計画はいいかげんだ。",
       pronunciation: "オンソンハダ",
       options: [
-        Option(text: "荒い", isCorrect: true),
+        Option(text: "粗い", isCorrect: true),
         Option(text: "柔らかい", isCorrect: false),
         Option(text: "細かい", isCorrect: false),
         Option(text: "狭い", isCorrect: false),
@@ -1423,7 +1423,6 @@ class AppQuizData {
         Option(text: "すぐに", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "벌써",
       sentence: "벌써 해가 졌다.",
@@ -1580,8 +1579,10 @@ class AppQuizData {
         Option(text: "本当に", isCorrect: false),
       ],
     ),
+  ];
 
-// 代名詞
+  //////////// 代名詞　/////////////////////
+  static final List<Quiz> korianBeginnerPronouns = [
     Quiz(
       text: "나",
       sentence: "나는 학생이다.",
@@ -1666,7 +1667,6 @@ class AppQuizData {
         Option(text: "彼女たち", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "그",
       sentence: "그는 내 친구다.",
@@ -1726,10 +1726,10 @@ class AppQuizData {
         Option(text: "彼ら", isCorrect: false),
         Option(text: "彼女たち", isCorrect: false),
       ],
-    ),
-
+    )
+  ];
 // 動詞
-
+  static final List<Quiz> korianBeginnerVerbs = [
     Quiz(
       text: "먹다",
       sentence: "나는 밥을 먹는다.",
@@ -2102,7 +2102,6 @@ class AppQuizData {
         Option(text: "聞く", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "돕다",
       sentence: "나는 친구를 돕는다.",
@@ -2127,7 +2126,6 @@ class AppQuizData {
         Option(text: "聞く", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "연습하다",
       sentence: "나는 피아노를 연습한다.",
@@ -2884,7 +2882,6 @@ class AppQuizData {
         Option(text: "閉じる", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "들어가다",
       sentence: "나는 집에 들어간다.",

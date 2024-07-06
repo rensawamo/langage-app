@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 
@@ -27,7 +28,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
     getQuizList(quizTopicType);
     final controller = state.scrollController;
     controller.addListener(() {
-      // スクロール量が全体の95%になった時,DBを呼ぶ.
+      // スクロール量が全体の95%になった時,リクエストを呼ぶ.
       final scrollValue =
           controller.offset / controller.position.maxScrollExtent;
       if (scrollValue > 0.95) {
@@ -50,12 +51,15 @@ class WordListViewmodel extends WordListViewmodelInterface {
       pageSize: 20,
     ))
         .then((response) {
-          print(response.answers);
+      print(response.answers);
       // 一覧に追加z
       state = state.copyWith(
           quizzes: response.words,
           answers: response.answers,
-          isFavorites: response.isFavorites);
+          isFavorites: response.isFavorites,
+          sentences: response.sentences,
+          pronunciations: response.pronunciations,
+          translations: response.translations);
     }).catchError((error) {
       print(error.toString());
       state = state.copyWith(quizzes: []);
@@ -74,16 +78,34 @@ class WordListViewmodel extends WordListViewmodelInterface {
   }
 
   @override
-  void updateFavorite(int index) {
+  void updateFavorite(
+      int index,
+      String text,
+      String answer,
+      String sentence,
+      String translation,
+      String pronunciation,
+      QuizTopicType quizTopicType) async {
     // お気に入りの更新
     List<bool> isFavorites = List.from(state.isFavorites); // 変更可能なコピーを作成
+    state =
+        state.copyWith(isFavorites: isFavorites..[index] = !isFavorites[index]);
 
-    isFavorites[index] = !isFavorites[index];
-    state = state.copyWith(isFavorites: isFavorites);
+    if (state.isFavorites[index]) {
+      await QuizFavoriteSql.insert(
+        text,
+        answer,
+        sentence,
+        translation,
+        pronunciation,
+        quizTopicType.name,
+      );
+    } else {
+      await QuizFavoriteSql.delete(text);
+    }
   }
 
   /// 一覧クリア
-  ///
   /// 一覧に表示している受診予約情報をクリアする.
   @override
   void clearList() {
@@ -111,7 +133,8 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
   void initializeTts();
 
   // お気に入りの更新
-  void updateFavorite(int index);
+  void updateFavorite(int index, String text, String answer, String sentence,
+      String translation, String pronunciation, QuizTopicType quizTopicType);
 
   // tts の言語設定
   late FlutterTts flutterTts;

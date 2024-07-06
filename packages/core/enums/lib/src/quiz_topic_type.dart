@@ -26,10 +26,40 @@ enum QuizTopicType {
 
   // 連語
   phrase,
+
+  // total
+  total,
 }
 
 extension QuizTopicTypeExtension on QuizTopicType {
   String get name {
     return this.toString().split('.').last;
+  }
+
+  String get japaneseName {
+    switch (this) {
+      case QuizTopicType.favorite:
+        return 'お気に入り';
+      case QuizTopicType.adjective:
+        return '形容詞';
+      case QuizTopicType.adverb:
+        return '副詞';
+      case QuizTopicType.verb:
+        return '動詞';
+      case QuizTopicType.noun:
+        return '名詞';
+      case QuizTopicType.pronoun:
+        return '代名詞';
+      case QuizTopicType.greet:
+        return '挨拶';
+      case QuizTopicType.proverb:
+        return 'ことわざ';
+      case QuizTopicType.phrase:
+        return '連語';
+      case QuizTopicType.total:
+        return 'トータル';
+      default:
+        return '';
+    }
   }
 }

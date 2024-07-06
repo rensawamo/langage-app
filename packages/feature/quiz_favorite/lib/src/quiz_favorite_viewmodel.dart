@@ -78,7 +78,6 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     // お気に入り削除
     await QuizFavoriteSql.delete(
       state.quizzes[index],
-      AppSettingInfo().appInstallType.name,
     );
     // 更新
     getFavorites(quizTopicType);

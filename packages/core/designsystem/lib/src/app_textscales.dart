@@ -35,17 +35,16 @@ class AppTextStyles {
 
   // 第三タイトル
   static TextStyle title3(BuildContext context,
-      {Color color = Colors.black, FontWeight fontWeight = FontWeight.normal}) {
+      {FontWeight fontWeight = FontWeight.bold}) {
     return TextStyle(
       fontSize: MediaQuery.textScalerOf(context).scale(20.0),
-      color: color,
       fontWeight: fontWeight,
     );
   }
 
   /// 見出しテキスト
   static TextStyle headline(BuildContext context,
-      {Color color = Colors.black, FontWeight fontWeight = FontWeight.bold}) {
+      {Color? color, FontWeight fontWeight = FontWeight.bold}) {
     return TextStyle(
       fontSize: MediaQuery.textScalerOf(context).scale(18.0),
       color: color,
@@ -55,7 +54,7 @@ class AppTextStyles {
 
   // 本文テキスト
   static TextStyle body(BuildContext context,
-      {Color color = Colors.black, FontWeight fontWeight = FontWeight.normal}) {
+      {Color? color, FontWeight fontWeight = FontWeight.normal}) {
     return TextStyle(
       fontSize: MediaQuery.textScalerOf(context).scale(16.0),
       color: color,

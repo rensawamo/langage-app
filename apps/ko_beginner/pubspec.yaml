@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/
     - ./assets/images/ko_national_flag.png
+    - ./assets/images/ko_national_dark.png
   uses-material-design: true
 
 

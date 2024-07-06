@@ -40,7 +40,6 @@ class AppBaseFrame extends ConsumerStatefulWidget {
       this.drawer,
       this.scaffoldKey,
       this.onDrawerChanged,
-      this.textType,
       this.backButtonKey,
       this.didPopEvent});
 
@@ -78,9 +77,6 @@ class AppBaseFrame extends ConsumerStatefulWidget {
   /// ドロワーが開いたり閉じたりしたときに呼び出されるFunction 引数としてドロワーの状態(開閉)が渡される
   final Function(bool)? onDrawerChanged;
 
-  /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
-
   final BuildContext? screenContext;
 
   /// 戻るボタンのGlobalKey
@@ -92,38 +88,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _AppBaseFrameState();
 }
 
-class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
-
-  @override
-  void dispose() {
-    // routeObserverから自身を外す
-    // routeObserver.unsubscribe(this);
-    super.dispose();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // routeObserver.subscribe(this, ModalRoute.of(context)!);
-  }
-
-  /// pushされてこの画面が表示された時に呼ばれる
-  @override
-  void didPush() {
-    // ログイベント
-    // Analytics.logScreenView(
-    //     screenName: widget.screenContext?.widget.toString() ?? '');
-  }
-
-  /// popされてこの画面が表示された時に呼ばれる
-  @override
-  void didPopNext() {
-    widget.didPopEvent?.call();
-    // // ログイベント
-    // Analytics.logScreenView(
-    //     screenName: widget.screenContext?.widget.toString() ?? '');
-  }
-
+class _AppBaseFrameState extends ConsumerState<AppBaseFrame> {
   /// state初期化
   @override
   void initState() {
@@ -155,13 +120,11 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
       canPop: false,
       child: Scaffold(
         key: widget.scaffoldKey,
-   
         drawer: widget.drawer,
         onDrawerChanged: widget.onDrawerChanged,
         drawerEnableOpenDragGesture: false,
         appBar: widget.appBar ??
             AppBarForScreen(
-              textType: widget.textType,
               titleText: widget.title,
               leftWidget: _prevButton(context),
             ),
@@ -182,7 +145,7 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> with RouteAware {
     return AppIconButton(
       key: widget.backButtonKey,
       icon: Icons.arrow_back_ios_rounded,
-      onTap: widget.backOnTap ?? () => GoRouter.of(context).pop(),
+      onTap: widget.backOnTap ?? () => context.pop(),
       type: AppIconButtonType.neutral,
     );
   }
