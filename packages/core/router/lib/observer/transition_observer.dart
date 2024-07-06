@@ -1,6 +1,5 @@
 
 import 'package:core_utility/utility.dart';
-import 'package:core_utility/utility/logger.dart';
 import 'package:flutter/material.dart';
 
 enum TransitionType {
@@ -67,6 +66,6 @@ class TransitionObserver extends NavigatorObserver {
     TransitionType transitionType,
   ) {
     final pageName = route.settings.name;
-    logger.info('pageName: $pageName, ${transitionType.name}');
+    logger.i('pageName: $pageName, ${transitionType.name}');
   }
 }

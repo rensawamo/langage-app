@@ -1,6 +1,5 @@
-import 'package:core_constants/constants.dart';
 import 'package:core_enums/enums.dart';
-import 'package:core_utility/utility.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,11 +24,11 @@ class QuizNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding:
-            EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 16),
+            EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 10),
         child: InkWell(
           onTap: () {
             if (next(isSelected) == true) {
-              GoRouter.of(context).pop();
+              context.pop();
             }
           },
           child: Container(
@@ -37,15 +36,20 @@ class QuizNextButton extends StatelessWidget {
             padding: EdgeInsets.only(
               left: 48.0,
               right: 48.0,
-              top: 10,
               bottom: 10,
+              top: 10,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
+              color: AppColorsSet.getButtonColor(context),
             ),
             child: Text(
               "次へ",
-              style: AppTextStyles.body(context),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ));

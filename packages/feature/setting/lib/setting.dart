@@ -4,5 +4,5 @@
 library;
 
 
-export 'src/setting_page.dart';
+export 'setting/setting_page.dart';
 // TODO: Export any libraries intended for clients of this package.

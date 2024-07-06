@@ -1,10 +1,8 @@
-
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'quiz_state.freezed.dart';
-
 
 @freezed
 class QuizState with _$QuizState {
@@ -12,8 +10,11 @@ class QuizState with _$QuizState {
   ///
   /// [Quiz]
   const factory QuizState({
-    required List<Quiz> quizs,
+    required List<Quiz> quizzs,
     required List<String> answers,
+    required List<String> sentences,
+    required List<String> translations,
+    required List<String> pronunciations,
     required List<bool> isFavorites,
     required PageController controller,
     @Default([]) List<bool?> scores,

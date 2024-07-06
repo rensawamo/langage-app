@@ -14,6 +14,9 @@ class QuizGetAllResponse
   const factory QuizGetAllResponse({
     required List<Quiz> quizes,
     required List<String> answers,
+    required List<String> sentences,
+    required List<String> translations,
+    required List<String> pronunciations,
     required List<bool> isFavorites,
   }) = _QuizGetAllResponse;
 
@@ -26,6 +29,8 @@ class Quiz with _$Quiz implements JsonSerializableInterface {
   const factory Quiz({
     // 単語
     required String text,
+    // 答え
+    String? answer,
     // 例文
     required String sentence,
     // 例文の翻訳

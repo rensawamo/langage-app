@@ -11,14 +11,15 @@ class WordListState with _$WordListState {
   /// [Quiz]
   const factory WordListState(
       {required List<String> quizzes,
-      
       required List<String> answers,
+      required List<String> sentences,
+      required List<String> translations,
       required List<bool> isFavorites,
+      required List<String> pronunciations,
       required int currentPage,
 
       /// All 表示にきりかえる
       required ScrollController scrollController,
-      
       required Function speak,
       @Default(true) bool isLoading,
 

@@ -46,6 +46,10 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
                   path: 'quiz',
                   factory: $QuizPageDataExtension._fromState,
                 ),
+                GoRouteData.$route(
+                  path: 'quizResult',
+                  factory: $QuizResultTablePageDataExtension._fromState,
+                ),
               ],
             ),
           ],
@@ -53,16 +57,6 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
         StatefulShellBranchData.$branch(
           navigatorKey: ThirdBranch.$navigatorKey,
           observers: ThirdBranch.$observers,
-          routes: [
-            GoRouteData.$route(
-              path: '/favorite',
-              factory: $QuizFavoritePageDataExtension._fromState,
-            ),
-          ],
-        ),
-        StatefulShellBranchData.$branch(
-          navigatorKey: FourthBranch.$navigatorKey,
-          observers: FourthBranch.$observers,
           routes: [
             GoRouteData.$route(
               path: '/setting_root',
@@ -97,11 +91,16 @@ extension $WordTopicPageDataExtension on WordTopicPageData {
 }
 
 extension $WordlistPageDataExtension on WordlistPageData {
-  static WordlistPageData _fromState(GoRouterState state) =>
-      const WordlistPageData();
+  static WordlistPageData _fromState(GoRouterState state) => WordlistPageData(
+        quizTopicType: _$QuizTopicTypeEnumMap
+            ._$fromName(state.uri.queryParameters['quiz-topic-type']!),
+      );
 
   String get location => GoRouteData.$location(
         '/wordTopic/wordlist',
+        queryParams: {
+          'quiz-topic-type': _$QuizTopicTypeEnumMap[quizTopicType],
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -114,12 +113,42 @@ extension $WordlistPageDataExtension on WordlistPageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+const _$QuizTopicTypeEnumMap = {
+  QuizTopicType.favorite: 'favorite',
+  QuizTopicType.adjective: 'adjective',
+  QuizTopicType.adverb: 'adverb',
+  QuizTopicType.verb: 'verb',
+  QuizTopicType.noun: 'noun',
+  QuizTopicType.pronoun: 'pronoun',
+  QuizTopicType.greet: 'greet',
+  QuizTopicType.proverb: 'proverb',
+  QuizTopicType.phrase: 'phrase',
+};
+
 extension $wordDetailPageDataExtension on wordDetailPageData {
   static wordDetailPageData _fromState(GoRouterState state) =>
-      const wordDetailPageData();
+      wordDetailPageData(
+        state.uri.queryParameters['word']!,
+        state.uri.queryParameters['meaning']!,
+        state.uri.queryParameters['sentence']!,
+        state.uri.queryParameters['translation']!,
+        state.uri.queryParameters['pronunciation']!,
+        _$boolConverter(state.uri.queryParameters['is-favorite']!),
+        _$QuizTopicTypeEnumMap
+            ._$fromName(state.uri.queryParameters['quiz-topic-type']!),
+      );
 
   String get location => GoRouteData.$location(
         '/wordTopic/wordDetail',
+        queryParams: {
+          'word': word,
+          'meaning': meaning,
+          'sentence': sentence,
+          'translation': translation,
+          'pronunciation': pronunciation,
+          'is-favorite': isFavorite.toString(),
+          'quiz-topic-type': _$QuizTopicTypeEnumMap[quizTopicType],
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -151,10 +180,18 @@ extension $QuizSelectPageDataExtension on QuizSelectPageData {
 }
 
 extension $QuizPageDataExtension on QuizPageData {
-  static QuizPageData _fromState(GoRouterState state) => const QuizPageData();
+  static QuizPageData _fromState(GoRouterState state) => QuizPageData(
+        _$QuizTopicTypeEnumMap
+            ._$fromName(state.uri.queryParameters['topic-param']!),
+        int.parse(state.uri.queryParameters['extra']!),
+      );
 
   String get location => GoRouteData.$location(
         '/quizSelect/quiz',
+        queryParams: {
+          'topic-param': _$QuizTopicTypeEnumMap[topicParam],
+          'extra': extra.toString(),
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -167,12 +204,53 @@ extension $QuizPageDataExtension on QuizPageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $QuizFavoritePageDataExtension on QuizFavoritePageData {
-  static QuizFavoritePageData _fromState(GoRouterState state) =>
-      const QuizFavoritePageData();
+extension $QuizResultTablePageDataExtension on QuizResultTablePageData {
+  static QuizResultTablePageData _fromState(GoRouterState state) =>
+      QuizResultTablePageData(
+        quizzes:
+            state.uri.queryParametersAll['quizzes']?.map((e) => e).toList() ??
+                const [],
+        answers:
+            state.uri.queryParametersAll['answers']?.map((e) => e).toList() ??
+                const [],
+        scores:
+            state.uri.queryParametersAll['scores']?.map((e) => e).toList() ??
+                const [],
+        isFavorites: state.uri.queryParametersAll['is-favorites']
+                ?.map(_$boolConverter)
+                .toList() ??
+            const [],
+        sentences:
+            state.uri.queryParametersAll['sentences']?.map((e) => e).toList() ??
+                const [],
+        translations: state.uri.queryParametersAll['translations']
+                ?.map((e) => e)
+                .toList() ??
+            const [],
+        pronunciations: state.uri.queryParametersAll['pronunciations']
+                ?.map((e) => e)
+                .toList() ??
+            const [],
+        topicType: _$QuizTopicTypeEnumMap
+            ._$fromName(state.uri.queryParameters['topic-type']!),
+      );
 
   String get location => GoRouteData.$location(
-        '/favorite',
+        '/quizSelect/quizResult',
+        queryParams: {
+          if (quizzes != const []) 'quizzes': quizzes.map((e) => e).toList(),
+          if (answers != const []) 'answers': answers.map((e) => e).toList(),
+          if (scores != const []) 'scores': scores.map((e) => e).toList(),
+          if (isFavorites != const [])
+            'is-favorites': isFavorites.map((e) => e.toString()).toList(),
+          if (sentences != const [])
+            'sentences': sentences.map((e) => e).toList(),
+          if (translations != const [])
+            'translations': translations.map((e) => e).toList(),
+          if (pronunciations != const [])
+            'pronunciations': pronunciations.map((e) => e).toList(),
+          'topic-type': _$QuizTopicTypeEnumMap[topicType],
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -201,6 +279,22 @@ extension $SettingPageDataExtension on SettingPageData {
       context.pushReplacement(location);
 
   void replace(BuildContext context) => context.replace(location);
+}
+
+extension<T extends Enum> on Map<T, String> {
+  T _$fromName(String value) =>
+      entries.singleWhere((element) => element.value == value).key;
+}
+
+bool _$boolConverter(String value) {
+  switch (value) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      throw UnsupportedError('Cannot convert "$value" into a bool.');
+  }
 }
 
 RouteBase get $topRouteData => GoRouteData.$route(

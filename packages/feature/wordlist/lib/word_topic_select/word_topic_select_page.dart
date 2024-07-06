@@ -1,20 +1,23 @@
+import 'package:core_designsystem/designsystem.dart';
+import 'package:core_enums/enums.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
+import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
 
 class WordTopicSelectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quizzy App'),
-      ),
+    return AppBaseFrame(
+      screenContext: context,
+      title: "単語リスト",
+      hasPrevButton: false,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              _buildHeader(),
+              // _buildHeader(),
               SizedBox(height: 20),
               _buildQuizList(context),
             ],
@@ -24,86 +27,43 @@ class WordTopicSelectPage extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return Container(
-      padding: EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            'assets/header_image.png',
-            height: 100,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(height: 10),
-          Text(
-            'Quizzy App',
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            'Lets play this awesome quiz app to enhance your knowledge',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white70,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildQuizList(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'All Items',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        _buildQuizListItem(context, '形容詞', '', QuizTopicType.adjective, Colors.blue),
         SizedBox(height: 10),
-        _buildQuizListItem(context, 'Android', 'History and People', '9 mins'),
-        _buildQuizListItem(
-            context, 'Programming', 'Basic Programming Concepts', '13 mins'),
-        _buildQuizListItem(context, 'Web Development',
-            'Introduction to Web Technologies', '12 mins'),
-        _buildQuizListItem(context, 'Science', 'Biology and Chemistry', '15 mins'),
+        _buildQuizListItem(context, '副詞', '', QuizTopicType.adverb, Colors.green),
+        SizedBox(height: 10),
+        _buildQuizListItem(context, '動詞', '', QuizTopicType.verb, Colors.red),
+        SizedBox(height: 10),
+        _buildQuizListItem(context, '名詞', '', QuizTopicType.noun, Colors.purple),
+        SizedBox(height: 10),
+        _buildQuizListItem(context, '代名詞', '', QuizTopicType.pronoun, Colors.grey),
+        SizedBox(height: 10),
+        _buildQuizListItem(context, '挨拶', '', QuizTopicType.greet, Colors.teal),
+        SizedBox(height: 10),
+        _buildQuizListItem(context, 'お気に入り', '', QuizTopicType.favorite, Colors.orange),
       ],
     );
   }
 
-  Widget _buildQuizListItem(
-      BuildContext context, String title, String subtitle, String duration) {
+  Widget _buildQuizListItem(BuildContext context, String title, String subtitle,
+      QuizTopicType quizTopicType, Color color) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: ListTile(
-        leading: Icon(Icons.book, size: 40),
+        leading: Icon(Icons.book, size: 40, color: color),
         title: Text(title),
         subtitle: Text(subtitle),
-        trailing: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.access_time),
-            SizedBox(height: 5),
-            Text(duration),
-          ],
-        ),
         onTap: () {
-          WordlistPageData().go(context);
+          WordlistPageData(
+            quizTopicType: quizTopicType,
+          ).go(context);
         },
+        trailing: Icon(Icons.arrow_forward_ios,),
       ),
     );
   }

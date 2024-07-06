@@ -1,13 +1,11 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
-import 'package:core_utility/utility.dart';
-import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:core_views/components/tile_empty_text.dart';
+import 'package:feature_quiz/quiz_page/quiz_page_view.dart';
 import 'quiz_state.dart';
 import 'quiz_viewmodel.dart';
 import 'package:core_views/views.dart';
-import 'package:core_views/widgets/quiz/quiz_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -18,8 +16,11 @@ final quizGetProvider =
   (ref) {
     return QuizViewmodel(
       QuizState(
-        quizs: [],
+        quizzs: [],
         answers: [],
+        sentences: [],
+        translations: [],
+        pronunciations: [],
         isFavorites: [],
         controller: PageController(),
       ),
@@ -52,9 +53,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Future<void> _initialize(WidgetRef ref) async {
     final vm = ref.read(quizGetProvider.notifier);
 
-    // アプリケーションの種別
-    vm.appInstallType = AppSettingInfo().appInstallType;
-
     // 問題数をセットする
     vm.questionCount = widget.quizTopicType.extra;
 
@@ -68,23 +66,30 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   @override
   Widget build(BuildContext screenContext) {
     return Consumer(builder: (context, ref, child) {
-      final quizes = ref.watch(quizGetProvider.select((state) => state.quizs));
+      final quizes = ref.watch(quizGetProvider.select((state) => state.quizzs));
       final answers =
           ref.watch(quizGetProvider.select((state) => state.answers));
       final isLoading =
           ref.watch(quizGetProvider.select((state) => state.isLoading));
 
-      return Column(
-        children: [
-          Expanded(
-            child: isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : quizes.isEmpty
-                    ? _empty()
-                    : _page(quizes, answers),
-          ),
-        ],
-      );
+      return AppBaseFrame(
+          screenContext: screenContext,
+          shouldRemoveFocus: true,
+          title: 'クイズ',
+          initFrame: (context, ref) async {
+            await _initialize(ref);
+          },
+          body: Column(
+            children: [
+              Expanded(
+                child: isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : quizes.isEmpty
+                        ? _empty()
+                        : _page(quizes, answers),
+              ),
+            ],
+          ));
     });
   }
 
@@ -96,9 +101,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         controller: ref.watch(quizGetProvider).controller,
         itemBuilder: (context, index) {
           final quiz = quizes[index];
-          return AppQuizPageView(
+          return QuizPageView(
             quizes: quizes,
             answers: answers,
+            sentences: ref.read(quizGetProvider).sentences,
+            translations: ref.read(quizGetProvider).translations,
+            pronunciations: ref.read(quizGetProvider).pronunciations,
             isFavorites: ref.read(quizGetProvider).isFavorites,
             scores: ref.read(quizGetProvider).scores,
             isFinished: ref.read(quizGetProvider).isFinished,
@@ -111,7 +119,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             selected: ref.read(quizGetProvider).selected,
             selected_ind: ref.read(quizGetProvider).selectedInd,
             tatalScore: ref.read(quizGetProvider).totalScore,
-            installtype: AppSettingInfo().appInstallType,
             quizTopicType: widget.quizTopicType.quizTopicType,
           );
         },

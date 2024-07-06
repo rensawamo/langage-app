@@ -15,6 +15,9 @@ class WordGetAllResponse
   const factory WordGetAllResponse({
     required List<String> words,
     required List<String> answers,
+    required List<String> sentences,
+    required List<String> translations,
+    required List<String> pronunciations,
     required List<bool> isFavorites,
   }) = _WordGetAllResponse;
 

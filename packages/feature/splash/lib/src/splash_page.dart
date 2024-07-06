@@ -27,6 +27,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -39,7 +40,9 @@ class _SplashPageState extends ConsumerState<SplashPage> {
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
               ),
-              child: Image.asset('assets/images/ko_national_flag.png'),
+              child: Image.asset(
+                isDarkMode ? 'assets/images/ko_national_dark.png' :
+                'assets/images/ko_national_flag.png'),
             ),
           ],
         ),

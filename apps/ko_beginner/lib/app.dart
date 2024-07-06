@@ -15,9 +15,10 @@ class App extends ConsumerWidget {
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themeNotifierProvider);
     final textScale = ref.watch(textScalerProvider);
+    // 韓国語初級アプリの設定を変更
     AppSettingInfo().changeAppInstallType(AppInstallType.koreanBeginner);
     return MaterialApp.router(
-      title: 'C6OPocApp',
+      title: 'korean_beginner',
       theme: getAppTheme(),
       darkTheme: getAppThemeDark(),
       builder: (context, child) {

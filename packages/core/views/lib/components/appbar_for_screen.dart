@@ -1,5 +1,4 @@
-import 'package:core_constants/constants.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 
@@ -20,19 +19,13 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
   /// タイトルロゴとして[titleLogo]を表示する
   /// 左側のWidgetとして[leftWidget]を表示する
   /// 右側のリストWidgetとして[rightWidget]を表示する
-  /// テキストサイズが固定の場合は[textType]で指定する
-
   AppBarForScreen({
     super.key,
     this.titleText = '',
     required this.leftWidget,
     this.appbar,
     this.rightWidget,
-    this.textType,
   });
-
-  /// 任意の文字サイズで固定する場合に定義する
-  final AppTextSizeType? textType;
 
   /// アプリバーの表示 非表示をきりかえたいときに定義する
   final PreferredSizeWidget? appbar;
@@ -88,7 +81,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
     // タイトルテキストを表示する
     return AppText(
       text: titleText,
-      style: AppTextStyles.caption(context),
+      style: AppTextStyles.title3(context),
       textAlign: TextAlign.center,
       maxLines: 1,
     );

@@ -17,9 +17,8 @@ class AppNavigationBar extends StatelessWidget {
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationShell.currentIndex,
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.list), label: '単語'),
+          NavigationDestination(icon: Icon(Icons.book), label: '単語'),
           NavigationDestination(icon: Icon(Icons.quiz), label: '問題'),
-          NavigationDestination(icon: Icon(Icons.star), label: 'お気に入り'),
           NavigationDestination(icon: Icon(Icons.settings), label: '設定'),
         ],
         onDestinationSelected: (index) {

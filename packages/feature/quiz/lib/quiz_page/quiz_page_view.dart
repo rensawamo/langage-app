@@ -1,19 +1,21 @@
-import 'package:core_constants/constants.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_enums/enums.dart';
-
-import 'package:core_utility/utility.dart';
 import 'package:core_views/extension/view+extention.dart';
 import 'package:core_views/widgets/quiz/quiz_button.dart';
 import 'package:core_views/widgets/quiz/quiz_next_button.dart';
 import 'package:core_views/widgets/quiz/quiz_progress_bar.dart';
-import 'package:core_views/widgets/quiz/result_page_widget.dart';
+import 'package:feature_quiz/quiz_result/quiz_result_page.dart';
 import 'package:flutter/material.dart';
 
 // アプリクイズのページ
-class AppQuizPageView extends StatelessWidget {
+class QuizPageView extends StatelessWidget {
   final List<Quiz> quizes;
   final List<String> answers;
+  final List<String> sentences;
+  final List<String> translations;
+  final List<String> pronunciations;
+
   final List<bool> isFavorites;
   final List<bool?> scores;
   final bool isFinished;
@@ -26,16 +28,18 @@ class AppQuizPageView extends StatelessWidget {
   final bool selected;
   final int selected_ind;
   final int tatalScore;
-  final AppInstallType installtype;
   final QuizTopicType quizTopicType;
 
   /// テキストの大きさが定義されている場合に適応する
   final AppTextSizeType? textType;
 
-  const AppQuizPageView({
+  const QuizPageView({
     Key? key,
     required this.quizes,
     required this.answers,
+    required this.sentences,
+    required this.translations,
+    required this.pronunciations,
     required this.isFavorites,
     required this.scores,
     required this.isFinished,
@@ -47,26 +51,26 @@ class AppQuizPageView extends StatelessWidget {
     required this.count,
     required this.selected,
     required this.selected_ind,
-    required this.installtype,
     required this.quizTopicType,
     this.textType,
     required this.tatalScore,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: isFinished
-          ? ResultPageWidget(
+          ? QuizResultPage(
               speak: speak,
-              quizes: quizes,
+              quizzes: quizes.map((e) => e.text).toList(),
               answers: answers,
+              sentences: sentences,
+              translations: translations,
+              pronunciations: pronunciations,
               isFavorites: isFavorites,
               scores: scores,
               count: count,
               totalScore: tatalScore,
-              installtype: installtype,
               topicType: quizTopicType,
             )
           : Column(
@@ -97,7 +101,7 @@ class AppQuizPageView extends StatelessWidget {
                             topRight: Radius.circular(8.0)),
                         boxShadow: [
                           BoxShadow(
-
+                              color: AppColorsSet.getShadowColor(context),
                               offset: Offset(1.1, 1.1),
                               blurRadius: 10.0),
                         ]),
@@ -107,8 +111,8 @@ class AppQuizPageView extends StatelessWidget {
                         Text(
                           quiz.text,
                           textAlign: TextAlign.center,
-                                      style: AppTextStyles.body(context),
-
+                          style: AppTextStyles.body(context, color: Colors.black
+                          ),
                         ),
                         IconButton(
                           icon: Icon(Icons.volume_up, color: Colors.blue),
@@ -125,13 +129,13 @@ class AppQuizPageView extends StatelessWidget {
                 ),
 
                 Container(
-                  height: context.mediaQueryHeight * .5,
+                  height: context.mediaQueryHeight * .45,
                   child: Expanded(
                     child: ListView.builder(
                       itemCount: quiz.options.length,
                       itemBuilder: (context, index1) {
                         return Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
+                          padding: const EdgeInsets.only(bottom: 7),
                           child: AppQuizbuttonWidget(
                             selectAns: selectAns,
                             quiz: quiz,
@@ -147,7 +151,7 @@ class AppQuizPageView extends StatelessWidget {
 
                 // next button
                 Padding(
-                    padding: EdgeInsets.only(top: 5, bottom: 5),
+                    padding: EdgeInsets.only(bottom: 5),
                     child: QuizNextButton(
                       next: next,
                       quizeCount: count,

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getAppTheme() {
-  // wellcone メイン
+  // ko_begginer メイン
   const primaryColor = ColorName.primary;
 
   final base = ThemeData(
@@ -81,7 +81,6 @@ ThemeData getAppThemeDark() {
     ),
     appBarTheme: base.appBarTheme.copyWith(
       iconTheme: base.iconTheme.copyWith(color: Colors.white),
-      backgroundColor: primaryColor,
       foregroundColor: Colors.white,
     ),
     floatingActionButtonTheme: base.floatingActionButtonTheme.copyWith(

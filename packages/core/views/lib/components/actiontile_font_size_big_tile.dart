@@ -1,4 +1,5 @@
-import 'package:core_constants/constants.dart';
+import 'package:core_designsystem/designsystem.dart';
+
 import 'package:core_views/widgets/app_radio.dart';
 import 'package:core_views/widgets/app_text.dart';
 import 'package:flutter/material.dart';

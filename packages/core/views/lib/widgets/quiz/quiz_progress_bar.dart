@@ -1,5 +1,4 @@
-import 'package:core_enums/enums.dart';
-import 'package:core_utility/utility.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -49,15 +48,7 @@ class _progressBarState extends State<progressBar>
                         ((200 / widget.count) * animation!.value),
                     height: 5,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                        Colors.red,
-                        Colors.orange,
-                        Colors.yellow,
-                        Colors.green,
-                        Colors.blue,
-                        Colors.indigo,
-                        Colors.purple
-                      ]),
+                      color: AppColorsSet.getQuizTileColor(context),
                       borderRadius: BorderRadius.all(Radius.circular(4.0)),
                     ),
                   )

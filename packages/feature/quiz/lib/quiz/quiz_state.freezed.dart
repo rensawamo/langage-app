@@ -16,8 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$QuizState {
-  List<Quiz> get quizs => throw _privateConstructorUsedError;
+  List<Quiz> get quizzs => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
+  List<String> get sentences => throw _privateConstructorUsedError;
+  List<String> get translations => throw _privateConstructorUsedError;
+  List<String> get pronunciations => throw _privateConstructorUsedError;
   List<bool> get isFavorites => throw _privateConstructorUsedError;
   PageController get controller => throw _privateConstructorUsedError;
   List<bool?> get scores => throw _privateConstructorUsedError;
@@ -40,8 +43,11 @@ abstract class $QuizStateCopyWith<$Res> {
       _$QuizStateCopyWithImpl<$Res, QuizState>;
   @useResult
   $Res call(
-      {List<Quiz> quizs,
+      {List<Quiz> quizzs,
       List<String> answers,
+      List<String> sentences,
+      List<String> translations,
+      List<String> pronunciations,
       List<bool> isFavorites,
       PageController controller,
       List<bool?> scores,
@@ -67,8 +73,11 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? quizs = null,
+    Object? quizzs = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
+    Object? pronunciations = null,
     Object? isFavorites = null,
     Object? controller = null,
     Object? scores = null,
@@ -81,13 +90,25 @@ class _$QuizStateCopyWithImpl<$Res, $Val extends QuizState>
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
-      quizs: null == quizs
-          ? _value.quizs
-          : quizs // ignore: cast_nullable_to_non_nullable
+      quizzs: null == quizzs
+          ? _value.quizzs
+          : quizzs // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
       answers: null == answers
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sentences: null == sentences
+          ? _value.sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value.translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pronunciations: null == pronunciations
+          ? _value.pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isFavorites: null == isFavorites
           ? _value.isFavorites
@@ -142,8 +163,11 @@ abstract class _$$QuizStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Quiz> quizs,
+      {List<Quiz> quizzs,
       List<String> answers,
+      List<String> sentences,
+      List<String> translations,
+      List<String> pronunciations,
       List<bool> isFavorites,
       PageController controller,
       List<bool?> scores,
@@ -167,8 +191,11 @@ class __$$QuizStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? quizs = null,
+    Object? quizzs = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
+    Object? pronunciations = null,
     Object? isFavorites = null,
     Object? controller = null,
     Object? scores = null,
@@ -181,13 +208,25 @@ class __$$QuizStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
   }) {
     return _then(_$QuizStateImpl(
-      quizs: null == quizs
-          ? _value._quizs
-          : quizs // ignore: cast_nullable_to_non_nullable
+      quizzs: null == quizzs
+          ? _value._quizzs
+          : quizzs // ignore: cast_nullable_to_non_nullable
               as List<Quiz>,
       answers: null == answers
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sentences: null == sentences
+          ? _value._sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value._translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pronunciations: null == pronunciations
+          ? _value._pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isFavorites: null == isFavorites
           ? _value._isFavorites
@@ -237,8 +276,11 @@ class __$$QuizStateImplCopyWithImpl<$Res>
 
 class _$QuizStateImpl implements _QuizState {
   const _$QuizStateImpl(
-      {required final List<Quiz> quizs,
+      {required final List<Quiz> quizzs,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
+      required final List<String> pronunciations,
       required final List<bool> isFavorites,
       required this.controller,
       final List<bool?> scores = const [],
@@ -249,17 +291,20 @@ class _$QuizStateImpl implements _QuizState {
       this.gtotalScore = 0,
       this.isFinished = false,
       this.isLoading = false})
-      : _quizs = quizs,
+      : _quizzs = quizzs,
         _answers = answers,
+        _sentences = sentences,
+        _translations = translations,
+        _pronunciations = pronunciations,
         _isFavorites = isFavorites,
         _scores = scores;
 
-  final List<Quiz> _quizs;
+  final List<Quiz> _quizzs;
   @override
-  List<Quiz> get quizs {
-    if (_quizs is EqualUnmodifiableListView) return _quizs;
+  List<Quiz> get quizzs {
+    if (_quizzs is EqualUnmodifiableListView) return _quizzs;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_quizs);
+    return EqualUnmodifiableListView(_quizzs);
   }
 
   final List<String> _answers;
@@ -268,6 +313,30 @@ class _$QuizStateImpl implements _QuizState {
     if (_answers is EqualUnmodifiableListView) return _answers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_answers);
+  }
+
+  final List<String> _sentences;
+  @override
+  List<String> get sentences {
+    if (_sentences is EqualUnmodifiableListView) return _sentences;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sentences);
+  }
+
+  final List<String> _translations;
+  @override
+  List<String> get translations {
+    if (_translations is EqualUnmodifiableListView) return _translations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_translations);
+  }
+
+  final List<String> _pronunciations;
+  @override
+  List<String> get pronunciations {
+    if (_pronunciations is EqualUnmodifiableListView) return _pronunciations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pronunciations);
   }
 
   final List<bool> _isFavorites;
@@ -313,7 +382,7 @@ class _$QuizStateImpl implements _QuizState {
 
   @override
   String toString() {
-    return 'QuizState(quizs: $quizs, answers: $answers, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished, isLoading: $isLoading)';
+    return 'QuizState(quizzs: $quizzs, answers: $answers, sentences: $sentences, translations: $translations, pronunciations: $pronunciations, isFavorites: $isFavorites, controller: $controller, scores: $scores, counter: $counter, selected: $selected, selectedInd: $selectedInd, totalScore: $totalScore, gtotalScore: $gtotalScore, isFinished: $isFinished, isLoading: $isLoading)';
   }
 
   @override
@@ -321,8 +390,14 @@ class _$QuizStateImpl implements _QuizState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuizStateImpl &&
-            const DeepCollectionEquality().equals(other._quizs, _quizs) &&
+            const DeepCollectionEquality().equals(other._quizzs, _quizzs) &&
             const DeepCollectionEquality().equals(other._answers, _answers) &&
+            const DeepCollectionEquality()
+                .equals(other._sentences, _sentences) &&
+            const DeepCollectionEquality()
+                .equals(other._translations, _translations) &&
+            const DeepCollectionEquality()
+                .equals(other._pronunciations, _pronunciations) &&
             const DeepCollectionEquality()
                 .equals(other._isFavorites, _isFavorites) &&
             (identical(other.controller, controller) ||
@@ -346,8 +421,11 @@ class _$QuizStateImpl implements _QuizState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_quizs),
+      const DeepCollectionEquality().hash(_quizzs),
       const DeepCollectionEquality().hash(_answers),
+      const DeepCollectionEquality().hash(_sentences),
+      const DeepCollectionEquality().hash(_translations),
+      const DeepCollectionEquality().hash(_pronunciations),
       const DeepCollectionEquality().hash(_isFavorites),
       controller,
       const DeepCollectionEquality().hash(_scores),
@@ -368,8 +446,11 @@ class _$QuizStateImpl implements _QuizState {
 
 abstract class _QuizState implements QuizState {
   const factory _QuizState(
-      {required final List<Quiz> quizs,
+      {required final List<Quiz> quizzs,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
+      required final List<String> pronunciations,
       required final List<bool> isFavorites,
       required final PageController controller,
       final List<bool?> scores,
@@ -382,9 +463,15 @@ abstract class _QuizState implements QuizState {
       final bool isLoading}) = _$QuizStateImpl;
 
   @override
-  List<Quiz> get quizs;
+  List<Quiz> get quizzs;
   @override
   List<String> get answers;
+  @override
+  List<String> get sentences;
+  @override
+  List<String> get translations;
+  @override
+  List<String> get pronunciations;
   @override
   List<bool> get isFavorites;
   @override

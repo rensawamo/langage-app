@@ -18,7 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WordListState {
   List<String> get quizzes => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
+  List<String> get sentences => throw _privateConstructorUsedError;
+  List<String> get translations => throw _privateConstructorUsedError;
   List<bool> get isFavorites => throw _privateConstructorUsedError;
+  List<String> get pronunciations => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
 
   /// All 表示にきりかえる
@@ -43,7 +46,10 @@ abstract class $WordListStateCopyWith<$Res> {
   $Res call(
       {List<String> quizzes,
       List<String> answers,
+      List<String> sentences,
+      List<String> translations,
       List<bool> isFavorites,
+      List<String> pronunciations,
       int currentPage,
       ScrollController scrollController,
       Function speak,
@@ -66,7 +72,10 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
   $Res call({
     Object? quizzes = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
     Object? isFavorites = null,
+    Object? pronunciations = null,
     Object? currentPage = null,
     Object? scrollController = null,
     Object? speak = null,
@@ -82,10 +91,22 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      sentences: null == sentences
+          ? _value.sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value.translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isFavorites: null == isFavorites
           ? _value.isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      pronunciations: null == pronunciations
+          ? _value.pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -121,7 +142,10 @@ abstract class _$$WordListStateImplCopyWith<$Res>
   $Res call(
       {List<String> quizzes,
       List<String> answers,
+      List<String> sentences,
+      List<String> translations,
       List<bool> isFavorites,
+      List<String> pronunciations,
       int currentPage,
       ScrollController scrollController,
       Function speak,
@@ -142,7 +166,10 @@ class __$$WordListStateImplCopyWithImpl<$Res>
   $Res call({
     Object? quizzes = null,
     Object? answers = null,
+    Object? sentences = null,
+    Object? translations = null,
     Object? isFavorites = null,
+    Object? pronunciations = null,
     Object? currentPage = null,
     Object? scrollController = null,
     Object? speak = null,
@@ -158,10 +185,22 @@ class __$$WordListStateImplCopyWithImpl<$Res>
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      sentences: null == sentences
+          ? _value._sentences
+          : sentences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      translations: null == translations
+          ? _value._translations
+          : translations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       isFavorites: null == isFavorites
           ? _value._isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
               as List<bool>,
+      pronunciations: null == pronunciations
+          ? _value._pronunciations
+          : pronunciations // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -192,7 +231,10 @@ class _$WordListStateImpl implements _WordListState {
   const _$WordListStateImpl(
       {required final List<String> quizzes,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
       required final List<bool> isFavorites,
+      required final List<String> pronunciations,
       required this.currentPage,
       required this.scrollController,
       required this.speak,
@@ -200,7 +242,10 @@ class _$WordListStateImpl implements _WordListState {
       required this.selectValue})
       : _quizzes = quizzes,
         _answers = answers,
-        _isFavorites = isFavorites;
+        _sentences = sentences,
+        _translations = translations,
+        _isFavorites = isFavorites,
+        _pronunciations = pronunciations;
 
   final List<String> _quizzes;
   @override
@@ -218,12 +263,36 @@ class _$WordListStateImpl implements _WordListState {
     return EqualUnmodifiableListView(_answers);
   }
 
+  final List<String> _sentences;
+  @override
+  List<String> get sentences {
+    if (_sentences is EqualUnmodifiableListView) return _sentences;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sentences);
+  }
+
+  final List<String> _translations;
+  @override
+  List<String> get translations {
+    if (_translations is EqualUnmodifiableListView) return _translations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_translations);
+  }
+
   final List<bool> _isFavorites;
   @override
   List<bool> get isFavorites {
     if (_isFavorites is EqualUnmodifiableListView) return _isFavorites;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_isFavorites);
+  }
+
+  final List<String> _pronunciations;
+  @override
+  List<String> get pronunciations {
+    if (_pronunciations is EqualUnmodifiableListView) return _pronunciations;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pronunciations);
   }
 
   @override
@@ -244,7 +313,7 @@ class _$WordListStateImpl implements _WordListState {
 
   @override
   String toString() {
-    return 'WordListState(quizzes: $quizzes, answers: $answers, isFavorites: $isFavorites, currentPage: $currentPage, scrollController: $scrollController, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
+    return 'WordListState(quizzes: $quizzes, answers: $answers, sentences: $sentences, translations: $translations, isFavorites: $isFavorites, pronunciations: $pronunciations, currentPage: $currentPage, scrollController: $scrollController, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
   }
 
   @override
@@ -255,7 +324,13 @@ class _$WordListStateImpl implements _WordListState {
             const DeepCollectionEquality().equals(other._quizzes, _quizzes) &&
             const DeepCollectionEquality().equals(other._answers, _answers) &&
             const DeepCollectionEquality()
+                .equals(other._sentences, _sentences) &&
+            const DeepCollectionEquality()
+                .equals(other._translations, _translations) &&
+            const DeepCollectionEquality()
                 .equals(other._isFavorites, _isFavorites) &&
+            const DeepCollectionEquality()
+                .equals(other._pronunciations, _pronunciations) &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.scrollController, scrollController) ||
@@ -272,7 +347,10 @@ class _$WordListStateImpl implements _WordListState {
       runtimeType,
       const DeepCollectionEquality().hash(_quizzes),
       const DeepCollectionEquality().hash(_answers),
+      const DeepCollectionEquality().hash(_sentences),
+      const DeepCollectionEquality().hash(_translations),
       const DeepCollectionEquality().hash(_isFavorites),
+      const DeepCollectionEquality().hash(_pronunciations),
       currentPage,
       scrollController,
       speak,
@@ -290,7 +368,10 @@ abstract class _WordListState implements WordListState {
   const factory _WordListState(
       {required final List<String> quizzes,
       required final List<String> answers,
+      required final List<String> sentences,
+      required final List<String> translations,
       required final List<bool> isFavorites,
+      required final List<String> pronunciations,
       required final int currentPage,
       required final ScrollController scrollController,
       required final Function speak,
@@ -302,7 +383,13 @@ abstract class _WordListState implements WordListState {
   @override
   List<String> get answers;
   @override
+  List<String> get sentences;
+  @override
+  List<String> get translations;
+  @override
   List<bool> get isFavorites;
+  @override
+  List<String> get pronunciations;
   @override
   int get currentPage;
   @override

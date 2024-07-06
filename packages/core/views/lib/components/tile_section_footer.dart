@@ -1,4 +1,5 @@
-import 'package:core_constants/constants.dart';
+import 'package:core_designsystem/designsystem.dart';
+
 import 'package:core_enums/enums.dart';
 import 'package:core_views/data/app_text_span.dart';
 
