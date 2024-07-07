@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'package:core_utility/utility.dart';
 
 
 
@@ -18,9 +19,9 @@ extension TextScaleExtension on AppTextScale {
       case AppTextScale.normal:
         return TextScaler.linear(1);
       case AppTextScale.large:
-        return TextScaler.linear(1.2);
+        return TextScaler.linear(1);
       case AppTextScale.xlarge:
-        return TextScaler.linear(1.4);
+        return TextScaler.linear(1);
 
       default:
         return TextScaler.linear(1);
@@ -38,6 +39,7 @@ class TextScalerNotifier extends StateNotifier<AppTextScale> {
   Future<void> _loadScale() async {
     final prefs = await SharedPreferences.getInstance();
     final scaleIndex = prefs.getInt(_scaleKey) ?? AppTextScale.normal.index;
+    logger.d('scaleIndex: $scaleIndex');
     state = AppTextScale.values[scaleIndex];
   }
 

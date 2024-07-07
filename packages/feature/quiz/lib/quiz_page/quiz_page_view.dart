@@ -81,14 +81,14 @@ class QuizPageView extends StatelessWidget {
                   style: AppTextStyles.body(context),
                 ),
                 SizedBox(
-                  height: context.mediaQueryHeight * .02,
+                  height: context.mediaQueryHeight * .015,
                 ),
                 progressBar(count: count, index: index),
                 SizedBox(
-                  height: context.mediaQueryHeight * .02,
+                  height: context.mediaQueryHeight * .015,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Container(
                     width: double.infinity,
                     padding: EdgeInsets.all(10.0),
@@ -125,17 +125,17 @@ class QuizPageView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: context.mediaQueryHeight * .02,
+                  height: context.mediaQueryHeight * .01,
                 ),
 
                 Container(
-                  height: context.mediaQueryHeight * .45,
+                  height: context.mediaQueryHeight * .425,
                   child: Expanded(
                     child: ListView.builder(
                       itemCount: quiz.options.length,
                       itemBuilder: (context, index1) {
                         return Padding(
-                          padding: const EdgeInsets.only(bottom: 7),
+                          padding: const EdgeInsets.only(bottom:  3.5),
                           child: AppQuizbuttonWidget(
                             selectAns: selectAns,
                             quiz: quiz,

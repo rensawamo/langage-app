@@ -15,7 +15,8 @@ dependencies:
     path: ../enums
   core_constants:
     path: ../constants
-
+  core_utility:
+    path: ../utility
   flutter_riverpod: ^2.5.1
   shared_preferences: ^2.2.3
 
@@ -29,6 +30,7 @@ dev_dependencies:
   build_runner: ^2.3.3
   widgetbook_generator: ^3.7.0
   flutter_gen_runner: 5.4.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

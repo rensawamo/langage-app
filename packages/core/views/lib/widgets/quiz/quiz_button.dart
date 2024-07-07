@@ -62,7 +62,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                   0, 100 * (1.0 - animation!.value), 0.0),
               child: Container(
                 // width: 400,
-                padding: const EdgeInsets.only(left: 40, right: 40),
+                padding: const EdgeInsets.only(left: 35, right: 35),
                 child: ListTile(
                   title: ElevatedButton(
                     style: ButtonStyle(

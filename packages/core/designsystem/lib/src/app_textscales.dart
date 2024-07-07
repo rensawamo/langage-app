@@ -56,7 +56,7 @@ class AppTextStyles {
   static TextStyle body(BuildContext context,
       {Color? color, FontWeight fontWeight = FontWeight.normal}) {
     return TextStyle(
-      fontSize: MediaQuery.textScalerOf(context).scale(16.0),
+      fontSize: MediaQuery.textScalerOf(context).scale(15.0),
       color: color,
       fontWeight: fontWeight,
     );
@@ -74,7 +74,7 @@ class AppTextStyles {
 
   // キャプション
   static TextStyle caption(BuildContext context,
-      {Color color = Colors.black, FontWeight fontWeight = FontWeight.normal}) {
+      {Color? color, FontWeight fontWeight = FontWeight.normal}) {
     return TextStyle(
       fontSize: MediaQuery.textScalerOf(context).scale(12.0),
       color: color,
@@ -86,7 +86,7 @@ class AppTextStyles {
   static TextStyle caption2(BuildContext context,
       {Color color = Colors.black, FontWeight fontWeight = FontWeight.normal}) {
     return TextStyle(
-      fontSize: MediaQuery.textScalerOf(context).scale(10.0),
+      fontSize: MediaQuery.textScalerOf(context).scale(9.0),
       color: color,
       fontWeight: fontWeight,
     );

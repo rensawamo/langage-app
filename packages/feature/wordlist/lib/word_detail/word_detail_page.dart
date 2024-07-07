@@ -100,7 +100,7 @@ class WordDetailPage extends StatelessWidget {
                           SizedBox(height: 10),
                           Text(
                             pronunciation,
-                            style: AppTextStyles.caption(context),
+                            style: AppTextStyles.caption(context,color: Colors.black),
                           ),
                           SizedBox(height: 10),
                           Text(

@@ -34,7 +34,6 @@ class TileEmptyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
         vertical: 24,
