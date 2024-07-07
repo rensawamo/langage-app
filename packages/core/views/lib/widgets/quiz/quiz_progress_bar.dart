@@ -39,6 +39,7 @@ class _progressBarState extends State<progressBar>
               height: 5,
               width: 200,
               decoration: BoxDecoration(
+                color: AppColorsSet.getShadowColor(context),
                 borderRadius: BorderRadius.all(Radius.circular(4.0)),
               ),
               child: Row(

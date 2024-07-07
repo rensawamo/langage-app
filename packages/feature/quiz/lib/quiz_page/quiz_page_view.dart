@@ -130,8 +130,8 @@ class QuizPageView extends StatelessWidget {
 
                 Container(
                   height: context.mediaQueryHeight * .425,
-                  child: Expanded(
-                    child: ListView.builder(
+                  child: 
+                    ListView.builder(
                       itemCount: quiz.options.length,
                       itemBuilder: (context, index1) {
                         return Padding(
@@ -146,7 +146,7 @@ class QuizPageView extends StatelessWidget {
                         );
                       },
                     ),
-                  ),
+                  
                 ),
 
                 // next button

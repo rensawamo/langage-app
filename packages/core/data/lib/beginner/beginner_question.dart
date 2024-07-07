@@ -4128,7 +4128,7 @@ class AppQuizData {
       text: "고마워",
       sentence: "도와줘서 고마워.",
       translation: "助けてくれてありがとう。",
-      pronunciation: "ゴマウォ",
+      pronunciation: "コマウォ",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),
