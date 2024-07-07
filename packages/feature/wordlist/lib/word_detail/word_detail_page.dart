@@ -77,14 +77,18 @@ class WordDetailPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              SizedBox(height: 20),
                               Text(
                                 word,
                                 style: TextStyle(
-                                    fontSize: 32,
+                                  
+                                    fontSize: word.length > 8 ? 20 : 28,
+
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orange),
                               ),

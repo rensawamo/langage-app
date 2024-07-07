@@ -8,6 +8,7 @@ import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:go_router/go_router.dart';
 
 /// Provider
 final WordlistProvider = StateNotifierProvider.autoDispose<
@@ -54,11 +55,16 @@ class QuizResultTablePage extends StatelessWidget {
           initFrame: (context, ref) async {
             // お気に入りの初期設定
             final vm = ref.read(WordlistProvider.notifier);
+
             // isFavoritesの初期設定
             vm.flutterTts = FlutterTts();
             vm.quizTopicType = topicType;
             // 初期設定
             await vm.init(isFavorites);
+          },
+          backOnTap: () {
+            final favoriteList = ref.read(WordlistProvider).isFavorites;
+            context.pop(favoriteList);
           },
           body: Padding(
             padding: const EdgeInsets.all(16),
@@ -107,11 +113,14 @@ class QuizResultTablePage extends StatelessWidget {
           (index) => TableRow(
             children: [
               TableCell(
-                  child: _buildSubtitleCell(context,topicType, quizzes[index], index)),
+                  child: _buildSubtitleCell(
+                      context, topicType, quizzes[index], index)),
               TableCell(
-                  child: _buildSubtitleCell(context,topicType, answers[index], index)),
+                  child: _buildSubtitleCell(
+                      context, topicType, answers[index], index)),
               TableCell(
-                  child: _buildSubtitleCell(context,topicType, scores[index], index)),
+                  child: _buildSubtitleCell(
+                      context, topicType, scores[index], index)),
               TableCell(child: _buildVoiceCell(context, index)),
               TableCell(
                   child: _buildFavoriteCell(
