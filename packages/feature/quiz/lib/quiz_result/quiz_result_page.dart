@@ -89,7 +89,11 @@ class _ResultPageState extends State<QuizResultPage> {
                 translations: widget.translations,
                 pronunciations: widget.pronunciations,
                 topicType: widget.topicType,
-              ).push(context);
+              ).push(context).then((value) {
+                if (value != null) {
+                  isFavorites = List<bool>.from(value);
+                }
+              });
             },
           ),
           SizedBox(height: 12.0),
@@ -97,7 +101,7 @@ class _ResultPageState extends State<QuizResultPage> {
             context,
             text: "トピックに戻る",
             onTap: () {
-              GoRouter.of(context).pop();
+              context.pop();
             },
           ),
         ],
@@ -145,28 +149,25 @@ class _ResultPageState extends State<QuizResultPage> {
 
   Widget _buildButton(BuildContext context,
       {required String text, required VoidCallback onTap}) {
-    return
-    Padding(padding: EdgeInsets.all(12)
-    ,child:
-    Container(
-
-      color: AppColorsSet.getButtonColor(context),
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColorsSet.getButtonColor(context),
-          padding: EdgeInsets.symmetric(vertical: 12.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
+    return Padding(
+        padding: EdgeInsets.all(12),
+        child: Container(
+          color: AppColorsSet.getButtonColor(context),
+          width: double.infinity,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColorsSet.getButtonColor(context),
+              padding: EdgeInsets.symmetric(vertical: 12.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
+            onPressed: onTap,
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
           ),
-        ),
-        onPressed: onTap,
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 18, color: Colors.white),
-        ),
-      ),
-    )
-    );
+        ));
   }
 }

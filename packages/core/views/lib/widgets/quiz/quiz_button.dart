@@ -1,5 +1,5 @@
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
+
 import 'package:core_enums/enums.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
   }) : super(key: key);
 
   final Function selectAns;
-  final  quiz;
+  final quiz;
   final bool selected;
   final int ans_ind;
   final int selected_ind;

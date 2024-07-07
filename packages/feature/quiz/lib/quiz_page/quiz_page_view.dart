@@ -125,7 +125,7 @@ class QuizPageView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: context.mediaQueryHeight * .01,
+                  height: context.mediaQueryHeight * .025,
                 ),
 
                 Container(
@@ -135,7 +135,7 @@ class QuizPageView extends StatelessWidget {
                       itemCount: quiz.options.length,
                       itemBuilder: (context, index1) {
                         return Padding(
-                          padding: const EdgeInsets.only(bottom:  3.5),
+                          padding: const EdgeInsets.only(bottom:  5),
                           child: AppQuizbuttonWidget(
                             selectAns: selectAns,
                             quiz: quiz,

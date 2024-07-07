@@ -81,10 +81,13 @@ class WordDetailPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              SizedBox(height: 10),
                               Text(
                                 word,
                                 style: TextStyle(
-                                    fontSize: 32,
+                                  
+                                    fontSize: word.length > 8 ? 20 : 28,
+
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orange),
                               ),

@@ -1,27 +1,45 @@
-.DEFAULT_GOAL := help
+FVM := $(shell which fvm)
+FLUTTER := $(FVM) flutter
 
-.PHONY: help
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":[^#]*? #| #"}; {printf "%-57s%s\n", $$1 $$3, $$2}'
+# flavor dev
+.PHONY: dev
+dev:
+	cd apps && $(FLUTTER) run --dart-define-from-file=dart_defines/dev.env
+
+# flavor prd
+.PHONY: prd
+prd:
+	cd apps && $(FLUTTER) run --dart-define-from-file=dart_defines/prod.env
+
+# アイコンを作成
+.PHONY: icon
+icon:
+	cd apps && $(FLUTTER) pub run flutter_launcher_icons:main
 
 
-
-# Bootstrap
-.PHONY: bootstrap bs
-bootstrap: 
-	@./scripts/bootstrap.sh
-bs: 
-	@$(MAKE) bootstrap
+# [Android] リリースビルド(難読)
+.PHONY: release_build_android
+release_build_android:
+	cd apps && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
 
 
+# [iOS] リリースビルド(難読)
+.PHONY: release_build_ios
+release_build_ios:
+	cd apps/ko_beginner && $(FLUTTER) build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod
 
-#  local host web 
-.PHONY: app-start-chrome
-app-start-chrome:
-	cd app/lib && flutter run --dart-define=FLAVOR=prd -d chrome --web-browser-flag "--disable-web-security"
-	   
-#  you have to chage code  app/lib/core/data/remote_task_repo.dart localhost to your ip address ex) android emulator localhost -> 10.0.2.2
-.PHONY: app-start-mydevice
-app-start-mydevice:
-	cd app/lib && flutter run --dart-define=FLAVOR=prd
-	   
+
+# integration test
+.PHONY: integration
+integration:
+	cd apps && $(FLUTTER) test --dart-define-from-file=dart_defines/dev.env integration_test
+
+# docker up
+.PHONY: up
+up:
+	cd gitea_private && docker-compose up -d
+
+# docker down
+.PHONY: down
+down:
+	cd gitea_private && docker-compose down
