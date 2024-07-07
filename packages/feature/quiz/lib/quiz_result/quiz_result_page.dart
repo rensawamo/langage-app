@@ -54,7 +54,7 @@ class _ResultPageState extends State<QuizResultPage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(13.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -70,7 +70,7 @@ class _ResultPageState extends State<QuizResultPage> {
             style: AppTextStyles.headline(context),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 24.0),
+          SizedBox(height: 10.0),
           _buildButton(
             context,
             text: "正誤表を見る",
@@ -92,7 +92,7 @@ class _ResultPageState extends State<QuizResultPage> {
               ).push(context);
             },
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 12.0),
           _buildButton(
             context,
             text: "トピックに戻る",
@@ -100,7 +100,6 @@ class _ResultPageState extends State<QuizResultPage> {
               GoRouter.of(context).pop();
             },
           ),
-          SizedBox(height: 24.0),
         ],
       ),
     );
@@ -114,7 +113,7 @@ class _ResultPageState extends State<QuizResultPage> {
 
     return Container(
       height: 200,
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(13),
       child: PieChart(
         PieChartData(
           sections: [

@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_enums/enums.dart';
+import 'package:core_utility/utility.dart';
 import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -22,10 +23,11 @@ class QuizViewmodel extends QuizViewmodelInterface {
   ///
   @override
   Future<void> init() async {
-    await getQuizList();
     initializeTts();
+    await getQuizList();
+
     state =
-        state.copyWith(controller: PageController(initialPage: 1), counter: 0);
+        state.copyWith(controller: PageController(initialPage: 0), counter: 0);
   }
 
   /// Quize の一覧取得

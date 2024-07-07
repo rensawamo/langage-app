@@ -107,11 +107,11 @@ class QuizResultTablePage extends StatelessWidget {
           (index) => TableRow(
             children: [
               TableCell(
-                  child: _buildSubtitleCell(context, quizzes[index], index)),
+                  child: _buildSubtitleCell(context,topicType, quizzes[index], index)),
               TableCell(
-                  child: _buildSubtitleCell(context, answers[index], index)),
+                  child: _buildSubtitleCell(context,topicType, answers[index], index)),
               TableCell(
-                  child: _buildSubtitleCell(context, scores[index], index)),
+                  child: _buildSubtitleCell(context,topicType, scores[index], index)),
               TableCell(child: _buildVoiceCell(context, index)),
               TableCell(
                   child: _buildFavoriteCell(
@@ -183,11 +183,12 @@ class QuizResultTablePage extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           text,
-          style: AppTextStyles.body(context),
+          style: AppTextStyles.caption(context),
         ),
       );
 
-  Widget _buildSubtitleCell(BuildContext context, String text, int index) =>
+  Widget _buildSubtitleCell(BuildContext context, QuizTopicType quizTopicType,
+          String text, int index) =>
       Container(
         color: index % 2 == 0
             ? AppColorsSet.getTableOddRowColor(context)
@@ -198,12 +199,19 @@ class QuizResultTablePage extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.left,
-          style: AppTextStyles.body(context,
-              color: text == "正解"
-                  ? Colors.red
-                  : text == "不正解"
-                      ? Colors.blue
-                      : AppColorsSet.getReverseColor(context)),
+          style: quizTopicType == QuizTopicType.greet
+              ? AppTextStyles.caption2(context,
+                  color: text == "正解"
+                      ? Colors.red
+                      : text == "不正解"
+                          ? Colors.blue
+                          : AppColorsSet.getReverseColor(context))
+              : AppTextStyles.caption(context,
+                  color: text == "正解"
+                      ? Colors.red
+                      : text == "不正解"
+                          ? Colors.blue
+                          : AppColorsSet.getReverseColor(context)),
         ),
       );
 }

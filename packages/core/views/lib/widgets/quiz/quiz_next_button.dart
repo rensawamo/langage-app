@@ -24,7 +24,7 @@ class QuizNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding:
-            EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 10),
+            EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom + 7),
         child: InkWell(
           onTap: () {
             if (next(isSelected) == true) {

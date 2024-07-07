@@ -48,7 +48,7 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
         break;
       // 動詞
       case QuizTopicType.verb:
-        quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdvers);
+        quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbs);
         break;
       // 名詞
       case QuizTopicType.noun:
@@ -94,8 +94,8 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
     }).toList();
     var favorites =
         await QuizFavoriteSql.getTopicWords(request.quizTopicType.name);
-        logger.i(favorites);
-        logger.i(limitedQuizzes);
+    logger.i(favorites);
+    logger.i(limitedQuizzes);
     isFavorites =
         limitedQuizzes.map((word) => favorites.contains(word.text)).toList();
 

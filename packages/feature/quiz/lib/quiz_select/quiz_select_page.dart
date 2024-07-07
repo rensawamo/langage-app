@@ -20,11 +20,10 @@ class QuizSelectPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Text(
                 'ランダム15問の問題を解いてみよう！',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                 ),
                 textAlign: TextAlign.left,
               ),
@@ -38,20 +37,21 @@ class QuizSelectPage extends StatelessWidget {
                     _buildTopicCard(
                       context,
                       Icons.color_lens,
-                      '形容詞',Colors.blue,
+                      '形容詞',
+                      Colors.blue,
                       '',
                       QuizTopicType.adjective,
                     ),
-                    _buildTopicCard(context, Icons.speed, '副詞',Colors.green, '',
-                        QuizTopicType.adjective),
-                    _buildTopicCard(context, Icons.directions_run, '動詞', Colors.red,'',
-                        QuizTopicType.adjective),
-                    _buildTopicCard(context, Icons.category, '名詞', Colors.purple,'',
-                        QuizTopicType.adjective),
-                    _buildTopicCard(context, Icons.person, '代名詞',Colors.grey, '',
-                        QuizTopicType.adjective),
-                    _buildTopicCard(context, Icons.handshake, '挨拶',Colors.orange, '',
-                        QuizTopicType.greet),
+                    _buildTopicCard(context, Icons.speed, '副詞', Colors.green,
+                        '', QuizTopicType.adjective),
+                    _buildTopicCard(context, Icons.directions_run, '動詞',
+                        Colors.red, '', QuizTopicType.verb),
+                    _buildTopicCard(context, Icons.category, '名詞',
+                        Colors.purple, '', QuizTopicType.noun),
+                    _buildTopicCard(context, Icons.person, '代名詞', Colors.grey,
+                        '', QuizTopicType.pronoun),
+                    _buildTopicCard(context, Icons.handshake, '挨拶',
+                        Colors.orange, '', QuizTopicType.greet),
                   ],
                 ),
               ),
@@ -63,8 +63,7 @@ class QuizSelectPage extends StatelessWidget {
   }
 
   Widget _buildTopicCard(BuildContext context, IconData icon, String title,
-  MaterialColor color,
-      String subtitle, QuizTopicType quizTopicType) {
+      MaterialColor color, String subtitle, QuizTopicType quizTopicType) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
@@ -79,8 +78,9 @@ class QuizSelectPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 64, color: color),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
+            Icon(icon, size: 50, color: color),
+            SizedBox(height: 5),
             Text(
               title,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
