@@ -26,16 +26,6 @@ class WordListViewmodel extends WordListViewmodelInterface {
     initializeTts();
 
     getQuizList(quizTopicType);
-    final controller = state.scrollController;
-    controller.addListener(() {
-      // スクロール量が全体の95%になった時,リクエストを呼ぶ.
-      final scrollValue =
-          controller.offset / controller.position.maxScrollExtent;
-      if (scrollValue > 0.95) {
-        state = state.copyWith(currentPage: state.currentPage + 1);
-        getQuizList(state.selectValue);
-      }
-    });
   }
 
   /// Quize の一覧取得

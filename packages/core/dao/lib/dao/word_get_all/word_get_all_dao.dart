@@ -41,38 +41,26 @@ class WordGetAllDao implements WordGetAllDaoInterface {
     switch (request.quizTopicType) {
       // 名詞
       case QuizTopicType.noun:
-        quizzes = AppQuizData.korianBiginnerNouns
-            .take(request.pageSize * request.page)
-            .toList();
+        quizzes = AppQuizData.korianBiginnerNouns.toList();
         break;
       // 形容詞
       case QuizTopicType.adjective:
-        quizzes = AppQuizData.korianBiginnerAdjectives
-            .take(request.pageSize * request.page)
-            .toList();
+        quizzes = AppQuizData.korianBiginnerAdjectives.toList();
         break;
       // 副詞
       case QuizTopicType.adverb:
-        quizzes = AppQuizData.korianBiginnerAdvers
-            .take(request.pageSize * request.page)
-            .toList();
+        quizzes = AppQuizData.korianBiginnerAdvers.toList();
         break;
       // 動詞
       case QuizTopicType.verb:
-        quizzes = AppQuizData.korianBeginnerVerbs
-            .take(request.pageSize * request.page)
-            .toList();
+        quizzes = AppQuizData.korianBeginnerVerbs.toList();
         break;
       // 代名詞
       case QuizTopicType.pronoun:
-        quizzes = AppQuizData.korianBeginnerPronouns
-            .take(request.pageSize * request.page)
-            .toList();
+        quizzes = AppQuizData.korianBeginnerPronouns.toList();
         break;
       case QuizTopicType.greet:
-        quizzes = AppQuizData.korianBiginnerGreets
-            .take(request.pageSize * request.page)
-            .toList();
+        quizzes = AppQuizData.korianBiginnerGreets.toList();
       // お気に入り
       case QuizTopicType.favorite:
         quizzes = await QuizFavoriteSql.getAllquizzes();

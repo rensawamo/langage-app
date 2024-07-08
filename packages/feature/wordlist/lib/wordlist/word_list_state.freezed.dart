@@ -29,9 +29,6 @@ mixin _$WordListState {
   Function get speak => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
-  /// セレクトボックスの値
-  QuizTopicType get selectValue => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $WordListStateCopyWith<WordListState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -53,8 +50,7 @@ abstract class $WordListStateCopyWith<$Res> {
       int currentPage,
       ScrollController scrollController,
       Function speak,
-      bool isLoading,
-      QuizTopicType selectValue});
+      bool isLoading});
 }
 
 /// @nodoc
@@ -80,7 +76,6 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
     Object? scrollController = null,
     Object? speak = null,
     Object? isLoading = null,
-    Object? selectValue = null,
   }) {
     return _then(_value.copyWith(
       quizzes: null == quizzes
@@ -123,10 +118,6 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectValue: null == selectValue
-          ? _value.selectValue
-          : selectValue // ignore: cast_nullable_to_non_nullable
-              as QuizTopicType,
     ) as $Val);
   }
 }
@@ -149,8 +140,7 @@ abstract class _$$WordListStateImplCopyWith<$Res>
       int currentPage,
       ScrollController scrollController,
       Function speak,
-      bool isLoading,
-      QuizTopicType selectValue});
+      bool isLoading});
 }
 
 /// @nodoc
@@ -174,7 +164,6 @@ class __$$WordListStateImplCopyWithImpl<$Res>
     Object? scrollController = null,
     Object? speak = null,
     Object? isLoading = null,
-    Object? selectValue = null,
   }) {
     return _then(_$WordListStateImpl(
       quizzes: null == quizzes
@@ -217,10 +206,6 @@ class __$$WordListStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectValue: null == selectValue
-          ? _value.selectValue
-          : selectValue // ignore: cast_nullable_to_non_nullable
-              as QuizTopicType,
     ));
   }
 }
@@ -238,8 +223,7 @@ class _$WordListStateImpl implements _WordListState {
       required this.currentPage,
       required this.scrollController,
       required this.speak,
-      this.isLoading = true,
-      required this.selectValue})
+      this.isLoading = true})
       : _quizzes = quizzes,
         _answers = answers,
         _sentences = sentences,
@@ -307,13 +291,9 @@ class _$WordListStateImpl implements _WordListState {
   @JsonKey()
   final bool isLoading;
 
-  /// セレクトボックスの値
-  @override
-  final QuizTopicType selectValue;
-
   @override
   String toString() {
-    return 'WordListState(quizzes: $quizzes, answers: $answers, sentences: $sentences, translations: $translations, isFavorites: $isFavorites, pronunciations: $pronunciations, currentPage: $currentPage, scrollController: $scrollController, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
+    return 'WordListState(quizzes: $quizzes, answers: $answers, sentences: $sentences, translations: $translations, isFavorites: $isFavorites, pronunciations: $pronunciations, currentPage: $currentPage, scrollController: $scrollController, speak: $speak, isLoading: $isLoading)';
   }
 
   @override
@@ -337,9 +317,7 @@ class _$WordListStateImpl implements _WordListState {
                 other.scrollController == scrollController) &&
             (identical(other.speak, speak) || other.speak == speak) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.selectValue, selectValue) ||
-                other.selectValue == selectValue));
+                other.isLoading == isLoading));
   }
 
   @override
@@ -354,8 +332,7 @@ class _$WordListStateImpl implements _WordListState {
       currentPage,
       scrollController,
       speak,
-      isLoading,
-      selectValue);
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -375,8 +352,7 @@ abstract class _WordListState implements WordListState {
       required final int currentPage,
       required final ScrollController scrollController,
       required final Function speak,
-      final bool isLoading,
-      required final QuizTopicType selectValue}) = _$WordListStateImpl;
+      final bool isLoading}) = _$WordListStateImpl;
 
   @override
   List<String> get quizzes;
@@ -400,10 +376,6 @@ abstract class _WordListState implements WordListState {
   Function get speak;
   @override
   bool get isLoading;
-  @override
-
-  /// セレクトボックスの値
-  QuizTopicType get selectValue;
   @override
   @JsonKey(ignore: true)
   _$$WordListStateImplCopyWith<_$WordListStateImpl> get copyWith =>
