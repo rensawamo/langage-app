@@ -7,20 +7,20 @@ dev:
 	cd apps/ko_beginner && $(FLUTTER) run --debug --dart-define=FLAVOR=dev
 
 # flavor prd
-.PHONY: prd
-prd:
-	cd apps/ko_beginner && $(FLUTTER)  run --debug --dart-define=FLAVOR=dev
+.PHONY: prod
+prod:
+	cd apps/ko_beginner && $(FLUTTER)  run --debug --dart-define=FLAVOR=prod
 
 # アイコンを作成
 .PHONY: icon
 icon:
-	cd apps && $(FLUTTER) pub run flutter_launcher_icons:main
+	cd apps/ko_beginner && $(FLUTTER) pub run flutter_launcher_icons:main
 
 
 # [Android] リリースビルド(難読)
 .PHONY: release_build_android
 release_build_android:
-	cd apps && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
+	cd apps/ko_beginner && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
 
 
 # [iOS] リリースビルド(難読)
