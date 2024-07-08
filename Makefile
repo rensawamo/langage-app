@@ -4,12 +4,12 @@ FLUTTER := $(FVM) flutter
 # flavor dev
 .PHONY: dev
 dev:
-	cd apps && $(FLUTTER) run --dart-define-from-file=dart_defines/dev.env
+	cd apps/ko_beginner && $(FLUTTER) run --debug --dart-define=FLAVOR=dev
 
 # flavor prd
 .PHONY: prd
 prd:
-	cd apps && $(FLUTTER) run --dart-define-from-file=dart_defines/prod.env
+	cd apps/ko_beginner && $(FLUTTER)  run --debug --dart-define=FLAVOR=dev
 
 # アイコンを作成
 .PHONY: icon

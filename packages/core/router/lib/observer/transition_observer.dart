@@ -1,6 +1,6 @@
-
 import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 enum TransitionType {
   push,
@@ -12,6 +12,8 @@ enum TransitionType {
 }
 
 class TransitionObserver extends NavigatorObserver {
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
   // TransitionObserver(this._ref);
   // ignore: unused_field
   // final Ref _ref;
@@ -64,8 +66,14 @@ class TransitionObserver extends NavigatorObserver {
     Route<dynamic> route,
     Route<dynamic>? previousRoute,
     TransitionType transitionType,
-  ) {
-    final pageName = route.settings.name;
-    logger.i('pageName: $pageName, ${transitionType.name}');
+  ) async {
+   /// 表示されたページ名を取得
+    final pageName = route.settings.name ?? 'unknown';
+    logger.i( 'pageName: $pageName, ${transitionType.name}');
+    await analytics
+      ..logEvent(name: 'page_transition', parameters: {
+        'page_name': pageName,
+        'transition_type': transitionType.name,
+      });
   }
 }
