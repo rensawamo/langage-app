@@ -17,12 +17,9 @@ class WordListState with _$WordListState {
       required List<bool> isFavorites,
       required List<String> pronunciations,
       required int currentPage,
-
       /// All 表示にきりかえる
       required ScrollController scrollController,
       required Function speak,
       @Default(true) bool isLoading,
-
-      /// セレクトボックスの値
-      required QuizTopicType selectValue}) = _WordListState;
+      }) = _WordListState;
 }

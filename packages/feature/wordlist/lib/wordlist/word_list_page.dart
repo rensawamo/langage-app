@@ -23,7 +23,6 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
         translations: [],
         pronunciations: [],
         scrollController: ScrollController(),
-        selectValue: QuizTopicType.noun,
         isLoading: true,
         currentPage: 1,
         speak: (String text) {
@@ -78,6 +77,10 @@ class WordListPage extends StatelessWidget {
             : quizzes.isEmpty
                 ? _empty()
                 : ListView.builder(
+                    key: PageStorageKey(0),
+                    controller: ref.read(WordlistProvider).scrollController,
+                    scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
+
                     itemCount: quizzes.length,
                     itemBuilder: (context, index) {
                       return Card(
