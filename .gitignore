@@ -73,9 +73,9 @@ unlinked_spec.ds
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/keystore.properties
-/android/app/google-services.json
-/android/app/src/stg/google-services.json
-/android/app/src/prd/google-services.json
+**/android/app/google-services.json
+**/android/app/src/stg/google-services.json
+**/android/app/src/prod/google-services.json
 **/android/app/src/dev/google-services.json
 ## 追加
 # DartDefine.xcconfig
@@ -85,10 +85,10 @@ unlinked_spec.ds
 **/ios/GoogleService-Info.pem
 **/ios/Firebase/devGoogleService-Info.plist
 **/ios/Firebase/sthGoogleService-Info.plist
-**/ios/Firebase/prdGoogleService-Info.plist
+**/ios/Firebase/prodGoogleService-Info.plist
 **/android/app/src/firebase/dev-google-services.json
 **/android/app/src/firebase/stg-google-services.json
-**/android/app/src/firebase/prd-google-services.json
+**/android/app/src/firebase/prod-google-services.json
 **/app/google-services.*
 
 *.jks
@@ -178,7 +178,7 @@ pubspec_overrides.yaml
 # FVM Version Cache
 .fvm/
 
-# cicd 
+# cicd
 **/ExportOptions.plist
 **/ExportOptions.pem
 
