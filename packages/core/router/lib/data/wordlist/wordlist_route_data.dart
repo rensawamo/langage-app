@@ -1,4 +1,4 @@
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:feature_wordlist/word_detail/word_detail_page.dart';
 import 'package:feature_wordlist/word_topic_select/word_topic_select_page.dart';
 import 'package:feature_wordlist/wordlist/word_list_page.dart';

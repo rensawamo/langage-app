@@ -1,6 +1,6 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_utility/utility.dart';
 import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:flutter/widgets.dart';

@@ -16,13 +16,11 @@ dependencies:
   core_dao:
     path: ../../packages/core/dao
   core_data:
-    path: ../../packages/core/data
-  core_constants:
-    path: ../../packages/core/constants
-  core_views:
-    path: ../../packages/core/views
-  core_enums:
-    path: ../../packages/core/enums
+    path: ../../packages/core/data  
+  core_ui:
+    path: ../../packages/core/ui
+  core_foundation:
+    path: ../../packages/core/foundation
   core_utility:
     path: ../../packages/core/utility
   core_router:
@@ -36,7 +34,7 @@ dependencies:
   feature_quiz:
     path: ../../packages/feature/quiz
   flutter_riverpod: ^2.5.1
-  firebase_core: ^3.1.1
+  firebase_core: ^3.2.0
   firebase_crashlytics: ^4.0.2
 
 dev_dependencies:

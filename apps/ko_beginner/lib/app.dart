@@ -1,7 +1,7 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_designsystem/provider/theme_color_provider.dart';
 import 'package:core_designsystem/provider/theme_text_provider.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_router/router/app_router.dart';
 import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';

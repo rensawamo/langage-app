@@ -1,11 +1,11 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
-import 'package:core_views/components/tile_empty_text.dart';
+import 'package:core_ui/ui.dart';
+
 import 'package:feature_quiz/quiz_page/quiz_page_view.dart';
 import 'quiz_state.dart';
 import 'quiz_viewmodel.dart';
-import 'package:core_views/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';

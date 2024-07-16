@@ -11,10 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  core_enums:
-    path: ../enums
-  core_constants:
-    path: ../constants
+  core_foundation:
+    path: ../foundation
   core_utility:
     path: ../utility
   flutter_riverpod: ^2.5.1

@@ -1,6 +1,6 @@
 import 'package:core_dao/sql/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_dao/sql/quiz_favorite/quiz_favorite_response.dart';
-import 'package:core_enums/enums.dart';
+
 import 'package:core_sql/sql.dart';
 
 // クイズ のお気に入りの名詞  data アクセスクラス

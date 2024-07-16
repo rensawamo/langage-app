@@ -2,7 +2,8 @@ import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_response.dart';
 import 'package:core_data/data.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
+
 import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
 

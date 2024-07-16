@@ -14,12 +14,13 @@ dependencies:
     sdk: flutter
   core_utility:
     path: ../utility
-  core_enums:
-    path: ../enums
-  core_views:
-    path: ../views
+ 
+  core_ui:
+    path: ../ui
   core_dao:
     path: ../dao
+  core_foundation:
+    path: ../foundation
   feature_splash:
     path: ../../../packages/feature/splash
   feature_wordlist:
@@ -30,6 +31,7 @@ dependencies:
     path: ../../../packages/feature/setting
   feature_quiz_favorite:
     path: ../../../packages/feature/quiz_favorite
+  
 
   go_router: ^14.2.0
   firebase_analytics: ^11.1.0

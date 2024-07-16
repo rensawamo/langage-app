@@ -11,12 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  core_views:
-    path: ../../core/views
-  core_constants:
-    path: ../../core/constants
-  core_enums:
-   path: ../../core/enums
+  core_ui:
+    path: ../../core/ui
+  core_foundation:
+   path: ../../core/foundation
   simple_logger: ^1.9.0+3
 
 

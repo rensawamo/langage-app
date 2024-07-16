@@ -1,4 +1,4 @@
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:feature_quiz_favorite/quiz_favorite.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

@@ -1,5 +1,6 @@
-import 'package:core_enums/enums.dart';
-import 'package:core_views/views.dart';
+
+import 'package:core_foundation/foundation.dart';
+import 'package:core_ui/ui.dart';
 import 'package:feature_wordlist/word_detail/word_detail_state.dart';
 import 'package:feature_wordlist/word_detail/word_detail_viewmodel.dart';
 import 'package:flutter/material.dart';

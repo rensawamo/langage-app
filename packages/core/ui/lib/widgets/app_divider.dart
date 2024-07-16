@@ -1,0 +1,32 @@
+
+import 'package:flutter/material.dart';
+
+/// dividerを表示するWidget
+class AppDivider extends StatelessWidget {
+  /// 左端のインデントサイズ
+  final double leftIndent;
+
+  /// 右端のインデントサイズ
+  final double rightIndent;
+
+  /// コンストラクタ
+  ///
+  /// [leftIndent]で、左端のスペースを設定する
+  /// [rightIndent]で、右端のスペースを設定する
+  const AppDivider({
+    super.key,
+    this.leftIndent = 0,
+    this.rightIndent = 0,
+  });
+
+  /// Widget生成
+  @override
+  Widget build(BuildContext context) {
+    return Divider(
+      height: 0,
+      thickness: 0.5,
+      indent: leftIndent,
+      endIndent: rightIndent,
+    );
+  }
+}

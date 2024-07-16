@@ -83,9 +83,9 @@ unlinked_spec.ds
 #  firebase ファイル
 **/ios/GoogleService-Info.plist
 **/ios/GoogleService-Info.pem
-**/ios/Firebase/devGoogleService-Info.plist
-**/ios/Firebase/sthGoogleService-Info.plist
-**/ios/Firebase/prodGoogleService-Info.plist
+**/ios/stg/GoogleService-Info.plist
+**/ios/dev/GoogleService-Info.plist
+**/ios/prod/GoogleService-Info.plist
 **/android/app/src/firebase/dev-google-services.json
 **/android/app/src/firebase/stg-google-services.json
 **/android/app/src/firebase/prod-google-services.json

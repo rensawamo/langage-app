@@ -1,10 +1,9 @@
 import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 

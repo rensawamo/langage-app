@@ -1,10 +1,9 @@
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
+import 'package:core_ui/ui.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:core_views/views.dart';
-import 'package:core_views/widgets/app_base_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';

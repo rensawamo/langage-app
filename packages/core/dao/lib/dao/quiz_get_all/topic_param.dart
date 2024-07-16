@@ -1,4 +1,5 @@
-import 'package:core_enums/enums.dart';
+
+import 'package:core_foundation/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'topic_param.freezed.dart';

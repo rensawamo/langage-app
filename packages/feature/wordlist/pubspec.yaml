@@ -2,7 +2,7 @@ name: feature_wordlist
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
 publish_to: 'none'
-# repository: https://github.com/my_org/my_repo
+
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -16,19 +16,17 @@ dependencies:
   core_dao:
     path: ../../core/dao
   core_data:
-    path: ../../core/data
-  core_constants:
-    path: ../../core/constants
-  core_enums:
-    path: ../../core/enums
+    path: ../../core/data    
+  core_foundation:
+    path: ../../core/foundation
   core_sql:
     path: ../../core/sql
   core_utility:
     path: ../../core/utility
   core_router:
     path: ../../core/router
-  core_views:
-    path: ../../core/views
+  core_ui:
+    path: ../../core/ui
   core_designsystem:
     path: ../../core/designsystem
   shared_preferences: ^2.2.3

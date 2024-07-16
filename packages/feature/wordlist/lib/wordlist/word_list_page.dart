@@ -1,9 +1,9 @@
+import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
-import 'package:core_views/views.dart';
+import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
-import 'package:core_enums/enums.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:feature_wordlist/wordlist/word_list_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

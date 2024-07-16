@@ -1,4 +1,4 @@
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';

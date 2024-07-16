@@ -1,5 +1,6 @@
-import 'package:core_views/views.dart';
-import 'package:core_views/widgets/app_base_frame.dart';
+
+
+import 'package:core_ui/ui.dart';
 import 'package:feature_setting/widget/setting_item.dart';
 import 'package:feature_setting/widget/setting_switch_tile.dart';
 import 'package:flutter/material.dart';

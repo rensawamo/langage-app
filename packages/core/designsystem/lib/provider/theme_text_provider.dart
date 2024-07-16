@@ -1,12 +1,9 @@
-import 'package:core_constants/constants.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:state_notifier/state_notifier.dart';
 import 'package:core_utility/utility.dart';
-
-
 
 final textScalerProvider =
     StateNotifierProvider<TextScalerNotifier, AppTextScale>(
@@ -19,9 +16,9 @@ extension TextScaleExtension on AppTextScale {
       case AppTextScale.normal:
         return TextScaler.linear(1);
       case AppTextScale.large:
-        return TextScaler.linear(1);
+        return TextScaler.linear(1.1);
       case AppTextScale.xlarge:
-        return TextScaler.linear(1);
+        return TextScaler.linear(1.2);
 
       default:
         return TextScaler.linear(1);
@@ -49,22 +46,21 @@ class TextScalerNotifier extends StateNotifier<AppTextScale> {
     await prefs.setInt(_scaleKey, scale.index);
   }
 
-Future<void> toggleScale() async {
-  print(state);
-  switch (state) {
-    case AppTextScale.normal:
-      setScale(AppTextScale.large);
-      break;
-    case AppTextScale.large:
-      setScale(AppTextScale.xlarge);
-      break;
-    case AppTextScale.xlarge:
-      setScale(AppTextScale.normal);
-      break;
-    default:
-      setScale(AppTextScale.normal);
-      break;
+  Future<void> toggleScale() async {
+    print(state);
+    switch (state) {
+      case AppTextScale.normal:
+        setScale(AppTextScale.large);
+        break;
+      case AppTextScale.large:
+        setScale(AppTextScale.xlarge);
+        break;
+      case AppTextScale.xlarge:
+        setScale(AppTextScale.normal);
+        break;
+      default:
+        setScale(AppTextScale.normal);
+        break;
+    }
   }
-}
-
 }

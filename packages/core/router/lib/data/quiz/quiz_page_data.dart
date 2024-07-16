@@ -1,5 +1,5 @@
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:feature_quiz/quiz/quiz.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page.dart';
 import 'package:feature_quiz/quiz_select/quiz_select_page.dart';

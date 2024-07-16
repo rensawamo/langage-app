@@ -1,4 +1,5 @@
-import 'package:core_enums/enums.dart';
+
+import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/quiz/quiz_page_data.dart';
 import 'package:core_router/data/setting/setting_page_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';

@@ -1,0 +1,18 @@
+/// Support for doing something awesome.
+///
+/// More dartdocs go here.
+library foundation;
+
+// constants
+export 'constants/prefs_key.dart';
+
+// enum
+export 'enum/app_color_type.dart';
+export 'enum/app_icon_button_type.dart';
+export 'enum/app_install_type.dart';
+export 'enum/app_text_button_type.dart';
+export 'enum/app_text_scale.dart';
+export 'enum/app_text_size_type.dart';
+export 'enum/enums_base.dart';
+export 'enum/quiz_topic_type.dart';
+export 'enum/tile_section_footer_type.dart';

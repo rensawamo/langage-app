@@ -1,4 +1,4 @@
-import 'package:core_constants/constants.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,4 +1,4 @@
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// アプリ内の設定を管理する

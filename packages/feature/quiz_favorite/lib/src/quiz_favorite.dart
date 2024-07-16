@@ -1,10 +1,8 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_dao/sql/quiz_favorite/quiz_favorite_dao.dart';
-import 'package:core_enums/enums.dart';
-import 'package:core_views/components/tile_empty_text.dart';
-import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/views.dart';
-import 'package:core_views/widgets/app_delete_dialog.dart';
+import 'package:core_foundation/foundation.dart';
+
+import 'package:core_ui/ui.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_viewmodel.dart';
 import 'package:flutter/material.dart';

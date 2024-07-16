@@ -13,14 +13,14 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^2.4.1
-  core_enums:
-    path: ../enums
+  core_foundation:
+    path: ../foundation
   core_data:
     path: ../data
   core_sql:
     path: ../sql
-  core_views:
-    path: ../views
+  core_ui:
+    path: ../ui
   core_utility:
     path:  ../utility
 

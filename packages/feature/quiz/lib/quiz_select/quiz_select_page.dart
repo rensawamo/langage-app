@@ -1,8 +1,8 @@
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_enums/enums.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/quiz/quiz_page_data.dart';
-import 'package:core_views/views.dart';
+import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';

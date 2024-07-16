@@ -1,6 +1,5 @@
 import 'package:core_dao/json_serializable_interface.dart';
-import 'package:core_enums/enums.dart';
-
+import 'package:core_foundation/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'quiz_favorite_request.freezed.dart';

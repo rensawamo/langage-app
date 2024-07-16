@@ -1,6 +1,5 @@
-import 'package:core_views/components/tile_animation_loading_tile.dart';
+import 'package:core_ui/ui.dart';
 import 'package:flutter/material.dart';
-
 
 /// インジケータのUtilityクラス
 class AppIndicator {
@@ -12,7 +11,6 @@ class AppIndicator {
   /// 使用する画面のBuildContextを[context]にセットする
   static void show(BuildContext context) {
     if (!_isDisplay) {
-
       // ダイアログを重複表示させないように反転させる
       _isDisplay = !_isDisplay;
       // ダイアログにサークルインジケータをのせて表示する

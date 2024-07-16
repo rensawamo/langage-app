@@ -1,11 +1,11 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
-import 'package:core_enums/enums.dart';
-import 'package:core_views/extension/view+extention.dart';
-import 'package:core_views/widgets/quiz/quiz_button.dart';
-import 'package:core_views/widgets/quiz/quiz_next_button.dart';
-import 'package:core_views/widgets/quiz/quiz_progress_bar.dart';
+import 'package:core_foundation/foundation.dart';
+import 'package:core_ui/extension/view+extention.dart';
+import 'package:feature_quiz/quiz_button.dart';
+import 'package:feature_quiz/quiz_next_button.dart';
 import 'package:feature_quiz/quiz_result/quiz_result_page.dart';
+import 'package:feature_quiz/widget/quiz_progress_bar.dart';
 import 'package:flutter/material.dart';
 
 // アプリクイズのページ
@@ -111,8 +111,8 @@ class QuizPageView extends StatelessWidget {
                         Text(
                           quiz.text,
                           textAlign: TextAlign.center,
-                          style: AppTextStyles.body(context, color: Colors.black
-                          ),
+                          style:
+                              AppTextStyles.body(context, color: Colors.black),
                         ),
                         IconButton(
                           icon: Icon(Icons.volume_up, color: Colors.blue),
@@ -130,23 +130,21 @@ class QuizPageView extends StatelessWidget {
 
                 Container(
                   height: context.mediaQueryHeight * .425,
-                  child: 
-                    ListView.builder(
-                      itemCount: quiz.options.length,
-                      itemBuilder: (context, index1) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom:  5),
-                          child: AppQuizbuttonWidget(
-                            selectAns: selectAns,
-                            quiz: quiz,
-                            ans_ind: index1,
-                            selected: selected,
-                            selected_ind: selected_ind,
-                          ),
-                        );
-                      },
-                    ),
-                  
+                  child: ListView.builder(
+                    itemCount: quiz.options.length,
+                    itemBuilder: (context, index1) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 5),
+                        child: AppQuizbuttonWidget(
+                          selectAns: selectAns,
+                          quiz: quiz,
+                          ans_ind: index1,
+                          selected: selected,
+                          selected_ind: selected_ind,
+                        ),
+                      );
+                    },
+                  ),
                 ),
 
                 // next button
