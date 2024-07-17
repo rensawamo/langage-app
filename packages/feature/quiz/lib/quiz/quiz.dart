@@ -2,8 +2,7 @@ import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_ui/ui.dart';
-
-import 'package:feature_quiz/quiz_page/quiz_page_view.dart';
+import 'package:feature_quiz/widget/quiz_page.dart';
 import 'quiz_state.dart';
 import 'quiz_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -101,7 +100,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         controller: ref.watch(quizGetProvider).controller,
         itemBuilder: (context, index) {
           final quiz = quizes[index];
-          return QuizPageView(
+          return QuizScreenWidget(
             quizes: quizes,
             answers: answers,
             sentences: ref.read(quizGetProvider).sentences,

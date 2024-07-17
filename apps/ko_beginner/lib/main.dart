@@ -16,7 +16,6 @@ Future<void> main() async {
   // SharedPreferences の初期化
   final sharedPreferences = await SharedPreferences.getInstance();
   final secureStorage = FlutterSecureStorage();
-  final sqlite = QuizFavoriteSql();
 
   /// Firebase
   await Firebase.initializeApp(

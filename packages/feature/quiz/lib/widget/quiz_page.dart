@@ -9,7 +9,8 @@ import 'package:feature_quiz/widget/quiz_progress_bar.dart';
 import 'package:flutter/material.dart';
 
 // アプリクイズのページ
-class QuizPageView extends StatelessWidget {
+
+class QuizScreenWidget extends StatelessWidget {
   final List<Quiz> quizes;
   final List<String> answers;
   final List<String> sentences;
@@ -33,7 +34,7 @@ class QuizPageView extends StatelessWidget {
   /// テキストの大きさが定義されている場合に適応する
   final AppTextSizeType? textType;
 
-  const QuizPageView({
+  const QuizScreenWidget({
     Key? key,
     required this.quizes,
     required this.answers,
