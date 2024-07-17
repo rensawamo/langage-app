@@ -138,18 +138,25 @@ class QuizResultTablePage extends StatelessWidget {
     );
   }
 
-  Widget _buildVoiceCell(BuildContext context, int index) => Container(
-        color: index % 2 == 0
-            ? AppColorsSet.getTableOddRowColor(context)
-            : AppColorsSet.getTableEvenRowColor(context),
-        height: 65,
-        padding: const EdgeInsets.all(8),
-        alignment: Alignment.center,
-        child: IconButton(
-          icon: const Icon(Icons.volume_up, color: Colors.blue),
-          onPressed: () => null,
-        ),
-      );
+  Widget _buildVoiceCell(
+    BuildContext context,
+    int index,
+  ) =>
+      Consumer(builder: (context, ref, child) {
+        final vm = ref.read(WordlistProvider.notifier);
+        return Container(
+          color: index % 2 == 0
+              ? AppColorsSet.getTableOddRowColor(context)
+              : AppColorsSet.getTableEvenRowColor(context),
+          height: 65,
+          padding: const EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: IconButton(
+            icon: const Icon(Icons.volume_up, color: Colors.blue),
+            onPressed: () => vm.speak(quizzes[index]),
+          ),
+        );
+      });
 
   Widget _buildFavoriteCell(
           BuildContext context,

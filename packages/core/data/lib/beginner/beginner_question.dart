@@ -3762,7 +3762,7 @@ class AppQuizData {
       text: "버섯",
       sentence: "버섯을 넣는다.",
       translation: "きのこを入れる。",
-      pronunciation: "ボソッ",
+      pronunciation: "ポソッ",
       options: [
         Option(text: "じゃがいも", isCorrect: false),
         Option(text: "人参", isCorrect: false),
@@ -4088,7 +4088,7 @@ class AppQuizData {
       text: "저기",
       sentence: "저기에 있다.",
       translation: "あそこにいる。",
-      pronunciation: "ジョギ",
+      pronunciation: "チョギ",
       options: [
         Option(text: "あそこ", isCorrect: true),
         Option(text: "そこ", isCorrect: false),
@@ -4176,7 +4176,7 @@ class AppQuizData {
       text: "보고 싶었어요",
       sentence: "정말 보고 싶었어요.",
       translation: "本当に会いたかったです。",
-      pronunciation: "ボゴ シポッソヨ",
+      pronunciation: "ポゴ シポッソヨ",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "いただきます", isCorrect: false),
@@ -4188,7 +4188,7 @@ class AppQuizData {
       text: "좋은 하루 보내세요",
       sentence: "좋은 하루 보내세요!",
       translation: "良い一日を過ごしてください！",
-      pronunciation: "チョウン ハル ボネセヨ",
+      pronunciation: "チョウン ハル ポネセヨ",
       options: [
         Option(text: "良い一日を", isCorrect: true),
         Option(text: "おはようございます", isCorrect: false),
@@ -4200,7 +4200,7 @@ class AppQuizData {
       text: "잘 부탁합니다",
       sentence: "잘 부탁합니다, 열심히 하겠습니다.",
       translation: "よろしくお願いします、一生懸命やります。",
-      pronunciation: "チャル ブタッカムニダ",
+      pronunciation: "チャル プタッカムニダ",
       options: [
         Option(text: "おはようございます", isCorrect: false),
         Option(text: "おやすみなさい", isCorrect: false),
@@ -4296,7 +4296,7 @@ class AppQuizData {
       text: "처음 뵙겠습니다",
       sentence: "처음 뵙겠습니다, 만나서 반갑습니다.",
       translation: "はじめまして、お会いできて嬉しいです。",
-      pronunciation: "チョウム ベプケッスムニダ",
+      pronunciation: "チョウム ペケッスムニダ",
       options: [
         Option(text: "はじめまして", isCorrect: true),
         Option(text: "おやすみなさい", isCorrect: false),
