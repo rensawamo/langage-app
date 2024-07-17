@@ -1,7 +1,7 @@
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_designsystem/provider/theme_color_provider.dart';
-import 'package:core_designsystem/provider/theme_text_provider.dart';
+
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/repository.dart';
 import 'package:core_router/router/app_router.dart';
 import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,8 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
-    final themeMode = ref.watch(themeNotifierProvider);
-    final textScale = ref.watch(textScalerProvider);
+    final themeMode = ref.watch(themeColorRepositoryProvider);
+    final textScale = ref.watch(themeTextRepositoryProvider);
     // 韓国語初級アプリの設定を変更
     AppSettingInfo().changeAppInstallType(AppInstallType.koreanBeginner);
     return MaterialApp.router(

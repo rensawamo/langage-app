@@ -13,12 +13,14 @@ import 'package:go_router/go_router.dart';
 final WordlistProvider = StateNotifierProvider.autoDispose<
     QuizResultTablePageViewmodelInterface, QuizResultTablePageState>(
   (ref) {
-    return QuizResultTablePageViewmodel(QuizResultTablePageState(
-      isFavorites: [],
-      speak: (String text) {
-        FlutterTts().speak(text);
-      },
-    ));
+    return QuizResultTablePageViewmodel(
+        ref,
+        QuizResultTablePageState(
+          isFavorites: [],
+          speak: (String text) {
+            FlutterTts().speak(text);
+          },
+        ));
   },
 );
 

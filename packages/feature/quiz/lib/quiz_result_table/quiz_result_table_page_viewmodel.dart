@@ -1,19 +1,19 @@
 import 'package:core_foundation/foundation.dart';
-import 'package:core_sql/sql.dart';
+import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// クイズ画面のViewmodel
-class QuizResultTablePageViewmodel extends QuizResultTablePageViewmodelInterface {
+class QuizResultTablePageViewmodel
+    extends QuizResultTablePageViewmodelInterface {
   /// コンストラクタ
   ///
   /// [state]で初期状態をセット
   /// [dao]API Modelクラス AppointmentGetListAllをセット
-  QuizResultTablePageViewmodel(super.state);
-
-
+  QuizResultTablePageViewmodel(Ref ref, QuizResultTablePageState state)
+      : super(ref, state);
 
   /// 初期設定
   ///
@@ -33,15 +33,15 @@ class QuizResultTablePageViewmodel extends QuizResultTablePageViewmodelInterface
       String translation,
       String pronunciation,
       QuizTopicType quizTopicType) async {
-
-
     // お気に入りの更新
     List<bool> isFavorites = List.from(state.isFavorites); // 変更可能なコピーを作成
     state =
         state.copyWith(isFavorites: isFavorites..[index] = !isFavorites[index]);
 
+    final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
+
     if (state.isFavorites[index]) {
-      await QuizFavoriteSql.insert(
+      await quizFavoriteSql.insert(
         text,
         answer,
         sentence,
@@ -50,7 +50,7 @@ class QuizResultTablePageViewmodel extends QuizResultTablePageViewmodelInterface
         quizTopicType.name,
       );
     } else {
-      await QuizFavoriteSql.delete(text);
+      await quizFavoriteSql.delete(text);
     }
   }
 
@@ -67,11 +67,14 @@ class QuizResultTablePageViewmodel extends QuizResultTablePageViewmodelInterface
   }
 }
 
-
 /// Quize Viewmodel インターフェース
 abstract class QuizResultTablePageViewmodelInterface
     extends StateNotifier<QuizResultTablePageState> {
-  QuizResultTablePageViewmodelInterface(super.state);
+  QuizResultTablePageViewmodelInterface(
+    this.ref,
+    super.state,
+  );
+  final Ref ref;
 
   // tts の言語設定
   late FlutterTts flutterTts;

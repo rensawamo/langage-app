@@ -2,13 +2,18 @@ import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_data/data.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_model/quiz/quiz_model.dart';
+import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
 import 'package:core_utility/utility/app_setting_info.dart';
 
 // クイズの問題の data アクセスクラス
 class QuizGetAllDao implements QuizGetAllDaoInterface {
+  final Ref ref;
+  QuizGetAllDao(this.ref);
+
   @override
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request) async {
     try {
@@ -93,8 +98,11 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
     answers = limitedQuizzes.map((quiz) {
       return quiz.options.firstWhere((option) => option.isCorrect).text;
     }).toList();
+
+    final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
+
     var favorites =
-        await QuizFavoriteSql.getTopicWords(request.quizTopicType.name);
+        await quizFavoriteSql.getTopicWords(request.quizTopicType.name);
     logger.i(favorites);
     logger.i(limitedQuizzes);
     isFavorites =
@@ -114,4 +122,6 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
 /// quiz 問題 data アクセス インターフェース
 abstract class QuizGetAllDaoInterface {
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request);
+  final Ref ref;
+  QuizGetAllDaoInterface(this.ref);
 }

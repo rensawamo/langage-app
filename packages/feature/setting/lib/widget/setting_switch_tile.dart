@@ -1,5 +1,5 @@
-import 'package:core_designsystem/provider/theme_color_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:core_repository/repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SettingsSwitchTile extends ConsumerStatefulWidget {
@@ -17,7 +17,7 @@ class SettingsSwitchTile extends ConsumerStatefulWidget {
 class _SettingsSwitchTileState extends ConsumerState<SettingsSwitchTile> {
   @override
   Widget build(BuildContext context) {
-            final themeNotifier = ref.read(themeNotifierProvider.notifier);
+    final themeNotifier = ref.read(themeColorRepositoryProvider.notifier);
 
     return ListTile(
       contentPadding:
@@ -29,9 +29,9 @@ class _SettingsSwitchTileState extends ConsumerState<SettingsSwitchTile> {
         activeColor: Colors.green,
         value: Theme.of(context).brightness == Brightness.dark,
         onChanged: (bool newValue) {
-
-
-            themeNotifier.toggleTheme();
+          themeNotifier.setTheme(
+            newValue ? ThemeMode.dark : ThemeMode.light,
+          );
         },
       ),
     );

@@ -15,6 +15,7 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
     WordListViewmodelInterface, WordListState>(
   (ref) {
     return WordListViewmodel(
+      ref,
       WordListState(
         quizzes: [],
         answers: [],
@@ -29,7 +30,7 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
           FlutterTts().speak(text);
         },
       ),
-      WordGetAllDao(),
+      WordGetAllDao(ref),
     );
   },
 );

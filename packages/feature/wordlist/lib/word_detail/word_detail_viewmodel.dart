@@ -1,4 +1,3 @@
-import 'package:core_sql/sql.dart';
 import 'package:core_utility/utility.dart';
 import 'package:feature_wordlist/word_detail/word_detail_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

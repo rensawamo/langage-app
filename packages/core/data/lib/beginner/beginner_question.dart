@@ -1,5 +1,5 @@
 //  basic プラン
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
+import 'package:core_model/quiz/quiz_model.dart';
 
 class AppQuizData {
   ////////////////////     形容詞      ////////////////////

@@ -1,7 +1,7 @@
 import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_foundation/foundation.dart';
-import 'package:core_sql/sql.dart';
+import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:core_utility/utility.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +11,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 class WordListViewmodel extends WordListViewmodelInterface {
   /// コンストラクタ
 
-  WordListViewmodel(super.state, this.dao);
+  WordListViewmodel(Ref ref, WordListState state, this.dao) : super(ref, state);
 
   ///  お気に入りの単語一覧取得　daoクラス
   final WordGetAllDao dao;
@@ -80,8 +80,10 @@ class WordListViewmodel extends WordListViewmodelInterface {
     state =
         state.copyWith(isFavorites: isFavorites..[index] = !isFavorites[index]);
 
+    final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
+
     if (state.isFavorites[index]) {
-      await QuizFavoriteSql.insert(
+      await quizFavoriteSql.insert(
         text,
         answer,
         sentence,
@@ -90,7 +92,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
         quizTopicType.name,
       );
     } else {
-      await QuizFavoriteSql.delete(text);
+      await quizFavoriteSql.delete(text);
     }
   }
 
@@ -104,7 +106,9 @@ class WordListViewmodel extends WordListViewmodelInterface {
 
 /// E201.受診予約一覧 Viewmodel インターフェース
 abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
-  WordListViewmodelInterface(super.state);
+  WordListViewmodelInterface(this.ref, super.state);
+
+  final Ref ref;
 
   /// クイズの種別
   late QuizTopicType quizTopicType;

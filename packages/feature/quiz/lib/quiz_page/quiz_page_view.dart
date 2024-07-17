@@ -1,9 +1,7 @@
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_ui/extension/view+extention.dart';
-
-
 import 'package:feature_quiz/quiz_result/quiz_result_page.dart';
 import 'package:feature_quiz/widget/quiz_button.dart';
 import 'package:feature_quiz/widget/quiz_next_button.dart';

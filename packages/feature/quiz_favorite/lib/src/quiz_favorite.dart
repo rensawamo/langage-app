@@ -1,7 +1,6 @@
+import 'package:core_dao/dao/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_dao/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_foundation/foundation.dart';
-
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_viewmodel.dart';
@@ -15,6 +14,7 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
     QuizeFavoriteViewmodelInterface, QuizFavoriteState>(
   (ref) {
     return QuizeFavoriteViewmodel(
+      ref,
       QuizFavoriteState(
         quizzes: [],
         answers: [],
@@ -27,7 +27,7 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
           FlutterTts().speak(text);
         },
       ),
-      QuizFavoriteDao(),
+      QuizFavoriteDao(ref),
     );
   },
 );

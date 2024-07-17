@@ -3,6 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'src/model_base.dart';
+export 'quiz/quiz_model.dart';
 
 // TODO: Export any libraries intended for clients of this package.

@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library;
 
-export 'sqlite/quiz_favorite_sql.dart';
+export 'src/test_util_base.dart';
+export 'src/riverpod.dart';
 
 // TODO: Export any libraries intended for clients of this package.
