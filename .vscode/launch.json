@@ -3,29 +3,35 @@
   "configurations": [
       {
           "name": "Debug-Dev",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
           "request": "launch",
           "type": "dart",
           "flutterMode": "debug",
           "args": [
-              "--dart-define-from-file=dart_defines/dev.json",
+              "--dart-define-from-file=dart_define/dev.env",
           ]
       },
       {
           "name": "Debug-Prod",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
           "request": "launch",
           "type": "dart",
           "flutterMode": "debug",
           "args": [
-              "--dart-define-from-file=dart_defines/prod.json",
+              "--dart-define-from-file=dart_define/prod.env",
           ]
       },
       {
           "name": "Release-Dev",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
           "request": "launch",
           "type": "dart",
           "flutterMode": "release",
           "args": [
-              "--dart-define-from-file=dart_defines/dev.json",
+              "--dart-define-from-file=dart_define/dev.env",
           ]
       }
   ]

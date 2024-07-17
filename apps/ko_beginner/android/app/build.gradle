@@ -4,6 +4,33 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def dartEnvironmentVariables = project
+            .property('dart-defines')
+            .split(',')
+            .collectEntries {
+                new String(it.decodeBase64(), 'UTF-8')
+                    .split(',')
+                    .collectEntries {
+                        def pair = it.split('=')
+                        [(pair.first()): pair.last()]
+                    }
+            }
+task copyIcons(type: Copy) {
+    from "src/${dartEnvironmentVariables.FLAVOR}/res"
+    into 'src/main/res'
+}
+task copyFirebaseSource(type: Copy) {
+    from "src/firebase/${dartEnvironmentVariables.FLAVOR}-google-services.json"
+    into './'
+    rename { String fileName ->
+        fileName = "google-services.json"
+    }
+}
+
+tasks.whenTaskAdded {
+    it.dependsOn copyFirebaseSource
+    it.dependsOn copyIcons
+}
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -22,17 +49,6 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-// Dart-Defines.
-def dartEnvironmentVariables = [:]
-if (project.hasProperty('dart-defines')) {
-    // カンマ区切りかつBase64でエンコードされている dart-defines をデコードして変数に格納します。
-    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
-            .split(',')
-            .collectEntries { entry ->
-                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
-                [(pair.first()): pair.last()]
-            }
-}
 
 // Firebaseの設定ファイルを環境によってコピーする
 task selectGoogleServicesJson(type: Copy) {

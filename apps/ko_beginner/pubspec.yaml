@@ -16,7 +16,7 @@ dependencies:
   core_dao:
     path: ../../packages/core/dao
   core_data:
-    path: ../../packages/core/data  
+    path: ../../packages/core/data
   core_ui:
     path: ../../packages/core/ui
   core_foundation:
@@ -55,7 +55,4 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  assets:
-    - ./assets/launcher_icons/dev.png
-    - ./assets/launcher_icons/prod.png
-
+  image_path: "assets/launcher_icons/$(FLAVOR).png"

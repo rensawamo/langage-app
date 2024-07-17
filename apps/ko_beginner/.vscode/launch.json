@@ -1,32 +1,76 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "dev",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define-from-file=dart_defines/dev.json"
-            ]
-        },
-        {
-            "name": "stg",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define-from-file=dart_defines/stg.json"
-            ]
-        },
-        {
-            "name": "prd",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release",
-            "args": [
-                "--dart-define-from-file=dart_defines/prd.json"
-            ]
-        }
-    ]
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "dev-debug",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
+          "request": "launch",
+          "type": "dart",
+          "flutterMode": "debug",
+          "args": [
+              "--dart-define-from-file=dart_define/dev.env",
+          ]
+      },
+      {
+          "name": "stg-debug",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
+          "request": "launch",
+          "type": "dart",
+          "flutterMode": "debug",
+          "args": [
+              "--dart-define-from-file=dart_define/stg.env"
+          ]
+      },
+      {
+          "name": "prod-debug",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
+          "request": "launch",
+          "type": "dart",
+          "flutterMode": "debug",
+          "args": [
+              "--dart-define-from-file=dart_define/prod.env",
+              "--dart-define=flavor=prod",
+              "--dart-define=appName=c6opocapp"
+          ]
+      },
+      {
+          "name": "prod Profile",
+          "cwd": "apps/ko_beginner",
+          "program": "lib/main.dart",
+          "request": "launch",
+          "type": "dart",
+          "flutterMode": "profile",
+          "args": [
+              "--dart-define-from-file=dart_define/prod.env"
+          ]
+      },
+      {
+          "name": "prod Release",
+          "cwd": "apps",
+          "program": "lib/main.dart",
+          "request": "launch",
+          "type": "dart",
+          "flutterMode": "release",
+          "args": [
+              "--dart-define-from-file=dart_define/prod.env"
+          ]
+      },
+      {
+          "name": "widgetbook-dev",
+          "cwd": "apps_widgetbook",
+          "program": "lib/main.dart",
+          "request": "launch",
+          "type": "dart",
+          "flutterMode": "debug",
+          "args": [
+          ]
+      },
+
+  ]
 }
