@@ -81,7 +81,7 @@ class AppBarForScreen extends StatelessWidget implements PreferredSizeWidget {
     return Text(
       titleText,
       textAlign: TextAlign.center,
-      style: AppTextStyles.caption(context),
+      style: AppTextStyles.title3(context),
     );
   }
 }

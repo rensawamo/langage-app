@@ -3157,7 +3157,7 @@ class AppQuizData {
       text: "병원",
       sentence: "나는 병원에 간다.",
       translation: "私は病院に行く。",
-      pronunciation: "ビョンウォン",
+      pronunciation: "ピョンウォン",
       options: [
         Option(text: "空港", isCorrect: false),
         Option(text: "学校", isCorrect: false),
@@ -3325,7 +3325,7 @@ class AppQuizData {
       text: "경찰서",
       sentence: "경찰서에 신고한다.",
       translation: "警察署に通報する。",
-      pronunciation: "ギョンチャルソ",
+      pronunciation: "キョンチャルソ",
       options: [
         Option(text: "日本大使館", isCorrect: false),
         Option(text: "図書館", isCorrect: false),
