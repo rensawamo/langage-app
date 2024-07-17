@@ -3,7 +3,9 @@ enum AppPrefsKey {
   configModeType('configModeType'),
 
   /// アプリ設定文字サイズ: int（enum index）
-  configFontScale('configFontScale');
+  configFontScale('configFontScale'),
+
+  configAppInfo('configAppInfo');
 
   const AppPrefsKey(this.value);
   final String value;

@@ -1,25 +1,22 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:go_router/go_router.dart';
 
 /// Provider
 final WordlistProvider = StateNotifierProvider.autoDispose<
-    QuizResultTablePageViewmodelInterface, QuizResultTablePageState>(
+    QuizResultTablePageViewmodel, QuizResultTablePageState>(
   (ref) {
-    return QuizResultTablePageViewmodel(
+    return QuizResultTablePageViewmodelImpl(
         ref,
         QuizResultTablePageState(
           isFavorites: [],
-          speak: (String text) {
-            FlutterTts().speak(text);
-          },
         ));
   },
 );
@@ -58,7 +55,6 @@ class QuizResultTablePage extends StatelessWidget {
             final vm = ref.read(WordlistProvider.notifier);
 
             // isFavoritesの初期設定
-            vm.flutterTts = FlutterTts();
             vm.quizTopicType = topicType;
             // 初期設定
             await vm.init(isFavorites);
@@ -145,7 +141,7 @@ class QuizResultTablePage extends StatelessWidget {
     int index,
   ) =>
       Consumer(builder: (context, ref, child) {
-        final vm = ref.read(WordlistProvider.notifier);
+        final Function speak = ref.read(ttsRepositoryProvider).speak;
         return Container(
           color: index % 2 == 0
               ? AppColorsSet.getTableOddRowColor(context)
@@ -155,7 +151,7 @@ class QuizResultTablePage extends StatelessWidget {
           alignment: Alignment.center,
           child: IconButton(
             icon: const Icon(Icons.volume_up, color: Colors.blue),
-            onPressed: () => vm.speak(quizzes[index]),
+            onPressed: () => speak(quizzes[index]),
           ),
         );
       });

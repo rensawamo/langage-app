@@ -4,9 +4,9 @@ import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_reposito
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // クイズ のお気に入りの名詞  data アクセスクラス
-class QuizFavoriteDao implements QuizFavoriteDaoInterface {
+class QuizFavoriteDaoImpl implements QuizFavoriteDao {
   final Ref ref;
-  QuizFavoriteDao(this.ref);
+  QuizFavoriteDaoImpl(this.ref);
   @override
   Future<QuizFavoriteResponse> getFavoriteList(
       QuizFavoriteRequest request) async {
@@ -23,8 +23,8 @@ class QuizFavoriteDao implements QuizFavoriteDaoInterface {
 }
 
 /// quiz お気に入り data アクセス インターフェース
-abstract class QuizFavoriteDaoInterface {
+abstract class QuizFavoriteDao {
   final Ref ref;
-  QuizFavoriteDaoInterface(this.ref);
+  QuizFavoriteDao(this.ref);
   Future<QuizFavoriteResponse> getFavoriteList(QuizFavoriteRequest request);
 }

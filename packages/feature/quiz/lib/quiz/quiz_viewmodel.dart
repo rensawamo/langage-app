@@ -1,8 +1,6 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_foundation/foundation.dart';
-import 'package:core_utility/utility.dart';
-import 'package:core_utility/utility/app_setting_info.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'quiz_state.dart';
@@ -10,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// クイズ画面のViewmodel
-class QuizViewmodel extends QuizViewmodelInterface {
+class QuizViewmodelImpl extends QuizViewmodel {
   /// コンストラクタ
   ///
   /// [state]で初期状態をセット
   /// [dao]API Modelクラス AppointmentGetListAllをセット
-  QuizViewmodel(super.state, this.dao);
+  QuizViewmodelImpl(Ref ref, QuizState state, this.dao) : super(ref, state);
 
   final QuizGetAllDao dao;
 
@@ -23,7 +21,6 @@ class QuizViewmodel extends QuizViewmodelInterface {
   ///
   @override
   Future<void> init() async {
-    initializeTts();
     await getQuizList();
 
     state =
@@ -116,23 +113,12 @@ class QuizViewmodel extends QuizViewmodelInterface {
     }
     print(state.scores);
   }
-
-  @override
-  void initializeTts() {
-    flutterTts.setLanguage(AppSettingInfo().ftsSetting);
-    flutterTts.setPitch(1.0);
-    flutterTts.setSpeechRate(0.5);
-  }
-
-  @override
-  Future<void> speak(String text) async {
-    await flutterTts.speak(text);
-  }
 }
 
 /// Quize Viewmodel インターフェース
-abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
-  QuizViewmodelInterface(super.state);
+abstract class QuizViewmodel extends StateNotifier<QuizState> {
+  QuizViewmodel(this.ref, super.state);
+  final Ref ref;
 
   /// ページサイズ(固定)
   final int pageSize = 50;
@@ -164,10 +150,4 @@ abstract class QuizViewmodelInterface extends StateNotifier<QuizState> {
 
   // カウンター更新
   void updateCounter(int newCounter);
-
-  /// TTSの初期化
-  void initializeTts();
-
-  // 発声
-  Future<void> speak(String text);
 }

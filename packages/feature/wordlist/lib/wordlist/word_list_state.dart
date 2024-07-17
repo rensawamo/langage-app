@@ -18,7 +18,6 @@ class WordListState with _$WordListState {
       required int currentPage,
       /// All 表示にきりかえる
       required ScrollController scrollController,
-      required Function speak,
       @Default(true) bool isLoading,
       }) = _WordListState;
 }

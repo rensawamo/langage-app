@@ -3,17 +3,24 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
+import 'dart:ui' as _i13;
 
-import 'package:core_foundation/foundation.dart' as _i6;
+import 'package:core_foundation/foundation.dart' as _i7;
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart'
+    as _i10;
 import 'package:core_repository/secure_storage/secure_storage_repository.dart'
-    as _i8;
+    as _i9;
 import 'package:core_repository/shared_preferences/shared_preference_repository.dart'
-    as _i5;
-import 'package:flutter/foundation.dart' as _i7;
+    as _i6;
+import 'package:flutter/foundation.dart' as _i8;
+import 'package:flutter/services.dart' as _i14;
+import 'package:flutter_riverpod/flutter_riverpod.dart' as _i11;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i2;
+import 'package:flutter_tts/flutter_tts.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:shared_preferences/shared_preferences.dart' as _i3;
+import 'package:shared_preferences/shared_preferences.dart' as _i4;
+import 'package:state_notifier/state_notifier.dart' as _i12;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -90,10 +97,21 @@ class _FakeMacOsOptions_5 extends _i1.SmartFake implements _i2.MacOsOptions {
         );
 }
 
+class _FakeSpeechRateValidRange_6 extends _i1.SmartFake
+    implements _i3.SpeechRateValidRange {
+  _FakeSpeechRateValidRange_6(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [SharedPreferences].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
+class MockSharedPreferences extends _i1.Mock implements _i4.SharedPreferences {
   @override
   Set<String> getKeys() => (super.noSuchMethod(
         Invocation.method(
@@ -169,7 +187,7 @@ class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
       ) as List<String>?);
 
   @override
-  _i4.Future<bool> setBool(
+  _i5.Future<bool> setBool(
     String? key,
     bool? value,
   ) =>
@@ -181,12 +199,12 @@ class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> setInt(
+  _i5.Future<bool> setInt(
     String? key,
     int? value,
   ) =>
@@ -198,12 +216,12 @@ class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> setDouble(
+  _i5.Future<bool> setDouble(
     String? key,
     double? value,
   ) =>
@@ -215,12 +233,12 @@ class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> setString(
+  _i5.Future<bool> setString(
     String? key,
     String? value,
   ) =>
@@ -232,12 +250,12 @@ class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> setStringList(
+  _i5.Future<bool> setStringList(
     String? key,
     List<String>? value,
   ) =>
@@ -249,59 +267,59 @@ class MockSharedPreferences extends _i1.Mock implements _i3.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> remove(String? key) => (super.noSuchMethod(
+  _i5.Future<bool> remove(String? key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> commit() => (super.noSuchMethod(
+  _i5.Future<bool> commit() => (super.noSuchMethod(
         Invocation.method(
           #commit,
           [],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<bool> clear() => (super.noSuchMethod(
+  _i5.Future<bool> clear() => (super.noSuchMethod(
         Invocation.method(
           #clear,
           [],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<void> reload() => (super.noSuchMethod(
+  _i5.Future<void> reload() => (super.noSuchMethod(
         Invocation.method(
           #reload,
           [],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 }
 
 /// A class which mocks [SharedPreferencesRepositoryImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSharedPreferencesRepositoryImpl extends _i1.Mock
-    implements _i5.SharedPreferencesRepositoryImpl {
+    implements _i6.SharedPreferencesRepositoryImpl {
   @override
-  _i4.Future<bool> save<T>(
-    _i6.AppPrefsKey? key,
+  _i5.Future<bool> save<T>(
+    _i7.AppPrefsKey? key,
     T? value,
   ) =>
       (super.noSuchMethod(
@@ -312,12 +330,12 @@ class MockSharedPreferencesRepositoryImpl extends _i1.Mock
             value,
           ],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  T? fetch<T>(_i6.AppPrefsKey? key) => (super.noSuchMethod(
+  T? fetch<T>(_i7.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #fetch,
           [key],
@@ -326,14 +344,14 @@ class MockSharedPreferencesRepositoryImpl extends _i1.Mock
       ) as T?);
 
   @override
-  _i4.Future<bool> remove(_i6.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<bool> remove(_i7.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 }
 
 /// A class which mocks [FlutterSecureStorage].
@@ -422,7 +440,7 @@ class MockFlutterSecureStorage extends _i1.Mock
   @override
   void registerListener({
     required String? key,
-    required _i7.ValueChanged<String?>? listener,
+    required _i8.ValueChanged<String?>? listener,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -439,7 +457,7 @@ class MockFlutterSecureStorage extends _i1.Mock
   @override
   void unregisterListener({
     required String? key,
-    required _i7.ValueChanged<String?>? listener,
+    required _i8.ValueChanged<String?>? listener,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -474,7 +492,7 @@ class MockFlutterSecureStorage extends _i1.Mock
       );
 
   @override
-  _i4.Future<void> write({
+  _i5.Future<void> write({
     required String? key,
     required String? value,
     _i2.IOSOptions? iOptions,
@@ -499,12 +517,12 @@ class MockFlutterSecureStorage extends _i1.Mock
             #wOptions: wOptions,
           },
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<String?> read({
+  _i5.Future<String?> read({
     required String? key,
     _i2.IOSOptions? iOptions,
     _i2.AndroidOptions? aOptions,
@@ -527,12 +545,12 @@ class MockFlutterSecureStorage extends _i1.Mock
             #wOptions: wOptions,
           },
         ),
-        returnValue: _i4.Future<String?>.value(),
-        returnValueForMissingStub: _i4.Future<String?>.value(),
-      ) as _i4.Future<String?>);
+        returnValue: _i5.Future<String?>.value(),
+        returnValueForMissingStub: _i5.Future<String?>.value(),
+      ) as _i5.Future<String?>);
 
   @override
-  _i4.Future<bool> containsKey({
+  _i5.Future<bool> containsKey({
     required String? key,
     _i2.IOSOptions? iOptions,
     _i2.AndroidOptions? aOptions,
@@ -555,12 +573,12 @@ class MockFlutterSecureStorage extends _i1.Mock
             #wOptions: wOptions,
           },
         ),
-        returnValue: _i4.Future<bool>.value(false),
-        returnValueForMissingStub: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
 
   @override
-  _i4.Future<void> delete({
+  _i5.Future<void> delete({
     required String? key,
     _i2.IOSOptions? iOptions,
     _i2.AndroidOptions? aOptions,
@@ -583,12 +601,12 @@ class MockFlutterSecureStorage extends _i1.Mock
             #wOptions: wOptions,
           },
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<Map<String, String>> readAll({
+  _i5.Future<Map<String, String>> readAll({
     _i2.IOSOptions? iOptions,
     _i2.AndroidOptions? aOptions,
     _i2.LinuxOptions? lOptions,
@@ -609,13 +627,13 @@ class MockFlutterSecureStorage extends _i1.Mock
             #wOptions: wOptions,
           },
         ),
-        returnValue: _i4.Future<Map<String, String>>.value(<String, String>{}),
+        returnValue: _i5.Future<Map<String, String>>.value(<String, String>{}),
         returnValueForMissingStub:
-            _i4.Future<Map<String, String>>.value(<String, String>{}),
-      ) as _i4.Future<Map<String, String>>);
+            _i5.Future<Map<String, String>>.value(<String, String>{}),
+      ) as _i5.Future<Map<String, String>>);
 
   @override
-  _i4.Future<void> deleteAll({
+  _i5.Future<void> deleteAll({
     _i2.IOSOptions? iOptions,
     _i2.AndroidOptions? aOptions,
     _i2.LinuxOptions? lOptions,
@@ -636,29 +654,29 @@ class MockFlutterSecureStorage extends _i1.Mock
             #wOptions: wOptions,
           },
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<bool?> isCupertinoProtectedDataAvailable() => (super.noSuchMethod(
+  _i5.Future<bool?> isCupertinoProtectedDataAvailable() => (super.noSuchMethod(
         Invocation.method(
           #isCupertinoProtectedDataAvailable,
           [],
         ),
-        returnValue: _i4.Future<bool?>.value(),
-        returnValueForMissingStub: _i4.Future<bool?>.value(),
-      ) as _i4.Future<bool?>);
+        returnValue: _i5.Future<bool?>.value(),
+        returnValueForMissingStub: _i5.Future<bool?>.value(),
+      ) as _i5.Future<bool?>);
 }
 
 /// A class which mocks [SecureStorageRepositoryImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSecureStorageRepositoryImpl extends _i1.Mock
-    implements _i8.SecureStorageRepositoryImpl {
+    implements _i9.SecureStorageRepositoryImpl {
   @override
-  _i4.Future<void> save<T>(
-    _i6.AppPrefsKey? key,
+  _i5.Future<void> save<T>(
+    _i7.AppPrefsKey? key,
     T? value,
   ) =>
       (super.noSuchMethod(
@@ -669,27 +687,586 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
             value,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  _i4.Future<T?> fetch<T>(_i6.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<T?> fetch<T>(_i7.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #fetch,
           [key],
         ),
-        returnValue: _i4.Future<T?>.value(),
-        returnValueForMissingStub: _i4.Future<T?>.value(),
-      ) as _i4.Future<T?>);
+        returnValue: _i5.Future<T?>.value(),
+        returnValueForMissingStub: _i5.Future<T?>.value(),
+      ) as _i5.Future<T?>);
 
   @override
-  _i4.Future<void> remove(_i6.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<void> remove(_i7.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+}
+
+/// A class which mocks [AppSettingInfoImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAppSettingInfoImpl extends _i1.Mock
+    implements _i10.AppSettingInfoImpl {
+  @override
+  set onError(_i11.ErrorListener? _onError) => super.noSuchMethod(
+        Invocation.setter(
+          #onError,
+          _onError,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get mounted => (super.noSuchMethod(
+        Invocation.getter(#mounted),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i5.Stream<_i7.AppInstallType> get stream => (super.noSuchMethod(
+        Invocation.getter(#stream),
+        returnValue: _i5.Stream<_i7.AppInstallType>.empty(),
+        returnValueForMissingStub: _i5.Stream<_i7.AppInstallType>.empty(),
+      ) as _i5.Stream<_i7.AppInstallType>);
+
+  @override
+  _i7.AppInstallType get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _i7.AppInstallType.none,
+        returnValueForMissingStub: _i7.AppInstallType.none,
+      ) as _i7.AppInstallType);
+
+  @override
+  set state(_i7.AppInstallType? value) => super.noSuchMethod(
+        Invocation.setter(
+          #state,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i7.AppInstallType get debugState => (super.noSuchMethod(
+        Invocation.getter(#debugState),
+        returnValue: _i7.AppInstallType.none,
+        returnValueForMissingStub: _i7.AppInstallType.none,
+      ) as _i7.AppInstallType);
+
+  @override
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i5.Future<void> setup() => (super.noSuchMethod(
+        Invocation.method(
+          #setup,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<void> changeAppInstallType(_i7.AppInstallType? type) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changeAppInstallType,
+          [type],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  bool updateShouldNotify(
+    _i7.AppInstallType? old,
+    _i7.AppInstallType? current,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #updateShouldNotify,
+          [
+            old,
+            current,
+          ],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i11.RemoveListener addListener(
+    _i12.Listener<_i7.AppInstallType>? listener, {
+    bool? fireImmediately = true,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+          {#fireImmediately: fireImmediately},
+        ),
+        returnValue: () {},
+        returnValueForMissingStub: () {},
+      ) as _i11.RemoveListener);
+
+  @override
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [FlutterTts].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
+  @override
+  set startHandler(_i13.VoidCallback? _startHandler) => super.noSuchMethod(
+        Invocation.setter(
+          #startHandler,
+          _startHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set completionHandler(_i13.VoidCallback? _completionHandler) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #completionHandler,
+          _completionHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set pauseHandler(_i13.VoidCallback? _pauseHandler) => super.noSuchMethod(
+        Invocation.setter(
+          #pauseHandler,
+          _pauseHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set continueHandler(_i13.VoidCallback? _continueHandler) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #continueHandler,
+          _continueHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set cancelHandler(_i13.VoidCallback? _cancelHandler) => super.noSuchMethod(
+        Invocation.setter(
+          #cancelHandler,
+          _cancelHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set progressHandler(_i3.ProgressHandler? _progressHandler) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #progressHandler,
+          _progressHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set errorHandler(_i3.ErrorHandler? _errorHandler) => super.noSuchMethod(
+        Invocation.setter(
+          #errorHandler,
+          _errorHandler,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.Future<int?> get getMaxSpeechInputLength => (super.noSuchMethod(
+        Invocation.getter(#getMaxSpeechInputLength),
+        returnValue: _i5.Future<int?>.value(),
+        returnValueForMissingStub: _i5.Future<int?>.value(),
+      ) as _i5.Future<int?>);
+
+  @override
+  _i5.Future<dynamic> get getLanguages => (super.noSuchMethod(
+        Invocation.getter(#getLanguages),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> get getEngines => (super.noSuchMethod(
+        Invocation.getter(#getEngines),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> get getDefaultEngine => (super.noSuchMethod(
+        Invocation.getter(#getDefaultEngine),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> get getDefaultVoice => (super.noSuchMethod(
+        Invocation.getter(#getDefaultVoice),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> get getVoices => (super.noSuchMethod(
+        Invocation.getter(#getVoices),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<_i3.SpeechRateValidRange> get getSpeechRateValidRange =>
+      (super.noSuchMethod(
+        Invocation.getter(#getSpeechRateValidRange),
+        returnValue: _i5.Future<_i3.SpeechRateValidRange>.value(
+            _FakeSpeechRateValidRange_6(
+          this,
+          Invocation.getter(#getSpeechRateValidRange),
+        )),
+        returnValueForMissingStub: _i5.Future<_i3.SpeechRateValidRange>.value(
+            _FakeSpeechRateValidRange_6(
+          this,
+          Invocation.getter(#getSpeechRateValidRange),
+        )),
+      ) as _i5.Future<_i3.SpeechRateValidRange>);
+
+  @override
+  _i5.Future<dynamic> awaitSpeakCompletion(bool? awaitCompletion) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #awaitSpeakCompletion,
+          [awaitCompletion],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> awaitSynthCompletion(bool? awaitCompletion) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #awaitSynthCompletion,
+          [awaitCompletion],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> speak(String? text) => (super.noSuchMethod(
+        Invocation.method(
+          #speak,
+          [text],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> pause() => (super.noSuchMethod(
+        Invocation.method(
+          #pause,
+          [],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> synthesizeToFile(
+    String? text,
+    String? fileName,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #synthesizeToFile,
+          [
+            text,
+            fileName,
+          ],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setLanguage(String? language) => (super.noSuchMethod(
+        Invocation.method(
+          #setLanguage,
+          [language],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setSpeechRate(double? rate) => (super.noSuchMethod(
+        Invocation.method(
+          #setSpeechRate,
+          [rate],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setVolume(double? volume) => (super.noSuchMethod(
+        Invocation.method(
+          #setVolume,
+          [volume],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setSharedInstance(bool? sharedSession) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setSharedInstance,
+          [sharedSession],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> autoStopSharedSession(bool? autoStop) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #autoStopSharedSession,
+          [autoStop],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setIosAudioCategory(
+    _i3.IosTextToSpeechAudioCategory? category,
+    List<_i3.IosTextToSpeechAudioCategoryOptions>? options, [
+    _i3.IosTextToSpeechAudioMode? mode =
+        _i3.IosTextToSpeechAudioMode.defaultMode,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setIosAudioCategory,
+          [
+            category,
+            options,
+            mode,
+          ],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setEngine(String? engine) => (super.noSuchMethod(
+        Invocation.method(
+          #setEngine,
+          [engine],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setPitch(double? pitch) => (super.noSuchMethod(
+        Invocation.method(
+          #setPitch,
+          [pitch],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setVoice(Map<String, String>? voice) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setVoice,
+          [voice],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> clearVoice() => (super.noSuchMethod(
+        Invocation.method(
+          #clearVoice,
+          [],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> stop() => (super.noSuchMethod(
+        Invocation.method(
+          #stop,
+          [],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> isLanguageAvailable(String? language) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #isLanguageAvailable,
+          [language],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> isLanguageInstalled(String? language) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #isLanguageInstalled,
+          [language],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> areLanguagesInstalled(List<String>? languages) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #areLanguagesInstalled,
+          [languages],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setSilence(int? timems) => (super.noSuchMethod(
+        Invocation.method(
+          #setSilence,
+          [timems],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  _i5.Future<dynamic> setQueueMode(int? queueMode) => (super.noSuchMethod(
+        Invocation.method(
+          #setQueueMode,
+          [queueMode],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
+
+  @override
+  void setStartHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+        Invocation.method(
+          #setStartHandler,
+          [callback],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setCompletionHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+        Invocation.method(
+          #setCompletionHandler,
+          [callback],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setContinueHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+        Invocation.method(
+          #setContinueHandler,
+          [callback],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setPauseHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+        Invocation.method(
+          #setPauseHandler,
+          [callback],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setCancelHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+        Invocation.method(
+          #setCancelHandler,
+          [callback],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setProgressHandler(_i3.ProgressHandler? callback) => super.noSuchMethod(
+        Invocation.method(
+          #setProgressHandler,
+          [callback],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setErrorHandler(_i3.ErrorHandler? handler) => super.noSuchMethod(
+        Invocation.method(
+          #setErrorHandler,
+          [handler],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.Future<dynamic> platformCallHandler(_i14.MethodCall? call) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #platformCallHandler,
+          [call],
+        ),
+        returnValue: _i5.Future<dynamic>.value(),
+        returnValueForMissingStub: _i5.Future<dynamic>.value(),
+      ) as _i5.Future<dynamic>);
 }

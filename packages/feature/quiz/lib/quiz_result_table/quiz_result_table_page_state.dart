@@ -8,6 +8,5 @@ class QuizResultTablePageState with _$QuizResultTablePageState {
   /// [Quiz]
   const factory QuizResultTablePageState({
     required List<bool> isFavorites,
-    required Function speak,
   }) = _QuizResultTablePageState;
 }

@@ -3,22 +3,23 @@ import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_data/data.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_model/quiz/quiz_model.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:core_utility/utility.dart';
-import 'package:core_utility/utility/app_setting_info.dart';
 
 // クイズの問題の data アクセスクラス
-class QuizGetAllDao implements QuizGetAllDaoInterface {
+class QuizGetAllDaoImpl implements QuizGetAllDao {
   final Ref ref;
-  QuizGetAllDao(this.ref);
+  QuizGetAllDaoImpl(this.ref);
 
   @override
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request) async {
+    final AppInstallType appInstallType = ref.read(appSettingInfoProvider);
+
     try {
       // インストールされるアプリの種類
-      switch (AppSettingInfo().appInstallType) {
+      switch (appInstallType) {
         // 問題数に応じて問題を取得する
 
         // 韓国語初級
@@ -120,8 +121,8 @@ class QuizGetAllDao implements QuizGetAllDaoInterface {
 }
 
 /// quiz 問題 data アクセス インターフェース
-abstract class QuizGetAllDaoInterface {
+abstract class QuizGetAllDao {
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request);
   final Ref ref;
-  QuizGetAllDaoInterface(this.ref);
+  QuizGetAllDao(this.ref);
 }

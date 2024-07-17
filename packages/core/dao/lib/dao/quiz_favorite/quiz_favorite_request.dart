@@ -14,7 +14,7 @@ class QuizFavoriteRequest
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory QuizFavoriteRequest({
- 
+
     // トピックのタイプ
     required QuizTopicType quizTopicType,
 

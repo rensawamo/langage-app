@@ -1,11 +1,10 @@
-
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_wordlist/word_detail/word_detail_state.dart';
 import 'package:feature_wordlist/word_detail/word_detail_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:core_designsystem/designsystem.dart';
 
@@ -53,109 +52,110 @@ class WordDetailPage extends StatelessWidget {
         initFrame: (context, ref) async {
           // お気に入りの初期設定
 
-          vm.flutterTts = FlutterTts();
           // 初期設定
           await vm.init(isFavorite);
         },
         backOnTap: () {
           context.pop(true);
         },
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.25,
-                  child: Card(
-                    color: Colors.white,
-                    elevation: 4.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(height: 20),
-                              Text(
-                                word,
-                                style: TextStyle(
-                                  
-                                    fontSize: word.length > 8 ? 20 : 28,
+        body: Consumer(builder: (context, ref, child) {
+          // tts 発音関数
+          Function speak = ref.read(ttsRepositoryProvider).speak;
 
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orange),
-                              ),
-                              // speak
-                              IconButton(
-                                icon: Icon(Icons.volume_up, color: Colors.blue),
-                                onPressed: () async {
-                                  await vm.speak(word);
-                                },
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            pronunciation,
-                            style: AppTextStyles.caption(context,color: Colors.black),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            meaning,
-
-                            style: AppTextStyles.headline(context,color: Colors.black),
-                          ),
-                        ],
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    child: Card(
+                      color: Colors.white,
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(height: 20),
+                                Text(
+                                  word,
+                                  style: TextStyle(
+                                      fontSize: word.length > 8 ? 20 : 28,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.orange),
+                                ),
+                                IconButton(
+                                  icon:
+                                      Icon(Icons.volume_up, color: Colors.blue),
+                                  onPressed: () async {
+                                    await speak(word);
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              pronunciation,
+                              style: AppTextStyles.caption(context,
+                                  color: Colors.black),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              meaning,
+                              style: AppTextStyles.headline(context,
+                                  color: Colors.black),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
-              Row(
-                children: [
-                  Text(
-                    "例文",
-                    textAlign: TextAlign.left,
-                    style: AppTextStyles.headline(context),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.volume_up, color: Colors.blue),
-                    onPressed: () async {
-                      await vm.speak(sentence);
-                    },
-                  ),
-                ],
-              ),
-              Text(
-                sentence,
-                style: AppTextStyles.headline(context),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "訳文",
-                textAlign: TextAlign.left,
-                style: AppTextStyles.headline(context),
-              ),
-              SizedBox(height: 20),
-              Text(
-                translation,
-                style: AppTextStyles.headline(context),
-              ),
-              Spacer(),
-
-
-            ],
-          ),
-        ),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Text(
+                      "例文",
+                      textAlign: TextAlign.left,
+                      style: AppTextStyles.headline(context),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.volume_up, color: Colors.blue),
+                      onPressed: () async {
+                        await speak(sentence);
+                      },
+                    ),
+                  ],
+                ),
+                Text(
+                  sentence,
+                  style: AppTextStyles.headline(context),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  "訳文",
+                  textAlign: TextAlign.left,
+                  style: AppTextStyles.headline(context),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  translation,
+                  style: AppTextStyles.headline(context),
+                ),
+                Spacer(),
+              ],
+            ),
+          );
+        }),
       );
     });
   }

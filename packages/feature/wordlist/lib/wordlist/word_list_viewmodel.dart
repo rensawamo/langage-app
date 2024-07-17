@@ -2,10 +2,8 @@ import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
-import 'package:core_utility/utility.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 /// 出題単語一覧 Viewmodel
 class WordListViewmodel extends WordListViewmodelInterface {
@@ -21,8 +19,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
-    // tls初期化
-    initializeTts();
+
 
     getQuizList(quizTopicType);
   }
@@ -58,14 +55,6 @@ class WordListViewmodel extends WordListViewmodelInterface {
       state = state.copyWith(isLoading: false);
     });
   }
-
-  @override
-  void initializeTts() {
-    flutterTts.setLanguage(AppSettingInfo().ftsSetting); // 韓国語に設定
-    flutterTts.setPitch(1.0);
-    flutterTts.setSpeechRate(0.5);
-  }
-
   @override
   void updateFavorite(
       int index,
@@ -122,13 +111,9 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
 
   void clearList();
 
-  /// TTSの初期化
-  void initializeTts();
 
   // お気に入りの更新
   void updateFavorite(int index, String text, String answer, String sentence,
       String translation, String pronunciation, QuizTopicType quizTopicType);
 
-  // tts の言語設定
-  late FlutterTts flutterTts;
 }

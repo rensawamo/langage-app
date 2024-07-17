@@ -25,7 +25,6 @@ mixin _$QuizFavoriteState {
   /// All 表示にきりかえる
   ScrollController get scrollController => throw _privateConstructorUsedError;
   String get selectDropDownValue => throw _privateConstructorUsedError;
-  Function get speak => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   /// セレクトボックスの値
@@ -48,7 +47,6 @@ abstract class $QuizFavoriteStateCopyWith<$Res> {
       List<bool> isHideAnswers,
       ScrollController scrollController,
       String selectDropDownValue,
-      Function speak,
       bool isLoading,
       QuizTopicType selectValue});
 }
@@ -71,7 +69,6 @@ class _$QuizFavoriteStateCopyWithImpl<$Res, $Val extends QuizFavoriteState>
     Object? isHideAnswers = null,
     Object? scrollController = null,
     Object? selectDropDownValue = null,
-    Object? speak = null,
     Object? isLoading = null,
     Object? selectValue = null,
   }) {
@@ -96,10 +93,6 @@ class _$QuizFavoriteStateCopyWithImpl<$Res, $Val extends QuizFavoriteState>
           ? _value.selectDropDownValue
           : selectDropDownValue // ignore: cast_nullable_to_non_nullable
               as String,
-      speak: null == speak
-          ? _value.speak
-          : speak // ignore: cast_nullable_to_non_nullable
-              as Function,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -126,7 +119,6 @@ abstract class _$$QuizFavoriteStateImplCopyWith<$Res>
       List<bool> isHideAnswers,
       ScrollController scrollController,
       String selectDropDownValue,
-      Function speak,
       bool isLoading,
       QuizTopicType selectValue});
 }
@@ -147,7 +139,6 @@ class __$$QuizFavoriteStateImplCopyWithImpl<$Res>
     Object? isHideAnswers = null,
     Object? scrollController = null,
     Object? selectDropDownValue = null,
-    Object? speak = null,
     Object? isLoading = null,
     Object? selectValue = null,
   }) {
@@ -172,10 +163,6 @@ class __$$QuizFavoriteStateImplCopyWithImpl<$Res>
           ? _value.selectDropDownValue
           : selectDropDownValue // ignore: cast_nullable_to_non_nullable
               as String,
-      speak: null == speak
-          ? _value.speak
-          : speak // ignore: cast_nullable_to_non_nullable
-              as Function,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -197,7 +184,6 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
       required final List<bool> isHideAnswers,
       required this.scrollController,
       required this.selectDropDownValue,
-      required this.speak,
       this.isLoading = true,
       required this.selectValue})
       : _quizzes = quizzes,
@@ -237,8 +223,6 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
   @override
   final String selectDropDownValue;
   @override
-  final Function speak;
-  @override
   @JsonKey()
   final bool isLoading;
 
@@ -248,7 +232,7 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
 
   @override
   String toString() {
-    return 'QuizFavoriteState(quizzes: $quizzes, answers: $answers, isHideAnswers: $isHideAnswers, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, speak: $speak, isLoading: $isLoading, selectValue: $selectValue)';
+    return 'QuizFavoriteState(quizzes: $quizzes, answers: $answers, isHideAnswers: $isHideAnswers, scrollController: $scrollController, selectDropDownValue: $selectDropDownValue, isLoading: $isLoading, selectValue: $selectValue)';
   }
 
   @override
@@ -264,7 +248,6 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
                 other.scrollController == scrollController) &&
             (identical(other.selectDropDownValue, selectDropDownValue) ||
                 other.selectDropDownValue == selectDropDownValue) &&
-            (identical(other.speak, speak) || other.speak == speak) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.selectValue, selectValue) ||
@@ -279,7 +262,6 @@ class _$QuizFavoriteStateImpl implements _QuizFavoriteState {
       const DeepCollectionEquality().hash(_isHideAnswers),
       scrollController,
       selectDropDownValue,
-      speak,
       isLoading,
       selectValue);
 
@@ -298,7 +280,6 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
       required final List<bool> isHideAnswers,
       required final ScrollController scrollController,
       required final String selectDropDownValue,
-      required final Function speak,
       final bool isLoading,
       required final QuizTopicType selectValue}) = _$QuizFavoriteStateImpl;
 
@@ -316,8 +297,6 @@ abstract class _QuizFavoriteState implements QuizFavoriteState {
   ScrollController get scrollController;
   @override
   String get selectDropDownValue;
-  @override
-  Function get speak;
   @override
   bool get isLoading;
   @override

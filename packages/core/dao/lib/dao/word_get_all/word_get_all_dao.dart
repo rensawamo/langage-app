@@ -3,21 +3,23 @@ import 'package:core_dao/dao/word_get_all/word_get_all_response.dart';
 import 'package:core_data/data.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_model/quiz/quiz_model.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_utility/utility.dart';
 
 // クイズの問題の data アクセスクラス
-class WordGetAllDao implements WordGetAllDaoInterface {
+class WordGetAllDaoImpl implements WordGetAllDao {
   final Ref ref;
 
-  WordGetAllDao(this.ref);
+  WordGetAllDaoImpl(this.ref);
 
   @override
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request) async {
+    final AppInstallType appInstallType = ref.read(appSettingInfoProvider);
     try {
       // インストールされるアプリの種類
-      switch (AppSettingInfo().appInstallType) {
+      switch (appInstallType) {
         // 韓国語初級
         case AppInstallType.koreanBeginner:
           return _handleKoreanBeginnerQuiz(request);
@@ -114,9 +116,9 @@ class WordGetAllDao implements WordGetAllDaoInterface {
 }
 
 /// word data アクセス インターフェース
-abstract class WordGetAllDaoInterface {
+abstract class WordGetAllDao {
   final Ref ref;
 
-  WordGetAllDaoInterface(this.ref);
+  WordGetAllDao(this.ref);
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request);
 }
