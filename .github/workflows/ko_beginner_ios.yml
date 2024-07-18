@@ -2,12 +2,12 @@
 name: ko_beginner_ios
 
 on:
-    pull_request:
+    push:
         branches:
-            - main
+            - testci
 
 jobs:
-  build:
+  build_iOS:
     name: ko_beginner_ios
     runs-on: macos-latest
     steps:
