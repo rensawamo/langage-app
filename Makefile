@@ -33,7 +33,7 @@ release_build_android:
 # [iOS] リリースビルド(難読)
 .PHONY: release_build_ios
 release_build_ios:
-	cd apps/ko_beginner && $(FLUTTER) build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod
+	cd apps/ko_beginner && $(FLUTTER)  build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist 
 
 
 # integration test

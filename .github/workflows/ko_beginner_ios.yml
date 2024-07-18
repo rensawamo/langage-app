@@ -79,7 +79,7 @@ jobs:
         run: cd apps/ko_beginner && fvm flutter build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
 
       - name: Upload to AppStoreConnect
-        run: xcrun altool --upload-app -t ios -f "apps/ko_beginner/build/ios/ipa/ko_beginner.ipa" -u "${{ secrets.APPLE_ID }}" -p "${{ secrets.APPLE_APP_PASSWORD }}"
+        run: cd  apps/ko_beginner &&  xcrun altool --upload-app -t ios -f "build/ios/ipa/ko_beginner.ipa" -u "${{ secrets.APPLE_ID }}" -p "${{ secrets.APPLE_APP_PASSWORD }}"
 
       - name: collect ipa artifacts
         uses: actions/upload-artifact@v2
