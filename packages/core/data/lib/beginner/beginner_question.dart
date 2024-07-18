@@ -428,7 +428,7 @@ class AppQuizData {
       text: "시원하다",
       sentence: "여름에는 바다가 시원하다.",
       translation: "夏には海が涼しい。",
-      pronunciation: "シウォンハダ",
+      pronunciation: "シウォナダ",
       options: [
         Option(text: "涼しい", isCorrect: true),
         Option(text: "暖かい", isCorrect: false),
@@ -608,7 +608,7 @@ class AppQuizData {
       text: "더럽다",
       sentence: "그 거리는 더럽다.",
       translation: "その通りは汚い。",
-      pronunciation: "ドロプダ",
+      pronunciation: "トロプダ",
       options: [
         Option(text: "綺麗だ", isCorrect: false),
         Option(text: "汚い", isCorrect: true),
@@ -620,7 +620,7 @@ class AppQuizData {
       text: "새롭다",
       sentence: "새로운 아이디어를 얻었다.",
       translation: "新しいアイデアを得た。",
-      pronunciation: "セロプダ",
+      pronunciation: "セロプタ",
       options: [
         Option(text: "新しい", isCorrect: true),
         Option(text: "古い", isCorrect: false),
@@ -692,7 +692,7 @@ class AppQuizData {
       text: "즐겁다",
       sentence: "그 파티는 즐겁다.",
       translation: "そのパーティーは楽しい。",
-      pronunciation: "ジュルゴプダ",
+      pronunciation: "チュルゴプダ",
       options: [
         Option(text: "苦しい", isCorrect: false),
         Option(text: "寂しい", isCorrect: false),
@@ -704,7 +704,7 @@ class AppQuizData {
       text: "괴롭다",
       sentence: "그 일은 정말 괴롭다.",
       translation: "その仕事は本当に苦しい。",
-      pronunciation: "コィロプダ",
+      pronunciation: "クェロプッタ",
       options: [
         Option(text: "楽しい", isCorrect: false),
         Option(text: "寂しい", isCorrect: false),
@@ -716,7 +716,7 @@ class AppQuizData {
       text: "외롭다",
       sentence: "혼자 집에 있을 때 외롭다.",
       translation: "一人で家にいると寂しい。",
-      pronunciation: "ウェロプダ",
+      pronunciation: "ウェロプタ",
       options: [
         Option(text: "楽しい", isCorrect: false),
         Option(text: "寂しい", isCorrect: true),
@@ -728,7 +728,7 @@ class AppQuizData {
       text: "재미없다",
       sentence: "이 영화는 재미없다.",
       translation: "この映画は面白くない。",
-      pronunciation: "ジェミオプダ",
+      pronunciation: "チェミオプダ",
       options: [
         Option(text: "面白くない", isCorrect: true),
         Option(text: "楽しい", isCorrect: false),
@@ -752,7 +752,7 @@ class AppQuizData {
       text: "심심하다",
       sentence: "오늘은 심심하다.",
       translation: "今日は暇だ。",
-      pronunciation: "シムシムハダ",
+      pronunciation: "シムシマダ",
       options: [
         Option(text: "忙しい", isCorrect: false),
         Option(text: "同じだ", isCorrect: false),
@@ -800,7 +800,7 @@ class AppQuizData {
       text: "불편하다",
       sentence: "그 의자는 불편하다.",
       translation: "その椅子は不便だ。",
-      pronunciation: "プルピョンハダ",
+      pronunciation: "プルピョナダ",
       options: [
         Option(text: "不便だ", isCorrect: true),
         Option(text: "便利だ", isCorrect: false),
@@ -824,7 +824,7 @@ class AppQuizData {
       text: "진하다",
       sentence: "커피가 진하다.",
       translation: "コーヒーが濃い。",
-      pronunciation: "ジナダ",
+      pronunciation: "チナダ",
       options: [
         Option(text: "濃い", isCorrect: true),
         Option(text: "薄い", isCorrect: false),
@@ -860,7 +860,7 @@ class AppQuizData {
       text: "밉다",
       sentence: "그 사람은 미운 사람이다.",
       translation: "その人は憎い人だ。",
-      pronunciation: "ミプダ",
+      pronunciation: "ミプタ",
       options: [
         Option(text: "厳しい", isCorrect: false),
         Option(text: "憎い", isCorrect: true),
