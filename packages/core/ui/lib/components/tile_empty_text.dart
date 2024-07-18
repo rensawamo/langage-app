@@ -41,7 +41,7 @@ class TileEmptyText extends StatelessWidget {
         children: [
           Text(
             header,
-            style: AppTextStyles.caption(context, color: Colors.black),
+            style: AppTextStyles.caption(context),
           ),
           const SizedBox(height: 16),
           // _detailWidget(context),

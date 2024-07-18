@@ -22,14 +22,15 @@ class AppSettingInfoImpl extends StateNotifier<AppInstallType>
 
   @override
   Future<void> setup() async {
-    final appInstallType = _prefsRepository.fetch<AppInstallType>(_themeKey);
-    state = appInstallType ?? AppInstallType.none;
+    final typeIndex =
+        _prefsRepository.fetch<int>(_themeKey) ?? AppInstallType.none.index;
+    state = AppInstallType.values[typeIndex];
   }
 
   @override
   Future<void> changeAppInstallType(AppInstallType type) async {
     state = type;
-    await _prefsRepository.save(_themeKey, type);
+    await _prefsRepository.save<int>(_themeKey, type.index);
   }
 }
 

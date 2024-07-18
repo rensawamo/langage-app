@@ -35,14 +35,14 @@ class ThemeTextRepositoryImpl extends StateNotifier<AppTextScale>
 
   Future<AppTextScale> loadScale() async {
     final scaleIndex =
-        _prefsRepository.fetch(_scaleKey) ?? AppTextScale.normal.index;
+        _prefsRepository.fetch<int>(_scaleKey) ?? AppTextScale.normal.index;
     state = AppTextScale.values[scaleIndex];
     return state;
   }
 
   Future<void> setScale(AppTextScale scale) async {
     state = scale;
-    await _prefsRepository.save(_scaleKey, scale.index);
+    await _prefsRepository.save<int>(_scaleKey, scale.index);
   }
 }
 

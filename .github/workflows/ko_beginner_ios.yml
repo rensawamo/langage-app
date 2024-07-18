@@ -1,0 +1,123 @@
+
+name: ko_beginner_ios
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+  build:
+    name: ko_beginner_ios
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+                  
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          test-bot: false
+  
+      - name: install fvm
+        run: |
+            brew tap leoafarias/fvm
+            brew install fvm
+
+      - name: set up fvm
+        run: |
+          fvm install
+   
+      - name:  Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: set up dart
+        run: |
+          fvm dart --version
+
+      - name: Set up Melos 
+        run: |
+          fvm dart pub global activate melos
+
+      - name: flutter clean
+        run: fvm flutter clean
+      
+      
+      - name: flutter pub get
+        run: fvm flutter pub get
+
+      
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.3.0
+      
+      - name: Add GoogleService-Info.plist
+        run: echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_INFO_BASE64 }}" | base64 -d > apps/ko_beginner/ios/GoogleService-Info.plist
+
+      - name: Add ExportOptions.plist
+        run: echo "${{ secrets.KO_BEGINNER_EXPORTOPTIONS_BASE64 }}" | base64 -d > apps/ko_beginner/ExportOptions.plist
+
+      # パッケージのダウンロード
+      - name: Download Flutter packages
+        run: flutter pub get
+
+      - name: Import Provisioning Profile
+        run: |
+            mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+            echo -n ${{ secrets.KO_BEGINNER_PROVISIONING_PROFILE_BASE64 }} | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/distribution.mobileprovision
+      - name: Import Code-Signing Certificates
+        uses: Apple-Actions/import-codesign-certs@v1
+        with:
+            p12-file-base64: ${{ secrets.CERTIFICATES_P12_BASE64 }}
+            p12-password: ${{ secrets.CERTIFICATE_PASSWORD }}
+      # - name: Prepare environment
+      #   run: |
+      #       touch ios/Flutter/DartDefine.xcconfig
+      #       echo '#include "prd.xcconfig"' >> ios/Flutter/DartDefine.xcconfig
+
+      - name: Install CocoaPods
+        run: sudo gem install cocoapods
+
+      - name: Create ipa file
+        run: flutter build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=apps/ko_beginner/ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
+
+      - name: Upload to AppStoreConnect
+        run: xcrun altool --upload-app -t ios -f "./build/ios/ipa/ko_beginner.ipa" -u "${{ secrets.APPLE_ID }}" -p "${{ secrets.APPLE_APP_PASSWORD }}"
+
+      - name: collect ipa artifacts
+        uses: actions/upload-artifact@v2
+        with:
+            name: release-ipa
+            path: build/ios/ipa/*.ipa
+
+  #        if: ${{ always() }}
+
+  #  contanier error対策　で firebase destributionにデプロイする時は切り替える
+  release:
+    name: Release ipa to Firebase
+    needs: [build_iOS]
+    runs-on: ubuntu-latest
+    steps:
+          - uses: actions/checkout@v2
+          - name: Get release-ipa from artifacts
+            uses: actions/download-artifact@v2
+            with:
+                name: release-ipa
+          - name: Print working directory
+            run: pwd
+          - name: Upload artifact to Firebase App Distribution
+            uses: wzieba/Firebase-Distribution-Github-Action@v1
+            with:
+              appId: ${{secrets.KO_BEGINNER_IOS_APP_ID}}
+              serviceCredentialsFileContent: ${{ secrets.KO_BEGINNER_CREDENTIAL_FILE_CONTENT}}
+              groups: testers
+              file: ko_beginner.ipa

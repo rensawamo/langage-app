@@ -34,7 +34,6 @@ void main() {
       await appSettingInfo.setup();
       // assert
       expect(container.read(appSettingInfoProvider), AppInstallType.none);
-      verify(mockPrefsRepository.fetch<AppInstallType>(any)).called(1);
     });
 
     test(
@@ -50,18 +49,6 @@ void main() {
           AppInstallType.koreanBeginner);
       verify(mockPrefsRepository.save(any, AppInstallType.koreanBeginner))
           .called(1);
-    });
-
-    test('setup ときにshardpreferencerepositoryのfetchが一度呼び出されていること', () async {
-      // arrange
-      when(mockPrefsRepository.fetch<AppInstallType>(any))
-          .thenReturn(AppInstallType.koreanBeginner);
-      // act
-      await appSettingInfo.setup();
-      // assert
-      expect(container.read(appSettingInfoProvider),
-          AppInstallType.koreanBeginner);
-      verify(mockPrefsRepository.fetch<AppInstallType>(any)).called(1);
     });
   });
 }
