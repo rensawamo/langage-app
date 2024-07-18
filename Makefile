@@ -24,7 +24,7 @@ test:
 
 
 
-# [Android] リリースビルド(難読)
+# [Android] リリースビルド(難読) 
 .PHONY: release_build_android
 release_build_android:
 	cd apps/ko_beginner && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
