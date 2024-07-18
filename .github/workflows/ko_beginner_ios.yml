@@ -56,7 +56,7 @@ jobs:
 
       
       - name: Add GoogleService-Info.plist
-        run: echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_INFO_BASE64 }}" | base64 -d > apps/ko_beginner/ios/GoogleService-Info.plist
+        run: echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_INFO_BASE64 }}" | base64 -d > apps/ko_beginner/ios/prod/GoogleService-Info.plist
       
       - name: Add firebase_options.dart
         run: echo "${{ secrets.KO_BEGINNER_FIREBASE_OPTION_BASE64 }}" | base64 -d > apps/ko_beginner/lib/firebase_options.dart
