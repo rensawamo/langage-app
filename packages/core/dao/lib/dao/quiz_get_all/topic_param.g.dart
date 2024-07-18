@@ -28,4 +28,5 @@ const _$QuizTopicTypeEnumMap = {
   QuizTopicType.greet: 'greet',
   QuizTopicType.proverb: 'proverb',
   QuizTopicType.phrase: 'phrase',
+  QuizTopicType.total: 'total',
 };

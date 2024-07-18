@@ -8,7 +8,13 @@ enum AppInstallType {
 }
 
 extension QuizInstalltypeExtension on AppInstallType {
-  String get name {
-    return this.toString().split('.').last;
+  // tls 用
+  String get ftsSetting {
+    switch (this) {
+      case AppInstallType.koreanBeginner:
+        return 'ko-KR';
+      default:
+        return 'ja-JP';
+    }
   }
 }

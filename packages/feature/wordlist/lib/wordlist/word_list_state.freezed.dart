@@ -26,7 +26,6 @@ mixin _$WordListState {
 
   /// All 表示にきりかえる
   ScrollController get scrollController => throw _privateConstructorUsedError;
-  Function get speak => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -49,7 +48,6 @@ abstract class $WordListStateCopyWith<$Res> {
       List<String> pronunciations,
       int currentPage,
       ScrollController scrollController,
-      Function speak,
       bool isLoading});
 }
 
@@ -74,7 +72,6 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
     Object? pronunciations = null,
     Object? currentPage = null,
     Object? scrollController = null,
-    Object? speak = null,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
@@ -110,10 +107,6 @@ class _$WordListStateCopyWithImpl<$Res, $Val extends WordListState>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      speak: null == speak
-          ? _value.speak
-          : speak // ignore: cast_nullable_to_non_nullable
-              as Function,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -139,7 +132,6 @@ abstract class _$$WordListStateImplCopyWith<$Res>
       List<String> pronunciations,
       int currentPage,
       ScrollController scrollController,
-      Function speak,
       bool isLoading});
 }
 
@@ -162,7 +154,6 @@ class __$$WordListStateImplCopyWithImpl<$Res>
     Object? pronunciations = null,
     Object? currentPage = null,
     Object? scrollController = null,
-    Object? speak = null,
     Object? isLoading = null,
   }) {
     return _then(_$WordListStateImpl(
@@ -198,10 +189,6 @@ class __$$WordListStateImplCopyWithImpl<$Res>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      speak: null == speak
-          ? _value.speak
-          : speak // ignore: cast_nullable_to_non_nullable
-              as Function,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -222,7 +209,6 @@ class _$WordListStateImpl implements _WordListState {
       required final List<String> pronunciations,
       required this.currentPage,
       required this.scrollController,
-      required this.speak,
       this.isLoading = true})
       : _quizzes = quizzes,
         _answers = answers,
@@ -286,14 +272,12 @@ class _$WordListStateImpl implements _WordListState {
   @override
   final ScrollController scrollController;
   @override
-  final Function speak;
-  @override
   @JsonKey()
   final bool isLoading;
 
   @override
   String toString() {
-    return 'WordListState(quizzes: $quizzes, answers: $answers, sentences: $sentences, translations: $translations, isFavorites: $isFavorites, pronunciations: $pronunciations, currentPage: $currentPage, scrollController: $scrollController, speak: $speak, isLoading: $isLoading)';
+    return 'WordListState(quizzes: $quizzes, answers: $answers, sentences: $sentences, translations: $translations, isFavorites: $isFavorites, pronunciations: $pronunciations, currentPage: $currentPage, scrollController: $scrollController, isLoading: $isLoading)';
   }
 
   @override
@@ -315,7 +299,6 @@ class _$WordListStateImpl implements _WordListState {
                 other.currentPage == currentPage) &&
             (identical(other.scrollController, scrollController) ||
                 other.scrollController == scrollController) &&
-            (identical(other.speak, speak) || other.speak == speak) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -331,7 +314,6 @@ class _$WordListStateImpl implements _WordListState {
       const DeepCollectionEquality().hash(_pronunciations),
       currentPage,
       scrollController,
-      speak,
       isLoading);
 
   @JsonKey(ignore: true)
@@ -351,7 +333,6 @@ abstract class _WordListState implements WordListState {
       required final List<String> pronunciations,
       required final int currentPage,
       required final ScrollController scrollController,
-      required final Function speak,
       final bool isLoading}) = _$WordListStateImpl;
 
   @override
@@ -372,8 +353,6 @@ abstract class _WordListState implements WordListState {
 
   /// All 表示にきりかえる
   ScrollController get scrollController;
-  @override
-  Function get speak;
   @override
   bool get isLoading;
   @override

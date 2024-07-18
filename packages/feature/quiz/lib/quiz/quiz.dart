@@ -1,9 +1,9 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
+import 'package:core_model/quiz/quiz_model.dart';
+import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
-
-import 'package:feature_quiz/quiz_page/quiz_page_view.dart';
+import 'package:feature_quiz/widget/quiz_page.dart';
 import 'quiz_state.dart';
 import 'quiz_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +12,10 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 /// Provider
 final quizGetProvider =
-    StateNotifierProvider.autoDispose<QuizViewmodelInterface, QuizState>(
+    StateNotifierProvider.autoDispose<QuizViewmodel, QuizState>(
   (ref) {
-    return QuizViewmodel(
+    return QuizViewmodelImpl(
+      ref,
       QuizState(
         quizzs: [],
         answers: [],
@@ -24,7 +25,7 @@ final quizGetProvider =
         isFavorites: [],
         controller: PageController(),
       ),
-      QuizGetAllDao(),
+      QuizGetAllDaoImpl(ref),
     );
   },
 );
@@ -95,13 +96,15 @@ class _QuizPageState extends ConsumerState<QuizPage> {
 
   Widget _page(List<Quiz> quizes, List<String> answers) {
     return Consumer(builder: (context, ref, child) {
+      // TTS
+      final speak = ref.read(ttsRepositoryProvider).speak;
       return PageView.builder(
         itemCount: quizes.length,
         physics: const NeverScrollableScrollPhysics(),
         controller: ref.watch(quizGetProvider).controller,
         itemBuilder: (context, index) {
           final quiz = quizes[index];
-          return QuizPageView(
+          return QuizScreenWidget(
             quizes: quizes,
             answers: answers,
             sentences: ref.read(quizGetProvider).sentences,
@@ -113,7 +116,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             index: index,
             selectAns: ref.read(quizGetProvider.notifier).selectAns,
             next: ref.read(quizGetProvider.notifier).nextQuestion,
-            speak: ref.read(quizGetProvider.notifier).speak,
+            speak: speak,
             quiz: quiz,
             count: quizes.length,
             selected: ref.read(quizGetProvider).selected,

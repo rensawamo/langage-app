@@ -25,8 +25,8 @@ dependencies:
     path: ../designsystem
   core_foundation:
     path: ../foundation
-  core_sql:
-    path: ../sql
+  core_repository:
+    path: ../repository
   core_utility:
     path: ../utility
   feature_setting:

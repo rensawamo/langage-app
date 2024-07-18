@@ -7,7 +7,6 @@ import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:feature_wordlist/wordlist/word_list_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:go_router/go_router.dart';
 
 /// Provider
@@ -15,6 +14,7 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
     WordListViewmodelInterface, WordListState>(
   (ref) {
     return WordListViewmodel(
+      ref,
       WordListState(
         quizzes: [],
         answers: [],
@@ -25,11 +25,8 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
         scrollController: ScrollController(),
         isLoading: true,
         currentPage: 1,
-        speak: (String text) {
-          FlutterTts().speak(text);
-        },
       ),
-      WordGetAllDao(),
+      WordGetAllDaoImpl(ref),
     );
   },
 );
@@ -65,7 +62,6 @@ class WordListPage extends StatelessWidget {
           // クイズのタイプ
           vm.quizTopicType = quizTopicType;
 
-          vm.flutterTts = FlutterTts();
           // 初期設定
           await vm.init();
         },

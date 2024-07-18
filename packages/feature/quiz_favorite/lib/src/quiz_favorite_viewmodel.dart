@@ -1,17 +1,17 @@
-import 'package:core_dao/sql/quiz_favorite/quiz_favorite_dao.dart';
-import 'package:core_dao/sql/quiz_favorite/quiz_favorite_request.dart';
+import 'package:core_dao/dao/quiz_favorite/quiz_favorite_dao.dart';
+import 'package:core_dao/dao/quiz_favorite/quiz_favorite_request.dart';
 import 'package:core_foundation/foundation.dart';
-import 'package:core_sql/sql.dart';
-import 'package:core_utility/utility.dart';
+import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
+
 
 /// E201.受診予約一覧 Viewmodel
 class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   /// コンストラクタ
 
-  QuizeFavoriteViewmodel(super.state, this.dao);
+  QuizeFavoriteViewmodel(Ref ref, QuizFavoriteState state, this.dao)
+      : super(ref, state);
 
   ///  お気に入りの単語一覧取得　daoクラス
   final QuizFavoriteDao dao;
@@ -20,7 +20,7 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
-    initializeTts();
+
     await getFavorites(quizTopicType);
   }
 
@@ -64,17 +64,13 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     state = state.copyWith(isHideAnswers: isHideAnswers);
   }
 
-  @override
-  void initializeTts() {
-    flutterTts.setLanguage(AppSettingInfo().ftsSetting); // 韓国語に設定
-    flutterTts.setPitch(1.0);
-    flutterTts.setSpeechRate(0.5);
-  }
+
 
   @override
   Future<void> deleteFavorite(int index) async {
+    final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
     // お気に入り削除
-    await QuizFavoriteSql.delete(
+    await quizFavoriteSql.delete(
       state.quizzes[index],
     );
     // 更新
@@ -93,7 +89,9 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
 /// E201.受診予約一覧 Viewmodel インターフェース
 abstract class QuizeFavoriteViewmodelInterface
     extends StateNotifier<QuizFavoriteState> {
-  QuizeFavoriteViewmodelInterface(super.state);
+  QuizeFavoriteViewmodelInterface(this.ref, super.state);
+
+  final Ref ref;
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
@@ -113,12 +111,7 @@ abstract class QuizeFavoriteViewmodelInterface
 
   void clearList();
 
-  /// TTSの初期化
-  void initializeTts();
-
   /// sql お気に入り削除
   Future<void> deleteFavorite(int index);
 
-  // tts の言語設定
-  late FlutterTts flutterTts;
 }

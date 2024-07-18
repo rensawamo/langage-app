@@ -1,19 +1,25 @@
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_response.dart';
 import 'package:core_data/data.dart';
 import 'package:core_foundation/foundation.dart';
-
-import 'package:core_sql/sql.dart';
+import 'package:core_model/quiz/quiz_model.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
+import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_utility/utility.dart';
 
 // クイズの問題の data アクセスクラス
-class WordGetAllDao implements WordGetAllDaoInterface {
+class WordGetAllDaoImpl implements WordGetAllDao {
+  final Ref ref;
+
+  WordGetAllDaoImpl(this.ref);
+
   @override
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request) async {
+    final AppInstallType appInstallType = ref.read(appSettingInfoProvider);
     try {
       // インストールされるアプリの種類
-      switch (AppSettingInfo().appInstallType) {
+      switch (appInstallType) {
         // 韓国語初級
         case AppInstallType.koreanBeginner:
           return _handleKoreanBeginnerQuiz(request);
@@ -62,9 +68,12 @@ class WordGetAllDao implements WordGetAllDaoInterface {
         break;
       case QuizTopicType.greet:
         quizzes = AppQuizData.korianBiginnerGreets.toList();
+
       // お気に入り
       case QuizTopicType.favorite:
-        quizzes = await QuizFavoriteSql.getAllquizzes();
+        final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
+
+        quizzes = await quizFavoriteSql.getAllquizzes();
       default:
         quizzes = [];
         break;
@@ -89,8 +98,10 @@ class WordGetAllDao implements WordGetAllDaoInterface {
       answers = quizzes.map((quiz) {
         return quiz.options.firstWhere((option) => option.isCorrect).text;
       }).toList();
+      final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
+
       var favorites =
-          await QuizFavoriteSql.getTopicWords(request.quizTopicType.name);
+          await quizFavoriteSql.getTopicWords(request.quizTopicType.name);
       isFavorites = words.map((word) => favorites.contains(word)).toList();
     }
 
@@ -105,6 +116,9 @@ class WordGetAllDao implements WordGetAllDaoInterface {
 }
 
 /// word data アクセス インターフェース
-abstract class WordGetAllDaoInterface {
+abstract class WordGetAllDao {
+  final Ref ref;
+
+  WordGetAllDao(this.ref);
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request);
 }

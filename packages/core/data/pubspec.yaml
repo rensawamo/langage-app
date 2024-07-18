@@ -10,10 +10,13 @@ environment:
 # Add regular dependencies here.
 dependencies:
   path: ^1.8.0
-  core_dao: 
+  core_dao:
     path: ../dao
   core_ui:
     path: ../ui
+  core_model:
+    path: ../model
+    
 
 dev_dependencies:
   lints: ^3.0.0

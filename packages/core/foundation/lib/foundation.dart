@@ -4,7 +4,7 @@
 library foundation;
 
 // constants
-export 'constants/prefs_key.dart';
+export 'enum/app_prefs_key.dart';
 
 // enum
 export 'enum/app_color_type.dart';

@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$QuizResultTablePageState {
   List<bool> get isFavorites => throw _privateConstructorUsedError;
-  Function get speak => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuizResultTablePageStateCopyWith<QuizResultTablePageState> get copyWith =>
@@ -30,7 +29,7 @@ abstract class $QuizResultTablePageStateCopyWith<$Res> {
           $Res Function(QuizResultTablePageState) then) =
       _$QuizResultTablePageStateCopyWithImpl<$Res, QuizResultTablePageState>;
   @useResult
-  $Res call({List<bool> isFavorites, Function speak});
+  $Res call({List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -48,17 +47,12 @@ class _$QuizResultTablePageStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isFavorites = null,
-    Object? speak = null,
   }) {
     return _then(_value.copyWith(
       isFavorites: null == isFavorites
           ? _value.isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
               as List<bool>,
-      speak: null == speak
-          ? _value.speak
-          : speak // ignore: cast_nullable_to_non_nullable
-              as Function,
     ) as $Val);
   }
 }
@@ -72,7 +66,7 @@ abstract class _$$QuizResultTablePageStateImplCopyWith<$Res>
       __$$QuizResultTablePageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<bool> isFavorites, Function speak});
+  $Res call({List<bool> isFavorites});
 }
 
 /// @nodoc
@@ -89,17 +83,12 @@ class __$$QuizResultTablePageStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isFavorites = null,
-    Object? speak = null,
   }) {
     return _then(_$QuizResultTablePageStateImpl(
       isFavorites: null == isFavorites
           ? _value._isFavorites
           : isFavorites // ignore: cast_nullable_to_non_nullable
               as List<bool>,
-      speak: null == speak
-          ? _value.speak
-          : speak // ignore: cast_nullable_to_non_nullable
-              as Function,
     ));
   }
 }
@@ -107,8 +96,7 @@ class __$$QuizResultTablePageStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$QuizResultTablePageStateImpl implements _QuizResultTablePageState {
-  const _$QuizResultTablePageStateImpl(
-      {required final List<bool> isFavorites, required this.speak})
+  const _$QuizResultTablePageStateImpl({required final List<bool> isFavorites})
       : _isFavorites = isFavorites;
 
   final List<bool> _isFavorites;
@@ -120,11 +108,8 @@ class _$QuizResultTablePageStateImpl implements _QuizResultTablePageState {
   }
 
   @override
-  final Function speak;
-
-  @override
   String toString() {
-    return 'QuizResultTablePageState(isFavorites: $isFavorites, speak: $speak)';
+    return 'QuizResultTablePageState(isFavorites: $isFavorites)';
   }
 
   @override
@@ -133,13 +118,12 @@ class _$QuizResultTablePageStateImpl implements _QuizResultTablePageState {
         (other.runtimeType == runtimeType &&
             other is _$QuizResultTablePageStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._isFavorites, _isFavorites) &&
-            (identical(other.speak, speak) || other.speak == speak));
+                .equals(other._isFavorites, _isFavorites));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_isFavorites), speak);
+      runtimeType, const DeepCollectionEquality().hash(_isFavorites));
 
   @JsonKey(ignore: true)
   @override
@@ -151,13 +135,10 @@ class _$QuizResultTablePageStateImpl implements _QuizResultTablePageState {
 
 abstract class _QuizResultTablePageState implements QuizResultTablePageState {
   const factory _QuizResultTablePageState(
-      {required final List<bool> isFavorites,
-      required final Function speak}) = _$QuizResultTablePageStateImpl;
+      {required final List<bool> isFavorites}) = _$QuizResultTablePageStateImpl;
 
   @override
   List<bool> get isFavorites;
-  @override
-  Function get speak;
   @override
   @JsonKey(ignore: true)
   _$$QuizResultTablePageStateImplCopyWith<_$QuizResultTablePageStateImpl>

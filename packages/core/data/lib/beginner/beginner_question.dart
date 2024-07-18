@@ -1,5 +1,5 @@
 //  basic プラン
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
+import 'package:core_model/quiz/quiz_model.dart';
 
 class AppQuizData {
   ////////////////////     形容詞      ////////////////////
@@ -44,7 +44,7 @@ class AppQuizData {
       text: "적다",
       sentence: "이 방에는 사람이 적다.",
       translation: "この部屋には人が少ない。",
-      pronunciation: "ジョクタ",
+      pronunciation: "チョクタ",
       options: [
         Option(text: "多い", isCorrect: false),
         Option(text: "大きい", isCorrect: false),
@@ -68,7 +68,7 @@ class AppQuizData {
       text: "짧다",
       sentence: "이 연필은 짧다.",
       translation: "この鉛筆は短い。",
-      pronunciation: "チャルダ",
+      pronunciation: "チャルタ",
       options: [
         Option(text: "長い", isCorrect: false),
         Option(text: "高い", isCorrect: false),

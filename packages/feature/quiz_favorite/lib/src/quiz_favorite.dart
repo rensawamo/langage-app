@@ -1,20 +1,20 @@
+import 'package:core_dao/dao/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_dao/sql/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_foundation/foundation.dart';
-
+import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:feature_quiz_favorite/src/quiz_favorite_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 /// Provider
 final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
     QuizeFavoriteViewmodelInterface, QuizFavoriteState>(
   (ref) {
     return QuizeFavoriteViewmodel(
+      ref,
       QuizFavoriteState(
         quizzes: [],
         answers: [],
@@ -23,11 +23,8 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
         selectValue: QuizTopicType.noun,
         selectDropDownValue: "名詞",
         isLoading: false,
-        speak: (String text) {
-          FlutterTts().speak(text);
-        },
       ),
-      QuizFavoriteDao(),
+      QuizFavoriteDaoImpl(ref),
     );
   },
 );
@@ -51,7 +48,6 @@ class QuizFavoritePage extends StatelessWidget {
     // クイズのタイプ
     vm.quizTopicType = QuizTopicType.noun;
 
-    vm.flutterTts = FlutterTts();
     // 初期設定
     await vm.init();
   }
@@ -120,7 +116,7 @@ class QuizFavoritePage extends StatelessWidget {
       List<bool> isHideAnswers = ref.watch(QuizFavoriteProvider).isHideAnswers;
       Function toggleAnswer =
           ref.watch(QuizFavoriteProvider.notifier).toggleAnswer;
-      Function speak = ref.read(QuizFavoriteProvider).speak;
+      Function speak = ref.read(ttsRepositoryProvider).speak;
 
       return Center(
           child: Container(

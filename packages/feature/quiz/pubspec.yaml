@@ -16,8 +16,8 @@ dependencies:
     path: ../../core/dao
   core_data:
     path: ../../core/data
-  core_sql:
-    path: ../../core/sql
+  core_repository:
+    path: ../../core/repository
   core_utility:
     path: ../../core/utility
   core_router:
@@ -28,6 +28,8 @@ dependencies:
     path: ../../core/foundation
   core_ui:
     path: ../../core/ui
+  core_model:
+    path: ../../core/model
   shared_preferences: ^2.2.3
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0
