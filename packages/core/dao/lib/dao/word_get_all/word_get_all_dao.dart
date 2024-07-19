@@ -7,11 +7,17 @@ import 'package:core_repository/app_setting_info/app_setting_info_repository.dar
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:core_utility/utility.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-// クイズの問題の data アクセスクラス
+part 'word_get_all_dao.g.dart';
+
+@riverpod
+WordGetAllDao wordGetAllDaoProvider(WordGetAllDaoProviderRef ref) {
+  return WordGetAllDaoImpl(ref);
+}
+
 class WordGetAllDaoImpl implements WordGetAllDao {
   final Ref ref;
-
   WordGetAllDaoImpl(this.ref);
 
   @override
@@ -117,8 +123,5 @@ class WordGetAllDaoImpl implements WordGetAllDao {
 
 /// word data アクセス インターフェース
 abstract class WordGetAllDao {
-  final Ref ref;
-
-  WordGetAllDao(this.ref);
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request);
 }

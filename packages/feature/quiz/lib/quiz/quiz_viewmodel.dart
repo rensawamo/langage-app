@@ -13,10 +13,8 @@ class QuizViewmodelImpl extends QuizViewmodel {
   ///
   /// [state]で初期状態をセット
   /// [dao]API Modelクラス AppointmentGetListAllをセット
-  QuizViewmodelImpl(Ref ref, QuizState state, this.dao) : super(ref, state);
-
-  final QuizGetAllDao dao;
-
+  QuizViewmodelImpl(this.ref, QuizState state) : super(state);
+  final Ref ref;
   /// 初期設定
   ///
   @override
@@ -32,6 +30,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
   Future<void> getQuizList() async {
     // ローディング開始
     state = state.copyWith(isLoading: true);
+    final dao = ref.read(quizGetAllDaoProviderProvider);
 
     // パラメータ生成
     // ここで data から quizeを取得する
@@ -117,8 +116,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
 
 /// Quize Viewmodel インターフェース
 abstract class QuizViewmodel extends StateNotifier<QuizState> {
-  QuizViewmodel(this.ref, super.state);
-  final Ref ref;
+  QuizViewmodel(super.state);
 
   /// ページサイズ(固定)
   final int pageSize = 50;

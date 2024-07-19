@@ -6,9 +6,15 @@ import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:core_utility/utility.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-// クイズの問題の data アクセスクラス
+part 'quiz_get_all_dao.g.dart';
+
+@riverpod
+QuizGetAllDao quizGetAllDaoProvider(QuizGetAllDaoProviderRef ref) {
+  return QuizGetAllDaoImpl(ref);
+}
+
 class QuizGetAllDaoImpl implements QuizGetAllDao {
   final Ref ref;
   QuizGetAllDaoImpl(this.ref);
@@ -18,10 +24,7 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
     final AppInstallType appInstallType = ref.read(appSettingInfoProvider);
 
     try {
-      // インストールされるアプリの種類
       switch (appInstallType) {
-        // 問題数に応じて問題を取得する
-
         // 韓国語初級
         case AppInstallType.koreanBeginner:
           return _handleKoreanBeginnerQuiz(request);
@@ -40,6 +43,7 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
     }
   }
 
+  // SQL から韓国語初級のクイズを取得
   Future<QuizGetAllResponse> _handleKoreanBeginnerQuiz(
       QuizGetAllRequest request) async {
     List<Quiz> quizzes;
@@ -104,12 +108,9 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
 
     var favorites =
         await quizFavoriteSql.getTopicWords(request.quizTopicType.name);
-    logger.i(favorites);
-    logger.i(limitedQuizzes);
     isFavorites =
         limitedQuizzes.map((word) => favorites.contains(word.text)).toList();
 
-    logger.i(isFavorites);
     return Future.value(QuizGetAllResponse(
         quizes: limitedQuizzes,
         answers: answers,
@@ -122,6 +123,7 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
 
 /// quiz 問題 data アクセス インターフェース
 abstract class QuizGetAllDao {
+  // クイズリストを取得
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request);
   final Ref ref;
   QuizGetAllDao(this.ref);

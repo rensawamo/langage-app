@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'quiz_favorite_sql_repository.dart';
+part of 'quiz_favorite_dao.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$quizFavoriteSqlRepositoryHash() =>
-    r'c2185576e7567b5dbe9af1d8f68247ea50a3e739';
+String _$quizFavoriteDaoProviderHash() =>
+    r'ac7aa956fbfc1f258e10676bcce6ebfdcff89a6a';
 
-/// See also [quizFavoriteSqlRepository].
-@ProviderFor(quizFavoriteSqlRepository)
-final quizFavoriteSqlRepositoryProvider =
-    Provider<QuizFavoriteSqlRepository>.internal(
-  quizFavoriteSqlRepository,
-  name: r'quizFavoriteSqlRepositoryProvider',
+/// See also [quizFavoriteDaoProvider].
+@ProviderFor(quizFavoriteDaoProvider)
+final quizFavoriteDaoProviderProvider =
+    AutoDisposeProvider<QuizFavoriteDao>.internal(
+  quizFavoriteDaoProvider,
+  name: r'quizFavoriteDaoProviderProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$quizFavoriteSqlRepositoryHash,
+      : _$quizFavoriteDaoProviderHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef QuizFavoriteSqlRepositoryRef = ProviderRef<QuizFavoriteSqlRepository>;
+typedef QuizFavoriteDaoProviderRef = AutoDisposeProviderRef<QuizFavoriteDao>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

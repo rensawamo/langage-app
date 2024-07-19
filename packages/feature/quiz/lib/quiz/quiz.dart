@@ -1,4 +1,3 @@
-import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_repository/repository.dart';
@@ -25,7 +24,6 @@ final quizGetProvider =
         isFavorites: [],
         controller: PageController(),
       ),
-      QuizGetAllDaoImpl(ref),
     );
   },
 );
