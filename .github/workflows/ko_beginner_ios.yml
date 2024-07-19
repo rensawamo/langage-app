@@ -1,9 +1,9 @@
 name: ko_beginner_ios
 
 on:
-    push:
+    pull_request:
         branches:
-            - testci
+            - main
 jobs:
   build_iOS:
     name: ko_beginner_ios
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
-                  
+
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
@@ -23,7 +23,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
         with:
           test-bot: false
-  
+
       - name: install fvm
         run: |
             brew tap leoafarias/fvm
@@ -32,7 +32,7 @@ jobs:
       - name: set up fvm
         run: |
           fvm install
-   
+
       - name:  Setup Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -43,26 +43,26 @@ jobs:
         run: |
           fvm dart --version
 
-      - name: Set up Melos 
+      - name: Set up Melos
         run: |
           fvm dart pub global activate melos
 
       - name: flutter clean
         run: fvm flutter clean
-      
-      
+
+
       - name: flutter pub get
         run: fvm flutter pub get
 
-      
+
       - name: Add GoogleService-Info.plist
         run: echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_INFO_BASE64 }}" | base64 -d > apps/ko_beginner/ios/prod/GoogleService-Info.plist
-      
+
       - name: Add firebase_options.dart
         run: echo "${{ secrets.KO_BEGINNER_FIREBASE_OPTION_BASE64 }}" | base64 -d > apps/ko_beginner/lib/firebase_options.dart
 
       - name: Add ExportOptions.plist
-        run: echo "${{ secrets.KO_BEGINNER_EXPORTOPTIONS_BASE64 }}" | base64 -d > apps/ko_beginner/ExportOptions.plist    
+        run: echo "${{ secrets.KO_BEGINNER_EXPORTOPTIONS_BASE64 }}" | base64 -d > apps/ko_beginner/ExportOptions.plist
 
 
       - name: Import Provisioning Profile

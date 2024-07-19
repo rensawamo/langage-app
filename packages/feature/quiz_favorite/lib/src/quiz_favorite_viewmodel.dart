@@ -5,22 +5,20 @@ import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_reposito
 import 'package:feature_quiz_favorite/src/quiz_favorite_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 /// E201.受診予約一覧 Viewmodel
 class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   /// コンストラクタ
 
-  QuizeFavoriteViewmodel(Ref ref, QuizFavoriteState state, this.dao)
-      : super(ref, state);
-
-  ///  お気に入りの単語一覧取得　daoクラス
-  final QuizFavoriteDao dao;
+  QuizeFavoriteViewmodel(
+    this.ref,
+    QuizFavoriteState state,
+  ) : super(state);
+  final Ref ref;
 
   /// 初期設定
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
-
     await getFavorites(quizTopicType);
   }
 
@@ -29,6 +27,8 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
   Future<void> getFavorites(QuizTopicType quizTopicType) async {
     // ローディング開始
     state = state.copyWith(isLoading: true);
+
+    final dao = ref.read(quizFavoriteDaoProviderProvider);
 
     // ここで data から quizeを取得する
     dao
@@ -64,8 +64,6 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
     state = state.copyWith(isHideAnswers: isHideAnswers);
   }
 
-
-
   @override
   Future<void> deleteFavorite(int index) async {
     final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
@@ -89,9 +87,7 @@ class QuizeFavoriteViewmodel extends QuizeFavoriteViewmodelInterface {
 /// E201.受診予約一覧 Viewmodel インターフェース
 abstract class QuizeFavoriteViewmodelInterface
     extends StateNotifier<QuizFavoriteState> {
-  QuizeFavoriteViewmodelInterface(this.ref, super.state);
-
-  final Ref ref;
+  QuizeFavoriteViewmodelInterface(super.state);
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
@@ -113,5 +109,4 @@ abstract class QuizeFavoriteViewmodelInterface
 
   /// sql お気に入り削除
   Future<void> deleteFavorite(int index);
-
 }

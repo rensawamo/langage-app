@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'quiz_favorite_sql_repository.g.dart';
 
 @Riverpod(keepAlive: true)
-QuizFavoriteSqlRepositoryImpl quizFavoriteSqlRepository(
+QuizFavoriteSqlRepository quizFavoriteSqlRepository(
   QuizFavoriteSqlRepositoryRef ref,
 ) {
   return QuizFavoriteSqlRepositoryImpl(ref.read(quizFavoriteSqlProvider));

@@ -1,4 +1,3 @@
-import 'package:core_dao/dao/quiz_favorite/quiz_favorite_dao.dart';
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
@@ -24,7 +23,6 @@ final QuizFavoriteProvider = StateNotifierProvider.autoDispose<
         selectDropDownValue: "名詞",
         isLoading: false,
       ),
-      QuizFavoriteDaoImpl(ref),
     );
   },
 );

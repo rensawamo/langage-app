@@ -1,26 +1,22 @@
-import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_request.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
+import 'package:core_dao/dao.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// 出題単語一覧 Viewmodel
 class WordListViewmodel extends WordListViewmodelInterface {
   /// コンストラクタ
 
-  WordListViewmodel(Ref ref, WordListState state, this.dao) : super(ref, state);
-
-  ///  お気に入りの単語一覧取得　daoクラス
-  final WordGetAllDao dao;
+  WordListViewmodel(this.ref, WordListState state) : super(state);
+  final Ref ref;
 
   /// 初期設定
   ///
   /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
-
-
     getQuizList(quizTopicType);
   }
 
@@ -29,7 +25,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
   Future<void> getQuizList(QuizTopicType quizTopicType) async {
     // インジケータ表示
     state = state.copyWith(isLoading: true);
-    // ここで data から quizeを取得する
+    final dao = ref.read(wordGetAllDaoProviderProvider);
     dao
         .getWordList(WordGetAllRequest(
       quizTopicType: quizTopicType,
@@ -55,6 +51,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
       state = state.copyWith(isLoading: false);
     });
   }
+
   @override
   void updateFavorite(
       int index,
@@ -93,11 +90,8 @@ class WordListViewmodel extends WordListViewmodelInterface {
   }
 }
 
-/// E201.受診予約一覧 Viewmodel インターフェース
 abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
-  WordListViewmodelInterface(this.ref, super.state);
-
-  final Ref ref;
+  WordListViewmodelInterface(super.state);
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
@@ -111,9 +105,7 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
 
   void clearList();
 
-
   // お気に入りの更新
   void updateFavorite(int index, String text, String answer, String sentence,
       String translation, String pronunciation, QuizTopicType quizTopicType);
-
 }
