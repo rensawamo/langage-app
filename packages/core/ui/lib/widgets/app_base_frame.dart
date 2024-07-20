@@ -16,6 +16,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
   /// [appBar]AppBarForScreen以外のアプリバーを使用する場合設定する
   /// [body]画面本体のWidgetを設定
   /// [bottomBar]ボトムバーを使用する場合設定する
+  /// [hasAppbar]AppBarForScreenを使用しない場合falseを設定する
   /// [backOnTap]戻るボタンタップ時にセットされたメソッドが実行される。何もセットされていない場合は遷移元へ戻る
   /// [hasPrevButton]falseの場合戻るボタンが表示されない。戻り先がない場合は値に関係なく表示されない
   /// [shouldRemoveFocus]画面押下時にフォーカスアウトを実行させるかどうか。デフォルトはfalse
@@ -34,6 +35,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
       this.bottomBar,
       this.backOnTap,
       this.hasPrevButton = true,
+      this.hasAppbar = true,
       this.shouldRemoveFocus = false,
       this.drawer,
       this.scaffoldKey,
@@ -58,6 +60,9 @@ class AppBaseFrame extends ConsumerStatefulWidget {
 
   /// 左上に戻るボタンを表示させるかどうか
   final bool hasPrevButton;
+
+  /// AppBarForScreenを使用しない場合はfalseを設定
+  final bool hasAppbar;
 
   /// 画面タップ時にフォーカスアウトさせるかどうか
   final bool shouldRemoveFocus;
@@ -121,11 +126,13 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> {
         drawer: widget.drawer,
         onDrawerChanged: widget.onDrawerChanged,
         drawerEnableOpenDragGesture: false,
-        appBar: widget.appBar ??
-            AppBarForScreen(
-              titleText: widget.title,
-              leftWidget: _prevButton(context),
-            ),
+        appBar: widget.hasAppbar == false
+            ? null
+            : widget.appBar ??
+                AppBarForScreen(
+                  titleText: widget.title,
+                  leftWidget: _prevButton(context),
+                ),
         body: SafeArea(child: widget.body),
         bottomNavigationBar: widget.bottomBar != null
             ? SafeArea(child: widget.bottomBar!)
