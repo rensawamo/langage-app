@@ -1,11 +1,14 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/quiz/quiz_page_data.dart';
+import 'package:core_ui/ui.dart';
+import 'package:feature_quiz/quiz_result/quiz_result_page_viewmodel.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:core_designsystem/designsystem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class QuizResultPage extends StatefulWidget {
@@ -43,70 +46,74 @@ class QuizResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<QuizResultPage> {
-  late List<bool> isFavorites;
-
-  @override
-  void initState() {
-    isFavorites = List<bool>.from(widget.isFavorites);
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(13.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'スコアグラフ',
-            style: AppTextStyles.title3(context),
-            textAlign: TextAlign.center,
-          ),
-          _buildPieChart(),
-          SizedBox(height: 24.0),
-          Text(
-            '合計スコア: ${widget.totalScore} / ${widget.count}',
-            style: AppTextStyles.headline(context),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 10.0),
-          _buildButton(
-            context,
-            text: "正誤表を見る",
-            onTap: () {
-              List<String> scores =
-                  widget.scores.map((e) => e.toString()).toList();
-              scores = scores.map((e) => e == "null" ? "未回答" : e).toList();
-              scores = scores.map((e) => e == "true" ? "正解" : e).toList();
-              scores = scores.map((e) => e == "false" ? "不正解" : e).toList();
-              QuizResultTablePageData(
-                quizzes: widget.quizzes,
-                answers: widget.answers,
-                scores: scores,
-                isFavorites: isFavorites,
-                sentences: widget.sentences,
-                translations: widget.translations,
-                pronunciations: widget.pronunciations,
-                topicType: widget.topicType,
-              ).push(context).then((value) {
-                if (value != null) {
-                  isFavorites = List<bool>.from(value);
-                }
-              });
-            },
-          ),
-          SizedBox(height: 12.0),
-          _buildButton(
-            context,
-            text: "トピックに戻る",
-            onTap: () {
-              context.pop();
-            },
-          ),
-        ],
-      ),
-    );
+    return Consumer(builder: (context, ref, child) {
+      final vm = ref.read(quizReultPageProvider.notifier);
+      final isFavorite = ref.watch(quizReultPageProvider).isFavorites;
+      final scores = ref.watch(quizReultPageProvider).scores;
+      final isLoading = ref.watch(quizReultPageProvider).isLoading;
+      return AppBaseFrame(
+        screenContext: context,
+        hasAppbar: false,
+        initFrame: (context, ref) async {
+          vm.init(
+            widget.scores,
+            widget.isFavorites,
+          );
+        },
+        body: isLoading
+            ? Center(child: CircularProgressIndicator())
+            : Padding(
+                padding: const EdgeInsets.all(13.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'スコアグラフ',
+                      style: AppTextStyles.title3(context),
+                      textAlign: TextAlign.center,
+                    ),
+                    _buildPieChart(),
+                    SizedBox(height: 24.0),
+                    Text(
+                      '合計スコア: ${widget.totalScore} / ${widget.count}',
+                      style: AppTextStyles.headline(context),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 10.0),
+                    _buildButton(
+                      context,
+                      text: "正誤表を見る",
+                      onTap: () {
+                      print(scores);
+                        QuizResultTablePageData(
+                          quizzes: widget.quizzes,
+                          answers: widget.answers,
+                          scores: scores,
+                          isFavorites: isFavorite,
+                          sentences: widget.sentences,
+                          translations: widget.translations,
+                          pronunciations: widget.pronunciations,
+                          topicType: widget.topicType,
+                        ).push(context).then((value) {
+                          vm.updateFavorite(isFavorite);
+                        });
+                      },
+                    ),
+                    SizedBox(height: 12.0),
+                    _buildButton(
+                      context,
+                      text: "トピックに戻る",
+                      onTap: () {
+                        context.pop();
+                      },
+                    ),
+                  ],
+                ),
+              ),
+      );
+    });
   }
 
   Widget _buildPieChart() {

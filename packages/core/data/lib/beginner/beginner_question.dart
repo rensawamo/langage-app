@@ -164,7 +164,7 @@ class AppQuizData {
       text: "넓다",
       sentence: "이 방은 넓다.",
       translation: "この部屋は広い。",
-      pronunciation: "ノルダ",
+      pronunciation: "ノルタ",
       options: [
         Option(text: "広い", isCorrect: true),
         Option(text: "狭い", isCorrect: false),
@@ -212,7 +212,7 @@ class AppQuizData {
       text: "굵다",
       sentence: "이 나무는 굵다.",
       translation: "この木は太い。",
-      pronunciation: "クルダ",
+      pronunciation: "クッタ",
       options: [
         Option(text: "細い", isCorrect: false),
         Option(text: "厚い", isCorrect: false),
@@ -248,7 +248,7 @@ class AppQuizData {
       text: "얇다",
       sentence: "이 종이는 얇다.",
       translation: "この紙は薄い。",
-      pronunciation: "ヤルダ",
+      pronunciation: "ヤルタ",
       options: [
         Option(text: "厚い", isCorrect: false),
         Option(text: "太い", isCorrect: false),
@@ -300,7 +300,7 @@ class AppQuizData {
       options: [
         Option(text: "早い", isCorrect: true),
         Option(text: "遅い", isCorrect: false),
-        Option(text: "速い", isCorrect: false),
+        Option(text: "遅れる", isCorrect: false),
         Option(text: "悪い", isCorrect: false),
       ],
     ),
@@ -548,7 +548,7 @@ class AppQuizData {
       text: "쉽다",
       sentence: "이 문제는 쉽다.",
       translation: "この問題は易しい。",
-      pronunciation: "シュィプダ",
+      pronunciation: "シュィプタ",
       options: [
         Option(text: "難しい", isCorrect: false),
         Option(text: "易しい", isCorrect: true),
@@ -572,7 +572,7 @@ class AppQuizData {
       text: "시끄럽다",
       sentence: "그 도로는 시끄럽다.",
       translation: "その道路はうるさい。",
-      pronunciation: "シックロプダ",
+      pronunciation: "シックロプタ",
       options: [
         Option(text: "静かだ", isCorrect: false),
         Option(text: "うるさい", isCorrect: true),
@@ -608,7 +608,7 @@ class AppQuizData {
       text: "더럽다",
       sentence: "그 거리는 더럽다.",
       translation: "その通りは汚い。",
-      pronunciation: "トロプダ",
+      pronunciation: "トロプタ",
       options: [
         Option(text: "綺麗だ", isCorrect: false),
         Option(text: "汚い", isCorrect: true),
@@ -692,7 +692,7 @@ class AppQuizData {
       text: "즐겁다",
       sentence: "그 파티는 즐겁다.",
       translation: "そのパーティーは楽しい。",
-      pronunciation: "チュルゴプダ",
+      pronunciation: "チュルゴプタ",
       options: [
         Option(text: "苦しい", isCorrect: false),
         Option(text: "寂しい", isCorrect: false),
@@ -728,7 +728,7 @@ class AppQuizData {
       text: "재미없다",
       sentence: "이 영화는 재미없다.",
       translation: "この映画は面白くない。",
-      pronunciation: "チェミオプダ",
+      pronunciation: "チェミオプタ",
       options: [
         Option(text: "面白くない", isCorrect: true),
         Option(text: "楽しい", isCorrect: false),
@@ -836,7 +836,7 @@ class AppQuizData {
       text: "싱겁다",
       sentence: "이 국은 싱겁다.",
       translation: "このスープは薄い。",
-      pronunciation: "シンゴプダ",
+      pronunciation: "シンゴッタ",
       options: [
         Option(text: "味が濃い", isCorrect: false),
         Option(text: "味が薄い", isCorrect: true),
@@ -848,7 +848,7 @@ class AppQuizData {
       text: "엄하다",
       sentence: "그 선생님은 엄하다.",
       translation: "その先生は厳しい。",
-      pronunciation: "オムハダ",
+      pronunciation: "オマダ",
       options: [
         Option(text: "憎い", isCorrect: false),
         Option(text: "怖い", isCorrect: false),
@@ -1023,7 +1023,7 @@ class AppQuizData {
       options: [
         Option(text: "非常に", isCorrect: true),
         Option(text: "少し", isCorrect: false),
-        Option(text: "全然", isCorrect: false),
+        Option(text: "なるべく", isCorrect: false),
         Option(text: "普通", isCorrect: false),
       ],
     ),
@@ -1250,8 +1250,8 @@ class AppQuizData {
       pronunciation: "パンドゥシ",
       options: [
         Option(text: "やっと", isCorrect: false),
-        Option(text: "十分に", isCorrect: false),
-        Option(text: "もちろん", isCorrect: false),
+        Option(text: "だいたい", isCorrect: false),
+        Option(text: "すこし", isCorrect: false),
         Option(text: "必ず", isCorrect: true),
       ],
     ),
@@ -1273,7 +1273,7 @@ class AppQuizData {
       translation: "もちろん私は同意する。",
       pronunciation: "ムルロン",
       options: [
-        Option(text: "必ず", isCorrect: false),
+        Option(text: "すこしだけ", isCorrect: false),
         Option(text: "おそらく", isCorrect: false),
         Option(text: "やっと", isCorrect: false),
         Option(text: "もちろん", isCorrect: true),
@@ -1286,7 +1286,7 @@ class AppQuizData {
       pronunciation: "クジ",
       options: [
         Option(text: "もちろん", isCorrect: false),
-        Option(text: "必ず", isCorrect: false),
+        Option(text: "すこし", isCorrect: false),
         Option(text: "あえて", isCorrect: true),
         Option(text: "時々", isCorrect: false),
       ],
@@ -2046,7 +2046,7 @@ class AppQuizData {
       text: "알다",
       sentence: "나는 그 사실을 안다.",
       translation: "私はその事実を知っている。",
-      pronunciation: "アルタ",
+      pronunciation: "アルダ",
       options: [
         Option(text: "知らない", isCorrect: false),
         Option(text: "知っている", isCorrect: true),
@@ -2085,7 +2085,7 @@ class AppQuizData {
       pronunciation: "マッタ",
       options: [
         Option(text: "任せる", isCorrect: true),
-        Option(text: "頼む", isCorrect: false),
+        Option(text: "待つ", isCorrect: false),
         Option(text: "見る", isCorrect: false),
         Option(text: "聞く", isCorrect: false),
       ],
@@ -2422,7 +2422,7 @@ class AppQuizData {
       options: [
         Option(text: "働く", isCorrect: true),
         Option(text: "休む", isCorrect: false),
-        Option(text: "労働する", isCorrect: false),
+        Option(text: "話す", isCorrect: false),
         Option(text: "起きる", isCorrect: false),
       ],
     ),
@@ -2480,8 +2480,8 @@ class AppQuizData {
       translation: "私は友達を手伝う。",
       pronunciation: "トワジュダ",
       options: [
-        Option(text: "助ける", isCorrect: false),
-        Option(text: "世話をする", isCorrect: false),
+        Option(text: "話す", isCorrect: false),
+        Option(text: "お礼を言う", isCorrect: false),
         Option(text: "手伝う", isCorrect: true),
         Option(text: "負担する", isCorrect: false),
       ],
@@ -2493,7 +2493,7 @@ class AppQuizData {
       pronunciation: "チャプタ",
       options: [
         Option(text: "持ってくる", isCorrect: false),
-        Option(text: "つかむ", isCorrect: false),
+        Option(text: "離す", isCorrect: false),
         Option(text: "掴む", isCorrect: true),
         Option(text: "失う", isCorrect: false),
       ],
@@ -2552,10 +2552,10 @@ class AppQuizData {
       translation: "私は洗濯物を干す。",
       pronunciation: "マルリダ",
       options: [
-        Option(text: "干す", isCorrect: true),
+        Option(text: "乾かす", isCorrect: true),
         Option(text: "濡らす", isCorrect: false),
-        Option(text: "乾燥させる", isCorrect: false),
-        Option(text: "乾かす", isCorrect: false),
+        Option(text: "洗濯する", isCorrect: false),
+        Option(text: "吹く", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2602,7 +2602,7 @@ class AppQuizData {
       options: [
         Option(text: "遅刻する", isCorrect: false),
         Option(text: "押す", isCorrect: true),
-        Option(text: "遅くする", isCorrect: false),
+        Option(text: "早退する", isCorrect: false),
         Option(text: "引く", isCorrect: false),
       ],
     ),
@@ -2610,7 +2610,7 @@ class AppQuizData {
       text: "불다",
       sentence: "바람이 분다.",
       translation: "風が吹く。",
-      pronunciation: "ブルダ",
+      pronunciation: "プルダ",
       options: [
         Option(text: "動く", isCorrect: false),
         Option(text: "焼く", isCorrect: false),
@@ -2627,7 +2627,7 @@ class AppQuizData {
         Option(text: "上げる", isCorrect: true),
         Option(text: "下げる", isCorrect: false),
         Option(text: "ひっくり返す", isCorrect: false),
-        Option(text: "持ち上げる", isCorrect: false),
+        Option(text: "足す", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2637,7 +2637,7 @@ class AppQuizData {
       pronunciation: "ポッタ",
       options: [
         Option(text: "着る", isCorrect: false),
-        Option(text: "脱げる", isCorrect: false),
+        Option(text: "付ける", isCorrect: false),
         Option(text: "着せる", isCorrect: false),
         Option(text: "脱ぐ", isCorrect: true),
       ],
@@ -2663,7 +2663,7 @@ class AppQuizData {
         Option(text: "食べる", isCorrect: false),
         Option(text: "吐く", isCorrect: true),
         Option(text: "飲む", isCorrect: false),
-        Option(text: "出す", isCorrect: false),
+        Option(text: "入れる", isCorrect: false),
       ],
     ),
     Quiz(
@@ -2698,7 +2698,7 @@ class AppQuizData {
       options: [
         Option(text: "覚える", isCorrect: false),
         Option(text: "思い出す", isCorrect: false),
-        Option(text: "覚えている", isCorrect: false),
+        Option(text: "記録する", isCorrect: false),
         Option(text: "忘れる", isCorrect: true),
       ],
     ),
@@ -2759,7 +2759,7 @@ class AppQuizData {
         Option(text: "負ける", isCorrect: false),
         Option(text: "競う", isCorrect: false),
         Option(text: "勝つ", isCorrect: true),
-        Option(text: "勝ち負けする", isCorrect: false),
+        Option(text: "狙う", isCorrect: false),
       ],
     ),
     Quiz(

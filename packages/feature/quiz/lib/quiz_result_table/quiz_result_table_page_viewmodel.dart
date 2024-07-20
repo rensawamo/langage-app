@@ -16,8 +16,6 @@ class QuizResultTablePageViewmodelImpl extends QuizResultTablePageViewmodel {
   /// 初期設定
   @override
   Future<void> init(List<bool> isFavorite) async {
-    final ttsRepository = ref.read(ttsRepositoryProvider);
-    await ttsRepository.initializeTts();
     state = state.copyWith(isFavorites: isFavorite);
   }
 
