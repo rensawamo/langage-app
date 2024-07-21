@@ -1,3 +1,4 @@
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
@@ -9,7 +10,7 @@ class WordTopicSelectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBaseFrame(
       screenContext: context,
-      title: "単語リスト",
+      title: AppLocalizations.of(context).settings,
       hasPrevButton: false,
       body: SingleChildScrollView(
         child: Padding(
