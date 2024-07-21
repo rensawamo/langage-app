@@ -2,6 +2,7 @@ import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
+import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,7 +61,8 @@ class QuizResultTablePage extends StatelessWidget {
             await vm.init(isFavorites);
           },
           backOnTap: () {
-            final favoriteList = ref.read(WordlistProvider).isFavorites;
+            final favoriteList = ref.watch(WordlistProvider).isFavorites;
+            logger.i(favoriteList);
             context.pop(favoriteList);
           },
           body: Padding(

@@ -2,6 +2,7 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/quiz/quiz_page_data.dart';
 import 'package:core_ui/ui.dart';
+import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result/quiz_result_page_viewmodel.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:core_designsystem/designsystem.dart';
@@ -86,7 +87,6 @@ class _ResultPageState extends State<QuizResultPage> {
                       context,
                       text: "正誤表を見る",
                       onTap: () {
-                      print(scores);
                         QuizResultTablePageData(
                           quizzes: widget.quizzes,
                           answers: widget.answers,
@@ -97,7 +97,7 @@ class _ResultPageState extends State<QuizResultPage> {
                           pronunciations: widget.pronunciations,
                           topicType: widget.topicType,
                         ).push(context).then((value) {
-                          vm.updateFavorite(isFavorite);
+                          vm.updateFavorite(value);
                         });
                       },
                     ),
