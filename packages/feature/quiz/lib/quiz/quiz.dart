@@ -3,64 +3,17 @@ import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz/widget/quiz_page.dart';
-import 'quiz_state.dart';
 import 'quiz_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
-/// Provider
-final quizGetProvider =
-    StateNotifierProvider.autoDispose<QuizViewmodel, QuizState>(
-  (ref) {
-    return QuizViewmodelImpl(
-      ref,
-      QuizState(
-        quizzs: [],
-        answers: [],
-        sentences: [],
-        translations: [],
-        pronunciations: [],
-        isFavorites: [],
-        controller: PageController(),
-      ),
-    );
-  },
-);
-
-class QuizPage extends ConsumerStatefulWidget {
+class QuizPage extends StatelessWidget {
   final TopicParam quizTopicType;
 
   const QuizPage({
     Key? key,
     required this.quizTopicType,
   }) : super(key: key);
-
-  @override
-  _QuizPageState createState() => _QuizPageState();
-}
-
-class _QuizPageState extends ConsumerState<QuizPage> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await _initialize(ref);
-    });
-  }
-
-  Future<void> _initialize(WidgetRef ref) async {
-    final vm = ref.read(quizGetProvider.notifier);
-
-    // 問題数をセットする
-    vm.questionCount = widget.quizTopicType.extra;
-
-    vm.quizTopicType = widget.quizTopicType.quizTopicType;
-
-    vm.flutterTts = FlutterTts();
-    // 初期設定
-    await vm.init();
-  }
 
   @override
   Widget build(BuildContext screenContext) {
@@ -76,7 +29,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           shouldRemoveFocus: true,
           title: 'クイズ',
           initFrame: (context, ref) async {
-            await _initialize(ref);
+            final vm = ref.read(quizGetProvider.notifier);
+            vm.questionCount = quizTopicType.extra;
+
+            vm.quizTopicType = quizTopicType.quizTopicType;
+            await vm.init();
           },
           body: Column(
             children: [
@@ -120,7 +77,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             selected: ref.read(quizGetProvider).selected,
             selected_ind: ref.read(quizGetProvider).selectedInd,
             tatalScore: ref.read(quizGetProvider).totalScore,
-            quizTopicType: widget.quizTopicType.quizTopicType,
+            quizTopicType: quizTopicType.quizTopicType,
           );
         },
       );

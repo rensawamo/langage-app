@@ -7,6 +7,25 @@ import 'quiz_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// Provider
+final quizGetProvider =
+    StateNotifierProvider.autoDispose<QuizViewmodel, QuizState>(
+  (ref) {
+    return QuizViewmodelImpl(
+      ref,
+      QuizState(
+        quizzs: [],
+        answers: [],
+        sentences: [],
+        translations: [],
+        pronunciations: [],
+        isFavorites: [],
+        controller: PageController(),
+      ),
+    );
+  },
+);
+
 /// クイズ画面のViewmodel
 class QuizViewmodelImpl extends QuizViewmodel {
   /// コンストラクタ
@@ -15,6 +34,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
   /// [dao]API Modelクラス AppointmentGetListAllをセット
   QuizViewmodelImpl(this.ref, QuizState state) : super(state);
   final Ref ref;
+
   /// 初期設定
   ///
   @override
