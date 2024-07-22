@@ -1,9 +1,12 @@
 #!/bin/sh
 
-echo "Welcome to the Dart Frog project!"
+echo "Welcome to the languageapp project! 🐸"
 echo "Install dependencies!!!"
 brew update
-brew install mise 
+brew install mise
 brew install mason
-dart pub global activate melos
-dart pub add dart_frog
+brew install fvm
+fvm install 3.22.2
+fvm use 3.22.2
+fvm dart pub global activate melos
+melos bootstrap
