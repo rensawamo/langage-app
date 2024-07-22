@@ -31,6 +31,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
       quizTopicType: quizTopicType,
       page: state.currentPage,
       pageSize: 20,
+      language: language,
     ))
         .then((response) {
       print(response.answers);
@@ -95,6 +96,9 @@ abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
 
   /// クイズの種別
   late QuizTopicType quizTopicType;
+
+  // language
+  late String language;
 
   /// ロード中か
   bool isLoading = false;

@@ -1,7 +1,9 @@
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:core_ui/ui.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:feature_wordlist/wordlist/word_list_viewmodel.dart';
@@ -53,12 +55,15 @@ class WordListPage extends StatelessWidget {
         screenContext: screenContext,
         hasPrevButton: true,
         shouldRemoveFocus: true,
-        title: quizTopicType.japaneseName,
+        title: quizTopicType.getQuizTopicWord(context),
         initFrame: (context, ref) async {
           final vm = ref.watch(WordlistProvider.notifier);
 
           // クイズのタイプ
           vm.quizTopicType = quizTopicType;
+
+          Locale appLocale = Localizations.localeOf(context);
+          vm.language = appLocale.languageCode;
 
           // 初期設定
           await vm.init();
@@ -69,12 +74,11 @@ class WordListPage extends StatelessWidget {
         body: ref.watch(WordlistProvider).isLoading
             ? const Center(child: CircularProgressIndicator())
             : quizzes.isEmpty
-                ? _empty()
+                ? _empty(context)
                 : ListView.builder(
                     key: PageStorageKey(0),
                     controller: ref.read(WordlistProvider).scrollController,
-                    scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
-
+                    scrollDirection: Axis.vertical,
                     itemCount: quizzes.length,
                     itemBuilder: (context, index) {
                       return Card(
@@ -134,9 +138,9 @@ class WordListPage extends StatelessWidget {
     });
   }
 
-  Widget _empty() {
-    return const TileEmptyText(
-      header: 'お気に入りは登録されていません。問題を解いて登録しましょう！',
+  Widget _empty(BuildContext context) {
+    return TileEmptyText(
+      header: AppLocalizations.of(context).noStarSentence,
       detail: '',
     );
   }

@@ -18,6 +18,7 @@ class WordGetAllRequest
   const factory WordGetAllRequest({
     // 使用中のアプリのタイプ
     required QuizTopicType quizTopicType,
+    required String language,
     required int page,
     required int pageSize,
   }) = _WordGetAllRequest;

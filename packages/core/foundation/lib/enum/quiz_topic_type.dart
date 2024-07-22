@@ -1,3 +1,6 @@
+import 'package:core_designsystem/designsystem.dart';
+import 'package:flutter/cupertino.dart';
+
 /// クイズのトピックタイプ
 enum QuizTopicType {
   /// お気に入り
@@ -36,24 +39,22 @@ extension QuizTopicTypeExtension on QuizTopicType {
     return this.toString().split('.').last;
   }
 
-  String get japaneseName {
+  String getQuizTopicWord(BuildContext context) {
     switch (this) {
       case QuizTopicType.favorite:
-        return 'お気に入り';
+        return AppLocalizations.of(context).star;
       case QuizTopicType.adjective:
-        return '形容詞';
+        return AppLocalizations.of(context).adjective;
       case QuizTopicType.adverb:
-        return '副詞';
+        return AppLocalizations.of(context).adverb;
       case QuizTopicType.verb:
-        return '動詞';
+        return AppLocalizations.of(context).verb;
       case QuizTopicType.noun:
-        return '名詞';
+        return AppLocalizations.of(context).noun;
       case QuizTopicType.pronoun:
-        return '代名詞';
+        return AppLocalizations.of(context).pronoun;
       case QuizTopicType.greet:
-        return '挨拶';
-      case QuizTopicType.proverb:
-        return 'ことわざ';
+        return AppLocalizations.of(context).greet;
       case QuizTopicType.phrase:
         return '連語';
       case QuizTopicType.total:

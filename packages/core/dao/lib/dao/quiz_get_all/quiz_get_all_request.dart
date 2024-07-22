@@ -18,6 +18,7 @@ class QuizGetAllRequest
   const factory QuizGetAllRequest({
     // 使用中のアプリのタイプ
     required int questionCount,
+    required String language,
     required QuizTopicType quizTopicType,
   }) = _QuizGetAllRequest;
 

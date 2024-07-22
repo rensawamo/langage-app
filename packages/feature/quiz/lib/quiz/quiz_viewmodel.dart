@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_utility/utility.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'quiz_state.dart';
@@ -39,7 +40,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
   ///
   @override
   Future<void> init() async {
-    await getQuizList();
+    await getQuizList(language);
 
     state =
         state.copyWith(controller: PageController(initialPage: 0), counter: 0);
@@ -47,16 +48,17 @@ class QuizViewmodelImpl extends QuizViewmodel {
 
   /// Quize の一覧取得
   @override
-  Future<void> getQuizList() async {
+  Future<void> getQuizList(String language) async {
     // ローディング開始
     state = state.copyWith(isLoading: true);
     final dao = ref.read(quizGetAllDaoProviderProvider);
-
     // パラメータ生成
     // ここで data から quizeを取得する
     dao
         .getQuizList(QuizGetAllRequest(
-            quizTopicType: quizTopicType, questionCount: questionCount))
+            quizTopicType: quizTopicType,
+            questionCount: questionCount,
+            language: language))
         .then((response) {
       // 一覧に追加
       state = state.copyWith(
@@ -141,6 +143,8 @@ abstract class QuizViewmodel extends StateNotifier<QuizState> {
   /// ページサイズ(固定)
   final int pageSize = 50;
 
+  late String language;
+
   // tts の言語設定
   late FlutterTts flutterTts;
 
@@ -156,7 +160,7 @@ abstract class QuizViewmodel extends StateNotifier<QuizState> {
   Future<void> init();
 
   // クイズの一覧取得
-  Future<void> getQuizList();
+  Future<void> getQuizList(String language);
 
   // 一覧クリア
   void clearList();

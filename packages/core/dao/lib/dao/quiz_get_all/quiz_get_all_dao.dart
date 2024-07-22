@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_response.dart';
 import 'package:core_data/data.dart';
@@ -5,6 +7,7 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -50,28 +53,52 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
     switch (request.quizTopicType) {
       /// 形容詞
       case QuizTopicType.adjective:
-        quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectives);
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+        }
         break;
 
       /// 副詞
       case QuizTopicType.adverb:
-        quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdvers);
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+        }
         break;
       // 動詞
       case QuizTopicType.verb:
-        quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbs);
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbsEn);
+        }
         break;
       // 名詞
       case QuizTopicType.noun:
-        quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNouns);
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNounsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNounsEn);
+        }
         break;
       // 代名詞
       case QuizTopicType.pronoun:
-        quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronouns);
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronounsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronounsEn);
+        }
         break;
       // 挨拶
       case QuizTopicType.greet:
-        quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreets);
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreetsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreetsEn);
+        }
         break;
       // お気に入り
 

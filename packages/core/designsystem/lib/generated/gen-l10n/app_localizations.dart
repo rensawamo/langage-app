@@ -110,6 +110,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Licenses'**
   String get licenses;
+
+  /// No description provided for @adjective.
+  ///
+  /// In en, this message translates to:
+  /// **'Adjective'**
+  String get adjective;
+
+  /// No description provided for @adverb.
+  ///
+  /// In en, this message translates to:
+  /// **'Adverb'**
+  String get adverb;
+
+  /// No description provided for @verb.
+  ///
+  /// In en, this message translates to:
+  /// **'Verb'**
+  String get verb;
+
+  /// No description provided for @noun.
+  ///
+  /// In en, this message translates to:
+  /// **'Noun'**
+  String get noun;
+
+  /// No description provided for @pronoun.
+  ///
+  /// In en, this message translates to:
+  /// **'Pronoun'**
+  String get pronoun;
+
+  /// No description provided for @greet.
+  ///
+  /// In en, this message translates to:
+  /// **'Greeting'**
+  String get greet;
+
+  /// No description provided for @star.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get star;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @word.
+  ///
+  /// In en, this message translates to:
+  /// **'Word'**
+  String get word;
+
+  /// No description provided for @sentence.
+  ///
+  /// In en, this message translates to:
+  /// **'Sentence'**
+  String get sentence;
+
+  /// No description provided for @translation.
+  ///
+  /// In en, this message translates to:
+  /// **'Translation'**
+  String get translation;
+
+  /// No description provided for @wordlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Word List'**
+  String get wordlist;
+
+  /// No description provided for @question.
+  ///
+  /// In en, this message translates to:
+  /// **'Question'**
+  String get question;
+
+  /// No description provided for @wrong.
+  ///
+  /// In en, this message translates to:
+  /// **'wrong'**
+  String get wrong;
+
+  /// No description provided for @correct.
+  ///
+  /// In en, this message translates to:
+  /// **'correct'**
+  String get correct;
+
+  /// No description provided for @noselect.
+  ///
+  /// In en, this message translates to:
+  /// **'----'**
+  String get noselect;
+
+  /// No description provided for @questionSentence.
+  ///
+  /// In en, this message translates to:
+  /// **'Try solving 15 random questions!'**
+  String get questionSentence;
+
+  /// No description provided for @noStarSentence.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorites have been registered. Solve the problems and register!'**
+  String get noStarSentence;
+
+  /// No description provided for @quiz.
+  ///
+  /// In en, this message translates to:
+  /// **'Quiz'**
+  String get quiz;
+
+  /// No description provided for @scoreGraph.
+  ///
+  /// In en, this message translates to:
+  /// **'Score Graph'**
+  String get scoreGraph;
+
+  /// No description provided for @totalScole.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Score'**
+  String get totalScole;
+
+  /// No description provided for @seeTable.
+  ///
+  /// In en, this message translates to:
+  /// **'See Table'**
+  String get seeTable;
+
+  /// No description provided for @goTopic.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Topic'**
+  String get goTopic;
+
+  /// No description provided for @table.
+  ///
+  /// In en, this message translates to:
+  /// **'Table'**
+  String get table;
+
+  /// No description provided for @web.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get web;
+
+  /// No description provided for @mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get mode;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -20,7 +20,6 @@ class WordDetailViewmodel extends WordDetailViewmodelInterface {
 
 }
 
-/// E201.受診予約一覧 Viewmodel インターフェース
 abstract class WordDetailViewmodelInterface
     extends StateNotifier<WordDetailState> {
   WordDetailViewmodelInterface(super.state);

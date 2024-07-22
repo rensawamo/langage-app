@@ -50,7 +50,7 @@ class QuizResultTablePage extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       return AppBaseFrame(
           screenContext: context,
-          title: '正誤表',
+          title: AppLocalizations.of(context).table,
           initFrame: (context, ref) async {
             // お気に入りの初期設定
             final vm = ref.read(WordlistProvider.notifier);
@@ -216,15 +216,15 @@ class QuizResultTablePage extends StatelessWidget {
           textAlign: TextAlign.left,
           style: quizTopicType == QuizTopicType.greet
               ? AppTextStyles.caption2(context,
-                  color: text == "正解"
+                  color: text == AppLocalizations.of(context).correct
                       ? Colors.red
-                      : text == "不正解"
+                      : text == AppLocalizations.of(context).wrong
                           ? Colors.blue
                           : AppColorsSet.getReverseColor(context))
               : AppTextStyles.caption(context,
-                  color: text == "正解"
+                  color: text == AppLocalizations.of(context).correct
                       ? Colors.red
-                      : text == "不正解"
+                      : text == AppLocalizations.of(context).wrong
                           ? Colors.blue
                           : AppColorsSet.getReverseColor(context)),
         ),

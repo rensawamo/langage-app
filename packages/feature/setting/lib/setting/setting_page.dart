@@ -1,5 +1,4 @@
-
-
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_setting/widget/setting_item.dart';
 import 'package:feature_setting/widget/setting_switch_tile.dart';
@@ -17,7 +16,7 @@ class SettingPage extends StatelessWidget {
       return AppBaseFrame(
         screenContext: context,
         hasPrevButton: false,
-        title: '設定',
+        title: AppLocalizations.of(context).settings,
         body: ListView(
           children: [
             Container(
@@ -34,7 +33,7 @@ class SettingPage extends StatelessWidget {
             AppDriver(),
             SettingsItem(
                 icon: Icons.web,
-                title: 'Web サイト',
+                title: AppLocalizations.of(context).web,
                 onTap: () {
                   final url = Uri.parse(
                       'https://wonderful-flower-033138b00.5.azurestaticapps.net/');
@@ -42,18 +41,17 @@ class SettingPage extends StatelessWidget {
                 }),
             AppDriver(),
             SettingsItem(
-              icon: Icons.lock,
-              title: 'プライシーポリシー',
-             onTap: () {
+                icon: Icons.lock,
+                title: AppLocalizations.of(context).privacyPolicy,
+                onTap: () {
                   final url = Uri.parse(
                       'https://wonderful-flower-033138b00.5.azurestaticapps.net/privacypolicy');
                   launchUrl(url);
                 }),
-
             SizedBox(height: 5),
             AppDriver(),
             SettingsSwitchTile(
-              title: 'ダークモード',
+              title: AppLocalizations.of(context).mode,
               icon: Icons.brightness_6,
             ),
           ],
@@ -61,6 +59,4 @@ class SettingPage extends StatelessWidget {
       );
     });
   }
-
-
 }
