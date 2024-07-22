@@ -41,7 +41,7 @@ class App extends ConsumerWidget {
       ],
       supportedLocales: [
         Locale('ja', ''),
-        Locale('en', ''), 
+        Locale('en', ''),
       ],
       themeMode: themeMode,
       debugShowCheckedModeBanner: false,

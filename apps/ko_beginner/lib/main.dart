@@ -15,6 +15,7 @@ Future<void> main() async {
 
   // SharedPreferences の初期化
   final sharedPreferences = await SharedPreferences.getInstance();
+  // 言語設定の初期化
   final secureStorage = FlutterSecureStorage();
 
   /// Firebase
@@ -32,7 +33,7 @@ Future<void> main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
-
+  
   runApp(
     ProviderScope(
       overrides: [

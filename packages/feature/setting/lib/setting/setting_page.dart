@@ -16,7 +16,7 @@ class SettingPage extends StatelessWidget {
       return AppBaseFrame(
         screenContext: context,
         hasPrevButton: false,
-        title: AppLocalizations.of(context).settings,
+        title: AppLocalizations.of(context).setting,
         body: ListView(
           children: [
             Container(

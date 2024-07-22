@@ -1,7 +1,9 @@
+import 'package:core_designsystem/designsystem.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 /// bottom navigation bar 管理クラス
+/// [navigationShell] によって、画面遷移を管理する
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({
     super.key,
@@ -16,10 +18,15 @@ class AppNavigationBar extends StatelessWidget {
       body: navigationShell,
       bottomNavigationBar: NavigationBar(
         selectedIndex: navigationShell.currentIndex,
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.book), label: '単語'),
-          NavigationDestination(icon: Icon(Icons.quiz), label: '問題'),
-          NavigationDestination(icon: Icon(Icons.settings), label: '設定'),
+        destinations: [
+          NavigationDestination(
+              icon: Icon(Icons.book), label: AppLocalizations.of(context).word),
+          NavigationDestination(
+              icon: Icon(Icons.quiz),
+              label: AppLocalizations.of(context).question),
+          NavigationDestination(
+              icon: Icon(Icons.settings),
+              label: AppLocalizations.of(context).setting),
         ],
         onDestinationSelected: (index) {
           navigationShell.goBranch(

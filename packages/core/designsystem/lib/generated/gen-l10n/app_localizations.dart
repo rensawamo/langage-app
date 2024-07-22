@@ -93,11 +93,11 @@ abstract class AppLocalizations {
     Locale('ja')
   ];
 
-  /// No description provided for @settings.
+  /// No description provided for @setting.
   ///
   /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings;
+  /// **'Setting'**
+  String get setting;
 
   /// No description provided for @privacyPolicy.
   ///

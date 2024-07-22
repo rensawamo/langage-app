@@ -21,6 +21,8 @@ dependencies:
     path: ../dao
   core_foundation:
     path: ../foundation
+  core_designsystem:
+    path: ../designsystem
   feature_splash:
     path: ../../../packages/feature/splash
   feature_wordlist:
@@ -31,7 +33,6 @@ dependencies:
     path: ../../../packages/feature/setting
   feature_quiz_favorite:
     path: ../../../packages/feature/quiz_favorite
-  
 
   go_router: ^14.2.0
   firebase_analytics: ^11.1.0

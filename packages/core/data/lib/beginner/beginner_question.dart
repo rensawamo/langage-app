@@ -4709,7 +4709,7 @@ class AppQuizData {
       text: "덥다",
       sentence: "오늘은 날씨가 덥다.",
       translation: "The weather is hot today.",
-      pronunciation: "deopda",
+      pronunciation: "deob-tta",
       options: [
         Option(text: "cold", isCorrect: false),
         Option(text: "warm", isCorrect: false),
@@ -4721,7 +4721,7 @@ class AppQuizData {
       text: "춥다",
       sentence: "겨울에는 춥다.",
       translation: "It is cold in winter.",
-      pronunciation: "chupda",
+      pronunciation: "chuptta",
       options: [
         Option(text: "hot", isCorrect: false),
         Option(text: "warm", isCorrect: false),
@@ -4732,8 +4732,8 @@ class AppQuizData {
     Quiz(
       text: "뜨겁다",
       sentence: "차 한 잔이 뜨겁다.",
-      translation: "The tea is hot.",
-      pronunciation: "tteugeopda",
+      translation: "The tea is too hot.",
+      pronunciation: "tteugeoptta",
       options: [
         Option(text: "cool", isCorrect: false),
         Option(text: "hot", isCorrect: true),
@@ -4745,7 +4745,7 @@ class AppQuizData {
       text: "차갑다",
       sentence: "그녀의 손이 차갑다.",
       translation: "Her hands are cold.",
-      pronunciation: "chagapda",
+      pronunciation: "chagaptta",
       options: [
         Option(text: "hot", isCorrect: false),
         Option(text: "warm", isCorrect: false),
@@ -4759,7 +4759,7 @@ class AppQuizData {
       translation: "Spring days are warm.",
       pronunciation: "ttatteuthada",
       options: [
-        Option(text: "hot", isCorrect: false),
+        Option(text: "bat", isCorrect: false),
         Option(text: "warm", isCorrect: true),
         Option(text: "cool", isCorrect: false),
         Option(text: "cold", isCorrect: false),
@@ -4781,7 +4781,7 @@ class AppQuizData {
       text: "선선하다",
       sentence: "가을에는 날씨가 선선하다.",
       translation: "The weather is cool in autumn.",
-      pronunciation: "seonsonhada",
+      pronunciation: "seonseonhada",
       options: [
         Option(text: "warm", isCorrect: false),
         Option(text: "sweet", isCorrect: false),
@@ -4793,19 +4793,19 @@ class AppQuizData {
       text: "맛없다",
       sentence: "이 음식은 맛없다.",
       translation: "This food tastes bad.",
-      pronunciation: "madeopda",
+      pronunciation: "madeoptta",
       options: [
         Option(text: "delicious", isCorrect: false),
         Option(text: "spicy", isCorrect: false),
         Option(text: "bitter", isCorrect: false),
-        Option(text: "tasteless", isCorrect: true),
+        Option(text: "tastes bad", isCorrect: true),
       ],
     ),
     Quiz(
       text: "달다",
       sentence: "이 사탕은 달다.",
       translation: "This candy is sweet.",
-      pronunciation: "dalda",
+      pronunciation: "dar-da",
       options: [
         Option(text: "spicy", isCorrect: false),
         Option(text: "sweet", isCorrect: true),
@@ -4817,7 +4817,7 @@ class AppQuizData {
       text: "맵다",
       sentence: "이 음식은 맵다.",
       translation: "This food is spicy.",
-      pronunciation: "maepda",
+      pronunciation: "maeptta",
       options: [
         Option(text: "sweet", isCorrect: false),
         Option(text: "sour", isCorrect: false),
@@ -4889,7 +4889,7 @@ class AppQuizData {
       text: "쉽다",
       sentence: "이 문제는 쉽다.",
       translation: "This question is easy.",
-      pronunciation: "swipda",
+      pronunciation: "swip-tta",
       options: [
         Option(text: "difficult", isCorrect: false),
         Option(text: "easy", isCorrect: true),
@@ -4901,7 +4901,7 @@ class AppQuizData {
       text: "죄송하다",
       sentence: "늦어서 죄송하다.",
       translation: "Sorry for being late.",
-      pronunciation: "joesonghada",
+      pronunciation: "jwe-songhada",
       options: [
         Option(text: "happy", isCorrect: false),
         Option(text: "difficult", isCorrect: false),
@@ -4913,7 +4913,7 @@ class AppQuizData {
       text: "시끄럽다",
       sentence: "그 도로는 시끄럽다.",
       translation: "That road is noisy.",
-      pronunciation: "sikkeureopda",
+      pronunciation: "sikkeureoptta",
       options: [
         Option(text: "quiet", isCorrect: false),
         Option(text: "noisy", isCorrect: true),
@@ -4937,7 +4937,7 @@ class AppQuizData {
       text: "깨끗하다",
       sentence: "방이 깨끗하다.",
       translation: "The room is clean.",
-      pronunciation: "kkaekeuthada",
+      pronunciation: "kkaekkeutada",
       options: [
         Option(text: "dirty", isCorrect: false),
         Option(text: "new", isCorrect: false),
@@ -4949,7 +4949,7 @@ class AppQuizData {
       text: "더럽다",
       sentence: "그 거리는 더럽다.",
       translation: "That street is dirty.",
-      pronunciation: "deoreopda",
+      pronunciation: "deo-reoptta",
       options: [
         Option(text: "clean", isCorrect: false),
         Option(text: "dirty", isCorrect: true),
@@ -4961,7 +4961,7 @@ class AppQuizData {
       text: "새롭다",
       sentence: "새로운 아이디어를 얻었다.",
       translation: "Got a new idea.",
-      pronunciation: "saeropda",
+      pronunciation: "saeroptta",
       options: [
         Option(text: "new", isCorrect: true),
         Option(text: "old", isCorrect: false),
@@ -4985,7 +4985,7 @@ class AppQuizData {
       text: "밝다",
       sentence: "그 방은 밝다.",
       translation: "That room is bright.",
-      pronunciation: "balgda",
+      pronunciation: "baktta",
       options: [
         Option(text: "dark", isCorrect: false),
         Option(text: "high", isCorrect: false),
@@ -4997,7 +4997,7 @@ class AppQuizData {
       text: "어둡다",
       sentence: "그 방은 어둡다.",
       translation: "That room is dark.",
-      pronunciation: "eodupda",
+      pronunciation: "eoduptta",
       options: [
         Option(text: "bright", isCorrect: false),
         Option(text: "high", isCorrect: false),
@@ -5032,20 +5032,20 @@ class AppQuizData {
     Quiz(
       text: "즐겁다",
       sentence: "그 파티는 즐겁다.",
-      translation: "That party is fun.",
-      pronunciation: "jeulgeopda",
+      translation: "That party is pleasant.",
+      pronunciation: "jeulgeoptta",
       options: [
         Option(text: "painful", isCorrect: false),
         Option(text: "lonely", isCorrect: false),
         Option(text: "boring", isCorrect: false),
-        Option(text: "fun", isCorrect: true),
+        Option(text: "pleasant", isCorrect: true),
       ],
     ),
     Quiz(
       text: "괴롭다",
       sentence: "그 일은 정말 괴롭다.",
       translation: "That work is really painful.",
-      pronunciation: "goeropda",
+      pronunciation: "gweroptta",
       options: [
         Option(text: "fun", isCorrect: false),
         Option(text: "lonely", isCorrect: false),
@@ -5057,7 +5057,7 @@ class AppQuizData {
       text: "외롭다",
       sentence: "혼자 집에 있을 때 외롭다.",
       translation: "I feel lonely when I'm home alone.",
-      pronunciation: "woeropda",
+      pronunciation: "oeroptta",
       options: [
         Option(text: "fun", isCorrect: false),
         Option(text: "lonely", isCorrect: true),
@@ -5068,10 +5068,10 @@ class AppQuizData {
     Quiz(
       text: "재미없다",
       sentence: "이 영화는 재미없다.",
-      translation: "This movie is boring.",
-      pronunciation: "jaemieopda",
+      translation: "This movie is not interesting.",
+      pronunciation: "jaemieoptta",
       options: [
-        Option(text: "boring", isCorrect: true),
+        Option(text: "not interesting", isCorrect: true),
         Option(text: "fun", isCorrect: false),
         Option(text: "painful", isCorrect: false),
         Option(text: "lonely", isCorrect: false),
@@ -5093,19 +5093,19 @@ class AppQuizData {
       text: "심심하다",
       sentence: "오늘은 심심하다.",
       translation: "Today I am bored.",
-      pronunciation: "simsimhada",
+      pronunciation: "sim-simhada",
       options: [
         Option(text: "busy", isCorrect: false),
         Option(text: "same", isCorrect: false),
         Option(text: "different", isCorrect: false),
-        Option(text: "free", isCorrect: true),
+        Option(text: "bored", isCorrect: true),
       ],
     ),
     Quiz(
       text: "같다",
       sentence: "우리는 생각이 같다.",
       translation: "We think the same.",
-      pronunciation: "gatda",
+      pronunciation: "gattta",
       options: [
         Option(text: "same", isCorrect: true),
         Option(text: "different", isCorrect: false),
@@ -5129,7 +5129,7 @@ class AppQuizData {
       text: "편리하다",
       sentence: "이 어플은 매우 편리하다.",
       translation: "This app is very convenient.",
-      pronunciation: "pyeonrihada",
+      pronunciation: "pyeolrihada",
       options: [
         Option(text: "convenient", isCorrect: true),
         Option(text: "inconvenient", isCorrect: false),
@@ -5165,7 +5165,7 @@ class AppQuizData {
       text: "진하다",
       sentence: "커피가 진하다.",
       translation: "The coffee is strong.",
-      pronunciation: "jinada",
+      pronunciation: "jinhada",
       options: [
         Option(text: "strong", isCorrect: true),
         Option(text: "weak", isCorrect: false),
@@ -5177,7 +5177,7 @@ class AppQuizData {
       text: "싱겁다",
       sentence: "이 국은 싱겁다.",
       translation: "This soup is bland.",
-      pronunciation: "singgeopda",
+      pronunciation: "singgeoptta",
       options: [
         Option(text: "strong flavor", isCorrect: false),
         Option(text: "bland", isCorrect: true),
@@ -5189,7 +5189,7 @@ class AppQuizData {
       text: "엄하다",
       sentence: "그 선생님은 엄하다.",
       translation: "That teacher is strict.",
-      pronunciation: "eomada",
+      pronunciation: "eomhada",
       options: [
         Option(text: "hateful", isCorrect: false),
         Option(text: "scary", isCorrect: false),
@@ -5201,7 +5201,7 @@ class AppQuizData {
       text: "밉다",
       sentence: "그 사람은 미운 사람이다.",
       translation: "That person is hateful.",
-      pronunciation: "mipda",
+      pronunciation: "miptta",
       options: [
         Option(text: "strict", isCorrect: false),
         Option(text: "hateful", isCorrect: true),
@@ -5213,7 +5213,7 @@ class AppQuizData {
       text: "무섭다",
       sentence: "그 영화는 무섭다.",
       translation: "That movie is scary.",
-      pronunciation: "museopda",
+      pronunciation: "museoptta",
       options: [
         Option(text: "jealous", isCorrect: false),
         Option(text: "strict", isCorrect: false),
@@ -5224,10 +5224,10 @@ class AppQuizData {
     Quiz(
       text: "두렵다",
       sentence: "미래가 두렵다.",
-      translation: "The future is scary.",
+      translation: "The future is frightening.",
       pronunciation: "duryeopda",
       options: [
-        Option(text: "scary", isCorrect: true),
+        Option(text: "fearful", isCorrect: true),
         Option(text: "jealous", isCorrect: false),
         Option(text: "strict", isCorrect: false),
         Option(text: "hateful", isCorrect: false),
@@ -5237,7 +5237,7 @@ class AppQuizData {
       text: "부럽다",
       sentence: "그의 성공이 부럽다.",
       translation: "I envy his success.",
-      pronunciation: "bureopda",
+      pronunciation: "bureoptta",
       options: [
         Option(text: "envious", isCorrect: true),
         Option(text: "scared", isCorrect: false),
@@ -5265,7 +5265,7 @@ class AppQuizData {
       options: [
         Option(text: "envious", isCorrect: false),
         Option(text: "strict", isCorrect: false),
-        Option(text: "painful", isCorrect: true),
+        Option(text: "hurts", isCorrect: true),
         Option(text: "hateful", isCorrect: false),
       ],
     ),
@@ -5273,9 +5273,9 @@ class AppQuizData {
       text: "그립다",
       sentence: "고향이 그립다.",
       translation: "I miss my hometown.",
-      pronunciation: "geuripda",
+      pronunciation: "geuriptta",
       options: [
-        Option(text: "nostalgic", isCorrect: true),
+        Option(text: "miss", isCorrect: true),
         Option(text: "envious", isCorrect: false),
         Option(text: "strict", isCorrect: false),
         Option(text: "hateful", isCorrect: false),
@@ -5297,7 +5297,7 @@ class AppQuizData {
       text: "이상하다",
       sentence: "그 행동은 이상하다.",
       translation: "That behavior is strange.",
-      pronunciation: "isanghada",
+      pronunciation: "i-sanghada",
       options: [
         Option(text: "envious", isCorrect: false),
         Option(text: "strict", isCorrect: false),
@@ -5312,7 +5312,7 @@ class AppQuizData {
       pronunciation: "chinhada",
       options: [
         Option(text: "beautiful", isCorrect: false),
-        Option(text: "kind", isCorrect: false),
+        Option(text: "bad", isCorrect: false),
         Option(text: "young", isCorrect: false),
         Option(text: "close", isCorrect: true),
       ],
@@ -5321,7 +5321,7 @@ class AppQuizData {
       text: "아름답다",
       sentence: "그녀는 정말 아름답다.",
       translation: "She is really beautiful.",
-      pronunciation: "areumdapda",
+      pronunciation: "areumdaptta",
       options: [
         Option(text: "close", isCorrect: false),
         Option(text: "kind", isCorrect: false),
@@ -5362,9 +5362,9 @@ class AppQuizData {
       translation: "She is very busy.",
       pronunciation: "maeu",
       options: [
-        Option(text: "very", isCorrect: true),
         Option(text: "a little", isCorrect: false),
         Option(text: "as much as possible", isCorrect: false),
+        Option(text: "very", isCorrect: true),
         Option(text: "normally", isCorrect: false),
       ],
     ),
@@ -5384,7 +5384,7 @@ class AppQuizData {
       text: "대단히",
       sentence: "대단히 감사합니다.",
       translation: "Thank you very much.",
-      pronunciation: "daedanhi",
+      pronunciation: "dae-danhi",
       options: [
         Option(text: "normally", isCorrect: false),
         Option(text: "never", isCorrect: false),
@@ -5396,7 +5396,7 @@ class AppQuizData {
       text: "꽤",
       sentence: "그 책은 꽤 흥미롭다.",
       translation: "The book is quite interesting.",
-      pronunciation: "kkoe",
+      pronunciation: "kkwae",
       options: [
         Option(text: "quite", isCorrect: true),
         Option(text: "a little", isCorrect: false),
@@ -5456,7 +5456,7 @@ class AppQuizData {
       text: "가장",
       sentence: "나는 가장 좋아하는 색은 파란색이다.",
       translation: "My favorite color is blue.",
-      pronunciation: "gajang",
+      pronunciation: "ga-jang",
       options: [
         Option(text: "a little", isCorrect: false),
         Option(text: "completely", isCorrect: false),
@@ -5468,7 +5468,7 @@ class AppQuizData {
       text: "대부분",
       sentence: "대부분의 사람들이 동의했다.",
       translation: "Most people agreed.",
-      pronunciation: "daebubun",
+      pronunciation: "dae-bubun",
       options: [
         Option(text: "not at all", isCorrect: false),
         Option(text: "a little", isCorrect: false),
@@ -5480,11 +5480,11 @@ class AppQuizData {
       text: "대개",
       sentence: "대개 학생들은 열심히 공부한다.",
       translation: "Most students study hard.",
-      pronunciation: "daege",
+      pronunciation: "dae-gae",
       options: [
         Option(text: "never", isCorrect: false),
         Option(text: "frequently", isCorrect: false),
-        Option(text: "usually", isCorrect: true),
+        Option(text: "most", isCorrect: true),
         Option(text: "a little", isCorrect: false),
       ],
     ),
@@ -5492,7 +5492,7 @@ class AppQuizData {
       text: "대체로",
       sentence: "대체로 그 영화는 재미있었다.",
       translation: "Mostly, the movie was interesting.",
-      pronunciation: "techaelo",
+      pronunciation: "dae-chero",
       options: [
         Option(text: "never", isCorrect: false),
         Option(text: "sometimes", isCorrect: false),
@@ -5504,7 +5504,7 @@ class AppQuizData {
       text: "보통",
       sentence: "보통은 아침에 운동을 한다.",
       translation: "Usually, I exercise in the morning.",
-      pronunciation: "botong",
+      pronunciation: "bo-tong",
       options: [
         Option(text: "usually", isCorrect: true),
         Option(text: "sometimes", isCorrect: false),
@@ -5516,7 +5516,7 @@ class AppQuizData {
       text: "특히",
       sentence: "저는 특히 음악을 좋아합니다.",
       translation: "I especially like music.",
-      pronunciation: "teukhi",
+      pronunciation: "teuki",
       options: [
         Option(text: "always", isCorrect: false),
         Option(text: "sometimes", isCorrect: false),
@@ -5528,7 +5528,7 @@ class AppQuizData {
       text: "언제나",
       sentence: "그는 언제나 웃고 있다.",
       translation: "He is always smiling.",
-      pronunciation: "eonjena",
+      pronunciation: "eon-jena",
       options: [
         Option(text: "sometimes", isCorrect: false),
         Option(text: "always", isCorrect: true),
@@ -5564,7 +5564,7 @@ class AppQuizData {
       text: "충분히",
       sentence: "시간이 충분히 있습니다.",
       translation: "There is plenty of time.",
-      pronunciation: "chungbuni",
+      pronunciation: "chungbunhi",
       options: [
         Option(text: "a little", isCorrect: false),
         Option(text: "plenty", isCorrect: true),
@@ -5612,7 +5612,7 @@ class AppQuizData {
       text: "물론",
       sentence: "물론 나는 동의한다.",
       translation: "Of course, I agree.",
-      pronunciation: "mullon",
+      pronunciation: "mulron",
       options: [
         Option(text: "just a little", isCorrect: false),
         Option(text: "probably", isCorrect: false),
@@ -5672,7 +5672,7 @@ class AppQuizData {
       text: "같이",
       sentence: "같이 공부하자.",
       translation: "Let's study together.",
-      pronunciation: "gat-i",
+      pronunciation: "gachi",
       options: [
         Option(text: "together", isCorrect: true),
         Option(text: "all", isCorrect: false),
@@ -5684,7 +5684,7 @@ class AppQuizData {
       text: "별로",
       sentence: "별로 좋지 않다.",
       translation: "Not particularly good.",
-      pronunciation: "byul-ro",
+      pronunciation: "byeollo",
       options: [
         Option(text: "all", isCorrect: false),
         Option(text: "together", isCorrect: false),
@@ -5696,7 +5696,7 @@ class AppQuizData {
       text: "혹시",
       sentence: "혹시 내일 비가 올까요?",
       translation: "Will it perhaps rain tomorrow?",
-      pronunciation: "hoks-hi",
+      pronunciation: "hokssi",
       options: [
         Option(text: "as expected", isCorrect: false),
         Option(text: "really", isCorrect: false),
@@ -5708,7 +5708,7 @@ class AppQuizData {
       text: "역시",
       sentence: "역시 그는 천재다.",
       translation: "As expected, he is a genius.",
-      pronunciation: "yeok-shi",
+      pronunciation: "yeokssi",
       options: [
         Option(text: "perhaps", isCorrect: false),
         Option(text: "really", isCorrect: false),
@@ -5720,7 +5720,7 @@ class AppQuizData {
       text: "정말로",
       sentence: "정말로 믿을 수 없다.",
       translation: "I really can't believe it.",
-      pronunciation: "jeongmalro",
+      pronunciation: "jeong-mallo",
       options: [
         Option(text: "really", isCorrect: true),
         Option(text: "as expected", isCorrect: false),
@@ -5772,8 +5772,8 @@ class AppQuizData {
       options: [
         Option(text: "now", isCorrect: false),
         Option(text: "yet", isCorrect: false),
-        Option(text: "soon", isCorrect: false),
         Option(text: "already", isCorrect: true),
+        Option(text: "slowly", isCorrect: false),
       ],
     ),
     Quiz(
@@ -5808,7 +5808,7 @@ class AppQuizData {
       options: [
         Option(text: "in other words", isCorrect: false),
         Option(text: "clearly", isCorrect: false),
-        Option(text: "no way", isCorrect: true),
+        Option(text: "no way!", isCorrect: true),
         Option(text: "mutually", isCorrect: false),
       ],
     ),
@@ -5819,7 +5819,7 @@ class AppQuizData {
       pronunciation: "seoro",
       options: [
         Option(text: "in other words", isCorrect: false),
-        Option(text: "mutually", isCorrect: true),
+        Option(text: "each other", isCorrect: true),
         Option(text: "no way", isCorrect: false),
         Option(text: "clearly", isCorrect: false),
       ],
@@ -5827,20 +5827,20 @@ class AppQuizData {
     Quiz(
       text: "게다가",
       sentence: "그는 친절하다. 게다가 똑똑하다.",
-      translation: "He is kind. Moreover, he is smart.",
+      translation: "He is kind. Additionally, he is smart.",
       pronunciation: "gedaga",
       options: [
         Option(text: "separately", isCorrect: false),
         Option(text: "already", isCorrect: false),
         Option(text: "again", isCorrect: false),
-        Option(text: "moreover", isCorrect: true),
+        Option(text: "additionally", isCorrect: true),
       ],
     ),
     Quiz(
       text: "틀림없이",
       sentence: "그는 틀림없이 올 것이다.",
       translation: "He will surely come.",
-      pronunciation: "teullimeobsi",
+      pronunciation: "teullimeopssi",
       options: [
         Option(text: "surely", isCorrect: true),
         Option(text: "again", isCorrect: false),
@@ -5863,12 +5863,12 @@ class AppQuizData {
     Quiz(
       text: "상당히",
       sentence: "그의 설명은 상당히 이해하기 쉬웠다.",
-      translation: "His explanation was quite easy to understand.",
+      translation: "His explanation was considerably easy to understand.",
       pronunciation: "sangdanghi",
       options: [
         Option(text: "constantly", isCorrect: false),
         Option(text: "probably", isCorrect: false),
-        Option(text: "quite", isCorrect: true),
+        Option(text: "considerably", isCorrect: true),
         Option(text: "a little", isCorrect: false),
       ],
     ),
@@ -5876,9 +5876,9 @@ class AppQuizData {
       text: "굉장히",
       sentence: "그는 굉장히 똑똑하다.",
       translation: "He is very smart.",
-      pronunciation: "goengjanghi",
+      pronunciation: "gwengjanghi",
       options: [
-        Option(text: "very", isCorrect: true),
+        Option(text: "hugely", isCorrect: true),
         Option(text: "yet", isCorrect: false),
         Option(text: "a little", isCorrect: false),
         Option(text: "a lot", isCorrect: false),
@@ -5912,10 +5912,10 @@ class AppQuizData {
       text: "많이",
       sentence: "많이 먹어요.",
       translation: "Eat a lot.",
-      pronunciation: "mani",
+      pronunciation: "ma-ni",
       options: [
         Option(text: "a little", isCorrect: false),
-        Option(text: "a lot", isCorrect: true),
+        Option(text: "many", isCorrect: true),
         Option(text: "very", isCorrect: false),
         Option(text: "really", isCorrect: false),
       ],

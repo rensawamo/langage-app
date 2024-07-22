@@ -5,7 +5,7 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get settings => '設定';
+  String get setting => '設定';
 
   @override
   String get privacyPolicy => 'プライバシーポリシー';
