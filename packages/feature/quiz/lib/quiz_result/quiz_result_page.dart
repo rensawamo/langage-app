@@ -2,7 +2,6 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/quiz/quiz_page_data.dart';
 import 'package:core_ui/ui.dart';
-import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result/quiz_result_page_viewmodel.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:core_designsystem/designsystem.dart';
@@ -59,6 +58,7 @@ class _ResultPageState extends State<QuizResultPage> {
         hasAppbar: false,
         initFrame: (context, ref) async {
           vm.init(
+            context,
             widget.scores,
             widget.isFavorites,
           );
@@ -71,21 +71,21 @@ class _ResultPageState extends State<QuizResultPage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'スコアグラフ',
+                      AppLocalizations.of(context).scoreGraph,
                       style: AppTextStyles.title3(context),
                       textAlign: TextAlign.center,
                     ),
                     _buildPieChart(),
                     SizedBox(height: 24.0),
                     Text(
-                      '合計スコア: ${widget.totalScore} / ${widget.count}',
+                      '${AppLocalizations.of(context).totalScole} ${widget.totalScore} / ${widget.count}',
                       style: AppTextStyles.headline(context),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 10.0),
                     _buildButton(
                       context,
-                      text: "正誤表を見る",
+                      text: AppLocalizations.of(context).seeTable,
                       onTap: () {
                         QuizResultTablePageData(
                           quizzes: widget.quizzes,
@@ -104,7 +104,7 @@ class _ResultPageState extends State<QuizResultPage> {
                     SizedBox(height: 12.0),
                     _buildButton(
                       context,
-                      text: "トピックに戻る",
+                      text: AppLocalizations.of(context).goTopic,
                       onTap: () {
                         context.pop();
                       },
@@ -131,19 +131,19 @@ class _ResultPageState extends State<QuizResultPage> {
             PieChartSectionData(
               value: correctAnswers.toDouble(),
               color: Colors.red,
-              title: '正解',
+              title: AppLocalizations.of(context).correct,
               radius: 50,
             ),
             PieChartSectionData(
               value: incorrectAnswers.toDouble(),
               color: Colors.blue,
-              title: '不正解',
+              title: AppLocalizations.of(context).wrong,
               radius: 50,
             ),
             PieChartSectionData(
               value: unanswered.toDouble(),
               color: Colors.grey,
-              title: '未回答',
+              title: AppLocalizations.of(context).noselect,
               radius: 50,
             ),
           ],

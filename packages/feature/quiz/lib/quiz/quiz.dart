@@ -1,4 +1,5 @@
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
@@ -27,12 +28,13 @@ class QuizPage extends StatelessWidget {
       return AppBaseFrame(
           screenContext: screenContext,
           shouldRemoveFocus: true,
-          title: 'クイズ',
+          title: AppLocalizations.of(context).quiz,
           initFrame: (context, ref) async {
             final vm = ref.read(quizGetProvider.notifier);
             vm.questionCount = quizTopicType.extra;
-
             vm.quizTopicType = quizTopicType.quizTopicType;
+            Locale appLocale = Localizations.localeOf(context);
+            vm.language = appLocale.languageCode;
             await vm.init();
           },
           body: Column(
@@ -41,7 +43,7 @@ class QuizPage extends StatelessWidget {
                 child: isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : quizes.isEmpty
-                        ? _empty()
+                        ? _empty(context)
                         : _page(quizes, answers),
               ),
             ],
@@ -84,9 +86,9 @@ class QuizPage extends StatelessWidget {
     });
   }
 
-  Widget _empty() {
-    return const TileEmptyText(
-      header: 'お気に入りは登録されていません。問題を解いて登録しましょう！',
+  Widget _empty(BuildContext context) {
+    return TileEmptyText(
+      header: AppLocalizations.of(context).noStarSentence,
       detail: '',
     );
   }

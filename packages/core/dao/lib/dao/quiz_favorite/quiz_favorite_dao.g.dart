@@ -9,7 +9,9 @@ part of 'quiz_favorite_dao.dart';
 String _$quizFavoriteDaoProviderHash() =>
     r'ac7aa956fbfc1f258e10676bcce6ebfdcff89a6a';
 
-/// See also [quizFavoriteDaoProvider].
+/// [QuizFavoriteDao]のProvider
+///
+/// Copied from [quizFavoriteDaoProvider].
 @ProviderFor(quizFavoriteDaoProvider)
 final quizFavoriteDaoProviderProvider =
     AutoDisposeProvider<QuizFavoriteDao>.internal(

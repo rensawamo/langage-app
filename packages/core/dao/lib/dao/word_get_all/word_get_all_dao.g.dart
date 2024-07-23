@@ -7,12 +7,13 @@ part of 'word_get_all_dao.dart';
 // **************************************************************************
 
 String _$wordGetAllDaoProviderHash() =>
-    r'82d495e822e152c3998f30550e8ca594b95ce1df';
+    r'ba257f57dc5bcf7717acc667d6b2e0d6ca8cf87f';
 
-/// See also [wordGetAllDaoProvider].
+/// [WordGetAllDao]のProvider
+///
+/// Copied from [wordGetAllDaoProvider].
 @ProviderFor(wordGetAllDaoProvider)
-final wordGetAllDaoProviderProvider =
-    AutoDisposeProvider<WordGetAllDao>.internal(
+final wordGetAllDaoProviderProvider = Provider<WordGetAllDao>.internal(
   wordGetAllDaoProvider,
   name: r'wordGetAllDaoProviderProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +23,6 @@ final wordGetAllDaoProviderProvider =
   allTransitiveDependencies: null,
 );
 
-typedef WordGetAllDaoProviderRef = AutoDisposeProviderRef<WordGetAllDao>;
+typedef WordGetAllDaoProviderRef = ProviderRef<WordGetAllDao>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

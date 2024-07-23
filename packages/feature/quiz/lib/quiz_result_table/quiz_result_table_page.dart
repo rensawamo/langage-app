@@ -3,24 +3,12 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:core_utility/utility.dart';
-import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-/// Provider
-final WordlistProvider = StateNotifierProvider.autoDispose<
-    QuizResultTablePageViewmodel, QuizResultTablePageState>(
-  (ref) {
-    return QuizResultTablePageViewmodelImpl(
-        ref,
-        QuizResultTablePageState(
-          isFavorites: [],
-        ));
-  },
-);
 
 /// クイズの結果のテーブルページ
 class QuizResultTablePage extends StatelessWidget {
@@ -50,7 +38,7 @@ class QuizResultTablePage extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       return AppBaseFrame(
           screenContext: context,
-          title: '正誤表',
+          title: AppLocalizations.of(context).table,
           initFrame: (context, ref) async {
             // お気に入りの初期設定
             final vm = ref.read(WordlistProvider.notifier);
@@ -216,15 +204,15 @@ class QuizResultTablePage extends StatelessWidget {
           textAlign: TextAlign.left,
           style: quizTopicType == QuizTopicType.greet
               ? AppTextStyles.caption2(context,
-                  color: text == "正解"
+                  color: text == AppLocalizations.of(context).correct
                       ? Colors.red
-                      : text == "不正解"
+                      : text == AppLocalizations.of(context).wrong
                           ? Colors.blue
                           : AppColorsSet.getReverseColor(context))
               : AppTextStyles.caption(context,
-                  color: text == "正解"
+                  color: text == AppLocalizations.of(context).correct
                       ? Colors.red
-                      : text == "不正解"
+                      : text == AppLocalizations.of(context).wrong
                           ? Colors.blue
                           : AppColorsSet.getReverseColor(context)),
         ),

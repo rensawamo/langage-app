@@ -4,6 +4,9 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'flutter_tts_repository.g.dart';
 
+/// [TtsRepository]のProvider
+/// [AppInstallType] を引数に取り、言語を設定する
+/// [TtsRepositoryImpl]を返す
 @Riverpod(keepAlive: true)
 TtsRepositoryImpl ttsRepository(
   TtsRepositoryRef ref,
@@ -13,6 +16,7 @@ TtsRepositoryImpl ttsRepository(
   return TtsRepositoryImpl(flutterTts, appSettingInfoProvider, appInstallType);
 }
 
+/// [TtsRepository] の具象クラス
 class TtsRepositoryImpl implements TtsRepository {
   final FlutterTts _flutterTts;
   final appSettingInfoProvider;
@@ -39,7 +43,8 @@ class TtsRepositoryImpl implements TtsRepository {
   }
 }
 
-/// アプリの言語発声の設定を行う リポジトリ
+/// TTSのリポジトリ
+/// TTSの初期化、発話、停止を行う
 abstract class TtsRepository {
   /// TTSの初期化
   Future<void> initializeTts();

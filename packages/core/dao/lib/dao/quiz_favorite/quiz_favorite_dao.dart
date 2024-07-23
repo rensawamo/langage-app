@@ -7,11 +7,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'quiz_favorite_dao.g.dart';
 
+/// [QuizFavoriteDao]のProvider
 @riverpod
 QuizFavoriteDao quizFavoriteDaoProvider(QuizFavoriteDaoProviderRef ref) {
   return QuizFavoriteDaoImpl(ref);
 }
 
+/// [QuizFavoriteDao] の具象クラス
 class QuizFavoriteDaoImpl implements QuizFavoriteDao {
   final Ref ref;
   QuizFavoriteDaoImpl(this.ref);
@@ -27,6 +29,8 @@ class QuizFavoriteDaoImpl implements QuizFavoriteDao {
   }
 }
 
+/// [QuizFavoriteSqlRepository] からデータを取得し[QuizFavoriteResponse]を返す
+/// daoクラスの 抽象クラス
 abstract class QuizFavoriteDao {
   Future<QuizFavoriteResponse> getFavoriteList(QuizFavoriteRequest request);
 }

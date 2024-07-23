@@ -1,6 +1,10 @@
 FVM := $(shell which fvm)
 FLUTTER := $(FVM) flutter
 
+.PHONY: bs
+bs:
+	sh scripts/install-deps.sh
+
 # flavor dev
 .PHONY: dev
 dev:
@@ -23,8 +27,7 @@ test:
 	sh ./scripts/test.sh
 
 
-
-# [Android] リリースビルド(難読) 
+# [Android] リリースビルド(難読)
 .PHONY: release_build_android
 release_build_android:
 	cd apps/ko_beginner && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
@@ -33,7 +36,7 @@ release_build_android:
 # [iOS] リリースビルド(難読)
 .PHONY: release_build_ios
 release_build_ios:
-	cd apps/ko_beginner && $(FLUTTER)  build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist 
+	cd apps/ko_beginner && $(FLUTTER)  build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist
 
 
 # integration test

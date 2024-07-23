@@ -8,7 +8,11 @@ part of 'flutter_tts_repository.dart';
 
 String _$ttsRepositoryHash() => r'211af4e4924526b7c324f405f9d1824bbf64d001';
 
-/// See also [ttsRepository].
+/// [TtsRepository]のProvider
+/// [AppInstallType] を引数に取り、言語を設定する
+/// [TtsRepositoryImpl]を返す
+///
+/// Copied from [ttsRepository].
 @ProviderFor(ttsRepository)
 final ttsRepositoryProvider = Provider<TtsRepositoryImpl>.internal(
   ttsRepository,

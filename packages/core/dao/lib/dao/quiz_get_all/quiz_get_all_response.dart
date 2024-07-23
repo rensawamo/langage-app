@@ -1,11 +1,15 @@
 import 'package:core_dao/json_serializable_interface.dart';
 import 'package:core_model/quiz/quiz_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'quiz_get_all_response.freezed.dart';
 part 'quiz_get_all_response.g.dart';
 
-/// ResponseEntity
+/// [quizes] 問題
+/// [answers] 答え
+/// [sentences] 例文
+/// [translations] 例文の訳文
+/// [pronunciations] 発音
+/// [isFavorites] お気に入り
 @freezed
 class QuizGetAllResponse
     with _$QuizGetAllResponse

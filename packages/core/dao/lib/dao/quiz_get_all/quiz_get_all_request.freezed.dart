@@ -20,8 +20,8 @@ QuizGetAllRequest _$QuizGetAllRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuizGetAllRequest {
-// 使用中のアプリのタイプ
   int get questionCount => throw _privateConstructorUsedError;
+  String get language => throw _privateConstructorUsedError;
   QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $QuizGetAllRequestCopyWith<$Res> {
           QuizGetAllRequest value, $Res Function(QuizGetAllRequest) then) =
       _$QuizGetAllRequestCopyWithImpl<$Res, QuizGetAllRequest>;
   @useResult
-  $Res call({int questionCount, QuizTopicType quizTopicType});
+  $Res call({int questionCount, String language, QuizTopicType quizTopicType});
 }
 
 /// @nodoc
@@ -53,6 +53,7 @@ class _$QuizGetAllRequestCopyWithImpl<$Res, $Val extends QuizGetAllRequest>
   @override
   $Res call({
     Object? questionCount = null,
+    Object? language = null,
     Object? quizTopicType = null,
   }) {
     return _then(_value.copyWith(
@@ -60,6 +61,10 @@ class _$QuizGetAllRequestCopyWithImpl<$Res, $Val extends QuizGetAllRequest>
           ? _value.questionCount
           : questionCount // ignore: cast_nullable_to_non_nullable
               as int,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
       quizTopicType: null == quizTopicType
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
@@ -76,7 +81,7 @@ abstract class _$$QuizGetAllRequestImplCopyWith<$Res>
       __$$QuizGetAllRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int questionCount, QuizTopicType quizTopicType});
+  $Res call({int questionCount, String language, QuizTopicType quizTopicType});
 }
 
 /// @nodoc
@@ -91,6 +96,7 @@ class __$$QuizGetAllRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? questionCount = null,
+    Object? language = null,
     Object? quizTopicType = null,
   }) {
     return _then(_$QuizGetAllRequestImpl(
@@ -98,6 +104,10 @@ class __$$QuizGetAllRequestImplCopyWithImpl<$Res>
           ? _value.questionCount
           : questionCount // ignore: cast_nullable_to_non_nullable
               as int,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
       quizTopicType: null == quizTopicType
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
@@ -111,20 +121,23 @@ class __$$QuizGetAllRequestImplCopyWithImpl<$Res>
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
   const _$QuizGetAllRequestImpl(
-      {required this.questionCount, required this.quizTopicType});
+      {required this.questionCount,
+      required this.language,
+      required this.quizTopicType});
 
   factory _$QuizGetAllRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizGetAllRequestImplFromJson(json);
 
-// 使用中のアプリのタイプ
   @override
   final int questionCount;
+  @override
+  final String language;
   @override
   final QuizTopicType quizTopicType;
 
   @override
   String toString() {
-    return 'QuizGetAllRequest(questionCount: $questionCount, quizTopicType: $quizTopicType)';
+    return 'QuizGetAllRequest(questionCount: $questionCount, language: $language, quizTopicType: $quizTopicType)';
   }
 
   @override
@@ -134,13 +147,16 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
             other is _$QuizGetAllRequestImpl &&
             (identical(other.questionCount, questionCount) ||
                 other.questionCount == questionCount) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
             (identical(other.quizTopicType, quizTopicType) ||
                 other.quizTopicType == quizTopicType));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, questionCount, quizTopicType);
+  int get hashCode =>
+      Object.hash(runtimeType, questionCount, language, quizTopicType);
 
   @JsonKey(ignore: true)
   @override
@@ -160,13 +176,16 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
 abstract class _QuizGetAllRequest implements QuizGetAllRequest {
   const factory _QuizGetAllRequest(
       {required final int questionCount,
+      required final String language,
       required final QuizTopicType quizTopicType}) = _$QuizGetAllRequestImpl;
 
   factory _QuizGetAllRequest.fromJson(Map<String, dynamic> json) =
       _$QuizGetAllRequestImpl.fromJson;
 
-  @override // 使用中のアプリのタイプ
+  @override
   int get questionCount;
+  @override
+  String get language;
   @override
   QuizTopicType get quizTopicType;
   @override

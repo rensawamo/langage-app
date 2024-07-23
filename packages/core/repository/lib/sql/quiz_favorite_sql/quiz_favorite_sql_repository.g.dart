@@ -9,7 +9,12 @@ part of 'quiz_favorite_sql_repository.dart';
 String _$quizFavoriteSqlRepositoryHash() =>
     r'c2185576e7567b5dbe9af1d8f68247ea50a3e739';
 
-/// See also [quizFavoriteSqlRepository].
+/// [QuizFavoriteSqlRepository] のProvider
+/// [QuizFavoriteSql] を引数に取り
+/// [QuizFavoriteSqlRepositoryImpl] の具象クラスを返す
+///
+///
+/// Copied from [quizFavoriteSqlRepository].
 @ProviderFor(quizFavoriteSqlRepository)
 final quizFavoriteSqlRepositoryProvider =
     Provider<QuizFavoriteSqlRepository>.internal(

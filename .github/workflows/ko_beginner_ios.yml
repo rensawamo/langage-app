@@ -47,13 +47,13 @@ jobs:
         run: |
           fvm dart pub global activate melos
 
-      - name: flutter clean
-        run: fvm flutter clean
+      - name: melso bootstrap
+        run: |
+          fvm dart pub global run melos bootstrap
 
-
-      - name: flutter pub get
-        run: fvm flutter pub get
-
+      - name: melos test
+        run: |
+          fvm dart pub global run melos unit_test
 
       - name: Add GoogleService-Info.plist
         run: echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_INFO_BASE64 }}" | base64 -d > apps/ko_beginner/ios/prod/GoogleService-Info.plist

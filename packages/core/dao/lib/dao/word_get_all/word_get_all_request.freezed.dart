@@ -20,8 +20,8 @@ WordGetAllRequest _$WordGetAllRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WordGetAllRequest {
-// 使用中のアプリのタイプ
   QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
+  String get language => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   int get pageSize => throw _privateConstructorUsedError;
 
@@ -37,7 +37,8 @@ abstract class $WordGetAllRequestCopyWith<$Res> {
           WordGetAllRequest value, $Res Function(WordGetAllRequest) then) =
       _$WordGetAllRequestCopyWithImpl<$Res, WordGetAllRequest>;
   @useResult
-  $Res call({QuizTopicType quizTopicType, int page, int pageSize});
+  $Res call(
+      {QuizTopicType quizTopicType, String language, int page, int pageSize});
 }
 
 /// @nodoc
@@ -54,6 +55,7 @@ class _$WordGetAllRequestCopyWithImpl<$Res, $Val extends WordGetAllRequest>
   @override
   $Res call({
     Object? quizTopicType = null,
+    Object? language = null,
     Object? page = null,
     Object? pageSize = null,
   }) {
@@ -62,6 +64,10 @@ class _$WordGetAllRequestCopyWithImpl<$Res, $Val extends WordGetAllRequest>
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
               as QuizTopicType,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -82,7 +88,8 @@ abstract class _$$WordGetAllRequestImplCopyWith<$Res>
       __$$WordGetAllRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({QuizTopicType quizTopicType, int page, int pageSize});
+  $Res call(
+      {QuizTopicType quizTopicType, String language, int page, int pageSize});
 }
 
 /// @nodoc
@@ -97,6 +104,7 @@ class __$$WordGetAllRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? quizTopicType = null,
+    Object? language = null,
     Object? page = null,
     Object? pageSize = null,
   }) {
@@ -105,6 +113,10 @@ class __$$WordGetAllRequestImplCopyWithImpl<$Res>
           ? _value.quizTopicType
           : quizTopicType // ignore: cast_nullable_to_non_nullable
               as QuizTopicType,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -123,15 +135,17 @@ class __$$WordGetAllRequestImplCopyWithImpl<$Res>
 class _$WordGetAllRequestImpl implements _WordGetAllRequest {
   const _$WordGetAllRequestImpl(
       {required this.quizTopicType,
+      required this.language,
       required this.page,
       required this.pageSize});
 
   factory _$WordGetAllRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$WordGetAllRequestImplFromJson(json);
 
-// 使用中のアプリのタイプ
   @override
   final QuizTopicType quizTopicType;
+  @override
+  final String language;
   @override
   final int page;
   @override
@@ -139,7 +153,7 @@ class _$WordGetAllRequestImpl implements _WordGetAllRequest {
 
   @override
   String toString() {
-    return 'WordGetAllRequest(quizTopicType: $quizTopicType, page: $page, pageSize: $pageSize)';
+    return 'WordGetAllRequest(quizTopicType: $quizTopicType, language: $language, page: $page, pageSize: $pageSize)';
   }
 
   @override
@@ -149,6 +163,8 @@ class _$WordGetAllRequestImpl implements _WordGetAllRequest {
             other is _$WordGetAllRequestImpl &&
             (identical(other.quizTopicType, quizTopicType) ||
                 other.quizTopicType == quizTopicType) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.pageSize, pageSize) ||
                 other.pageSize == pageSize));
@@ -156,7 +172,8 @@ class _$WordGetAllRequestImpl implements _WordGetAllRequest {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, quizTopicType, page, pageSize);
+  int get hashCode =>
+      Object.hash(runtimeType, quizTopicType, language, page, pageSize);
 
   @JsonKey(ignore: true)
   @override
@@ -176,14 +193,17 @@ class _$WordGetAllRequestImpl implements _WordGetAllRequest {
 abstract class _WordGetAllRequest implements WordGetAllRequest {
   const factory _WordGetAllRequest(
       {required final QuizTopicType quizTopicType,
+      required final String language,
       required final int page,
       required final int pageSize}) = _$WordGetAllRequestImpl;
 
   factory _WordGetAllRequest.fromJson(Map<String, dynamic> json) =
       _$WordGetAllRequestImpl.fromJson;
 
-  @override // 使用中のアプリのタイプ
+  @override
   QuizTopicType get quizTopicType;
+  @override
+  String get language;
   @override
   int get page;
   @override

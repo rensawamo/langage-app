@@ -5,7 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
+import 'package:core_foundation/foundation.dart' as _i6;
 import 'package:core_model/quiz/quiz_model.dart' as _i4;
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart'
+    as _i5;
 import 'package:core_repository/repository.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -168,4 +171,72 @@ class MockQuizFavoriteSqlRepository extends _i1.Mock
         returnValue: _i3.Future<List<String>>.value(<String>[]),
         returnValueForMissingStub: _i3.Future<List<String>>.value(<String>[]),
       ) as _i3.Future<List<String>>);
+}
+
+/// A class which mocks [AppSettingInfo].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAppSettingInfo extends _i1.Mock implements _i5.AppSettingInfo {
+  @override
+  _i3.Future<void> changeAppInstallType(_i6.AppInstallType? type) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changeAppInstallType,
+          [type],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+
+  @override
+  _i3.Future<void> setup() => (super.noSuchMethod(
+        Invocation.method(
+          #setup,
+          [],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+}
+
+/// A class which mocks [SharedPreferencesRepositoryImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSharedPreferencesRepositoryImpl extends _i1.Mock
+    implements _i2.SharedPreferencesRepositoryImpl {
+  @override
+  _i3.Future<bool> save<T>(
+    _i6.AppPrefsKey? key,
+    T? value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #save,
+          [
+            key,
+            value,
+          ],
+        ),
+        returnValue: _i3.Future<bool>.value(false),
+        returnValueForMissingStub: _i3.Future<bool>.value(false),
+      ) as _i3.Future<bool>);
+
+  @override
+  T? fetch<T>(_i6.AppPrefsKey? key) => (super.noSuchMethod(
+        Invocation.method(
+          #fetch,
+          [key],
+        ),
+        returnValueForMissingStub: null,
+      ) as T?);
+
+  @override
+  _i3.Future<bool> remove(_i6.AppPrefsKey? key) => (super.noSuchMethod(
+        Invocation.method(
+          #remove,
+          [key],
+        ),
+        returnValue: _i3.Future<bool>.value(false),
+        returnValueForMissingStub: _i3.Future<bool>.value(false),
+      ) as _i3.Future<bool>);
 }

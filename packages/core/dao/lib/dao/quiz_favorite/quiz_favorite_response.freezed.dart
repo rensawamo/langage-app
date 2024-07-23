@@ -20,7 +20,6 @@ QuizFavoriteResponse _$QuizFavoriteResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuizFavoriteResponse {
-//  トピックに応じた お気に入りの語句を返す
   List<String> get texts => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
 
@@ -119,9 +118,7 @@ class _$QuizFavoriteResponseImpl implements _QuizFavoriteResponse {
   factory _$QuizFavoriteResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizFavoriteResponseImplFromJson(json);
 
-//  トピックに応じた お気に入りの語句を返す
   final List<String> _texts;
-//  トピックに応じた お気に入りの語句を返す
   @override
   List<String> get texts {
     if (_texts is EqualUnmodifiableListView) return _texts;
@@ -182,7 +179,7 @@ abstract class _QuizFavoriteResponse implements QuizFavoriteResponse {
   factory _QuizFavoriteResponse.fromJson(Map<String, dynamic> json) =
       _$QuizFavoriteResponseImpl.fromJson;
 
-  @override //  トピックに応じた お気に入りの語句を返す
+  @override
   List<String> get texts;
   @override
   List<String> get answers;

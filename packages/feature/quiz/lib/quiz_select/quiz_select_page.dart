@@ -11,7 +11,7 @@ class QuizSelectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBaseFrame(
-      title: "問題",
+      title: AppLocalizations.of(context).question,
       hasPrevButton: false,
       screenContext: context,
       body: Center(
@@ -21,7 +21,7 @@ class QuizSelectPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'ランダム15問の問題を解いてみよう！',
+                AppLocalizations.of(context).questionSentence,
                 style: TextStyle(
                   fontSize: 15,
                 ),
@@ -37,21 +37,46 @@ class QuizSelectPage extends StatelessWidget {
                     _buildTopicCard(
                       context,
                       Icons.color_lens,
-                      '形容詞',
+                      AppLocalizations.of(context).adjective,
                       Colors.blue,
                       '',
                       QuizTopicType.adjective,
                     ),
-                    _buildTopicCard(context, Icons.speed, '副詞', Colors.green,
-                        '', QuizTopicType.adjective),
-                    _buildTopicCard(context, Icons.directions_run, '動詞',
-                        Colors.red, '', QuizTopicType.verb),
-                    _buildTopicCard(context, Icons.category, '名詞',
-                        Colors.purple, '', QuizTopicType.noun),
-                    _buildTopicCard(context, Icons.person, '代名詞', Colors.grey,
-                        '', QuizTopicType.pronoun),
-                    _buildTopicCard(context, Icons.handshake, '挨拶',
-                        Colors.orange, '', QuizTopicType.greet),
+                    _buildTopicCard(
+                        context,
+                        Icons.speed,
+                        AppLocalizations.of(context).adverb,
+                        Colors.green,
+                        '',
+                        QuizTopicType.adverb),
+                    _buildTopicCard(
+                        context,
+                        Icons.directions_run,
+                        AppLocalizations.of(context).verb,
+                        Colors.red,
+                        '',
+                        QuizTopicType.verb),
+                    _buildTopicCard(
+                        context,
+                        Icons.category,
+                        AppLocalizations.of(context).noun,
+                        Colors.purple,
+                        '',
+                        QuizTopicType.noun),
+                    _buildTopicCard(
+                        context,
+                        Icons.person,
+                        AppLocalizations.of(context).pronoun,
+                        Colors.grey,
+                        '',
+                        QuizTopicType.pronoun),
+                    _buildTopicCard(
+                        context,
+                        Icons.handshake,
+                        AppLocalizations.of(context).greet,
+                        Colors.orange,
+                        '',
+                        QuizTopicType.greet),
                   ],
                 ),
               ),

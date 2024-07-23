@@ -7,7 +7,7 @@ import 'quiz_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Provider
+/// [QuizViewmodel]のProvider
 final quizGetProvider =
     StateNotifierProvider.autoDispose<QuizViewmodel, QuizState>(
   (ref) {
@@ -39,24 +39,25 @@ class QuizViewmodelImpl extends QuizViewmodel {
   ///
   @override
   Future<void> init() async {
-    await getQuizList();
+    await getQuizList(language);
 
     state =
         state.copyWith(controller: PageController(initialPage: 0), counter: 0);
   }
 
-  /// Quize の一覧取得
+  /// [QuizGetAllDao]からクイズリストを取得
   @override
-  Future<void> getQuizList() async {
+  Future<void> getQuizList(String language) async {
     // ローディング開始
     state = state.copyWith(isLoading: true);
     final dao = ref.read(quizGetAllDaoProviderProvider);
-
     // パラメータ生成
     // ここで data から quizeを取得する
     dao
         .getQuizList(QuizGetAllRequest(
-            quizTopicType: quizTopicType, questionCount: questionCount))
+            quizTopicType: quizTopicType,
+            questionCount: questionCount,
+            language: language))
         .then((response) {
       // 一覧に追加
       state = state.copyWith(
@@ -67,7 +68,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
           pronunciations: response.pronunciations,
           isFavorites: response.isFavorites);
     }).catchError((error) {
-      print(error.toString());
+      state = state.copyWith(quizzs: [], isLoading: false);
       // エラー処理
     }).whenComplete(() {
       // ローディング終了
@@ -112,11 +113,13 @@ class QuizViewmodelImpl extends QuizViewmodel {
     }
   }
 
+  /// カウンター更新
   @override
   void updateCounter(int newCounter) {
     state = state.copyWith(counter: newCounter);
   }
 
+  /// 回答選択
   @override
   void selectAns(int selected_index, bool isCorrect) {
     if (!state.selected) {
@@ -130,19 +133,19 @@ class QuizViewmodelImpl extends QuizViewmodel {
     } else {
       state = state.copyWith(scores: List.from(state.scores)..add(null));
     }
-    print(state.scores);
   }
 }
 
-/// Quize Viewmodel インターフェース
+/// [QuizViewmodel]の抽象クラス
+/// [language]で スマホの言語をセット
+/// [questionCount]で問題数をセット
 abstract class QuizViewmodel extends StateNotifier<QuizState> {
   QuizViewmodel(super.state);
 
   /// ページサイズ(固定)
   final int pageSize = 50;
 
-  // tts の言語設定
-  late FlutterTts flutterTts;
+  late String language;
 
   // 問題数
   late int questionCount;
@@ -156,7 +159,7 @@ abstract class QuizViewmodel extends StateNotifier<QuizState> {
   Future<void> init();
 
   // クイズの一覧取得
-  Future<void> getQuizList();
+  Future<void> getQuizList(String language);
 
   // 一覧クリア
   void clearList();

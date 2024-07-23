@@ -8,18 +8,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:core_designsystem/designsystem.dart';
 
-/// Provider
-final WordDetailProvider = StateNotifierProvider.autoDispose<
-    WordDetailViewmodelInterface, WordDetailState>(
-  (ref) {
-    return WordDetailViewmodel(
-      WordDetailState(
-        isFavorite: false,
-      ),
-    );
-  },
-);
-
 class WordDetailPage extends StatelessWidget {
   final String word; // 単語
   final String meaning; // 意味
@@ -48,7 +36,7 @@ class WordDetailPage extends StatelessWidget {
         screenContext: context,
         hasPrevButton: true,
         shouldRemoveFocus: true,
-        title: '単語',
+        title: AppLocalizations.of(context).word,
         initFrame: (context, ref) async {
           // お気に入りの初期設定
 
@@ -124,7 +112,7 @@ class WordDetailPage extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "例文",
+                      AppLocalizations.of(context).sentence,
                       textAlign: TextAlign.left,
                       style: AppTextStyles.headline(context),
                     ),
@@ -142,7 +130,7 @@ class WordDetailPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "訳文",
+                  AppLocalizations.of(context).translation,
                   textAlign: TextAlign.left,
                   style: AppTextStyles.headline(context),
                 ),

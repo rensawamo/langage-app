@@ -4,12 +4,21 @@ import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_reposito
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// クイズ画面のViewmodel
+
+/// [QuizResultTablePageViewmodel]のProvider
+final WordlistProvider = StateNotifierProvider.autoDispose<
+    QuizResultTablePageViewmodel, QuizResultTablePageState>(
+  (ref) {
+    return QuizResultTablePageViewmodelImpl(
+        ref,
+        QuizResultTablePageState(
+          isFavorites: [],
+        ));
+  },
+);
+
+
 class QuizResultTablePageViewmodelImpl extends QuizResultTablePageViewmodel {
-  /// コンストラクタ
-  ///
-  /// [state]で初期状態をセット
-  /// [dao]API Modelクラス AppointmentGetListAllをセット
   QuizResultTablePageViewmodelImpl(Ref ref, QuizResultTablePageState state)
       : super(ref, state);
 
@@ -31,7 +40,7 @@ class QuizResultTablePageViewmodelImpl extends QuizResultTablePageViewmodel {
     QuizTopicType quizTopicType,
   ) async {
     // お気に入りの更新
-    List<bool> isFavorites = List.from(state.isFavorites); // 変更可能なコピーを作成
+    List<bool> isFavorites = List.from(state.isFavorites);
     state =
         state.copyWith(isFavorites: isFavorites..[index] = !isFavorites[index]);
 

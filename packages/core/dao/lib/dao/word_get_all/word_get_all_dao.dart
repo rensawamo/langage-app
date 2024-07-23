@@ -11,11 +11,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'word_get_all_dao.g.dart';
 
-@riverpod
+/// [WordGetAllDao]のProvider
+@Riverpod(keepAlive: true)
 WordGetAllDao wordGetAllDaoProvider(WordGetAllDaoProviderRef ref) {
   return WordGetAllDaoImpl(ref);
 }
 
+/// [WordGetAllDao] の具象クラス
 class WordGetAllDaoImpl implements WordGetAllDao {
   final Ref ref;
   WordGetAllDaoImpl(this.ref);
@@ -32,7 +34,7 @@ class WordGetAllDaoImpl implements WordGetAllDao {
 
         default:
           return Future.value(WordGetAllResponse(
-              words: AppQuizData.korianBiginnerNouns
+              words: AppQuizData.korianBiginnerNounsJa
                   .map((quiz) => quiz.text)
                   .toList(),
               answers: [],
@@ -46,57 +48,94 @@ class WordGetAllDaoImpl implements WordGetAllDao {
     }
   }
 
+  /// 韓国語初級のクイズを取得
+  /// [request] クイズリクエスト
+  /// [WordGetAllResponse] クイズレスポンス
   Future<WordGetAllResponse> _handleKoreanBeginnerQuiz(
       WordGetAllRequest request) async {
     List<Quiz> quizzes;
-    logger.d(request.quizTopicType);
 
+    //// [QuizTopicType] に応じてクイズを取得
     switch (request.quizTopicType) {
-      // 名詞
-      case QuizTopicType.noun:
-        quizzes = AppQuizData.korianBiginnerNouns.toList();
-        break;
-      // 形容詞
+      /// 形容詞
       case QuizTopicType.adjective:
-        quizzes = AppQuizData.korianBiginnerAdjectives.toList();
+        if (request.language == 'ja') {
+          // カウント数分のクイズを取得
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+        }
         break;
-      // 副詞
+
+      /// 副詞
       case QuizTopicType.adverb:
-        quizzes = AppQuizData.korianBiginnerAdvers.toList();
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+        }
         break;
       // 動詞
       case QuizTopicType.verb:
-        quizzes = AppQuizData.korianBeginnerVerbs.toList();
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbsEn);
+        }
+        break;
+      // 名詞
+      case QuizTopicType.noun:
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNounsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNounsEn);
+        }
         break;
       // 代名詞
       case QuizTopicType.pronoun:
-        quizzes = AppQuizData.korianBeginnerPronouns.toList();
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronounsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronounsEn);
+        }
         break;
+      // 挨拶
       case QuizTopicType.greet:
-        quizzes = AppQuizData.korianBiginnerGreets.toList();
-
+        if (request.language == 'ja') {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreetsJa);
+        } else {
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreetsEn);
+        }
+        break;
       // お気に入り
       case QuizTopicType.favorite:
         final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
-
         quizzes = await quizFavoriteSql.getAllquizzes();
+        break;
+
       default:
         quizzes = [];
         break;
     }
 
+    // 単語リスト
     List<String> words = quizzes.map((quiz) => quiz.text).toList();
+    // 例文リスト
     List<String> sentences = quizzes.map((quiz) => quiz.sentence).toList();
+    // 発音リスト
     List<String> pronunciations =
         quizzes.map((quiz) => quiz.pronunciation).toList();
     logger.d(pronunciations);
-
+    // 翻訳リスト
     List<String> translations =
         quizzes.map((quiz) => quiz.translation).toList();
-
+    // 答えリスト
     var answers = List<String>.filled(words.length, '');
     // QuizTopicType がfavoriteの場合 全部お気に入りにする
+    // お気に入りリスト
     var isFavorites = List<bool>.filled(words.length, false);
+
+    /// [QuizTopicType] がお気に入りの場合、全てのクイズを取得
     if (request.quizTopicType == QuizTopicType.favorite) {
       answers = quizzes.map((quiz) => quiz.answer!).toList();
       isFavorites = List<bool>.filled(words.length, true);
@@ -104,8 +143,11 @@ class WordGetAllDaoImpl implements WordGetAllDao {
       answers = quizzes.map((quiz) {
         return quiz.options.firstWhere((option) => option.isCorrect).text;
       }).toList();
+
       final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
 
+      /// お気に入りに登録されている単語リストを [QuizTopicType] に応じて取得
+      /// favoritesの中にwordsが含まれているかどうかを判定し、true or falseを返す
       var favorites =
           await quizFavoriteSql.getTopicWords(request.quizTopicType.name);
       isFavorites = words.map((word) => favorites.contains(word)).toList();
@@ -121,7 +163,12 @@ class WordGetAllDaoImpl implements WordGetAllDao {
   }
 }
 
-/// word data アクセス インターフェース
+/// [WordGetAllRequest] リクエスト
+/// [WordGetAllResponse] レスポンス
+/// 単語リストを取得する daoクラスの 抽象クラス
 abstract class WordGetAllDao {
+  /// 単語リストを取得
+  /// [request] 単語リクエスト
+  /// [WordGetAllResponse] 単語レスポンス
   Future<WordGetAllResponse> getWordList(WordGetAllRequest request);
 }

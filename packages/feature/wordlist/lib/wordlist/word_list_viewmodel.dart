@@ -3,27 +3,44 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
 import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:core_dao/dao.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// 出題単語一覧 Viewmodel
-class WordListViewmodel extends WordListViewmodelInterface {
-  /// コンストラクタ
+/// [WordListViewmodel] のProvider
+final WordlistProvider = StateNotifierProvider.autoDispose<
+    WordListViewmodel, WordListState>(
+  (ref) {
+    return WordListViewmodelImpl(
+      ref,
+      WordListState(
+        quizzes: [],
+        answers: [],
+        isFavorites: [],
+        sentences: [],
+        translations: [],
+        pronunciations: [],
+        scrollController: ScrollController(),
+        isLoading: true,
+        currentPage: 1,
+      ),
+    );
+  },
+);
 
-  WordListViewmodel(this.ref, WordListState state) : super(state);
+class WordListViewmodelImpl extends WordListViewmodel {
+  WordListViewmodelImpl(this.ref, WordListState state) : super(state);
   final Ref ref;
 
   /// 初期設定
-  ///
-  /// スクロールコントローラにイベントリスナー設定.
   @override
   Future<void> init() async {
     getQuizList(quizTopicType);
   }
 
-  /// Quize の一覧取得
+  /// [QuizTopicType] を指定して
+  /// [QuizGetAllDao]からクイズリストを取得
   @override
   Future<void> getQuizList(QuizTopicType quizTopicType) async {
-    // インジケータ表示
     state = state.copyWith(isLoading: true);
     final dao = ref.read(wordGetAllDaoProviderProvider);
     dao
@@ -31,10 +48,10 @@ class WordListViewmodel extends WordListViewmodelInterface {
       quizTopicType: quizTopicType,
       page: state.currentPage,
       pageSize: 20,
+      language: language,
     ))
         .then((response) {
       print(response.answers);
-      // 一覧に追加z
       state = state.copyWith(
           quizzes: response.words,
           answers: response.answers,
@@ -43,15 +60,14 @@ class WordListViewmodel extends WordListViewmodelInterface {
           pronunciations: response.pronunciations,
           translations: response.translations);
     }).catchError((error) {
-      print(error.toString());
-      state = state.copyWith(quizzes: []);
-      // エラー処理
+      state = state.copyWith(quizzes: [], isLoading: false);
     }).whenComplete(() {
-      // インジケータ非表示
       state = state.copyWith(isLoading: false);
     });
   }
 
+  /// [QuizFavoriteSqlRepository] お気に入り更新
+  /// タップでお気に入りの更新を行う
   @override
   void updateFavorite(
       int index,
@@ -61,8 +77,7 @@ class WordListViewmodel extends WordListViewmodelInterface {
       String translation,
       String pronunciation,
       QuizTopicType quizTopicType) async {
-    // お気に入りの更新
-    List<bool> isFavorites = List.from(state.isFavorites); // 変更可能なコピーを作成
+    List<bool> isFavorites = List.from(state.isFavorites);
     state =
         state.copyWith(isFavorites: isFavorites..[index] = !isFavorites[index]);
 
@@ -82,21 +97,22 @@ class WordListViewmodel extends WordListViewmodelInterface {
     }
   }
 
-  /// 一覧クリア
-  /// 一覧に表示している受診予約情報をクリアする.
   @override
   void clearList() {
     state = state.copyWith(quizzes: []);
   }
 }
 
-abstract class WordListViewmodelInterface extends StateNotifier<WordListState> {
-  WordListViewmodelInterface(super.state);
 
-  /// クイズの種別
+/// [WordListState] の状態を管理する
+abstract class WordListViewmodel extends StateNotifier<WordListState> {
+  WordListViewmodel(super.state);
+
   late QuizTopicType quizTopicType;
 
-  /// ロード中か
+  /// スマホの言語設定
+  late String language;
+
   bool isLoading = false;
 
   Future<void> init();

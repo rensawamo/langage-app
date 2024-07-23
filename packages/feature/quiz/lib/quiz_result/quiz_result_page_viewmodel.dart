@@ -1,8 +1,10 @@
-import 'package:core_utility/utility.dart';
+import 'package:core_designsystem/designsystem.dart';
 import 'package:feature_quiz/quiz_result/quiz_result_page_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Provider
+/// [QuizResultPageViewmodel] のProvider
+
 final quizReultPageProvider = StateNotifierProvider.autoDispose<
     QuizResultPageViewmodel, QuizResultPageState>(
   (ref) {
@@ -16,18 +18,22 @@ final quizReultPageProvider = StateNotifierProvider.autoDispose<
   },
 );
 
+/// [QuizResultPageViewmodel] の具象クラス
 class QuizResultPageViewmodelImpl extends QuizResultPageViewmodel {
   QuizResultPageViewmodelImpl(QuizResultPageState state) : super(state);
   @override
-  Future<void> init(List<bool?> scores, List<bool> isFavorite) async {
+  Future<void> init(
+      BuildContext context, List<bool?> scores, List<bool> isFavorite) async {
     state = state.copyWith(isLoading: true);
+
+    // bool を String に変換
     List<String> ConvertedScores = scores.map((e) {
       if (e == null) {
-        return "未回答";
+        return AppLocalizations.of(context).noselect;
       } else if (e == true) {
-        return "正解";
+        return AppLocalizations.of(context).correct;
       } else if (e == false) {
-        return "不正解";
+        return AppLocalizations.of(context).wrong;
       }
       return e.toString();
     }).toList();
@@ -42,16 +48,19 @@ class QuizResultPageViewmodelImpl extends QuizResultPageViewmodel {
   }
 }
 
+/// [QuizResultPageState]を管理する抽象クラス
+/// [isFavorite] でお気に入りの状態を管理
 abstract class QuizResultPageViewmodel
     extends StateNotifier<QuizResultPageState> {
   QuizResultPageViewmodel(
     super.state,
   );
   late List<bool> isFavorite;
-// 初期化
-  Future<void> init(List<bool?> scores, List<bool> isFavorite);
+
+  // isFavoriteを List<bool> で受け取り、Stringに変換して state を更新
+  Future<void> init(
+      BuildContext context, List<bool?> scores, List<bool> isFavorite);
 
   // お気に入りの更新
-
   void updateFavorite(List<bool> isFavorite);
 }

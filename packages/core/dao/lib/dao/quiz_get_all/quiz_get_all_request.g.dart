@@ -10,6 +10,7 @@ _$QuizGetAllRequestImpl _$$QuizGetAllRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$QuizGetAllRequestImpl(
       questionCount: (json['question_count'] as num).toInt(),
+      language: json['language'] as String,
       quizTopicType:
           $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
     );
@@ -18,6 +19,7 @@ Map<String, dynamic> _$$QuizGetAllRequestImplToJson(
         _$QuizGetAllRequestImpl instance) =>
     <String, dynamic>{
       'question_count': instance.questionCount,
+      'language': instance.language,
       'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
     };
 

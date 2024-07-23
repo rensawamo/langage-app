@@ -5,6 +5,7 @@ import 'package:core_repository/repository.dart';
 import 'package:core_router/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});
@@ -32,6 +33,16 @@ class App extends ConsumerWidget {
           child: child!,
         );
       },
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('ja', ''),
+        Locale('en', ''),
+      ],
       themeMode: themeMode,
       debugShowCheckedModeBanner: false,
       routeInformationParser: router.routeInformationParser,

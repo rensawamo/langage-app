@@ -11,6 +11,7 @@ _$WordGetAllRequestImpl _$$WordGetAllRequestImplFromJson(
     _$WordGetAllRequestImpl(
       quizTopicType:
           $enumDecode(_$QuizTopicTypeEnumMap, json['quiz_topic_type']),
+      language: json['language'] as String,
       page: (json['page'] as num).toInt(),
       pageSize: (json['page_size'] as num).toInt(),
     );
@@ -19,6 +20,7 @@ Map<String, dynamic> _$$WordGetAllRequestImplToJson(
         _$WordGetAllRequestImpl instance) =>
     <String, dynamic>{
       'quiz_topic_type': _$QuizTopicTypeEnumMap[instance.quizTopicType]!,
+      'language': instance.language,
       'page': instance.page,
       'page_size': instance.pageSize,
     };
