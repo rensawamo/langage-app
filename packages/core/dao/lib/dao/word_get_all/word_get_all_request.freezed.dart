@@ -20,7 +20,6 @@ WordGetAllRequest _$WordGetAllRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WordGetAllRequest {
-// 使用中のアプリのタイプ
   QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
@@ -143,7 +142,6 @@ class _$WordGetAllRequestImpl implements _WordGetAllRequest {
   factory _$WordGetAllRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$WordGetAllRequestImplFromJson(json);
 
-// 使用中のアプリのタイプ
   @override
   final QuizTopicType quizTopicType;
   @override
@@ -202,7 +200,7 @@ abstract class _WordGetAllRequest implements WordGetAllRequest {
   factory _WordGetAllRequest.fromJson(Map<String, dynamic> json) =
       _$WordGetAllRequestImpl.fromJson;
 
-  @override // 使用中のアプリのタイプ
+  @override
   QuizTopicType get quizTopicType;
   @override
   String get language;

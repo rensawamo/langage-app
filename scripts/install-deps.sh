@@ -10,3 +10,4 @@ fvm install 3.22.2
 fvm use 3.22.2
 fvm dart pub global activate melos
 melos bootstrap
+make dev

@@ -5,7 +5,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'word_get_all_response.freezed.dart';
 part 'word_get_all_response.g.dart';
 
-/// ResponseEntity
 @freezed
 class WordGetAllResponse
     with _$WordGetAllResponse

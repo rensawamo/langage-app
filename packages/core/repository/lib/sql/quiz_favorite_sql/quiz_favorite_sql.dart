@@ -17,6 +17,13 @@ class QuizFavoriteSql {
     return _db!;
   }
 
+  /// [table] テーブル名
+  /// [columnWord] 単語
+  /// [columnAnswer] 答え
+  /// [columnSentence] 例文
+  /// [columnTranslation] 例文の翻訳
+  /// [columnPronunciation] 発音
+  /// [columnTopicType] トピックの種類 [QuizTopicType] の name
   static final table = 'quiz';
   static final columnWord = 'word';
   static final columnAnswer = 'answer';
@@ -28,13 +35,18 @@ class QuizFavoriteSql {
     [
       '''
        CREATE TABLE $table (
-            $columnWord TEXT PRIMARY KEY,$columnAnswer TEXT, $columnTopicType TEXT, $columnSentence TEXT, $columnTranslation TEXT, $columnPronunciation TEXT
+            $columnWord TEXT PRIMARY KEY,
+            $columnAnswer TEXT,
+             $columnTopicType TEXT,
+              $columnSentence TEXT,
+               $columnTranslation TEXT,
+                $columnPronunciation TEXT
           )
-
       '''
     ]
   ];
 
+  // DB初期設定
   Future<Database> _init() async {
     final path = join(await getDatabasesPath(), 'QuizDatabase.db');
     return await openDatabase(

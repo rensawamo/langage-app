@@ -7,12 +7,15 @@ part of 'shared_preference_repository.dart';
 // **************************************************************************
 
 String _$sharedPreferencesRepositoryHash() =>
-    r'729135c059506c40cf98a799c8d71cf14a24a510';
+    r'9c45bc516c8f5955f1cb61a80657e5373a84f93d';
 
-/// See also [sharedPreferencesRepository].
+/// [SharedPreferencesRepository]のProvider
+/// 合成起点で依存注入をされていない場合 [UnimplementedError] をスローする
+///
+/// Copied from [sharedPreferencesRepository].
 @ProviderFor(sharedPreferencesRepository)
 final sharedPreferencesRepositoryProvider =
-    Provider<SharedPreferencesRepositoryImpl>.internal(
+    Provider<SharedPreferencesRepository>.internal(
   sharedPreferencesRepository,
   name: r'sharedPreferencesRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -23,6 +26,6 @@ final sharedPreferencesRepositoryProvider =
 );
 
 typedef SharedPreferencesRepositoryRef
-    = ProviderRef<SharedPreferencesRepositoryImpl>;
+    = ProviderRef<SharedPreferencesRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

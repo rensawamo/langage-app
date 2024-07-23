@@ -32,7 +32,6 @@ class QuizPage extends StatelessWidget {
           initFrame: (context, ref) async {
             final vm = ref.read(quizGetProvider.notifier);
             vm.questionCount = quizTopicType.extra;
-
             vm.quizTopicType = quizTopicType.quizTopicType;
             Locale appLocale = Localizations.localeOf(context);
             vm.language = appLocale.languageCode;

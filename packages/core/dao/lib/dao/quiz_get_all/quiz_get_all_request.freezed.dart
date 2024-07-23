@@ -20,7 +20,6 @@ QuizGetAllRequest _$QuizGetAllRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuizGetAllRequest {
-// 使用中のアプリのタイプ
   int get questionCount => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
@@ -129,7 +128,6 @@ class _$QuizGetAllRequestImpl implements _QuizGetAllRequest {
   factory _$QuizGetAllRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizGetAllRequestImplFromJson(json);
 
-// 使用中のアプリのタイプ
   @override
   final int questionCount;
   @override
@@ -184,7 +182,7 @@ abstract class _QuizGetAllRequest implements QuizGetAllRequest {
   factory _QuizGetAllRequest.fromJson(Map<String, dynamic> json) =
       _$QuizGetAllRequestImpl.fromJson;
 
-  @override // 使用中のアプリのタイプ
+  @override
   int get questionCount;
   @override
   String get language;

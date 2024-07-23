@@ -3,13 +3,16 @@ import 'package:core_repository/shared_preferences/shared_preference_repository.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// テーマカラーを管理するクラス
+/// [ThemeColorRepository]のProvider
+/// [SharedPreferencesRepository] を引数に取り、アプリのテーマカラーを取得する
+///
 final themeColorRepositoryProvider =
     StateNotifierProvider<ThemeColorRepositoryImpl, ThemeMode>((ref) {
   final prefsRepository = ref.watch(sharedPreferencesRepositoryProvider);
   return ThemeColorRepositoryImpl(prefsRepository);
 });
 
+/// [ThemeColorRepository] の具象クラス
 class ThemeColorRepositoryImpl extends StateNotifier<ThemeMode>
     implements ThemeColorRepository {
   final SharedPreferencesRepository _prefsRepository;
@@ -32,7 +35,7 @@ class ThemeColorRepositoryImpl extends StateNotifier<ThemeMode>
   }
 }
 
-// テーマカラーを管理するクラスのインターフェース
+/// [ThemeMode] の設定監視する Repository
 abstract class ThemeColorRepository {
   //  テーマカラーを設定する
   Future<void> setTheme(ThemeMode themeMode);

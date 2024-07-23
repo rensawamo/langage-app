@@ -3,6 +3,8 @@ import 'package:core_repository/shared_preferences/shared_preference_repository.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// テキストスケールのProvider
+/// [SharedPreferencesRepository] を引数に取り、アプリのテキストスケールを取得する
 final themeTextRepositoryProvider =
     StateNotifierProvider<ThemeTextRepositoryImpl, AppTextScale>((ref) {
   final prefsRepository = ref.watch(sharedPreferencesRepositoryProvider);
@@ -24,6 +26,7 @@ extension TextScaleExtension on AppTextScale {
   }
 }
 
+/// [ThemeTextRepository] の具象クラス
 class ThemeTextRepositoryImpl extends StateNotifier<AppTextScale>
     implements ThemeTextRepository {
   AppPrefsKey _scaleKey = AppPrefsKey.configFontScale;
@@ -46,7 +49,7 @@ class ThemeTextRepositoryImpl extends StateNotifier<AppTextScale>
   }
 }
 
-// テーマカラーを管理するクラスのインターフェース
+/// [AppTextScale] の設定監視する Repository
 abstract class ThemeTextRepository {
   // テーマカラーを設定する
   Future<void> setScale(AppTextScale scale);

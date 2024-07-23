@@ -40,14 +40,14 @@ void main() {
         'changeAppInstalltypeで shardpreferencerepositoryのsaveが一度呼び出され、値が保存されていること',
         () async {
       //   arrange
-      when(mockPrefsRepository.save(any, AppInstallType.koreanBeginner))
+      when(mockPrefsRepository.save(any, AppInstallType.koreanBeginner.index))
           .thenAnswer((_) async => true);
       // act
       await appSettingInfo.changeAppInstallType(AppInstallType.koreanBeginner);
       // assert
       expect(container.read(appSettingInfoProvider),
           AppInstallType.koreanBeginner);
-      verify(mockPrefsRepository.save(any, AppInstallType.koreanBeginner))
+      verify(mockPrefsRepository.save(any, AppInstallType.koreanBeginner.index))
           .called(1);
     });
   });

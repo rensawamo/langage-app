@@ -2,13 +2,16 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/shared_preferences/shared_preference_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// アプリのインストールタイプを管理するクラス
+/// [AppInstallType]のProvider
+///
 final appSettingInfoProvider =
     StateNotifierProvider<AppSettingInfoImpl, AppInstallType>((ref) {
   final prefsRepository = ref.watch(sharedPreferencesRepositoryProvider);
   return AppSettingInfoImpl(prefsRepository);
 });
 
+/// [AppInstallType]の を監視する
+/// [AppSettingInfo]の具象クラス
 class AppSettingInfoImpl extends StateNotifier<AppInstallType>
     implements AppSettingInfo {
   final SharedPreferencesRepository _prefsRepository;
@@ -34,11 +37,11 @@ class AppSettingInfoImpl extends StateNotifier<AppInstallType>
   }
 }
 
+/// [AppInstallType]の設定を変更する
 abstract class AppSettingInfo {
-  // main.dartでアプリのインストールタイプを設定する
+  /// [AppInstallType]の設定を変更する
   Future<void> changeAppInstallType(AppInstallType type);
 
-  // アプリのインストールタイプを読み込む
-  // 初期値は無設定
+  /// [AppInstallType]の設定を取得する
   Future<void> setup();
 }

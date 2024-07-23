@@ -5,20 +5,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'quiz_favorite_request.freezed.dart';
 part 'quiz_favorite_request.g.dart';
 
-///  RequestEntity
+/// [QuizTopicType]と[pageSize]をを指定
+/// [QuizFavoriteDao] のリクエスト
 @freezed
 class QuizFavoriteRequest
     with _$QuizFavoriteRequest
     implements JsonSerializableInterface {
-  /// コンストラクタ
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory QuizFavoriteRequest({
-
-    // トピックのタイプ
     required QuizTopicType quizTopicType,
-
-    // 取得数固定
     required int pageSize,
   }) = _QuizFavoriteRequest;
 

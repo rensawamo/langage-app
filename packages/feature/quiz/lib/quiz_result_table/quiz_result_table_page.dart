@@ -3,24 +3,12 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:core_utility/utility.dart';
-import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-/// Provider
-final WordlistProvider = StateNotifierProvider.autoDispose<
-    QuizResultTablePageViewmodel, QuizResultTablePageState>(
-  (ref) {
-    return QuizResultTablePageViewmodelImpl(
-        ref,
-        QuizResultTablePageState(
-          isFavorites: [],
-        ));
-  },
-);
 
 /// クイズの結果のテーブルページ
 class QuizResultTablePage extends StatelessWidget {

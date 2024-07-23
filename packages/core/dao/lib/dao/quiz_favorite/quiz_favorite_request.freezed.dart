@@ -20,9 +20,7 @@ QuizFavoriteRequest _$QuizFavoriteRequestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuizFavoriteRequest {
-// トピックのタイプ
-  QuizTopicType get quizTopicType =>
-      throw _privateConstructorUsedError; // 取得数固定
+  QuizTopicType get quizTopicType => throw _privateConstructorUsedError;
   int get pageSize => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -117,10 +115,8 @@ class _$QuizFavoriteRequestImpl implements _QuizFavoriteRequest {
   factory _$QuizFavoriteRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuizFavoriteRequestImplFromJson(json);
 
-// トピックのタイプ
   @override
   final QuizTopicType quizTopicType;
-// 取得数固定
   @override
   final int pageSize;
 
@@ -167,9 +163,9 @@ abstract class _QuizFavoriteRequest implements QuizFavoriteRequest {
   factory _QuizFavoriteRequest.fromJson(Map<String, dynamic> json) =
       _$QuizFavoriteRequestImpl.fromJson;
 
-  @override // トピックのタイプ
+  @override
   QuizTopicType get quizTopicType;
-  @override // 取得数固定
+  @override
   int get pageSize;
   @override
   @JsonKey(ignore: true)

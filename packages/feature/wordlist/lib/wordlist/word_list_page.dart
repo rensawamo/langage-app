@@ -3,35 +3,11 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:core_ui/ui.dart';
-import 'package:core_utility/utility.dart';
-import 'package:flutter/material.dart';
-import 'package:feature_wordlist/wordlist/word_list_state.dart';
 import 'package:feature_wordlist/wordlist/word_list_viewmodel.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-/// Provider
-final WordlistProvider = StateNotifierProvider.autoDispose<
-    WordListViewmodelInterface, WordListState>(
-  (ref) {
-    return WordListViewmodel(
-      ref,
-      WordListState(
-        quizzes: [],
-        answers: [],
-        isFavorites: [],
-        sentences: [],
-        translations: [],
-        pronunciations: [],
-        scrollController: ScrollController(),
-        isLoading: true,
-        currentPage: 1,
-      ),
-    );
-  },
-);
-
-/// Quiz の 問題を表示する画面
 class WordListPage extends StatelessWidget {
   final QuizTopicType quizTopicType;
 

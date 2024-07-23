@@ -1,8 +1,8 @@
 FVM := $(shell which fvm)
 FLUTTER := $(FVM) flutter
 
-.PHONY: insatall
-install:
+.PHONY: bs
+bs:
 	sh scripts/install-deps.sh
 
 # flavor dev
@@ -25,7 +25,6 @@ icon:
 test:
 	chmod +x scripts/test.sh
 	sh ./scripts/test.sh
-
 
 
 # [Android] リリースビルド(難読)

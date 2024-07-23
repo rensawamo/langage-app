@@ -4,23 +4,28 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
-import 'dart:ui' as _i13;
+import 'dart:ui' as _i14;
 
-import 'package:core_foundation/foundation.dart' as _i7;
+import 'package:core_foundation/foundation.dart' as _i8;
 import 'package:core_repository/app_setting_info/app_setting_info_repository.dart'
-    as _i10;
+    as _i11;
 import 'package:core_repository/secure_storage/secure_storage_repository.dart'
-    as _i9;
+    as _i10;
 import 'package:core_repository/shared_preferences/shared_preference_repository.dart'
-    as _i6;
-import 'package:flutter/foundation.dart' as _i8;
-import 'package:flutter/services.dart' as _i14;
-import 'package:flutter_riverpod/flutter_riverpod.dart' as _i11;
+    as _i7;
+import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql.dart'
+    as _i18;
+import 'package:flutter/foundation.dart' as _i9;
+import 'package:flutter/services.dart' as _i15;
+import 'package:flutter_riverpod/flutter_riverpod.dart' as _i12;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i2;
 import 'package:flutter_tts/flutter_tts.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:shared_preferences/shared_preferences.dart' as _i4;
-import 'package:state_notifier/state_notifier.dart' as _i12;
+import 'package:mockito/src/dummies.dart' as _i16;
+import 'package:shared_preferences/shared_preferences.dart' as _i6;
+import 'package:sqflite/sqflite.dart' as _i4;
+import 'package:sqflite_common/sql.dart' as _i17;
+import 'package:state_notifier/state_notifier.dart' as _i13;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -108,10 +113,50 @@ class _FakeSpeechRateValidRange_6 extends _i1.SmartFake
         );
 }
 
+class _FakeDatabase_7 extends _i1.SmartFake implements _i4.Database {
+  _FakeDatabase_7(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeFuture_8<T1> extends _i1.SmartFake implements _i5.Future<T1> {
+  _FakeFuture_8(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeQueryCursor_9 extends _i1.SmartFake implements _i4.QueryCursor {
+  _FakeQueryCursor_9(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeBatch_10 extends _i1.SmartFake implements _i4.Batch {
+  _FakeBatch_10(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [SharedPreferences].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSharedPreferences extends _i1.Mock implements _i4.SharedPreferences {
+class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
   @override
   Set<String> getKeys() => (super.noSuchMethod(
         Invocation.method(
@@ -316,10 +361,10 @@ class MockSharedPreferences extends _i1.Mock implements _i4.SharedPreferences {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSharedPreferencesRepositoryImpl extends _i1.Mock
-    implements _i6.SharedPreferencesRepositoryImpl {
+    implements _i7.SharedPreferencesRepositoryImpl {
   @override
   _i5.Future<bool> save<T>(
-    _i7.AppPrefsKey? key,
+    _i8.AppPrefsKey? key,
     T? value,
   ) =>
       (super.noSuchMethod(
@@ -335,7 +380,7 @@ class MockSharedPreferencesRepositoryImpl extends _i1.Mock
       ) as _i5.Future<bool>);
 
   @override
-  T? fetch<T>(_i7.AppPrefsKey? key) => (super.noSuchMethod(
+  T? fetch<T>(_i8.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #fetch,
           [key],
@@ -344,7 +389,7 @@ class MockSharedPreferencesRepositoryImpl extends _i1.Mock
       ) as T?);
 
   @override
-  _i5.Future<bool> remove(_i7.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<bool> remove(_i8.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
@@ -440,7 +485,7 @@ class MockFlutterSecureStorage extends _i1.Mock
   @override
   void registerListener({
     required String? key,
-    required _i8.ValueChanged<String?>? listener,
+    required _i9.ValueChanged<String?>? listener,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -457,7 +502,7 @@ class MockFlutterSecureStorage extends _i1.Mock
   @override
   void unregisterListener({
     required String? key,
-    required _i8.ValueChanged<String?>? listener,
+    required _i9.ValueChanged<String?>? listener,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -673,10 +718,10 @@ class MockFlutterSecureStorage extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSecureStorageRepositoryImpl extends _i1.Mock
-    implements _i9.SecureStorageRepositoryImpl {
+    implements _i10.SecureStorageRepositoryImpl {
   @override
   _i5.Future<void> save<T>(
-    _i7.AppPrefsKey? key,
+    _i8.AppPrefsKey? key,
     T? value,
   ) =>
       (super.noSuchMethod(
@@ -692,7 +737,7 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
       ) as _i5.Future<void>);
 
   @override
-  _i5.Future<T?> fetch<T>(_i7.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<T?> fetch<T>(_i8.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #fetch,
           [key],
@@ -702,7 +747,7 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
       ) as _i5.Future<T?>);
 
   @override
-  _i5.Future<void> remove(_i7.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<void> remove(_i8.AppPrefsKey? key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
@@ -716,9 +761,9 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAppSettingInfoImpl extends _i1.Mock
-    implements _i10.AppSettingInfoImpl {
+    implements _i11.AppSettingInfoImpl {
   @override
-  set onError(_i11.ErrorListener? _onError) => super.noSuchMethod(
+  set onError(_i12.ErrorListener? _onError) => super.noSuchMethod(
         Invocation.setter(
           #onError,
           _onError,
@@ -734,21 +779,21 @@ class MockAppSettingInfoImpl extends _i1.Mock
       ) as bool);
 
   @override
-  _i5.Stream<_i7.AppInstallType> get stream => (super.noSuchMethod(
+  _i5.Stream<_i8.AppInstallType> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i5.Stream<_i7.AppInstallType>.empty(),
-        returnValueForMissingStub: _i5.Stream<_i7.AppInstallType>.empty(),
-      ) as _i5.Stream<_i7.AppInstallType>);
+        returnValue: _i5.Stream<_i8.AppInstallType>.empty(),
+        returnValueForMissingStub: _i5.Stream<_i8.AppInstallType>.empty(),
+      ) as _i5.Stream<_i8.AppInstallType>);
 
   @override
-  _i7.AppInstallType get state => (super.noSuchMethod(
+  _i8.AppInstallType get state => (super.noSuchMethod(
         Invocation.getter(#state),
-        returnValue: _i7.AppInstallType.none,
-        returnValueForMissingStub: _i7.AppInstallType.none,
-      ) as _i7.AppInstallType);
+        returnValue: _i8.AppInstallType.none,
+        returnValueForMissingStub: _i8.AppInstallType.none,
+      ) as _i8.AppInstallType);
 
   @override
-  set state(_i7.AppInstallType? value) => super.noSuchMethod(
+  set state(_i8.AppInstallType? value) => super.noSuchMethod(
         Invocation.setter(
           #state,
           value,
@@ -757,11 +802,11 @@ class MockAppSettingInfoImpl extends _i1.Mock
       );
 
   @override
-  _i7.AppInstallType get debugState => (super.noSuchMethod(
+  _i8.AppInstallType get debugState => (super.noSuchMethod(
         Invocation.getter(#debugState),
-        returnValue: _i7.AppInstallType.none,
-        returnValueForMissingStub: _i7.AppInstallType.none,
-      ) as _i7.AppInstallType);
+        returnValue: _i8.AppInstallType.none,
+        returnValueForMissingStub: _i8.AppInstallType.none,
+      ) as _i8.AppInstallType);
 
   @override
   bool get hasListeners => (super.noSuchMethod(
@@ -781,7 +826,7 @@ class MockAppSettingInfoImpl extends _i1.Mock
       ) as _i5.Future<void>);
 
   @override
-  _i5.Future<void> changeAppInstallType(_i7.AppInstallType? type) =>
+  _i5.Future<void> changeAppInstallType(_i8.AppInstallType? type) =>
       (super.noSuchMethod(
         Invocation.method(
           #changeAppInstallType,
@@ -793,8 +838,8 @@ class MockAppSettingInfoImpl extends _i1.Mock
 
   @override
   bool updateShouldNotify(
-    _i7.AppInstallType? old,
-    _i7.AppInstallType? current,
+    _i8.AppInstallType? old,
+    _i8.AppInstallType? current,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -809,8 +854,8 @@ class MockAppSettingInfoImpl extends _i1.Mock
       ) as bool);
 
   @override
-  _i11.RemoveListener addListener(
-    _i12.Listener<_i7.AppInstallType>? listener, {
+  _i12.RemoveListener addListener(
+    _i13.Listener<_i8.AppInstallType>? listener, {
     bool? fireImmediately = true,
   }) =>
       (super.noSuchMethod(
@@ -821,7 +866,7 @@ class MockAppSettingInfoImpl extends _i1.Mock
         ),
         returnValue: () {},
         returnValueForMissingStub: () {},
-      ) as _i11.RemoveListener);
+      ) as _i12.RemoveListener);
 
   @override
   void dispose() => super.noSuchMethod(
@@ -838,7 +883,7 @@ class MockAppSettingInfoImpl extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
   @override
-  set startHandler(_i13.VoidCallback? _startHandler) => super.noSuchMethod(
+  set startHandler(_i14.VoidCallback? _startHandler) => super.noSuchMethod(
         Invocation.setter(
           #startHandler,
           _startHandler,
@@ -847,7 +892,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  set completionHandler(_i13.VoidCallback? _completionHandler) =>
+  set completionHandler(_i14.VoidCallback? _completionHandler) =>
       super.noSuchMethod(
         Invocation.setter(
           #completionHandler,
@@ -857,7 +902,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  set pauseHandler(_i13.VoidCallback? _pauseHandler) => super.noSuchMethod(
+  set pauseHandler(_i14.VoidCallback? _pauseHandler) => super.noSuchMethod(
         Invocation.setter(
           #pauseHandler,
           _pauseHandler,
@@ -866,7 +911,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  set continueHandler(_i13.VoidCallback? _continueHandler) =>
+  set continueHandler(_i14.VoidCallback? _continueHandler) =>
       super.noSuchMethod(
         Invocation.setter(
           #continueHandler,
@@ -876,7 +921,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  set cancelHandler(_i13.VoidCallback? _cancelHandler) => super.noSuchMethod(
+  set cancelHandler(_i14.VoidCallback? _cancelHandler) => super.noSuchMethod(
         Invocation.setter(
           #cancelHandler,
           _cancelHandler,
@@ -1197,7 +1242,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       ) as _i5.Future<dynamic>);
 
   @override
-  void setStartHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+  void setStartHandler(_i14.VoidCallback? callback) => super.noSuchMethod(
         Invocation.method(
           #setStartHandler,
           [callback],
@@ -1206,7 +1251,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  void setCompletionHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+  void setCompletionHandler(_i14.VoidCallback? callback) => super.noSuchMethod(
         Invocation.method(
           #setCompletionHandler,
           [callback],
@@ -1215,7 +1260,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  void setContinueHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+  void setContinueHandler(_i14.VoidCallback? callback) => super.noSuchMethod(
         Invocation.method(
           #setContinueHandler,
           [callback],
@@ -1224,7 +1269,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  void setPauseHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+  void setPauseHandler(_i14.VoidCallback? callback) => super.noSuchMethod(
         Invocation.method(
           #setPauseHandler,
           [callback],
@@ -1233,7 +1278,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  void setCancelHandler(_i13.VoidCallback? callback) => super.noSuchMethod(
+  void setCancelHandler(_i14.VoidCallback? callback) => super.noSuchMethod(
         Invocation.method(
           #setCancelHandler,
           [callback],
@@ -1260,7 +1305,7 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
       );
 
   @override
-  _i5.Future<dynamic> platformCallHandler(_i14.MethodCall? call) =>
+  _i5.Future<dynamic> platformCallHandler(_i15.MethodCall? call) =>
       (super.noSuchMethod(
         Invocation.method(
           #platformCallHandler,
@@ -1269,4 +1314,624 @@ class MockFlutterTts extends _i1.Mock implements _i3.FlutterTts {
         returnValue: _i5.Future<dynamic>.value(),
         returnValueForMissingStub: _i5.Future<dynamic>.value(),
       ) as _i5.Future<dynamic>);
+}
+
+/// A class which mocks [Database].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDatabase extends _i1.Mock implements _i4.Database {
+  @override
+  String get path => (super.noSuchMethod(
+        Invocation.getter(#path),
+        returnValue: _i16.dummyValue<String>(
+          this,
+          Invocation.getter(#path),
+        ),
+        returnValueForMissingStub: _i16.dummyValue<String>(
+          this,
+          Invocation.getter(#path),
+        ),
+      ) as String);
+
+  @override
+  bool get isOpen => (super.noSuchMethod(
+        Invocation.getter(#isOpen),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i4.Database get database => (super.noSuchMethod(
+        Invocation.getter(#database),
+        returnValue: _FakeDatabase_7(
+          this,
+          Invocation.getter(#database),
+        ),
+        returnValueForMissingStub: _FakeDatabase_7(
+          this,
+          Invocation.getter(#database),
+        ),
+      ) as _i4.Database);
+
+  @override
+  _i5.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<T> transaction<T>(
+    _i5.Future<T> Function(_i4.Transaction)? action, {
+    bool? exclusive,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #transaction,
+          [action],
+          {#exclusive: exclusive},
+        ),
+        returnValue: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #transaction,
+                  [action],
+                  {#exclusive: exclusive},
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #transaction,
+                [action],
+                {#exclusive: exclusive},
+              ),
+            ),
+        returnValueForMissingStub: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #transaction,
+                  [action],
+                  {#exclusive: exclusive},
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #transaction,
+                [action],
+                {#exclusive: exclusive},
+              ),
+            ),
+      ) as _i5.Future<T>);
+
+  @override
+  _i5.Future<T> readTransaction<T>(
+          _i5.Future<T> Function(_i4.Transaction)? action) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #readTransaction,
+          [action],
+        ),
+        returnValue: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #readTransaction,
+                  [action],
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #readTransaction,
+                [action],
+              ),
+            ),
+        returnValueForMissingStub: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #readTransaction,
+                  [action],
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #readTransaction,
+                [action],
+              ),
+            ),
+      ) as _i5.Future<T>);
+
+  @override
+  _i5.Future<T> devInvokeMethod<T>(
+    String? method, [
+    Object? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #devInvokeMethod,
+          [
+            method,
+            arguments,
+          ],
+        ),
+        returnValue: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #devInvokeMethod,
+                  [
+                    method,
+                    arguments,
+                  ],
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #devInvokeMethod,
+                [
+                  method,
+                  arguments,
+                ],
+              ),
+            ),
+        returnValueForMissingStub: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #devInvokeMethod,
+                  [
+                    method,
+                    arguments,
+                  ],
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #devInvokeMethod,
+                [
+                  method,
+                  arguments,
+                ],
+              ),
+            ),
+      ) as _i5.Future<T>);
+
+  @override
+  _i5.Future<T> devInvokeSqlMethod<T>(
+    String? method,
+    String? sql, [
+    List<Object?>? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #devInvokeSqlMethod,
+          [
+            method,
+            sql,
+            arguments,
+          ],
+        ),
+        returnValue: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #devInvokeSqlMethod,
+                  [
+                    method,
+                    sql,
+                    arguments,
+                  ],
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #devInvokeSqlMethod,
+                [
+                  method,
+                  sql,
+                  arguments,
+                ],
+              ),
+            ),
+        returnValueForMissingStub: _i16.ifNotNull(
+              _i16.dummyValueOrNull<T>(
+                this,
+                Invocation.method(
+                  #devInvokeSqlMethod,
+                  [
+                    method,
+                    sql,
+                    arguments,
+                  ],
+                ),
+              ),
+              (T v) => _i5.Future<T>.value(v),
+            ) ??
+            _FakeFuture_8<T>(
+              this,
+              Invocation.method(
+                #devInvokeSqlMethod,
+                [
+                  method,
+                  sql,
+                  arguments,
+                ],
+              ),
+            ),
+      ) as _i5.Future<T>);
+
+  @override
+  _i5.Future<void> execute(
+    String? sql, [
+    List<Object?>? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #execute,
+          [
+            sql,
+            arguments,
+          ],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<int> rawInsert(
+    String? sql, [
+    List<Object?>? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #rawInsert,
+          [
+            sql,
+            arguments,
+          ],
+        ),
+        returnValue: _i5.Future<int>.value(0),
+        returnValueForMissingStub: _i5.Future<int>.value(0),
+      ) as _i5.Future<int>);
+
+  @override
+  _i5.Future<int> insert(
+    String? table,
+    Map<String, Object?>? values, {
+    String? nullColumnHack,
+    _i17.ConflictAlgorithm? conflictAlgorithm,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #insert,
+          [
+            table,
+            values,
+          ],
+          {
+            #nullColumnHack: nullColumnHack,
+            #conflictAlgorithm: conflictAlgorithm,
+          },
+        ),
+        returnValue: _i5.Future<int>.value(0),
+        returnValueForMissingStub: _i5.Future<int>.value(0),
+      ) as _i5.Future<int>);
+
+  @override
+  _i5.Future<List<Map<String, Object?>>> query(
+    String? table, {
+    bool? distinct,
+    List<String>? columns,
+    String? where,
+    List<Object?>? whereArgs,
+    String? groupBy,
+    String? having,
+    String? orderBy,
+    int? limit,
+    int? offset,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #query,
+          [table],
+          {
+            #distinct: distinct,
+            #columns: columns,
+            #where: where,
+            #whereArgs: whereArgs,
+            #groupBy: groupBy,
+            #having: having,
+            #orderBy: orderBy,
+            #limit: limit,
+            #offset: offset,
+          },
+        ),
+        returnValue: _i5.Future<List<Map<String, Object?>>>.value(
+            <Map<String, Object?>>[]),
+        returnValueForMissingStub: _i5.Future<List<Map<String, Object?>>>.value(
+            <Map<String, Object?>>[]),
+      ) as _i5.Future<List<Map<String, Object?>>>);
+
+  @override
+  _i5.Future<List<Map<String, Object?>>> rawQuery(
+    String? sql, [
+    List<Object?>? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #rawQuery,
+          [
+            sql,
+            arguments,
+          ],
+        ),
+        returnValue: _i5.Future<List<Map<String, Object?>>>.value(
+            <Map<String, Object?>>[]),
+        returnValueForMissingStub: _i5.Future<List<Map<String, Object?>>>.value(
+            <Map<String, Object?>>[]),
+      ) as _i5.Future<List<Map<String, Object?>>>);
+
+  @override
+  _i5.Future<_i4.QueryCursor> rawQueryCursor(
+    String? sql,
+    List<Object?>? arguments, {
+    int? bufferSize,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #rawQueryCursor,
+          [
+            sql,
+            arguments,
+          ],
+          {#bufferSize: bufferSize},
+        ),
+        returnValue: _i5.Future<_i4.QueryCursor>.value(_FakeQueryCursor_9(
+          this,
+          Invocation.method(
+            #rawQueryCursor,
+            [
+              sql,
+              arguments,
+            ],
+            {#bufferSize: bufferSize},
+          ),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i4.QueryCursor>.value(_FakeQueryCursor_9(
+          this,
+          Invocation.method(
+            #rawQueryCursor,
+            [
+              sql,
+              arguments,
+            ],
+            {#bufferSize: bufferSize},
+          ),
+        )),
+      ) as _i5.Future<_i4.QueryCursor>);
+
+  @override
+  _i5.Future<_i4.QueryCursor> queryCursor(
+    String? table, {
+    bool? distinct,
+    List<String>? columns,
+    String? where,
+    List<Object?>? whereArgs,
+    String? groupBy,
+    String? having,
+    String? orderBy,
+    int? limit,
+    int? offset,
+    int? bufferSize,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #queryCursor,
+          [table],
+          {
+            #distinct: distinct,
+            #columns: columns,
+            #where: where,
+            #whereArgs: whereArgs,
+            #groupBy: groupBy,
+            #having: having,
+            #orderBy: orderBy,
+            #limit: limit,
+            #offset: offset,
+            #bufferSize: bufferSize,
+          },
+        ),
+        returnValue: _i5.Future<_i4.QueryCursor>.value(_FakeQueryCursor_9(
+          this,
+          Invocation.method(
+            #queryCursor,
+            [table],
+            {
+              #distinct: distinct,
+              #columns: columns,
+              #where: where,
+              #whereArgs: whereArgs,
+              #groupBy: groupBy,
+              #having: having,
+              #orderBy: orderBy,
+              #limit: limit,
+              #offset: offset,
+              #bufferSize: bufferSize,
+            },
+          ),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i4.QueryCursor>.value(_FakeQueryCursor_9(
+          this,
+          Invocation.method(
+            #queryCursor,
+            [table],
+            {
+              #distinct: distinct,
+              #columns: columns,
+              #where: where,
+              #whereArgs: whereArgs,
+              #groupBy: groupBy,
+              #having: having,
+              #orderBy: orderBy,
+              #limit: limit,
+              #offset: offset,
+              #bufferSize: bufferSize,
+            },
+          ),
+        )),
+      ) as _i5.Future<_i4.QueryCursor>);
+
+  @override
+  _i5.Future<int> rawUpdate(
+    String? sql, [
+    List<Object?>? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #rawUpdate,
+          [
+            sql,
+            arguments,
+          ],
+        ),
+        returnValue: _i5.Future<int>.value(0),
+        returnValueForMissingStub: _i5.Future<int>.value(0),
+      ) as _i5.Future<int>);
+
+  @override
+  _i5.Future<int> update(
+    String? table,
+    Map<String, Object?>? values, {
+    String? where,
+    List<Object?>? whereArgs,
+    _i17.ConflictAlgorithm? conflictAlgorithm,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #update,
+          [
+            table,
+            values,
+          ],
+          {
+            #where: where,
+            #whereArgs: whereArgs,
+            #conflictAlgorithm: conflictAlgorithm,
+          },
+        ),
+        returnValue: _i5.Future<int>.value(0),
+        returnValueForMissingStub: _i5.Future<int>.value(0),
+      ) as _i5.Future<int>);
+
+  @override
+  _i5.Future<int> rawDelete(
+    String? sql, [
+    List<Object?>? arguments,
+  ]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #rawDelete,
+          [
+            sql,
+            arguments,
+          ],
+        ),
+        returnValue: _i5.Future<int>.value(0),
+        returnValueForMissingStub: _i5.Future<int>.value(0),
+      ) as _i5.Future<int>);
+
+  @override
+  _i5.Future<int> delete(
+    String? table, {
+    String? where,
+    List<Object?>? whereArgs,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #delete,
+          [table],
+          {
+            #where: where,
+            #whereArgs: whereArgs,
+          },
+        ),
+        returnValue: _i5.Future<int>.value(0),
+        returnValueForMissingStub: _i5.Future<int>.value(0),
+      ) as _i5.Future<int>);
+
+  @override
+  _i4.Batch batch() => (super.noSuchMethod(
+        Invocation.method(
+          #batch,
+          [],
+        ),
+        returnValue: _FakeBatch_10(
+          this,
+          Invocation.method(
+            #batch,
+            [],
+          ),
+        ),
+        returnValueForMissingStub: _FakeBatch_10(
+          this,
+          Invocation.method(
+            #batch,
+            [],
+          ),
+        ),
+      ) as _i4.Batch);
+}
+
+/// A class which mocks [QuizFavoriteSql].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockQuizFavoriteSql extends _i1.Mock implements _i18.QuizFavoriteSql {
+  @override
+  List<List<String>> get queries => (super.noSuchMethod(
+        Invocation.getter(#queries),
+        returnValue: <List<String>>[],
+        returnValueForMissingStub: <List<String>>[],
+      ) as List<List<String>>);
+
+  @override
+  _i5.Future<_i4.Database> get db => (super.noSuchMethod(
+        Invocation.getter(#db),
+        returnValue: _i5.Future<_i4.Database>.value(_FakeDatabase_7(
+          this,
+          Invocation.getter(#db),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i4.Database>.value(_FakeDatabase_7(
+          this,
+          Invocation.getter(#db),
+        )),
+      ) as _i5.Future<_i4.Database>);
 }

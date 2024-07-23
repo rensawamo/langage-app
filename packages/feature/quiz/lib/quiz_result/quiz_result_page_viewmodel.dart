@@ -3,7 +3,8 @@ import 'package:feature_quiz/quiz_result/quiz_result_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Provider
+/// [QuizResultPageViewmodel] のProvider
+
 final quizReultPageProvider = StateNotifierProvider.autoDispose<
     QuizResultPageViewmodel, QuizResultPageState>(
   (ref) {
@@ -17,6 +18,7 @@ final quizReultPageProvider = StateNotifierProvider.autoDispose<
   },
 );
 
+/// [QuizResultPageViewmodel] の具象クラス
 class QuizResultPageViewmodelImpl extends QuizResultPageViewmodel {
   QuizResultPageViewmodelImpl(QuizResultPageState state) : super(state);
   @override
@@ -46,17 +48,19 @@ class QuizResultPageViewmodelImpl extends QuizResultPageViewmodel {
   }
 }
 
+/// [QuizResultPageState]を管理する抽象クラス
+/// [isFavorite] でお気に入りの状態を管理
 abstract class QuizResultPageViewmodel
     extends StateNotifier<QuizResultPageState> {
   QuizResultPageViewmodel(
     super.state,
   );
   late List<bool> isFavorite;
-// 初期化
+
+  // isFavoriteを List<bool> で受け取り、Stringに変換して state を更新
   Future<void> init(
       BuildContext context, List<bool?> scores, List<bool> isFavorite);
 
   // お気に入りの更新
-
   void updateFavorite(List<bool> isFavorite);
 }

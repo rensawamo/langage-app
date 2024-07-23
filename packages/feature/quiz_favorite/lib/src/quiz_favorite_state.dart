@@ -8,16 +8,10 @@ part 'quiz_favorite_state.freezed.dart';
 @freezed
 class QuizFavoriteState with _$QuizFavoriteState {
   /// コンストラクタ
-  ///
-  /// [Quiz]
   const factory QuizFavoriteState(
       {required List<String> quizzes,
       required List<String> answers,
-
-      /// 各単語を隠すか
       required List<bool> isHideAnswers,
-
-      /// All 表示にきりかえる
       required ScrollController scrollController,
       required String selectDropDownValue,
       @Default(true) bool isLoading,

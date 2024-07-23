@@ -7,12 +7,13 @@ part of 'quiz_get_all_dao.dart';
 // **************************************************************************
 
 String _$quizGetAllDaoProviderHash() =>
-    r'c964ee5890a91d73834ce08f66b35d8f46c96e01';
+    r'59e4d77b98f0245aaf8ac29098e8a1d6f3bc21ed';
 
-/// See also [quizGetAllDaoProvider].
+/// [QuizGetAllDao]のProvider
+///
+/// Copied from [quizGetAllDaoProvider].
 @ProviderFor(quizGetAllDaoProvider)
-final quizGetAllDaoProviderProvider =
-    AutoDisposeProvider<QuizGetAllDao>.internal(
+final quizGetAllDaoProviderProvider = Provider<QuizGetAllDao>.internal(
   quizGetAllDaoProvider,
   name: r'quizGetAllDaoProviderProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +23,6 @@ final quizGetAllDaoProviderProvider =
   allTransitiveDependencies: null,
 );
 
-typedef QuizGetAllDaoProviderRef = AutoDisposeProviderRef<QuizGetAllDao>;
+typedef QuizGetAllDaoProviderRef = ProviderRef<QuizGetAllDao>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

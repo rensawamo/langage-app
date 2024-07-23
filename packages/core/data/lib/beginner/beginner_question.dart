@@ -1,6 +1,7 @@
 //  basic プラン
 import 'package:core_model/quiz/quiz_model.dart';
 
+/// [Quiz] の ko_beginner アプリ データ
 class AppQuizData {
   ////////////////////     形容詞      ////////////////////
   static final List<Quiz> korianBiginnerAdjectivesJa = [

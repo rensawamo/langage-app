@@ -1,14 +1,13 @@
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_dao.dart';
 import 'package:core_dao/dao/quiz_get_all/quiz_get_all_request.dart';
 import 'package:core_foundation/foundation.dart';
-import 'package:core_utility/utility.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'quiz_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Provider
+/// [QuizViewmodel]のProvider
 final quizGetProvider =
     StateNotifierProvider.autoDispose<QuizViewmodel, QuizState>(
   (ref) {
@@ -46,7 +45,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
         state.copyWith(controller: PageController(initialPage: 0), counter: 0);
   }
 
-  /// Quize の一覧取得
+  /// [QuizGetAllDao]からクイズリストを取得
   @override
   Future<void> getQuizList(String language) async {
     // ローディング開始
@@ -69,7 +68,7 @@ class QuizViewmodelImpl extends QuizViewmodel {
           pronunciations: response.pronunciations,
           isFavorites: response.isFavorites);
     }).catchError((error) {
-      print(error.toString());
+      state = state.copyWith(quizzs: [], isLoading: false);
       // エラー処理
     }).whenComplete(() {
       // ローディング終了
@@ -114,11 +113,13 @@ class QuizViewmodelImpl extends QuizViewmodel {
     }
   }
 
+  /// カウンター更新
   @override
   void updateCounter(int newCounter) {
     state = state.copyWith(counter: newCounter);
   }
 
+  /// 回答選択
   @override
   void selectAns(int selected_index, bool isCorrect) {
     if (!state.selected) {
@@ -132,11 +133,12 @@ class QuizViewmodelImpl extends QuizViewmodel {
     } else {
       state = state.copyWith(scores: List.from(state.scores)..add(null));
     }
-    print(state.scores);
   }
 }
 
-/// Quize Viewmodel インターフェース
+/// [QuizViewmodel]の抽象クラス
+/// [language]で スマホの言語をセット
+/// [questionCount]で問題数をセット
 abstract class QuizViewmodel extends StateNotifier<QuizState> {
   QuizViewmodel(super.state);
 
@@ -144,9 +146,6 @@ abstract class QuizViewmodel extends StateNotifier<QuizState> {
   final int pageSize = 50;
 
   late String language;
-
-  // tts の言語設定
-  late FlutterTts flutterTts;
 
   // 問題数
   late int questionCount;

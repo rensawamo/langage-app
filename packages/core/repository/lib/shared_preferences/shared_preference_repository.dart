@@ -4,15 +4,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'shared_preference_repository.g.dart';
 
+/// [SharedPreferencesRepository]のProvider
+/// 合成起点で依存注入をされていない場合 [UnimplementedError] をスローする
 @Riverpod(keepAlive: true)
-SharedPreferencesRepositoryImpl sharedPreferencesRepository(
+SharedPreferencesRepository sharedPreferencesRepository(
   SharedPreferencesRepositoryRef ref,
 ) {
-  //  error: The argument type 'SharedPreferencesRepositoryRef'
-  // can't be assigned to the parameter type 'ProviderReference'.
   throw UnimplementedError();
 }
 
+/// [SharedPreferencesRepository] の具象クラス
 class SharedPreferencesRepositoryImpl implements SharedPreferencesRepository {
   SharedPreferencesRepositoryImpl(this._prefs);
 
@@ -66,7 +67,7 @@ class SharedPreferencesRepositoryImpl implements SharedPreferencesRepository {
   Future<bool> remove(AppPrefsKey key) => _prefs.remove(key.value);
 }
 
-// SharedPreferences へのアクセスを提供するリポジトリ
+/// [SharedPreferences] のdata 操作を抽象化する Repository
 abstract class SharedPreferencesRepository {
   // SharedPreferences に保存
   Future<bool> save<T>(AppPrefsKey key, T value);

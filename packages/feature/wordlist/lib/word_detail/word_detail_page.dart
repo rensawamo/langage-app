@@ -8,18 +8,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:core_designsystem/designsystem.dart';
 
-/// Provider
-final WordDetailProvider = StateNotifierProvider.autoDispose<
-    WordDetailViewmodelInterface, WordDetailState>(
-  (ref) {
-    return WordDetailViewmodel(
-      WordDetailState(
-        isFavorite: false,
-      ),
-    );
-  },
-);
-
 class WordDetailPage extends StatelessWidget {
   final String word; // 単語
   final String meaning; // 意味
