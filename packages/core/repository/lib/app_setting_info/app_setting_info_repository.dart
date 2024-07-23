@@ -37,7 +37,7 @@ class AppSettingInfoImpl extends StateNotifier<AppInstallType>
   }
 }
 
-/// [AppInstallType]の設定を変更する
+/// [AppInstallType]の設定を管理する抽象クラス
 abstract class AppSettingInfo {
   /// [AppInstallType]の設定を変更する
   Future<void> changeAppInstallType(AppInstallType type);
