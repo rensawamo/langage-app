@@ -58,9 +58,9 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
 
       case QuizTopicType.adverb:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdversJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdversEn);
         }
         break;
 
@@ -140,6 +140,6 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
 /// [QuizGetAllResponse] レスポンス
 /// daoクラスの 抽象クラス
 abstract class QuizGetAllDao {
-  
+
   Future<QuizGetAllResponse> getQuizList(QuizGetAllRequest request);
 }

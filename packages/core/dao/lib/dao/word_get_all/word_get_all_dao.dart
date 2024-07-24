@@ -70,9 +70,9 @@ class WordGetAllDaoImpl implements WordGetAllDao {
       /// 副詞
       case QuizTopicType.adverb:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdversJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdversEn);
         }
         break;
       // 動詞
