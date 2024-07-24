@@ -1,6 +1,7 @@
 import 'package:core_data/data.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_model/quiz/quiz_model.dart';
+import 'package:core_test_util/test_util.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:core_dao/dao/word_get_all/word_get_all_dao.dart';
@@ -20,7 +21,7 @@ void main() {
     mockSharedPreferencesRepository = MockSharedPreferencesRepositoryImpl();
     mockQuizFavoriteSqlRepository = MockQuizFavoriteSqlRepository();
 
-    container = ProviderContainer(overrides: [
+    container = createContainer(overrides: [
       sharedPreferencesRepositoryProvider
           .overrideWithValue(mockSharedPreferencesRepository),
       quizFavoriteSqlRepositoryProvider
@@ -32,11 +33,8 @@ void main() {
         .thenReturn(AppInstallType.koreanBeginner.index);
   });
 
-  tearDown(() {
-    container.dispose();
-  });
 
-  test('getWordList returns correct response for koreanBeginner', () async {
+  test('[正常形] getWordlist', () async {
     // Arrange
     when(mockQuizFavoriteSqlRepository.getAllquizzes())
         .thenAnswer((_) async => [
@@ -63,7 +61,6 @@ void main() {
     final response = await wordDao.getWordList(request);
 
     // Assert
-    expect(response.words.length, 1);
     expect(response.words, ["작다"]);
     expect(response.sentences, ["그녀는 작은 집에서 산다."]);
     verify(mockQuizFavoriteSqlRepository.getAllquizzes()).called(1);
@@ -100,5 +97,28 @@ void main() {
         AppQuizData.korianBiginnerAdjectivesJa.length);
     verify(mockQuizFavoriteSqlRepository
         .getTopicWords(QuizTopicType.adjective.name));
+  });
+
+  test("sqlにお気に入りに登録されている単語がある場合 isFavoriteがtrueに代わること", () async {
+    // Arrange
+
+    when(mockQuizFavoriteSqlRepository.getTopicWords(any))
+        .thenAnswer((_) async => [
+              '나',
+            ]);
+    final request = WordGetAllRequest(
+        quizTopicType: QuizTopicType.pronoun,
+        language: 'ja',
+        pageSize: 20,
+        page: 1);
+
+    // Act
+    final wordDao = container.read(wordGetAllDaoProviderProvider);
+    final response = await wordDao.getWordList(request);
+
+    // Assert
+    expect(response.isFavorites[0],
+        true); // お気に入りに登録されている場合 順番に取得でindex0 だけがおきにりに登録されている
+    expect(response.isFavorites[1], false); // お気に入りに登録されていない場合
   });
 }

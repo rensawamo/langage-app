@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('Quiz Model Test', () {
-    test('Quiz and Option fromJson and toJson', () {
+    test('fromjson と tojsonが正しく機能すること', () {
       // OptionのJSONテスト
       const optionJson = {
         'text': 'option text',
@@ -50,7 +50,7 @@ void main() {
       expect(quiz.selectedOption, null);
     });
 
-    test('Quiz default values', () {
+    test('Quiz のdefalt値テスト', () {
       const quiz = Quiz(
         text: 'quiz text',
         sentence: 'example sentence',

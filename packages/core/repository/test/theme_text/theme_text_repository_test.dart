@@ -34,7 +34,7 @@ void main() {
       //assert
       expect(themeTextNotifier.state, AppTextScale.normal);
     });
-    test('sharedpreferenceがよばれてしっかり保存されること', () async {
+    test('[正常系] setSclale', () async {
       // arrange
       when(mockPrefsRepository.save(any, any)).thenAnswer((_) async => true);
       // act

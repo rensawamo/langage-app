@@ -28,10 +28,6 @@ void main() {
       );
     });
 
-    tearDown(() {
-      reset(mockSharedPreferences); // セットされたデータを初期化するためにモックをリセットする
-    });
-
     test(
       'サポートされている型でデータが保存できること',
       () async {

@@ -25,7 +25,7 @@ void main() {
       );
     });
 
-    test('getFavoriteList returns correct QuizFavoriteResponse', () async {
+    test('[正常系] getFavoriteList', () async {
       // arrange
       final request =
           QuizFavoriteRequest(pageSize: 20, quizTopicType: QuizTopicType.greet);
