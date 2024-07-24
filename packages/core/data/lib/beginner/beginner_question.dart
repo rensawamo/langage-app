@@ -1003,7 +1003,7 @@ class AppQuizData {
     ),
   ];
   //////////// 副詞　/////////////////////
-  static final List<Quiz> korianBiginnerAdvers = [
+  static final List<Quiz> korianBiginnerAdversJa = [
     Quiz(
       text: "아주",
       sentence: "그는 아주 똑똑하다.",
