@@ -35,7 +35,7 @@ void main() {
       expect(themeNotifier.state, ThemeMode.light);
     });
 
-    test('setTheme should set theme to dark', () async {
+    test('[正常形] setTheme]', () async {
       // arrange
       when(mockPrefsRepository.save(any, any)).thenAnswer((_) async => true);
 

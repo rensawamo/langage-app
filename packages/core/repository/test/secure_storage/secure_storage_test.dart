@@ -17,7 +17,7 @@ void main() {
   });
 
   group('save', () {
-    test('should save an int', () async {
+    test('[正常系] save int', () async {
       final value = 123;
       // arrange
       when(mockStorage.write(key: key.value, value: value.toString()))
@@ -29,7 +29,7 @@ void main() {
           .called(1);
     });
 
-    test('should save a double', () async {
+    test('[正常系] save double', () async {
       final value = 123.45;
       // arrange
       when(mockStorage.write(key: key.value, value: value.toString()))
@@ -41,7 +41,7 @@ void main() {
           .called(1);
     });
 
-    test('should save a bool', () async {
+    test('[正常系] save double', () async {
       final value = true;
       // arrange
       when(mockStorage.write(key: key.value, value: value.toString()))
@@ -53,7 +53,7 @@ void main() {
           .called(1);
     });
 
-    test('should save a String', () async {
+    test('[正常系] save String', () async {
       final value = 'test';
       // arrange
       when(mockStorage.write(key: key.value, value: value))
@@ -64,7 +64,7 @@ void main() {
       verify(mockStorage.write(key: key.value, value: value)).called(1);
     });
 
-    test('should save a List<String>', () async {
+    test('[正常系] save List<String>', () async {
       final value = ['one', 'two', 'three'];
       // arrange
       when(mockStorage.write(key: key.value, value: value.join(',')))
@@ -78,7 +78,7 @@ void main() {
   });
 
   group('fetch', () {
-    test('should fetch an int', () async {
+    test('[正常系] featch int', () async {
       final value = '123';
       //  arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -89,7 +89,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('should fetch a double', () async {
+    test('[正常系] featch double', () async {
       final value = '123.45';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -100,7 +100,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('should fetch a bool', () async {
+    test('[正常系] featch bool', () async {
       final value = 'true';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -111,7 +111,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('should fetch a String', () async {
+    test('[正常系] feach String', () async {
       final value = 'test';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -122,7 +122,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('should fetch a List<String>', () async {
+    test('[正常系] feach List<String>', () async {
       final value = 'one,two,three';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -135,7 +135,7 @@ void main() {
   });
 
   group('remove', () {
-    test('should remove a value', () async {
+    test('[正常系] feach remove', () async {
       // arrange
       when(mockStorage.delete(key: key.value)).thenAnswer((_) async {});
       // act

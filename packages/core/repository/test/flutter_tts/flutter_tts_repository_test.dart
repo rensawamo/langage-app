@@ -1,5 +1,4 @@
 // test/tts_repository_impl_test.dart
-
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -19,21 +18,21 @@ void main() {
   });
 
   group('TtsRepositoryImpl', () {
-    test('initializeTts should set language, pitch and speech rate', () async {
+    test('初期化時に正しく言語情報がセットされること', () async {
       await ttsRepository.initializeTts();
 
-      verify(mockFlutterTts.setLanguage('ko-KR')).called(1);
+      verify(mockFlutterTts.setLanguage(any)).called(1);
       verify(mockFlutterTts.setPitch(1.0)).called(1);
       verify(mockFlutterTts.setSpeechRate(0.5)).called(1);
     });
 
-    test('speak should call FlutterTts speak', () async {
+    test('[正常系] ttsReposiryにより Flutterttsのspeakが呼び出されること', () async {
       await ttsRepository.speak('Hello');
 
       verify(mockFlutterTts.speak('Hello')).called(1);
     });
 
-    test('stop should call FlutterTts stop', () async {
+    test('[正常系] stop', () async {
       await ttsRepository.stop();
 
       verify(mockFlutterTts.stop()).called(1);

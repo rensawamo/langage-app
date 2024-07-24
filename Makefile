@@ -43,13 +43,3 @@ release_build_ios:
 .PHONY: integration
 integration:
 	cd apps && $(FLUTTER) test --dart-define-from-file=dart_defines/dev.env integration_test
-
-# docker up
-.PHONY: up
-up:
-	cd gitea_private && docker-compose up -d
-
-# docker down
-.PHONY: down
-down:
-	cd gitea_private && docker-compose down
