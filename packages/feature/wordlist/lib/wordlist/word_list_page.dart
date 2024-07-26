@@ -58,6 +58,7 @@ class WordListPage extends StatelessWidget {
                     itemCount: quizzes.length,
                     itemBuilder: (context, index) {
                       return Card(
+                         key: Key('word_list_card_$index'),
                           margin: EdgeInsets.symmetric(
                               vertical: 8.0, horizontal: 16.0),
                           child: ListTile(

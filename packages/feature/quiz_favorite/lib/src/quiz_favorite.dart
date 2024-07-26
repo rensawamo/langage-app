@@ -1,4 +1,4 @@
-import 'package:core_designsystem/designsystem.dart';
+ import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
