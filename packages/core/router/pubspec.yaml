@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   core_utility:
     path: ../utility
- 
+
   core_ui:
     path: ../ui
   core_dao:
@@ -31,8 +31,7 @@ dependencies:
     path: ../../../packages/feature/quiz
   feature_setting:
     path: ../../../packages/feature/setting
-  feature_quiz_favorite:
-    path: ../../../packages/feature/quiz_favorite
+
 
   go_router: ^14.2.0
   firebase_analytics: ^11.1.0

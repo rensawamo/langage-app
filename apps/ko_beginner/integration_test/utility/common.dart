@@ -10,6 +10,8 @@ final _nativeAutomatorConfig = NativeAutomatorConfig(
   findTimeout: Duration(seconds: 20),
 );
 
+
+
 Future<void> createApp(PatrolIntegrationTester $) async {
   await app_main.main();
   await $.pumpAndSettle();

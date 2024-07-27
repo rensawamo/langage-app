@@ -13,10 +13,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // DI 合成起点
   // SharedPreferences の初期化
   final sharedPreferences = await SharedPreferences.getInstance();
-  // 言語設定の初期化
-  final secureStorage = FlutterSecureStorage();
+  final flutterSecureStorage = FlutterSecureStorage();
 
   /// Firebase
   await Firebase.initializeApp(
@@ -33,14 +33,12 @@ Future<void> main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
-  
+
   runApp(
     ProviderScope(
       overrides: [
-        sharedPreferencesRepositoryProvider.overrideWithValue(
-            SharedPreferencesRepositoryImpl(sharedPreferences)),
-        secureStorageRepositoryProvider
-            .overrideWithValue(SecureStorageRepositoryImpl(secureStorage)),
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        flutterSecureStorageProvider.overrideWithValue(flutterSecureStorage),
       ],
       child: const App(),
     ),

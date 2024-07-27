@@ -6,12 +6,29 @@ part of 'secure_storage_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$secureStorageRepositoryHash() =>
-    r'f071490458927d20e70cef886d5b5af41ac3c50d';
+String _$flutterSecureStorageHash() =>
+    r'a8029b543920cd9526e15a9d9add8cce2bcf64e8';
 
-/// [AppPrefsKey] に対応する値を保存する
-/// [SecureStorageRepository] のProvider
-/// 合成起点で依存注入をされていない場合 [UnimplementedError] をスローする
+/// [FlutterSecureStorage] へのアクセスを提供する Provider
+/// 合成起点でDI されてないとエラーになる
+///
+/// Copied from [flutterSecureStorage].
+@ProviderFor(flutterSecureStorage)
+final flutterSecureStorageProvider = Provider<FlutterSecureStorage>.internal(
+  flutterSecureStorage,
+  name: r'flutterSecureStorageProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$flutterSecureStorageHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FlutterSecureStorageRef = ProviderRef<FlutterSecureStorage>;
+String _$secureStorageRepositoryHash() =>
+    r'25ba13f207023ddbf40a7815586c3702e052b20a';
+
+/// [SecureStorageRepository] を提供する Provider
 ///
 /// Copied from [secureStorageRepository].
 @ProviderFor(secureStorageRepository)

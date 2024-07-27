@@ -3,12 +3,12 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:core_utility/utility.dart';
+import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
 
 /// クイズの結果のテーブルページ
 class QuizResultTablePage extends StatelessWidget {
@@ -36,21 +36,22 @@ class QuizResultTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
+      final vm = ref.read(wordlistProvider.notifier);
+      final state = ref.watch(wordlistProvider);
+      // DI 
+      final Function speak = ref.read(ttsRepositoryProvider).speak;
+
       return AppBaseFrame(
           screenContext: context,
           title: AppLocalizations.of(context).table,
           initFrame: (context, ref) async {
-            // お気に入りの初期設定
-            final vm = ref.read(WordlistProvider.notifier);
-
             // isFavoritesの初期設定
             vm.quizTopicType = topicType;
             // 初期設定
             await vm.init(isFavorites);
           },
           backOnTap: () {
-            final favoriteList = ref.watch(WordlistProvider).isFavorites;
-            logger.i(favoriteList);
+            final favoriteList = state.isFavorites;
             context.pop(favoriteList);
           },
           body: Padding(
@@ -61,7 +62,7 @@ class QuizResultTablePage extends StatelessWidget {
                 Expanded(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
-                    child: _buildDataTable(context),
+                    child: _buildDataTable(context, state, vm, speak),
                   ),
                 ),
               ],
@@ -91,7 +92,8 @@ class QuizResultTablePage extends StatelessWidget {
   }
 
   // データ行を構築
-  Widget _buildDataTable(BuildContext context) {
+  Widget _buildDataTable(BuildContext context, QuizResultTablePageState state,
+      QuizResultTablePageViewmodel vm, Function speak) {
     return Table(
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       children: [
@@ -108,7 +110,7 @@ class QuizResultTablePage extends StatelessWidget {
               TableCell(
                   child: _buildSubtitleCell(
                       context, topicType, scores[index], index)),
-              TableCell(child: _buildVoiceCell(context, index)),
+              TableCell(child: _buildVoiceCell(context, index, state, speak)),
               TableCell(
                   child: _buildFavoriteCell(
                       context,
@@ -118,7 +120,9 @@ class QuizResultTablePage extends StatelessWidget {
                       sentences[index],
                       translations[index],
                       pronunciations[index],
-                      topicType)),
+                      topicType,
+                      state,
+                      vm)),
             ],
           ),
         ),
@@ -129,69 +133,9 @@ class QuizResultTablePage extends StatelessWidget {
   Widget _buildVoiceCell(
     BuildContext context,
     int index,
+    QuizResultTablePageState state,
+    Function speak,
   ) =>
-      Consumer(builder: (context, ref, child) {
-        final Function speak = ref.read(ttsRepositoryProvider).speak;
-        return Container(
-          color: index % 2 == 0
-              ? AppColorsSet.getTableOddRowColor(context)
-              : AppColorsSet.getTableEvenRowColor(context),
-          height: 65,
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.center,
-          child: IconButton(
-            icon: const Icon(Icons.volume_up, color: Colors.blue),
-            onPressed: () => speak(quizzes[index]),
-          ),
-        );
-      });
-
-  Widget _buildFavoriteCell(
-          BuildContext context,
-          int index,
-          String text,
-          String answer,
-          String sentence,
-          String translation,
-          String pronunciation,
-          QuizTopicType quizTopicType) =>
-      Consumer(builder: (context, ref, child) {
-        final vm = ref.read(WordlistProvider.notifier);
-        // お気に入り
-        final isFavorites = ref.watch(WordlistProvider).isFavorites;
-        return Container(
-          color: index % 2 == 0
-              ? AppColorsSet.getTableOddRowColor(context)
-              : AppColorsSet.getTableEvenRowColor(context),
-          height: 65,
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.center,
-          child: IconButton(
-            icon: Icon(
-              isFavorites[index] ? Icons.star : Icons.star_border,
-              color: isFavorites[index] ? Colors.orange : Colors.grey,
-            ),
-            onPressed: () async {
-              vm.updateFavorite(index, text, answer, sentence, translation,
-                  pronunciation, quizTopicType);
-            },
-          ),
-        );
-      });
-
-  Widget _buildCell(BuildContext context, String text) => Container(
-        color: AppColorsSet.getTableTitleColor(context),
-        padding: const EdgeInsets.all(8),
-        height: 58,
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: AppTextStyles.caption(context),
-        ),
-      );
-
-  Widget _buildSubtitleCell(BuildContext context, QuizTopicType quizTopicType,
-          String text, int index) =>
       Container(
         color: index % 2 == 0
             ? AppColorsSet.getTableOddRowColor(context)
@@ -199,22 +143,78 @@ class QuizResultTablePage extends StatelessWidget {
         height: 65,
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
-        child: Text(
-          text,
-          textAlign: TextAlign.left,
-          style: quizTopicType == QuizTopicType.greet
-              ? AppTextStyles.caption2(context,
-                  color: text == AppLocalizations.of(context).correct
-                      ? Colors.red
-                      : text == AppLocalizations.of(context).wrong
-                          ? Colors.blue
-                          : AppColorsSet.getReverseColor(context))
-              : AppTextStyles.caption(context,
-                  color: text == AppLocalizations.of(context).correct
-                      ? Colors.red
-                      : text == AppLocalizations.of(context).wrong
-                          ? Colors.blue
-                          : AppColorsSet.getReverseColor(context)),
+        child: IconButton(
+          icon: const Icon(Icons.volume_up, color: Colors.blue),
+          onPressed: () => speak(quizzes[index]),
         ),
       );
 }
+
+Widget _buildFavoriteCell(
+        BuildContext context,
+        int index,
+        String text,
+        String answer,
+        String sentence,
+        String translation,
+        String pronunciation,
+        QuizTopicType quizTopicType,
+        QuizResultTablePageState state,
+        QuizResultTablePageViewmodel vm) =>
+    Container(
+      color: index % 2 == 0
+          ? AppColorsSet.getTableOddRowColor(context)
+          : AppColorsSet.getTableEvenRowColor(context),
+      height: 65,
+      padding: const EdgeInsets.all(8),
+      alignment: Alignment.center,
+      child: IconButton(
+        icon: Icon(
+          state.isFavorites[index] ? Icons.star : Icons.star_border,
+          color: state.isFavorites[index] ? Colors.orange : Colors.grey,
+        ),
+        onPressed: () async {
+          vm.updateFavorite(index, text, answer, sentence, translation,
+              pronunciation, quizTopicType);
+        },
+      ),
+    );
+
+Widget _buildCell(BuildContext context, String text) => Container(
+      color: AppColorsSet.getTableTitleColor(context),
+      padding: const EdgeInsets.all(8),
+      height: 58,
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: AppTextStyles.caption(context),
+      ),
+    );
+
+Widget _buildSubtitleCell(BuildContext context, QuizTopicType quizTopicType,
+        String text, int index) =>
+    Container(
+      color: index % 2 == 0
+          ? AppColorsSet.getTableOddRowColor(context)
+          : AppColorsSet.getTableEvenRowColor(context),
+      height: 65,
+      padding: const EdgeInsets.all(8),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        textAlign: TextAlign.left,
+        style: quizTopicType == QuizTopicType.greet
+            ? AppTextStyles.caption2(context,
+                color: text == AppLocalizations.of(context).correct
+                    ? Colors.red
+                    : text == AppLocalizations.of(context).wrong
+                        ? Colors.blue
+                        : AppColorsSet.getReverseColor(context))
+            : AppTextStyles.caption(context,
+                color: text == AppLocalizations.of(context).correct
+                    ? Colors.red
+                    : text == AppLocalizations.of(context).wrong
+                        ? Colors.blue
+                        : AppColorsSet.getReverseColor(context)),
+      ),
+    );

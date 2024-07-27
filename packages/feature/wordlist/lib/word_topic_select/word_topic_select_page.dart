@@ -32,32 +32,33 @@ class WordTopicSelectPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildQuizListItem(context, AppLocalizations.of(context).adjective, '',
-            QuizTopicType.adjective, Colors.blue),
+            QuizTopicType.adjective, Colors.blue, AppKeys.wordAdjective),
         SizedBox(height: 10),
         _buildQuizListItem(context, AppLocalizations.of(context).adverb, '',
-            QuizTopicType.adverb, Colors.green),
+            QuizTopicType.adverb, Colors.green, AppKeys.wordAdverb),
         SizedBox(height: 10),
         _buildQuizListItem(context, AppLocalizations.of(context).verb, '',
-            QuizTopicType.verb, Colors.red),
+            QuizTopicType.verb, Colors.red, AppKeys.wordVerb),
         SizedBox(height: 10),
         _buildQuizListItem(context, AppLocalizations.of(context).noun, '',
-            QuizTopicType.noun, Colors.purple),
+            QuizTopicType.noun, Colors.purple, AppKeys.wordNoun),
         SizedBox(height: 10),
         _buildQuizListItem(context, AppLocalizations.of(context).pronoun, '',
-            QuizTopicType.pronoun, Colors.grey),
+            QuizTopicType.pronoun, Colors.grey, AppKeys.wordPronoun),
         SizedBox(height: 10),
         _buildQuizListItem(context, AppLocalizations.of(context).greet, '',
-            QuizTopicType.greet, Colors.teal),
+            QuizTopicType.greet, Colors.teal, AppKeys.wordGreeting),
         SizedBox(height: 10),
         _buildQuizListItem(context, AppLocalizations.of(context).star, '',
-            QuizTopicType.favorite, Colors.orange),
+            QuizTopicType.favorite, Colors.orange, AppKeys.wordFavorite),
       ],
     );
   }
 
   Widget _buildQuizListItem(BuildContext context, String title, String subtitle,
-      QuizTopicType quizTopicType, Color color) {
+      QuizTopicType quizTopicType, Color color, Key key) {
     return Card(
+      key: key,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),

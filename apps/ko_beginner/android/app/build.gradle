@@ -99,8 +99,8 @@ android {
         if (dartEnvironmentVariables.FLAVOR != 'prod') {
             applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
         }
-        minSdkVersion 24
-        targetSdkVersion flutter.targetSdkVersion
+        minSdk = 21
+        targetSdk = 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         resValue "string", "app_name", (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : "${dartEnvironmentVariables.FLAVOR}.") +

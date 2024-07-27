@@ -1,7 +1,6 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
-import 'package:feature_wordlist/word_detail/word_detail_state.dart';
 import 'package:feature_wordlist/word_detail/word_detail_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,7 +30,6 @@ class WordDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
       final vm = ref.watch(WordDetailProvider.notifier);
-
       return AppBaseFrame(
         screenContext: context,
         hasPrevButton: true,

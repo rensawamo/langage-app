@@ -25,7 +25,7 @@ void main() {
   group('ThemeTextRepository', () {
     test('最初に nullがloadされてもnormalがかえること', () async {
       // arrange
-      when(mockPrefsRepository.fetch(any)).thenReturn(null);
+      when(mockPrefsRepository.fetch(AppPrefsKey.configFontScale)).thenReturn(null);
 
       // act
       final themeTextNotifier =
@@ -34,7 +34,7 @@ void main() {
       //assert
       expect(themeTextNotifier.state, AppTextScale.normal);
     });
-    test('[正常系] setSclale', () async {
+    test('sharedpreferenceがよばれてしっかり保存されること', () async {
       // arrange
       when(mockPrefsRepository.save(any, any)).thenAnswer((_) async => true);
       // act

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// ダークモードとライトモードでカラーをカスタマイズするためのクラス
-
+/// [BuildContext] から現在のテーマを取得し、それに応じたカラーを返す
+/// 
 class AppColorsSet {
   // 影
   static Color getShadowColor(BuildContext context) {

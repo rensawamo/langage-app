@@ -49,10 +49,9 @@ class _ResultPageState extends State<QuizResultPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
-      final vm = ref.read(quizReultPageProvider.notifier);
-      final isFavorite = ref.watch(quizReultPageProvider).isFavorites;
-      final scores = ref.watch(quizReultPageProvider).scores;
-      final isLoading = ref.watch(quizReultPageProvider).isLoading;
+      final vm = ref.read(quizResultPageProvider.notifier);
+      final state = ref.watch(quizResultPageProvider);
+
       return AppBaseFrame(
         screenContext: context,
         hasAppbar: false,
@@ -63,7 +62,7 @@ class _ResultPageState extends State<QuizResultPage> {
             widget.isFavorites,
           );
         },
-        body: isLoading
+        body: state.isLoading
             ? Center(child: CircularProgressIndicator())
             : Padding(
                 padding: const EdgeInsets.all(13.0),
@@ -90,8 +89,8 @@ class _ResultPageState extends State<QuizResultPage> {
                         QuizResultTablePageData(
                           quizzes: widget.quizzes,
                           answers: widget.answers,
-                          scores: scores,
-                          isFavorites: isFavorite,
+                          scores: state.scores,
+                          isFavorites: state.isFavorites,
                           sentences: widget.sentences,
                           translations: widget.translations,
                           pronunciations: widget.pronunciations,

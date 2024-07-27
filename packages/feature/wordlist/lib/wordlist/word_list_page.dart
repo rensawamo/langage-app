@@ -19,13 +19,8 @@ class WordListPage extends StatelessWidget {
   @override
   Widget build(BuildContext screenContext) {
     return Consumer(builder: (context, ref, child) {
-      final vm = ref.watch(WordlistProvider.notifier);
-      List<String> quizzes = ref.watch(WordlistProvider).quizzes;
-      List<String> answers = ref.watch(WordlistProvider).answers;
-      List<String> sentences = ref.watch(WordlistProvider).sentences;
-      List<String> translations = ref.watch(WordlistProvider).translations;
-      List<String> pronunciations = ref.watch(WordlistProvider).pronunciations;
-      List<bool> isFavorites = ref.watch(WordlistProvider).isFavorites;
+      final vm = ref.watch(wordlistProvider.notifier);
+      final state = ref.watch(wordlistProvider);
 
       return AppBaseFrame(
         screenContext: screenContext,
@@ -33,8 +28,6 @@ class WordListPage extends StatelessWidget {
         shouldRemoveFocus: true,
         title: quizTopicType.getQuizTopicWord(context),
         initFrame: (context, ref) async {
-          final vm = ref.watch(WordlistProvider.notifier);
-
           // クイズのタイプ
           vm.quizTopicType = quizTopicType;
 
@@ -47,18 +40,18 @@ class WordListPage extends StatelessWidget {
         backOnTap: () {
           context.pop();
         },
-        body: ref.watch(WordlistProvider).isLoading
+        body: ref.watch(wordlistProvider).isLoading
             ? const Center(child: CircularProgressIndicator())
-            : quizzes.isEmpty
+            : state.quizzes.isEmpty
                 ? _empty(context)
                 : ListView.builder(
                     key: PageStorageKey(0),
-                    controller: ref.read(WordlistProvider).scrollController,
+                    controller: state.scrollController,
                     scrollDirection: Axis.vertical,
-                    itemCount: quizzes.length,
+                    itemCount: state.quizzes.length,
                     itemBuilder: (context, index) {
                       return Card(
-                         key: Key('word_list_card_$index'),
+                          key: Key('word_list_card_$index'),
                           margin: EdgeInsets.symmetric(
                               vertical: 8.0, horizontal: 16.0),
                           child: ListTile(
@@ -67,40 +60,40 @@ class WordListPage extends StatelessWidget {
                               style: TextStyle(fontSize: 20),
                             ),
                             title: Text(
-                              quizzes[index],
+                              state.quizzes[index],
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text(
-                              answers[index],
+                              state.isFavorites[index].toString(),
                               style: TextStyle(fontSize: 16),
                             ),
                             trailing: IconButton(
                               icon: Icon(
                                 Icons.star,
-                                color: isFavorites[index]
+                                color: state.isFavorites[index]
                                     ? Colors.orange
                                     : Colors.grey,
                               ),
                               onPressed: () {
                                 vm.updateFavorite(
                                     index,
-                                    quizzes[index],
-                                    answers[index],
-                                    sentences[index],
-                                    translations[index],
-                                    pronunciations[index],
+                                    state.quizzes[index],
+                                    state.answers[index],
+                                    state.sentences[index],
+                                    state.translations[index],
+                                    state.pronunciations[index],
                                     quizTopicType);
                               },
                             ),
                             onTap: () {
                               wordDetailPageData(
-                                quizzes[index],
-                                answers[index],
-                                sentences[index],
-                                translations[index],
-                                pronunciations[index],
-                                isFavorites[index],
+                                state.quizzes[index],
+                                state.answers[index],
+                                state.sentences[index],
+                                state.translations[index],
+                                state.pronunciations[index],
+                                state.isFavorites[index],
                                 quizTopicType,
                               ).push(context).then(
                                 (value) {

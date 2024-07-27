@@ -41,7 +41,7 @@ void main() {
           .called(1);
     });
 
-    test('[正常系] save double', () async {
+    test('[正常系] save bool', () async {
       final value = true;
       // arrange
       when(mockStorage.write(key: key.value, value: value.toString()))
@@ -78,7 +78,7 @@ void main() {
   });
 
   group('fetch', () {
-    test('[正常系] featch int', () async {
+    test('[正常系] save fetch an int', () async {
       final value = '123';
       //  arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -89,7 +89,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('[正常系] featch double', () async {
+    test('[正常系] save fetch a double', () async {
       final value = '123.45';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -100,7 +100,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('[正常系] featch bool', () async {
+    test('[正常系] save fetch a bool', () async {
       final value = 'true';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -111,7 +111,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('[正常系] feach String', () async {
+    test('[正常系] save fetch a String', () async {
       final value = 'test';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -122,7 +122,7 @@ void main() {
       verify(mockStorage.read(key: key.value)).called(1);
     });
 
-    test('[正常系] feach List<String>', () async {
+    test('[正常系] save fetch a List<String>', () async {
       final value = 'one,two,three';
       // arrange
       when(mockStorage.read(key: key.value)).thenAnswer((_) async => value);
@@ -135,7 +135,7 @@ void main() {
   });
 
   group('remove', () {
-    test('[正常系] feach remove', () async {
+    test('[正常系] save remove a value', () async {
       // arrange
       when(mockStorage.delete(key: key.value)).thenAnswer((_) async {});
       // act

@@ -1,19 +1,25 @@
-import 'package:flutter/material.dart';
-
-import 'common.dart';
+import 'package:core_foundation/foundation.dart';
+import 'utility/common.dart';
+import 'word_list/word_list.dart';
 
 void main() {
-  patrolSetUp(() {
-    // Smoke test for https://github.com/leancodepl/patrol/issues/2021
-    expect(2 + 2, equals(4));
+  patrol('at the beginning', ($) async {
+    await _splashPageTest($);
   });
 
-  patrol(
-    'counter state is the same after going to Home and switching apps',
-    ($) async {
-      await createApp($);
-      await $(#word_list_card_0).tap();
-      expect(find.text('Word List'), findsOneWidget);
-    },
-  );
+  group('top level group in file', () {
+    group('splash', () {
+      patrol('first', ($) async {
+        await _splashPageTest($);
+      });
+      patrol('wordlist', ($) async {
+        await wordListPageTest($);
+      });
+    });
+  });
+}
+
+Future<void> _splashPageTest(PatrolIntegrationTester $) async {
+  await createApp($);
+  await $.waitUntilVisible(find.byKey(AppKeys.splash));
 }

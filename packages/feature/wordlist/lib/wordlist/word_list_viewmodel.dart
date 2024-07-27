@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// [WordListViewmodel] のProvider
-final WordlistProvider = StateNotifierProvider.autoDispose<
-    WordListViewmodel, WordListState>(
+final wordlistProvider =
+    StateNotifierProvider.autoDispose<WordListViewmodel, WordListState>(
   (ref) {
-    return WordListViewmodelImpl(
+    return WordListViewmodel(
       ref,
       WordListState(
         quizzes: [],
@@ -27,19 +27,23 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
   },
 );
 
-class WordListViewmodelImpl extends WordListViewmodel {
-  WordListViewmodelImpl(this.ref, WordListState state) : super(state);
+/// [WordListViewmodel] の具象クラス
+class WordListViewmodel extends StateNotifier<WordListState> {
+  WordListViewmodel(this.ref, WordListState state) : super(state);
+
   final Ref ref;
+  late QuizTopicType quizTopicType;
+
+  /// スマホの言語設定
+  late String language;
 
   /// 初期設定
-  @override
   Future<void> init() async {
     getQuizList(quizTopicType);
   }
 
   /// [QuizTopicType] を指定して
   /// [QuizGetAllDao]からクイズリストを取得
-  @override
   Future<void> getQuizList(QuizTopicType quizTopicType) async {
     state = state.copyWith(isLoading: true);
     final dao = ref.read(wordGetAllDaoProviderProvider);
@@ -68,7 +72,6 @@ class WordListViewmodelImpl extends WordListViewmodel {
 
   /// [QuizFavoriteSqlRepository] お気に入り更新
   /// タップでお気に入りの更新を行う
-  @override
   void updateFavorite(
       int index,
       String text,
@@ -97,31 +100,7 @@ class WordListViewmodelImpl extends WordListViewmodel {
     }
   }
 
-  @override
   void clearList() {
     state = state.copyWith(quizzes: []);
   }
-}
-
-
-/// [WordListState] の状態を管理する
-abstract class WordListViewmodel extends StateNotifier<WordListState> {
-  WordListViewmodel(super.state);
-
-  late QuizTopicType quizTopicType;
-
-  /// スマホの言語設定
-  late String language;
-
-  bool isLoading = false;
-
-  Future<void> init();
-
-  Future<void> getQuizList(QuizTopicType quizTopicType);
-
-  void clearList();
-
-  // お気に入りの更新
-  void updateFavorite(int index, String text, String answer, String sentence,
-      String translation, String pronunciation, QuizTopicType quizTopicType);
 }

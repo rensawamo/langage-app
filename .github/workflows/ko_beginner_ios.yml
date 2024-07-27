@@ -1,9 +1,11 @@
 name: ko_beginner_ios
 
 on:
-    pull_request:
-        branches:
-            - main
+  pull_request:
+    branches:
+      - current_none
+    types: [closed]
+
 jobs:
   build_iOS:
     name: ko_beginner_ios
@@ -54,7 +56,7 @@ jobs:
       - name: melos test
         run: |
           fvm dart pub global run melos unit_test
-          
+
            # Upload results of failed Golden tests if test command failed.
           if [ $? -ne 0 ]; then
             # Finds all "failures" folders and copies them to the export

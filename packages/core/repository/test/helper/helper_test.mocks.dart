@@ -6,18 +6,18 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i14;
 
-import 'package:core_foundation/foundation.dart' as _i8;
+import 'package:core_foundation/foundation.dart' as _i12;
 import 'package:core_repository/app_setting_info/app_setting_info_repository.dart'
-    as _i11;
-import 'package:core_repository/secure_storage/secure_storage_repository.dart'
     as _i10;
+import 'package:core_repository/secure_storage/secure_storage_repository.dart'
+    as _i9;
 import 'package:core_repository/shared_preferences/shared_preference_repository.dart'
     as _i7;
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql.dart'
     as _i18;
-import 'package:flutter/foundation.dart' as _i9;
+import 'package:flutter/foundation.dart' as _i8;
 import 'package:flutter/services.dart' as _i15;
-import 'package:flutter_riverpod/flutter_riverpod.dart' as _i12;
+import 'package:flutter_riverpod/flutter_riverpod.dart' as _i11;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i2;
 import 'package:flutter_tts/flutter_tts.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
@@ -364,7 +364,7 @@ class MockSharedPreferencesRepositoryImpl extends _i1.Mock
     implements _i7.SharedPreferencesRepositoryImpl {
   @override
   _i5.Future<bool> save<T>(
-    _i8.AppPrefsKey? key,
+    dynamic key,
     T? value,
   ) =>
       (super.noSuchMethod(
@@ -380,16 +380,7 @@ class MockSharedPreferencesRepositoryImpl extends _i1.Mock
       ) as _i5.Future<bool>);
 
   @override
-  T? fetch<T>(_i8.AppPrefsKey? key) => (super.noSuchMethod(
-        Invocation.method(
-          #fetch,
-          [key],
-        ),
-        returnValueForMissingStub: null,
-      ) as T?);
-
-  @override
-  _i5.Future<bool> remove(_i8.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<bool> remove(dynamic key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
@@ -485,7 +476,7 @@ class MockFlutterSecureStorage extends _i1.Mock
   @override
   void registerListener({
     required String? key,
-    required _i9.ValueChanged<String?>? listener,
+    required _i8.ValueChanged<String?>? listener,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -502,7 +493,7 @@ class MockFlutterSecureStorage extends _i1.Mock
   @override
   void unregisterListener({
     required String? key,
-    required _i9.ValueChanged<String?>? listener,
+    required _i8.ValueChanged<String?>? listener,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -718,10 +709,10 @@ class MockFlutterSecureStorage extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSecureStorageRepositoryImpl extends _i1.Mock
-    implements _i10.SecureStorageRepositoryImpl {
+    implements _i9.SecureStorageRepositoryImpl {
   @override
   _i5.Future<void> save<T>(
-    _i8.AppPrefsKey? key,
+    dynamic key,
     T? value,
   ) =>
       (super.noSuchMethod(
@@ -737,7 +728,7 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
       ) as _i5.Future<void>);
 
   @override
-  _i5.Future<T?> fetch<T>(_i8.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<T?> fetch<T>(dynamic key) => (super.noSuchMethod(
         Invocation.method(
           #fetch,
           [key],
@@ -747,7 +738,7 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
       ) as _i5.Future<T?>);
 
   @override
-  _i5.Future<void> remove(_i8.AppPrefsKey? key) => (super.noSuchMethod(
+  _i5.Future<void> remove(dynamic key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
@@ -761,9 +752,9 @@ class MockSecureStorageRepositoryImpl extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAppSettingInfoImpl extends _i1.Mock
-    implements _i11.AppSettingInfoImpl {
+    implements _i10.AppSettingInfoImpl {
   @override
-  set onError(_i12.ErrorListener? _onError) => super.noSuchMethod(
+  set onError(_i11.ErrorListener? _onError) => super.noSuchMethod(
         Invocation.setter(
           #onError,
           _onError,
@@ -779,21 +770,21 @@ class MockAppSettingInfoImpl extends _i1.Mock
       ) as bool);
 
   @override
-  _i5.Stream<_i8.AppInstallType> get stream => (super.noSuchMethod(
+  _i5.Stream<_i12.AppInstallType> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i5.Stream<_i8.AppInstallType>.empty(),
-        returnValueForMissingStub: _i5.Stream<_i8.AppInstallType>.empty(),
-      ) as _i5.Stream<_i8.AppInstallType>);
+        returnValue: _i5.Stream<_i12.AppInstallType>.empty(),
+        returnValueForMissingStub: _i5.Stream<_i12.AppInstallType>.empty(),
+      ) as _i5.Stream<_i12.AppInstallType>);
 
   @override
-  _i8.AppInstallType get state => (super.noSuchMethod(
+  _i12.AppInstallType get state => (super.noSuchMethod(
         Invocation.getter(#state),
-        returnValue: _i8.AppInstallType.none,
-        returnValueForMissingStub: _i8.AppInstallType.none,
-      ) as _i8.AppInstallType);
+        returnValue: _i12.AppInstallType.none,
+        returnValueForMissingStub: _i12.AppInstallType.none,
+      ) as _i12.AppInstallType);
 
   @override
-  set state(_i8.AppInstallType? value) => super.noSuchMethod(
+  set state(_i12.AppInstallType? value) => super.noSuchMethod(
         Invocation.setter(
           #state,
           value,
@@ -802,11 +793,11 @@ class MockAppSettingInfoImpl extends _i1.Mock
       );
 
   @override
-  _i8.AppInstallType get debugState => (super.noSuchMethod(
+  _i12.AppInstallType get debugState => (super.noSuchMethod(
         Invocation.getter(#debugState),
-        returnValue: _i8.AppInstallType.none,
-        returnValueForMissingStub: _i8.AppInstallType.none,
-      ) as _i8.AppInstallType);
+        returnValue: _i12.AppInstallType.none,
+        returnValueForMissingStub: _i12.AppInstallType.none,
+      ) as _i12.AppInstallType);
 
   @override
   bool get hasListeners => (super.noSuchMethod(
@@ -826,7 +817,7 @@ class MockAppSettingInfoImpl extends _i1.Mock
       ) as _i5.Future<void>);
 
   @override
-  _i5.Future<void> changeAppInstallType(_i8.AppInstallType? type) =>
+  _i5.Future<void> changeAppInstallType(_i12.AppInstallType? type) =>
       (super.noSuchMethod(
         Invocation.method(
           #changeAppInstallType,
@@ -838,8 +829,8 @@ class MockAppSettingInfoImpl extends _i1.Mock
 
   @override
   bool updateShouldNotify(
-    _i8.AppInstallType? old,
-    _i8.AppInstallType? current,
+    _i12.AppInstallType? old,
+    _i12.AppInstallType? current,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -854,8 +845,8 @@ class MockAppSettingInfoImpl extends _i1.Mock
       ) as bool);
 
   @override
-  _i12.RemoveListener addListener(
-    _i13.Listener<_i8.AppInstallType>? listener, {
+  _i11.RemoveListener addListener(
+    _i13.Listener<_i12.AppInstallType>? listener, {
     bool? fireImmediately = true,
   }) =>
       (super.noSuchMethod(
@@ -866,7 +857,7 @@ class MockAppSettingInfoImpl extends _i1.Mock
         ),
         returnValue: () {},
         returnValueForMissingStub: () {},
-      ) as _i12.RemoveListener);
+      ) as _i11.RemoveListener);
 
   @override
   void dispose() => super.noSuchMethod(

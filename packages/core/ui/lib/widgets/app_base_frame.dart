@@ -143,12 +143,13 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> {
 
   /// 戻るボタンの生成
   Widget _prevButton(BuildContext context) {
+
     // 戻り先がない場合は戻るボタンを表示しな
     if (!widget.hasPrevButton) {
       return const SizedBox();
     }
     return AppIconButton(
-      key: widget.backButtonKey,
+      key: AppKeys.backButton,
       icon: Icons.arrow_back_ios_rounded,
       onTap: widget.backOnTap ?? () => context.pop(),
       type: AppIconButtonType.neutral,

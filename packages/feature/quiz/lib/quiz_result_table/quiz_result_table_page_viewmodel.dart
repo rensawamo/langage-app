@@ -4,12 +4,11 @@ import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_reposito
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 /// [QuizResultTablePageViewmodel]のProvider
-final WordlistProvider = StateNotifierProvider.autoDispose<
+final wordlistProvider = StateNotifierProvider.autoDispose<
     QuizResultTablePageViewmodel, QuizResultTablePageState>(
   (ref) {
-    return QuizResultTablePageViewmodelImpl(
+    return QuizResultTablePageViewmodel(
         ref,
         QuizResultTablePageState(
           isFavorites: [],
@@ -17,19 +16,24 @@ final WordlistProvider = StateNotifierProvider.autoDispose<
   },
 );
 
+class QuizResultTablePageViewmodel extends StateNotifier<QuizResultTablePageState> {
+  QuizResultTablePageViewmodel(this.ref, QuizResultTablePageState state)
+      : super(state);
 
-class QuizResultTablePageViewmodelImpl extends QuizResultTablePageViewmodel {
-  QuizResultTablePageViewmodelImpl(Ref ref, QuizResultTablePageState state)
-      : super(ref, state);
+  final Ref ref;
+
+  // 問題数
+  late int questionCount;
+
+  // トピックの種別
+  late QuizTopicType quizTopicType;
 
   /// 初期設定
-  @override
   Future<void> init(List<bool> isFavorite) async {
     state = state.copyWith(isFavorites: isFavorite);
   }
 
   /// お気に入りの更新
-  @override
   void updateFavorite(
     int index,
     String text,
@@ -59,34 +63,4 @@ class QuizResultTablePageViewmodelImpl extends QuizResultTablePageViewmodel {
       await quizFavoriteSql.delete(text);
     }
   }
-}
-
-/// Quize Viewmodel インターフェース
-abstract class QuizResultTablePageViewmodel
-    extends StateNotifier<QuizResultTablePageState> {
-  QuizResultTablePageViewmodel(
-    this.ref,
-    super.state,
-  );
-  final Ref ref;
-
-  // 問題数
-  late int questionCount;
-
-  // トピックの種別
-  late QuizTopicType quizTopicType;
-
-  // 画面描写
-  Future<void> init(List<bool> isFavorite);
-
-  // お気に入りの更新
-  void updateFavorite(
-    int index,
-    String text,
-    String answer,
-    String sentence,
-    String translation,
-    String pronunciation,
-    QuizTopicType quizTopicType,
-  );
 }

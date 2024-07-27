@@ -4,14 +4,22 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'secure_storage_repository.g.dart';
 
-/// [AppPrefsKey] に対応する値を保存する
-/// [SecureStorageRepository] のProvider
-/// 合成起点で依存注入をされていない場合 [UnimplementedError] をスローする
+/// [FlutterSecureStorage] へのアクセスを提供する Provider
+/// 合成起点でDI されてないとエラーになる
+@Riverpod(keepAlive: true)
+FlutterSecureStorage flutterSecureStorage(
+  FlutterSecureStorageRef ref,
+) {
+  throw UnimplementedError();
+}
+
+/// [SecureStorageRepository] を提供する Provider
 @Riverpod(keepAlive: true)
 SecureStorageRepository secureStorageRepository(
   SecureStorageRepositoryRef ref,
 ) {
-  throw UnimplementedError();
+  final storage = ref.watch(flutterSecureStorageProvider);
+  return SecureStorageRepositoryImpl(storage);
 }
 
 /// [SecureStorageRepository] の具象クラス
@@ -64,7 +72,7 @@ class SecureStorageRepositoryImpl implements SecureStorageRepository {
   Future<void> remove(AppPrefsKey key) => _storage.delete(key: key.value);
 }
 
-/// [FlutterSecureStorage] のdata 操作を抽象化する Repository
+// [FlutterSecureStorage] へのアクセスを提供する抽象クラス
 abstract class SecureStorageRepository {
   // secure storage に保存
   Future<void> save<T>(AppPrefsKey key, T value);
