@@ -3,31 +3,29 @@ import 'package:core_repository/shared_preferences/shared_preference_repository.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// [ThemeColorRepository]のProvider
-/// [SharedPreferencesRepository] を引数に取り、アプリのテーマカラーを取得する
-///
-final themeColorRepositoryProvider =
-    StateNotifierProvider<ThemeColorRepositoryImpl, ThemeMode>((ref) {
+/// [ThemeMode]を監視
+/// [ThemeColorRepository] を提供する Provider
+final themeColorRepositoryProvider = StateNotifierProvider<ThemeColorRepository, ThemeMode>((ref) {
   final prefsRepository = ref.watch(sharedPreferencesRepositoryProvider);
-  return ThemeColorRepositoryImpl(prefsRepository);
+  return ThemeColorRepository(prefsRepository);
 });
 
-/// [ThemeColorRepository] の具象クラス
-class ThemeColorRepositoryImpl extends StateNotifier<ThemeMode>
-    implements ThemeColorRepository {
+
+/// [ThemeMode] を監視する StateNotifier
+class ThemeColorRepository extends StateNotifier<ThemeMode> {
   final SharedPreferencesRepository _prefsRepository;
   final AppPrefsKey _themeKey = AppPrefsKey.configModeType;
 
-  ThemeColorRepositoryImpl(this._prefsRepository) : super(ThemeMode.light) {
+  ThemeColorRepository(this._prefsRepository) : super(ThemeMode.light) {
     loadTheme();
   }
 
   Future<void> loadTheme() async {
     final themeIndex =
         _prefsRepository.fetch<int>(_themeKey) ?? ThemeMode.light.index;
-
     state = ThemeMode.values[themeIndex];
   }
+
 
   Future<void> setTheme(ThemeMode themeMode) async {
     state = themeMode;
@@ -35,10 +33,3 @@ class ThemeColorRepositoryImpl extends StateNotifier<ThemeMode>
   }
 }
 
-/// [ThemeMode] の設定監視する Repository
-abstract class ThemeColorRepository {
-  //  テーマカラーを設定する
-  Future<void> setTheme(ThemeMode themeMode);
-  // テーマカラーを読み込む
-  Future<void> loadTheme();
-}

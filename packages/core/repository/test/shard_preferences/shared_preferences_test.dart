@@ -15,19 +15,22 @@ void main() {
   /// 正常系
   group('[正常系] SharedPreferencesRepositoryテスト', () {
     late final MockSharedPreferences mockSharedPreferences;
-    late SharedPreferencesRepositoryImpl repository;
     late ProviderContainer container;
 
     setUpAll(() {
       mockSharedPreferences = MockSharedPreferences();
-      repository = SharedPreferencesRepositoryImpl(mockSharedPreferences);
       container = createContainer(
         overrides: [
-          sharedPreferencesRepositoryProvider.overrideWithValue(repository)
+          sharedPreferencesRepositoryProvider.overrideWith(
+            (ref) => SharedPreferencesRepositoryImpl(mockSharedPreferences),
+          ),
         ],
       );
     });
 
+    tearDown(() {
+      reset(mockSharedPreferences); // セットされたデータを初期化するためにモックをリセットする
+    });
     test(
       'サポートされている型でデータが保存できること',
       () async {
@@ -49,17 +52,7 @@ void main() {
           mockSharedPreferences.setBool(key.value, any),
         ).thenAnswer((_) async => true);
 
-        /// ProviderにMockをセットする
-        final container = createContainer(
-          overrides: [
-            sharedPreferencesRepositoryProvider.overrideWith(
-              (ref) => SharedPreferencesRepositoryImpl(mockSharedPreferences),
-            ),
-          ],
-        );
-
         // act
-
         /// テスト実施
         final repository = container.read(sharedPreferencesRepositoryProvider);
         final results = await [
@@ -104,15 +97,6 @@ void main() {
         when(
           mockSharedPreferences.getBool(key.value),
         ).thenAnswer((_) => true);
-
-        /// ProviderにMockをセットする
-        final container = createContainer(
-          overrides: [
-            sharedPreferencesRepositoryProvider.overrideWith(
-              (ref) => SharedPreferencesRepositoryImpl(mockSharedPreferences),
-            ),
-          ],
-        );
 
         /// act
         /// テスト実施

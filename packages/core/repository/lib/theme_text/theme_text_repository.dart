@@ -3,12 +3,12 @@ import 'package:core_repository/shared_preferences/shared_preference_repository.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// テキストスケールのProvider
-/// [SharedPreferencesRepository] を引数に取り、アプリのテキストスケールを取得する
+/// [AppTextScale]を監視
+/// [ThemeTextRepository] を提供する Provider
 final themeTextRepositoryProvider =
-    StateNotifierProvider<ThemeTextRepositoryImpl, AppTextScale>((ref) {
+    StateNotifierProvider<ThemeTextRepository, AppTextScale>((ref) {
   final prefsRepository = ref.watch(sharedPreferencesRepositoryProvider);
-  return ThemeTextRepositoryImpl(prefsRepository);
+  return ThemeTextRepository(prefsRepository);
 });
 
 extension TextScaleExtension on AppTextScale {
@@ -26,16 +26,14 @@ extension TextScaleExtension on AppTextScale {
   }
 }
 
-/// [ThemeTextRepository] の具象クラス
-class ThemeTextRepositoryImpl extends StateNotifier<AppTextScale>
-    implements ThemeTextRepository {
+/// テーマテキストを管理するクラス
+class ThemeTextRepository extends StateNotifier<AppTextScale> {
   AppPrefsKey _scaleKey = AppPrefsKey.configFontScale;
   final SharedPreferencesRepository _prefsRepository;
 
-  ThemeTextRepositoryImpl(this._prefsRepository) : super(AppTextScale.normal) {
+  ThemeTextRepository(this._prefsRepository) : super(AppTextScale.normal) {
     loadScale();
   }
-
   Future<AppTextScale> loadScale() async {
     final scaleIndex =
         _prefsRepository.fetch<int>(_scaleKey) ?? AppTextScale.normal.index;
@@ -47,12 +45,4 @@ class ThemeTextRepositoryImpl extends StateNotifier<AppTextScale>
     state = scale;
     await _prefsRepository.save<int>(_scaleKey, scale.index);
   }
-}
-
-/// [AppTextScale] の設定監視する Repository
-abstract class ThemeTextRepository {
-  // テーマカラーを設定する
-  Future<void> setScale(AppTextScale scale);
-  // テーマカラーを読み込む
-  Future<AppTextScale> loadScale();
 }

@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 // アプリクイズのページ
 
-class QuizScreenWidget extends StatelessWidget {
+class QuizWidget extends StatelessWidget {
   final List<Quiz> quizes;
   final List<String> answers;
   final List<String> sentences;
@@ -34,7 +34,7 @@ class QuizScreenWidget extends StatelessWidget {
   /// テキストの大きさが定義されている場合に適応する
   final AppTextSizeType? textType;
 
-  const QuizScreenWidget({
+  const QuizWidget({
     Key? key,
     required this.quizes,
     required this.answers,

@@ -67,8 +67,8 @@ tasks.whenTaskAdded { task ->
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
-// END: FlutterFire Configuration
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
 android {
     namespace "com.rensawamo.ko_beginner"
     compileSdkVersion flutter.compileSdkVersion
@@ -86,15 +86,21 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    testOptions {
+        execution "ANDROIDX_TEST_ORCHESTRATOR"
+    }
 
     defaultConfig {
+        testInstrumentationRunner "pl.leancode.patrol.PatrolJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: "true"
+
         applicationId "com.rensawamo.ko_beginner"
         // flavor設定
         if (dartEnvironmentVariables.FLAVOR != 'prod') {
             applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
         }
-        minSdkVersion 24
-        targetSdkVersion flutter.targetSdkVersion
+        minSdk = 21
+        targetSdk = 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         resValue "string", "app_name", (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : "${dartEnvironmentVariables.FLAVOR}.") +
@@ -103,9 +109,12 @@ android {
 
     signingConfigs {
         release {
-            // TODO: release.jksとkey.propertiesを作成する。作成したrelease.jksのパスワード情報はkey.propertiesで管理する
-            def keystorePropertiesFile = rootProject.file('key.properties')
-            if (keystorePropertiesFile.exists()) {
+            if (System.getenv("GITHUB_ACTIONS")) { // gitaction
+                storeFile file("release.jks")
+                storePassword System.getenv()["STORE_PASSWORD"]
+                keyAlias System.getenv()["KEY_ALIAS"]
+                keyPassword System.getenv()["KEY_PASSWORD"]
+            } else if (keystorePropertiesFile.exists()) { // local
                 def keystoreProperties = new Properties()
                 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
                 keyAlias keystoreProperties['keyAlias']
@@ -114,8 +123,8 @@ android {
                 storePassword keystoreProperties['storePassword']
             }
         }
+
         debug {
-            // TODO: debug.jks作成する。作成したdebug.jksの情報に変更する。debug.jksのパスワードは以下のように設定する
             def debugStoreFile = rootProject.file('debug.jks')
             if (debugStoreFile.exists()) {
                 keyAlias 'androiddebugkey'
@@ -142,5 +151,7 @@ flutter {
 }
 
 dependencies {
+    androidTestUtil "androidx.test:orchestrator:1.4.2"
+
     implementation 'com.android.support:multidex:1.0.3'
 }

@@ -1,7 +1,6 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
-import 'package:feature_wordlist/word_detail/word_detail_state.dart';
 import 'package:feature_wordlist/word_detail/word_detail_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,8 +29,10 @@ class WordDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
-      final vm = ref.watch(WordDetailProvider.notifier);
-
+      final vm = ref.watch(wordDetailProvider.notifier);
+      // DI speak
+      // tts 発音関数
+      Function speak = ref.read(ttsRepositoryProvider).speak;
       return AppBaseFrame(
         screenContext: context,
         hasPrevButton: true,
@@ -47,9 +48,6 @@ class WordDetailPage extends StatelessWidget {
           context.pop(true);
         },
         body: Consumer(builder: (context, ref, child) {
-          // tts 発音関数
-          Function speak = ref.read(ttsRepositoryProvider).speak;
-
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(

@@ -4,13 +4,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'shared_preference_repository.g.dart';
 
-/// [SharedPreferencesRepository]のProvider
-/// 合成起点で依存注入をされていない場合 [UnimplementedError] をスローする
+@Riverpod(keepAlive: true)
+SharedPreferences sharedPreferences(
+  SharedPreferencesRef ref,
+) {
+  throw UnimplementedError();
+}
+
+/// [SharedPreferencesRepository] を提供する Provider
+/// [SharedPreferencesRepository] は、[SharedPreferences] へのアクセスを提供するリポジトリ
 @Riverpod(keepAlive: true)
 SharedPreferencesRepository sharedPreferencesRepository(
   SharedPreferencesRepositoryRef ref,
 ) {
-  throw UnimplementedError();
+  final sharedPreferences = ref.watch(sharedPreferencesProvider);
+  return SharedPreferencesRepositoryImpl(sharedPreferences);
 }
 
 /// [SharedPreferencesRepository] の具象クラス
@@ -67,7 +75,7 @@ class SharedPreferencesRepositoryImpl implements SharedPreferencesRepository {
   Future<bool> remove(AppPrefsKey key) => _prefs.remove(key.value);
 }
 
-/// [SharedPreferences] のdata 操作を抽象化する Repository
+/// [SharedPreferences] へのアクセスを提供する抽象クラス
 abstract class SharedPreferencesRepository {
   // SharedPreferences に保存
   Future<bool> save<T>(AppPrefsKey key, T value);

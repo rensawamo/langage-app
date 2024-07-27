@@ -1,3 +1,4 @@
+import 'package:core_foundation/foundation.dart';
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
+              key: AppKeys.splash,
               padding: const EdgeInsets.all(10),
               width: MediaQuery.of(context).size.width * 0.5,
               decoration: const BoxDecoration(

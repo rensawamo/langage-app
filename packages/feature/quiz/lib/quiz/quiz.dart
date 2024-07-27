@@ -1,8 +1,8 @@
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_designsystem/designsystem.dart';
-import 'package:core_model/quiz/quiz_model.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
+import 'package:feature_quiz/quiz/quiz_state.dart';
 import 'package:feature_quiz/widget/quiz_page.dart';
 import 'quiz_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -19,18 +19,17 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext screenContext) {
     return Consumer(builder: (context, ref, child) {
-      final quizes = ref.watch(quizGetProvider.select((state) => state.quizzs));
-      final answers =
-          ref.watch(quizGetProvider.select((state) => state.answers));
-      final isLoading =
-          ref.watch(quizGetProvider.select((state) => state.isLoading));
+      final vm = ref.watch(quizGetProvider.notifier);
+      final state = ref.watch(quizGetProvider);
+      // DI
+      // speaking
+      final tts = ref.read(ttsRepositoryProvider);
 
       return AppBaseFrame(
           screenContext: screenContext,
           shouldRemoveFocus: true,
           title: AppLocalizations.of(context).quiz,
           initFrame: (context, ref) async {
-            final vm = ref.read(quizGetProvider.notifier);
             vm.questionCount = quizTopicType.extra;
             vm.quizTopicType = quizTopicType.quizTopicType;
             Locale appLocale = Localizations.localeOf(context);
@@ -40,50 +39,46 @@ class QuizPage extends StatelessWidget {
           body: Column(
             children: [
               Expanded(
-                child: isLoading
+                child: state.isLoading
                     ? const Center(child: CircularProgressIndicator())
-                    : quizes.isEmpty
+                    : state.quizzs.isEmpty
                         ? _empty(context)
-                        : _page(quizes, answers),
+                        : _page(state, vm, tts.speak),
               ),
             ],
           ));
     });
   }
 
-  Widget _page(List<Quiz> quizes, List<String> answers) {
-    return Consumer(builder: (context, ref, child) {
-      // TTS
-      final speak = ref.read(ttsRepositoryProvider).speak;
-      return PageView.builder(
-        itemCount: quizes.length,
-        physics: const NeverScrollableScrollPhysics(),
-        controller: ref.watch(quizGetProvider).controller,
-        itemBuilder: (context, index) {
-          final quiz = quizes[index];
-          return QuizScreenWidget(
-            quizes: quizes,
-            answers: answers,
-            sentences: ref.read(quizGetProvider).sentences,
-            translations: ref.read(quizGetProvider).translations,
-            pronunciations: ref.read(quizGetProvider).pronunciations,
-            isFavorites: ref.read(quizGetProvider).isFavorites,
-            scores: ref.read(quizGetProvider).scores,
-            isFinished: ref.read(quizGetProvider).isFinished,
-            index: index,
-            selectAns: ref.read(quizGetProvider.notifier).selectAns,
-            next: ref.read(quizGetProvider.notifier).nextQuestion,
-            speak: speak,
-            quiz: quiz,
-            count: quizes.length,
-            selected: ref.read(quizGetProvider).selected,
-            selected_ind: ref.read(quizGetProvider).selectedInd,
-            tatalScore: ref.read(quizGetProvider).totalScore,
-            quizTopicType: quizTopicType.quizTopicType,
-          );
-        },
-      );
-    });
+  Widget _page(QuizState state, QuizViewmodel vm, Function speak) {
+    return PageView.builder(
+      itemCount: state.quizzs.length,
+      physics: const NeverScrollableScrollPhysics(),
+      controller: state.controller,
+      itemBuilder: (context, index) {
+        final quiz = state.quizzs[index];
+        return QuizWidget(
+          quizes: state.quizzs,
+          answers: state.answers,
+          sentences: state.sentences,
+          translations: state.translations,
+          pronunciations: state.pronunciations,
+          isFavorites: state.isFavorites,
+          scores: state.scores,
+          isFinished: state.isFinished,
+          index: index,
+          selectAns: vm.selectAns,
+          next: vm.nextQuestion,
+          speak: speak,
+          quiz: quiz,
+          count: state.quizzs.length,
+          selected: state.selected,
+          selected_ind: state.selectedInd,
+          tatalScore: state.totalScore,
+          quizTopicType: quizTopicType.quizTopicType,
+        );
+      },
+    );
   }
 
   Widget _empty(BuildContext context) {

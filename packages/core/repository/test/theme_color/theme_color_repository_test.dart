@@ -1,3 +1,4 @@
+import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/shared_preferences/shared_preference_repository.dart';
 import 'package:core_repository/theme_color/theme_color_repository.dart';
 import 'package:core_test_util/test_util.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../helper/helper_test.mocks.dart';
 
 void main() {
@@ -24,7 +26,8 @@ void main() {
   group('ThemeColorRepository', () {
     test('最初によばれたときにnullがlocaldbから帰ってきたときに lightが適応されること', () async {
       // arrange
-      when(mockPrefsRepository.fetch(any)).thenReturn(null);
+      when(mockPrefsRepository.fetch(AppPrefsKey.configModeType))
+          .thenReturn(null);
 
       // act
       final themeNotifier =
@@ -35,7 +38,7 @@ void main() {
       expect(themeNotifier.state, ThemeMode.light);
     });
 
-    test('[正常形] setTheme]', () async {
+    test('setTheme should set theme to dark', () async {
       // arrange
       when(mockPrefsRepository.save(any, any)).thenAnswer((_) async => true);
 

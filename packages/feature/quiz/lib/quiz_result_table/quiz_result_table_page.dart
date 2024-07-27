@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-
 /// クイズの結果のテーブルページ
 class QuizResultTablePage extends StatelessWidget {
   final List<String> quizzes;
@@ -36,21 +35,22 @@ class QuizResultTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
+      final vm = ref.read(wordlistProvider.notifier);
+      // DI
+      // speaking
+      Function speak = ref.read(ttsRepositoryProvider).speak;
+
       return AppBaseFrame(
           screenContext: context,
           title: AppLocalizations.of(context).table,
           initFrame: (context, ref) async {
-            // お気に入りの初期設定
-            final vm = ref.read(WordlistProvider.notifier);
-
             // isFavoritesの初期設定
             vm.quizTopicType = topicType;
             // 初期設定
             await vm.init(isFavorites);
           },
           backOnTap: () {
-            final favoriteList = ref.watch(WordlistProvider).isFavorites;
-            logger.i(favoriteList);
+            final favoriteList = ref.watch(wordlistProvider).isFavorites;
             context.pop(favoriteList);
           },
           body: Padding(
@@ -61,7 +61,7 @@ class QuizResultTablePage extends StatelessWidget {
                 Expanded(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
-                    child: _buildDataTable(context),
+                    child: _buildDataTable(context, speak),
                   ),
                 ),
               ],
@@ -91,7 +91,7 @@ class QuizResultTablePage extends StatelessWidget {
   }
 
   // データ行を構築
-  Widget _buildDataTable(BuildContext context) {
+  Widget _buildDataTable(BuildContext context, Function speank) {
     return Table(
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       children: [
@@ -108,7 +108,7 @@ class QuizResultTablePage extends StatelessWidget {
               TableCell(
                   child: _buildSubtitleCell(
                       context, topicType, scores[index], index)),
-              TableCell(child: _buildVoiceCell(context, index)),
+              TableCell(child: _buildVoiceCell(context, index, speank)),
               TableCell(
                   child: _buildFavoriteCell(
                       context,
@@ -126,25 +126,19 @@ class QuizResultTablePage extends StatelessWidget {
     );
   }
 
-  Widget _buildVoiceCell(
-    BuildContext context,
-    int index,
-  ) =>
-      Consumer(builder: (context, ref, child) {
-        final Function speak = ref.read(ttsRepositoryProvider).speak;
-        return Container(
-          color: index % 2 == 0
-              ? AppColorsSet.getTableOddRowColor(context)
-              : AppColorsSet.getTableEvenRowColor(context),
-          height: 65,
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.center,
-          child: IconButton(
-            icon: const Icon(Icons.volume_up, color: Colors.blue),
-            onPressed: () => speak(quizzes[index]),
-          ),
-        );
-      });
+  Widget _buildVoiceCell(BuildContext context, int index, Function speak) =>
+      Container(
+        color: index % 2 == 0
+            ? AppColorsSet.getTableOddRowColor(context)
+            : AppColorsSet.getTableEvenRowColor(context),
+        height: 65,
+        padding: const EdgeInsets.all(8),
+        alignment: Alignment.center,
+        child: IconButton(
+          icon: const Icon(Icons.volume_up, color: Colors.blue),
+          onPressed: () => speak(quizzes[index]),
+        ),
+      );
 
   Widget _buildFavoriteCell(
           BuildContext context,
@@ -156,9 +150,9 @@ class QuizResultTablePage extends StatelessWidget {
           String pronunciation,
           QuizTopicType quizTopicType) =>
       Consumer(builder: (context, ref, child) {
-        final vm = ref.read(WordlistProvider.notifier);
+        final vm = ref.read(wordlistProvider.notifier);
         // お気に入り
-        final isFavorites = ref.watch(WordlistProvider).isFavorites;
+        final isFavorites = ref.watch(wordlistProvider).isFavorites;
         return Container(
           color: index % 2 == 0
               ? AppColorsSet.getTableOddRowColor(context)

@@ -1,14 +1,14 @@
 import 'package:core_designsystem/designsystem.dart';
+import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result/quiz_result_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// [QuizResultPageViewmodel] のProvider
-
-final quizReultPageProvider = StateNotifierProvider.autoDispose<
+final quizResultPageProvider = StateNotifierProvider.autoDispose<
     QuizResultPageViewmodel, QuizResultPageState>(
   (ref) {
-    return QuizResultPageViewmodelImpl(
+    return QuizResultPageViewmodel(
       QuizResultPageState(
         isFavorites: [],
         scores: [],
@@ -18,49 +18,34 @@ final quizReultPageProvider = StateNotifierProvider.autoDispose<
   },
 );
 
-/// [QuizResultPageViewmodel] の具象クラス
-class QuizResultPageViewmodelImpl extends QuizResultPageViewmodel {
-  QuizResultPageViewmodelImpl(QuizResultPageState state) : super(state);
-  @override
+/// [QuizResultPageState] のを監視するViewmodel
+class QuizResultPageViewmodel extends StateNotifier<QuizResultPageState> {
+  QuizResultPageViewmodel(QuizResultPageState state) : super(state);
+
+  late List<bool> isFavorites;
+
   Future<void> init(
       BuildContext context, List<bool?> scores, List<bool> isFavorite) async {
     state = state.copyWith(isLoading: true);
 
     // bool を String に変換
-    List<String> ConvertedScores = scores.map((e) {
+    List<String> convertedScores = scores.map((e) {
       if (e == null) {
         return AppLocalizations.of(context).noselect;
       } else if (e == true) {
         return AppLocalizations.of(context).correct;
-      } else if (e == false) {
+      } else {
         return AppLocalizations.of(context).wrong;
       }
-      return e.toString();
     }).toList();
 
+    logger.i(convertedScores);
+
     state = state.copyWith(
-        scores: ConvertedScores, isFavorites: isFavorite, isLoading: false);
+        scores: convertedScores, isFavorites: isFavorite, isLoading: false);
   }
 
-  @override
   void updateFavorite(List<bool> isFavorite) {
     state = state.copyWith(isFavorites: isFavorite);
   }
-}
-
-/// [QuizResultPageState]を管理する抽象クラス
-/// [isFavorite] でお気に入りの状態を管理
-abstract class QuizResultPageViewmodel
-    extends StateNotifier<QuizResultPageState> {
-  QuizResultPageViewmodel(
-    super.state,
-  );
-  late List<bool> isFavorite;
-
-  // isFavoriteを List<bool> で受け取り、Stringに変換して state を更新
-  Future<void> init(
-      BuildContext context, List<bool?> scores, List<bool> isFavorite);
-
-  // お気に入りの更新
-  void updateFavorite(List<bool> isFavorite);
 }
