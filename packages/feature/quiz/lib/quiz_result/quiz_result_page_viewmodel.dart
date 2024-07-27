@@ -1,4 +1,5 @@
 import 'package:core_designsystem/designsystem.dart';
+import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result/quiz_result_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +18,7 @@ final quizResultPageProvider = StateNotifierProvider.autoDispose<
   },
 );
 
-/// [QuizResultPageViewmodel] の具象クラス
+/// [QuizResultPageState] のを監視するViewmodel
 class QuizResultPageViewmodel extends StateNotifier<QuizResultPageState> {
   QuizResultPageViewmodel(QuizResultPageState state) : super(state);
 
@@ -37,6 +38,8 @@ class QuizResultPageViewmodel extends StateNotifier<QuizResultPageState> {
         return AppLocalizations.of(context).wrong;
       }
     }).toList();
+
+    logger.i(convertedScores);
 
     state = state.copyWith(
         scores: convertedScores, isFavorites: isFavorite, isLoading: false);

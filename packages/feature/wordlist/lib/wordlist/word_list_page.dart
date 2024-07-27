@@ -65,7 +65,7 @@ class WordListPage extends StatelessWidget {
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             subtitle: Text(
-                              state.isFavorites[index].toString(),
+                              state.answers[index],
                               style: TextStyle(fontSize: 16),
                             ),
                             trailing: IconButton(
