@@ -50,49 +50,49 @@ class QuizGetAllDaoImpl implements QuizGetAllDao {
     switch (request.quizTopicType) {
       case QuizTopicType.adjective:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesJa);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerAdjectivesJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdjectivesEn);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerAdjectivesEn);
         }
         break;
 
       case QuizTopicType.adverb:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdversJa);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerAdversJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerAdversEn);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerAdversEn);
         }
         break;
 
       case QuizTopicType.verb:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbsJa);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBeginnerVerbsJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerVerbsEn);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBeginnerVerbsEn);
         }
         break;
 
       case QuizTopicType.noun:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNounsJa);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerNounsJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerNounsEn);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerNounsEn);
         }
         break;
 
       case QuizTopicType.pronoun:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronounsJa);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBeginnerPronounsJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBeginnerPronounsEn);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBeginnerPronounsEn);
         }
         break;
 
       case QuizTopicType.greet:
         if (request.language == 'ja') {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreetsJa);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerGreetsJa);
         } else {
-          quizzes = List<Quiz>.from(AppQuizData.korianBiginnerGreetsEn);
+          quizzes = List<Quiz>.from(AppKoBeginnerQuizData.korianBiginnerGreetsEn);
         }
         break;
 

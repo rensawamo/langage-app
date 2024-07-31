@@ -2,7 +2,6 @@ import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
-import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +41,7 @@ class QuizResultTablePage extends StatelessWidget {
 
       return AppBaseFrame(
           screenContext: context,
+          hasPrevButton: true,
           title: AppLocalizations.of(context).table,
           initFrame: (context, ref) async {
             // isFavoritesの初期設定
@@ -54,6 +54,7 @@ class QuizResultTablePage extends StatelessWidget {
             context.pop(favoriteList);
           },
           body: Padding(
+            key: AppKeys.quizResultTable,
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
@@ -100,14 +101,14 @@ class QuizResultTablePage extends StatelessWidget {
           (index) => TableRow(
             children: [
               TableCell(
-                  child: _buildSubtitleCell(
-                      context, topicType, quizzes[index], index)),
+                  child: _buildSubtitleCell(context, topicType, quizzes[index],
+                      index, AppKeys.quizResultRow1)),
               TableCell(
-                  child: _buildSubtitleCell(
-                      context, topicType, answers[index], index)),
+                  child: _buildSubtitleCell(context, topicType, answers[index],
+                      index, AppKeys.quizResultRow2)),
               TableCell(
-                  child: _buildSubtitleCell(
-                      context, topicType, scores[index], index)),
+                  child: _buildSubtitleCell(context, topicType, scores[index],
+                      index, AppKeys.quizResultRow3)),
               TableCell(child: _buildVoiceCell(context, index, speank)),
               TableCell(
                   child: _buildFavoriteCell(
@@ -161,6 +162,7 @@ class QuizResultTablePage extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           alignment: Alignment.center,
           child: IconButton(
+            key: AppKeys.quizStar,
             icon: Icon(
               isFavorites[index] ? Icons.star : Icons.star_border,
               color: isFavorites[index] ? Colors.orange : Colors.grey,
@@ -185,7 +187,7 @@ class QuizResultTablePage extends StatelessWidget {
       );
 
   Widget _buildSubtitleCell(BuildContext context, QuizTopicType quizTopicType,
-          String text, int index) =>
+          String text, int index, Key key) =>
       Container(
         color: index % 2 == 0
             ? AppColorsSet.getTableOddRowColor(context)
@@ -195,6 +197,7 @@ class QuizResultTablePage extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           text,
+          key: key,
           textAlign: TextAlign.left,
           style: quizTopicType == QuizTopicType.greet
               ? AppTextStyles.caption2(context,

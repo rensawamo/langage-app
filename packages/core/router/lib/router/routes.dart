@@ -12,6 +12,8 @@ mixin Routes {
   static const String quizSelect = '/quizSelect';
   static const String quiz = 'quiz';
   static const String quizResult = 'quizResult';
+  static const String quizResultTable = 'quizResultTable';
+
 
   /////// bottom tab3   ///////
   static const String favorite = '/favorite';

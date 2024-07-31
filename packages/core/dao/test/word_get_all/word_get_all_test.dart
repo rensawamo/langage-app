@@ -86,15 +86,15 @@ void main() {
 
     // Assert
     expect(
-        response.words.length, AppQuizData.korianBiginnerAdjectivesJa.length);
+        response.words.length, AppKoBeginnerQuizData.korianBiginnerAdjectivesJa.length);
     expect(response.sentences.length,
-        AppQuizData.korianBiginnerAdjectivesJa.length);
+        AppKoBeginnerQuizData.korianBiginnerAdjectivesJa.length);
     expect(response.translations.length,
-        AppQuizData.korianBiginnerAdjectivesJa.length);
+        AppKoBeginnerQuizData.korianBiginnerAdjectivesJa.length);
     expect(response.pronunciations.length,
-        AppQuizData.korianBiginnerAdjectivesJa.length);
+        AppKoBeginnerQuizData.korianBiginnerAdjectivesJa.length);
     expect(response.isFavorites.length,
-        AppQuizData.korianBiginnerAdjectivesJa.length);
+        AppKoBeginnerQuizData.korianBiginnerAdjectivesJa.length);
     verify(mockQuizFavoriteSqlRepository
         .getTopicWords(QuizTopicType.adjective.name));
   });

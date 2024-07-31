@@ -1,4 +1,5 @@
 import 'package:core_designsystem/designsystem.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,11 +21,15 @@ class AppNavigationBar extends StatelessWidget {
         selectedIndex: navigationShell.currentIndex,
         destinations: [
           NavigationDestination(
-              icon: Icon(Icons.book), label: AppLocalizations.of(context).word),
+              key: AppKeys.wordbar,
+              icon: Icon(Icons.book),
+              label: AppLocalizations.of(context).word),
           NavigationDestination(
+              key: AppKeys.quizbar,
               icon: Icon(Icons.quiz),
               label: AppLocalizations.of(context).question),
           NavigationDestination(
+              key: AppKeys.settingbar,
               icon: Icon(Icons.settings),
               label: AppLocalizations.of(context).setting),
         ],

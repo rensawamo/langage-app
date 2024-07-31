@@ -55,7 +55,6 @@ class WordListViewmodel extends StateNotifier<WordListState> {
       language: language,
     ))
         .then((response) {
-      print(response.answers);
       state = state.copyWith(
           quizzes: response.words,
           answers: response.answers,
@@ -72,7 +71,7 @@ class WordListViewmodel extends StateNotifier<WordListState> {
 
   /// [QuizFavoriteSqlRepository] お気に入り更新
   /// タップでお気に入りの更新を行う
-  void updateFavorite(
+  Future<void> updateFavorite(
       int index,
       String text,
       String answer,

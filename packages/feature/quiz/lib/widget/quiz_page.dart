@@ -62,7 +62,6 @@ class QuizWidget extends StatelessWidget {
     return Scaffold(
       body: isFinished
           ? QuizResultPage(
-              speak: speak,
               quizzes: quizes.map((e) => e.text).toList(),
               answers: answers,
               sentences: sentences,
@@ -79,6 +78,7 @@ class QuizWidget extends StatelessWidget {
               children: [
                 Text(
                   'Quiz ${index + 1}',
+                  key: AppKeys.quizIndex,
                   style: AppTextStyles.body(context),
                 ),
                 SizedBox(
@@ -135,6 +135,7 @@ class QuizWidget extends StatelessWidget {
                     itemCount: quiz.options.length,
                     itemBuilder: (context, index1) {
                       return Padding(
+                        key: AppKeys.quizTyles,
                         padding: const EdgeInsets.only(bottom: 5),
                         child: AppQuizbuttonWidget(
                           selectAns: selectAns,

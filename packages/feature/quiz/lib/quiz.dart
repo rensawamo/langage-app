@@ -3,6 +3,5 @@
 /// More dartdocs go here.
 library;
 
-export 'quiz_select/quiz_select_page.dart';
-
+export 'quiz/quiz_viewmodel.dart';
 // TODO: Export any libraries intended for clients of this package.

@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_foundation/foundation.dart';
 import 'package:feature_quiz/quiz/quiz.dart';
+import 'package:feature_quiz/quiz_result/quiz_result_page.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page.dart';
 import 'package:feature_quiz/quiz_select/quiz_select_page.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,52 @@ class QuizPageData extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     return QuizPage(
         quizTopicType: TopicParam(quizTopicType: topicParam, extra: extra));
+  }
+}
+
+// quiz result page
+class QuizResultPageData extends GoRouteData {
+  final int totalScore;
+  final int count;
+  final List<String> quizzes;
+  final List<String> answers;
+  final List<String> sentences;
+  final List<String> translations;
+  final List<String> pronunciations;
+  final List<bool> isFavorites;
+  final List<bool?> scores;
+  final QuizTopicType topicType;
+  final AppTextSizeType? textType;
+
+  const QuizResultPageData({
+   this.totalScore = 0,
+    this.count = 0,
+    this.quizzes = const [],
+    this.answers = const [],
+    this.sentences = const [],
+    this.translations = const [],
+    this.pronunciations = const [],
+    this.isFavorites = const [],
+    this.scores = const [],
+    required this.topicType,
+    required this.textType,
+  });
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return QuizResultPage(
+      totalScore: totalScore,
+      count: count,
+      quizzes: quizzes,
+      answers: answers,
+      sentences: sentences,
+      translations: translations,
+      pronunciations: pronunciations,
+      isFavorites: isFavorites,
+      scores: scores,
+      topicType: topicType,
+      textType: textType,
+    );
   }
 }
 

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// [QuizViewmodel]のProvider
-final quizGetProvider =
+final quizProvider =
     StateNotifierProvider.autoDispose<QuizViewmodel, QuizState>(
   (ref) {
     return QuizViewmodel(
@@ -87,11 +87,6 @@ class QuizViewmodel extends StateNotifier<QuizState> {
     // PageControllerをリセット
     state.controller.jumpToPage(0);
     // その他の初期化処理...
-  }
-
-  /// 一覧クリア
-  void clearList() {
-    state = state.copyWith(quizzs: []);
   }
 
   /// クイズの質問の移動

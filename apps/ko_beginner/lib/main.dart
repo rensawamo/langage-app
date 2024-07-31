@@ -16,6 +16,7 @@ Future<void> main() async {
   // DI 合成起点
   // SharedPreferences の初期化
   final sharedPreferences = await SharedPreferences.getInstance();
+  // SecureStorage の初期化
   final flutterSecureStorage = FlutterSecureStorage();
 
   /// Firebase

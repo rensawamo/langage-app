@@ -9,5 +9,5 @@ brew install fvm
 fvm install 3.22.2
 fvm use 3.22.2
 fvm dart pub global activate melos
-melos bootstrap
+fvm dart pub global run melos bootstrap
 make dev
