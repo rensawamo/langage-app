@@ -1,3 +1,19 @@
+# 概要
+
+### 一つのリポジトリで何種類もの言語アプリを開発します
+
+
+ハングル初級 iosリリース済み(ja/en) → english 初級 → ハングル日常会話編 → korian中級 → korian上級(ハン検2級相当) 
+
+※ アンドロイドはテスター要件が厳しいのでiOSアプリの反応を見て決める。
+
+
+![wordlist](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+
 
 # ビルド
 ※ apps側で個人のfirebaseの完了前提
