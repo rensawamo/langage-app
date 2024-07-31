@@ -48,6 +48,7 @@ root
 │          └── setting
 │          └── splash
 │          └── wordlist
+│
 ├── melos.yaml  
 ├── pubspec.yaml 
 └── README.md
