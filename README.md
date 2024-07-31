@@ -1,22 +1,24 @@
-# 概要
+# さまざまな言語アプリをモノレポで管理する。
 
-### 一つのリポジトリで何種類もの言語アプリを開発します
+# 狙い
+・売れるアプリを開発する
+
+・seo学習
+
+・A/Bテスト
+
+・アナリティクス分析
+
+・自分の言語平行学習
 
 
-ハングル初級 iosリリース済み(ja/en) → english 初級 → ハングル日常会話編 → korian中級 → korian上級(ハン検2級相当) 
+# 韓国語初級
+[iOS 版](https://apps.apple.com/jp/app/%E9%9F%93%E5%9B%BD%E8%AA%9E%E5%88%9D%E7%B4%9A/id6503278804)
 
-※ アンドロイドはテスター要件が厳しいのでiOSアプリの反応を見て決める。
-
-
-![wordlist](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
+![image](https://github.com/user-attachments/assets/76244c6d-0fac-4a98-abd7-27630be726a6)
 
 
 # ビルド
-※ apps側で個人のfirebaseの完了前提
 
 ```sh
 $ make bs
