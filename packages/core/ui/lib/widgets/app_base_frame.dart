@@ -26,7 +26,7 @@ class AppBaseFrame extends ConsumerStatefulWidget {
   /// [backButtonKey]戻るボタンにセットするWidget Key
   /// [didPopEvent]didPopでハンドリングできる画面再表示イベント
   const AppBaseFrame(
-      {super.key,
+      {
       required this.body,
       required this.screenContext,
       this.initFrame,

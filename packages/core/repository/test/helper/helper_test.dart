@@ -17,5 +17,4 @@ import 'package:sqflite/sqflite.dart';
 @GenerateNiceMocks([MockSpec<Database>()])
 @GenerateNiceMocks([MockSpec<QuizFavoriteSql>()])
 
-
 void main() {}

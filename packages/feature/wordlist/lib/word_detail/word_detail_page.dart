@@ -40,7 +40,6 @@ class WordDetailPage extends StatelessWidget {
         title: AppLocalizations.of(context).word,
         initFrame: (context, ref) async {
           // お気に入りの初期設定
-
           // 初期設定
           await vm.init(isFavorite);
         },
@@ -58,6 +57,7 @@ class WordDetailPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.25,
                     child: Card(
+                      key: AppKeys.wordDetail,
                       color: Colors.white,
                       elevation: 4.0,
                       shape: RoundedRectangleBorder(

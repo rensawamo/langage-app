@@ -13,6 +13,7 @@ final _nativeAutomatorConfig = NativeAutomatorConfig(
 
 
 Future<void> createApp(PatrolIntegrationTester $) async {
+
   await app_main.main();
   await $.pumpAndSettle();
 }

@@ -51,7 +51,7 @@ class WordListPage extends StatelessWidget {
                     itemCount: state.quizzes.length,
                     itemBuilder: (context, index) {
                       return Card(
-                          key: Key('word_list_card_$index'),
+                          key: AppKeys.wordList,
                           margin: EdgeInsets.symmetric(
                               vertical: 8.0, horizontal: 16.0),
                           child: ListTile(
@@ -70,6 +70,7 @@ class WordListPage extends StatelessWidget {
                             ),
                             trailing: IconButton(
                               icon: Icon(
+                                key: AppKeys.wordListStar,
                                 Icons.star,
                                 color: state.isFavorites[index]
                                     ? Colors.orange

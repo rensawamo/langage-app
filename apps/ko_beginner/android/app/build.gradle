@@ -20,7 +20,7 @@ task copyIcons(type: Copy) {
     into 'src/main/res'
 }
 task copyFirebaseSource(type: Copy) {
-    from "src/firebase/${dartEnvironmentVariables.FLAVOR}-google-services.json"
+    from "src/${dartEnvironmentVariables.FLAVOR}/google-services.json"
     into './'
     rename { String fileName ->
         fileName = "google-services.json"
@@ -100,11 +100,11 @@ android {
             applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
         }
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         resValue "string", "app_name", (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : "${dartEnvironmentVariables.FLAVOR}.") +
-                "KoBeginner"
+                "Ko_beginner"
     }
 
     signingConfigs {

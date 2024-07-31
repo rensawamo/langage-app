@@ -48,6 +48,10 @@ RouteBase get $appShellRouteData => StatefulShellRouteData.$route(
                 ),
                 GoRouteData.$route(
                   path: 'quizResult',
+                  factory: $QuizResultPageDataExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'quizResultTable',
                   factory: $QuizResultTablePageDataExtension._fromState,
                 ),
               ],
@@ -205,6 +209,85 @@ extension $QuizPageDataExtension on QuizPageData {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $QuizResultPageDataExtension on QuizResultPageData {
+  static QuizResultPageData _fromState(GoRouterState state) =>
+      QuizResultPageData(
+        totalScore: _$convertMapValue(
+                'total-score', state.uri.queryParameters, int.parse) ??
+            0,
+        count:
+            _$convertMapValue('count', state.uri.queryParameters, int.parse) ??
+                0,
+        quizzes:
+            state.uri.queryParametersAll['quizzes']?.map((e) => e).toList() ??
+                const [],
+        answers:
+            state.uri.queryParametersAll['answers']?.map((e) => e).toList() ??
+                const [],
+        sentences:
+            state.uri.queryParametersAll['sentences']?.map((e) => e).toList() ??
+                const [],
+        translations: state.uri.queryParametersAll['translations']
+                ?.map((e) => e)
+                .toList() ??
+            const [],
+        pronunciations: state.uri.queryParametersAll['pronunciations']
+                ?.map((e) => e)
+                .toList() ??
+            const [],
+        isFavorites: state.uri.queryParametersAll['is-favorites']
+                ?.map(_$boolConverter)
+                .toList() ??
+            const [],
+        scores: state.uri.queryParametersAll['scores']
+                ?.map(_$boolConverter)
+                .toList() ??
+            const [],
+        topicType: _$QuizTopicTypeEnumMap
+            ._$fromName(state.uri.queryParameters['topic-type']!),
+        textType: _$convertMapValue('text-type', state.uri.queryParameters,
+            _$AppTextSizeTypeEnumMap._$fromName),
+      );
+
+  String get location => GoRouteData.$location(
+        '/quizSelect/quizResult',
+        queryParams: {
+          if (totalScore != 0) 'total-score': totalScore.toString(),
+          if (count != 0) 'count': count.toString(),
+          if (quizzes != const []) 'quizzes': quizzes.map((e) => e).toList(),
+          if (answers != const []) 'answers': answers.map((e) => e).toList(),
+          if (sentences != const [])
+            'sentences': sentences.map((e) => e).toList(),
+          if (translations != const [])
+            'translations': translations.map((e) => e).toList(),
+          if (pronunciations != const [])
+            'pronunciations': pronunciations.map((e) => e).toList(),
+          if (isFavorites != const [])
+            'is-favorites': isFavorites.map((e) => e.toString()).toList(),
+          if (scores != const [])
+            'scores': scores.map((e) => e!.toString()).toList(),
+          'topic-type': _$QuizTopicTypeEnumMap[topicType],
+          if (textType != null)
+            'text-type': _$AppTextSizeTypeEnumMap[textType!],
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+const _$AppTextSizeTypeEnumMap = {
+  AppTextSizeType.middle: 'middle',
+  AppTextSizeType.large: 'large',
+  AppTextSizeType.exLarge: 'ex-large',
+};
+
 extension $QuizResultTablePageDataExtension on QuizResultTablePageData {
   static QuizResultTablePageData _fromState(GoRouterState state) =>
       QuizResultTablePageData(
@@ -237,7 +320,7 @@ extension $QuizResultTablePageDataExtension on QuizResultTablePageData {
       );
 
   String get location => GoRouteData.$location(
-        '/quizSelect/quizResult',
+        '/quizSelect/quizResultTable',
         queryParams: {
           if (quizzes != const []) 'quizzes': quizzes.map((e) => e).toList(),
           if (answers != const []) 'answers': answers.map((e) => e).toList(),
@@ -296,6 +379,15 @@ bool _$boolConverter(String value) {
     default:
       throw UnsupportedError('Cannot convert "$value" into a bool.');
   }
+}
+
+T? _$convertMapValue<T>(
+  String key,
+  Map<String, String> map,
+  T Function(String) converter,
+) {
+  final value = map[key];
+  return value == null ? null : converter(value);
 }
 
 RouteBase get $topRouteData => GoRouteData.$route(

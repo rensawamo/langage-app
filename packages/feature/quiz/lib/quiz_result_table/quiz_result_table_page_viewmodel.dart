@@ -1,6 +1,7 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_repository/sql/quiz_favorite_sql/quiz_favorite_sql_repository.dart';
+import 'package:core_utility/utility.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -34,7 +35,7 @@ class QuizResultTablePageViewmodel extends StateNotifier<QuizResultTablePageStat
   }
 
   /// お気に入りの更新
-  void updateFavorite(
+  Future<void> updateFavorite(
     int index,
     String text,
     String answer,
@@ -47,6 +48,8 @@ class QuizResultTablePageViewmodel extends StateNotifier<QuizResultTablePageStat
     List<bool> isFavorites = List.from(state.isFavorites);
     state =
         state.copyWith(isFavorites: isFavorites..[index] = !isFavorites[index]);
+
+        logger.i(state.isFavorites);
 
     final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
 

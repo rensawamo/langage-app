@@ -32,6 +32,7 @@ class QuizNextButton extends StatelessWidget {
             }
           },
           child: Container(
+            key: AppKeys.quizNextButton,
             // height: 58,
             padding: EdgeInsets.only(
               left: 48.0,

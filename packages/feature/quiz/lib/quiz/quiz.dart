@@ -1,5 +1,6 @@
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_designsystem/designsystem.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz/quiz/quiz_state.dart';
@@ -19,8 +20,8 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext screenContext) {
     return Consumer(builder: (context, ref, child) {
-      final vm = ref.watch(quizGetProvider.notifier);
-      final state = ref.watch(quizGetProvider);
+      final vm = ref.watch(quizProvider.notifier);
+      final state = ref.watch(quizProvider);
       // DI
       // speaking
       final tts = ref.read(ttsRepositoryProvider);
@@ -52,6 +53,7 @@ class QuizPage extends StatelessWidget {
 
   Widget _page(QuizState state, QuizViewmodel vm, Function speak) {
     return PageView.builder(
+      key: AppKeys.quiz,
       itemCount: state.quizzs.length,
       physics: const NeverScrollableScrollPhysics(),
       controller: state.controller,

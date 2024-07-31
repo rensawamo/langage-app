@@ -41,6 +41,7 @@ class QuizSelectPage extends StatelessWidget {
                       Colors.blue,
                       '',
                       QuizTopicType.adjective,
+                      AppKeys.quizAdjective,
                     ),
                     _buildTopicCard(
                         context,
@@ -48,35 +49,40 @@ class QuizSelectPage extends StatelessWidget {
                         AppLocalizations.of(context).adverb,
                         Colors.green,
                         '',
-                        QuizTopicType.adverb),
+                        QuizTopicType.adverb,
+                        AppKeys.quizAdverb),
                     _buildTopicCard(
                         context,
                         Icons.directions_run,
                         AppLocalizations.of(context).verb,
                         Colors.red,
                         '',
-                        QuizTopicType.verb),
+                        QuizTopicType.verb,
+                        AppKeys.quizVerb),
                     _buildTopicCard(
                         context,
                         Icons.category,
                         AppLocalizations.of(context).noun,
                         Colors.purple,
                         '',
-                        QuizTopicType.noun),
+                        QuizTopicType.noun,
+                        AppKeys.quizNoun),
                     _buildTopicCard(
                         context,
                         Icons.person,
                         AppLocalizations.of(context).pronoun,
                         Colors.grey,
                         '',
-                        QuizTopicType.pronoun),
+                        QuizTopicType.pronoun,
+                        AppKeys.quizPronoun),
                     _buildTopicCard(
                         context,
                         Icons.handshake,
                         AppLocalizations.of(context).greet,
                         Colors.orange,
                         '',
-                        QuizTopicType.greet),
+                        QuizTopicType.greet,
+                        AppKeys.quizGreeting),
                   ],
                 ),
               ),
@@ -87,9 +93,16 @@ class QuizSelectPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTopicCard(BuildContext context, IconData icon, String title,
-      MaterialColor color, String subtitle, QuizTopicType quizTopicType) {
+  Widget _buildTopicCard(
+      BuildContext context,
+      IconData icon,
+      String title,
+      MaterialColor color,
+      String subtitle,
+      QuizTopicType quizTopicType,
+      Key key) {
     return Card(
+      key: key,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),

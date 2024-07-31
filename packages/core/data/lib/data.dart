@@ -1,4 +1,4 @@
 library;
 
-export 'beginner/beginner_question.dart';
+export 'ko_beginner/beginner_question.dart';
 
