@@ -4,7 +4,6 @@ import 'package:core_router/data/setting/setting_page_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:core_router/observer/transition_observer.dart';
 import 'package:core_router/router/routes.dart';
-import 'package:feature_quiz/quiz_result/quiz_result_page.dart';
 import 'package:feature_splash/splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

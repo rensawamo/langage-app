@@ -46,6 +46,7 @@ class WordListViewmodel extends StateNotifier<WordListState> {
   /// [QuizGetAllDao]からクイズリストを取得
   Future<void> getQuizList(QuizTopicType quizTopicType) async {
     state = state.copyWith(isLoading: true);
+    // DI
     final dao = ref.read(wordGetAllDaoProviderProvider);
     dao
         .getWordList(WordGetAllRequest(

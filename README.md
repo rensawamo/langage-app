@@ -22,6 +22,7 @@
 
 ```sh
 $ make bs
+$ make dev APP=ko_beginner
 ```
 
 # ディレクトリ構造

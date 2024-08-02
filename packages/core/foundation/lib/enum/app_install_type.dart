@@ -4,15 +4,18 @@ enum AppInstallType {
   none,
   // 韓国語 ビギナー
   koreanBeginner,
-  // 韓国語
+  // 英語 ビギナー
+  englishBeginner,
 }
 
 extension QuizInstalltypeExtension on AppInstallType {
-  // tls 用
+  // tls 用 の言語設定
   String get ftsSetting {
     switch (this) {
       case AppInstallType.koreanBeginner:
         return 'ko-KR';
+      case AppInstallType.englishBeginner:
+        return 'en-US';
       default:
         return 'ja-JP';
     }

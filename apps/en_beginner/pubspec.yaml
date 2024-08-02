@@ -1,0 +1,84 @@
+name: en_beginner
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.1.4+2
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  go_router: ^14.0.2
+
+  core_dao:
+    path: ../../packages/core/dao
+  core_data:
+    path: ../../packages/core/data
+  core_ui:
+    path: ../../packages/core/ui
+  core_foundation:
+    path: ../../packages/core/foundation
+  core_utility:
+    path: ../../packages/core/utility
+  core_router:
+    path: ../../packages/core/router
+  core_designsystem:
+    path: ../../packages/core/designsystem
+  core_repository:
+    path: ../../packages/core/repository
+  core_test_util:
+    path: ../../packages/core/test_util
+
+
+  #  feature
+  feature_setting:
+    path: ../../packages/feature/setting
+  feature_quiz:
+    path: ../../packages/feature/quiz
+  flutter_riverpod: ^2.5.1
+  firebase_core: ^3.2.0
+  firebase_crashlytics: ^4.0.2
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.2
+  flutter_localization: ^0.2.0
+  flutter_gen: ^5.6.0
+  mockito: ^5.4.4
+  permission_handler: ^11.3.1
+
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+  patrol: ^3.7.2
+  patrol_finders: 2.1.2
+
+
+
+
+flutter:
+  assets:
+    - assets/
+    - ./assets/images/ko_national_flag.png
+    - ./assets/images/ko_national_dark.png
+  uses-material-design: true
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/launcher_icons/$(FLAVOR).png"
+
+
+patrol:
+  app_name: patrol_integ
+  android:
+    package_name: com.example.patrol_integ
+  ios:
+    bundle_id: com.example.patrolInteg

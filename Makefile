@@ -8,17 +8,17 @@ bs:
 # flavor dev
 .PHONY: dev
 dev:
-	cd apps/ko_beginner && $(FLUTTER) run --debug --dart-define=FLAVOR=dev
+	cd apps/$(APP) && $(FLUTTER) run --debug --dart-define=FLAVOR=dev
 
 # flavor prd
 .PHONY: prod
 prod:
-	cd apps/ko_beginner && $(FLUTTER)  run --debug --dart-define=FLAVOR=prod
+	cd apps/$(APP) && $(FLUTTER)  run --debug --dart-define=FLAVOR=prod
 
 # アイコンを作成
 .PHONY: icon
 icon:
-	cd apps/ko_beginner && $(FLUTTER) pub run flutter_launcher_icons:main
+	cd apps/$(APP) && $(FLUTTER) pub run flutter_launcher_icons:main
 
 # test
 .PHONY: test
@@ -30,13 +30,13 @@ test:
 # [Android] リリースビルド(難読)
 .PHONY: release_build_android
 release_build_android:
-	cd apps/ko_beginner && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
+	cd apps/$(APP) && $(FLUTTER) build appbundle --release  --obfuscate --split-debug-info=obfuscate/android --dart-define=FLAVOR=prod
 
 
 # [iOS] リリースビルド(難読)
 .PHONY: release_build_ios
 release_build_ios:
-	cd apps/ko_beginner && $(FLUTTER)  build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist
+	cd apps/$(APP) && $(FLUTTER)  build ipa --release --obfuscate --split-debug-info=obfuscate/ios --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist
 
 
 # integration test
