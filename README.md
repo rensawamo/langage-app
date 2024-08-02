@@ -22,7 +22,7 @@
 
 ```sh
 $ make bs
-$ make dev APP=ko_beginner
+$ make dev APP=ko_beginner 
 ```
 
 # ディレクトリ構造
@@ -30,7 +30,7 @@ $ make dev APP=ko_beginner
 ```sh
 root
 ├── apps                           --- アプリ本体
-│   │  
+│   
 ├── packages
 │   ├──  core
 │   │      ├── dao                 --- infraにデータアクセスするオブジェクト
@@ -49,6 +49,7 @@ root
 │          └── setting
 │          └── splash
 │          └── wordlist
+│
 ├── melos.yaml  
 ├── pubspec.yaml 
 └── README.md
