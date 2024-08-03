@@ -14,6 +14,7 @@ void main() {
   late ProviderContainer container;
   late MockSharedPreferencesRepositoryImpl mockSharedPreferencesRepository;
   late MockQuizFavoriteSqlRepository mockQuizFavoriteSqlRepository;
+  late QuizGetAllDao quizDao;
 
   setUp(() {
     mockSharedPreferencesRepository = MockSharedPreferencesRepositoryImpl();
@@ -25,61 +26,67 @@ void main() {
       quizFavoriteSqlRepositoryProvider
           .overrideWithValue(mockQuizFavoriteSqlRepository),
     ]);
+    quizDao = container.read(quizGetAllDaoProvider);
 
     // appSettingInfoProvider が AppInstallType.koreanBeginner を返すように設定
     when(mockSharedPreferencesRepository.fetch<int>(any))
         .thenReturn(AppInstallType.koreanBeginner.index);
   });
 
-  test('[正常形] getQuizList', () async {
-    // Arrange
-    when(mockQuizFavoriteSqlRepository.getTopicWords(any))
-        .thenAnswer((_) async => ['text1', 'text2']);
+  group("quizGetAllDaoProvider", () {
+    test('[正常形] getQuizList', () async {
+      // Arrange
+      when(mockQuizFavoriteSqlRepository.getTopicWords(any))
+          .thenAnswer((_) async => ['text1', 'text2']);
 
-    final request = QuizGetAllRequest(
-        quizTopicType: QuizTopicType.adjective,
-        questionCount: 2,
-        language: 'ja');
+      final request = QuizGetAllRequest(
+          quizTopicType: QuizTopicType.adjective,
+          questionCount: 2,
+          language: 'ja');
 
-    // Act
-    final quizDao = container.read(quizGetAllDaoProviderProvider);
-    final response = await quizDao.getQuizList(request);
+      // Act
+      final response = await quizDao.getQuizList(request);
 
-    // Assert
-    expect(response.quizes.length, 2);
-    expect(response.answers.length, 2);
-    expect(response.sentences.length, 2);
-    expect(response.translations.length, 2);
-    expect(response.pronunciations.length, 2);
-    expect(response.isFavorites.length, 2);
-    verify(mockQuizFavoriteSqlRepository
-        .getTopicWords(QuizTopicType.adjective.name));
-    verify(mockSharedPreferencesRepository.fetch<int>(any));
-  });
+      // Assert
+      expect(response.quizes.length, 2);
+      expect(response.answers.length, 2);
+      expect(response.sentences.length, 2);
+      expect(response.translations.length, 2);
+      expect(response.pronunciations.length, 2);
+      expect(response.isFavorites.length, 2);
+      verify(mockQuizFavoriteSqlRepository
+          .getTopicWords(QuizTopicType.adjective.name));
+      verify(mockSharedPreferencesRepository.fetch<int>(any));
+    });
 
-  test('お気に入りに登録されている単語の場合 isFavorite が true になること', () async {
-    /// 仮に代名詞カテゴリすべてがsqlにお気に入り登録されているとする
-    /// その場合isFavorite は全部 trueになるはず
-    when(mockQuizFavoriteSqlRepository.getTopicWords(any)).thenAnswer(
-        (_) async => [
-              '나',
-              '저',
-              '저희',
-              '너',
-              '너희',
-              '당신',
-              '당신들',
-              '그',
-              '그들',
-              '그녀',
-              '그녀들',
-              '우리'
-            ]);
-    final request = QuizGetAllRequest(
-        quizTopicType: QuizTopicType.pronoun, questionCount: 2, language: 'ja');
-    final quizDao = container.read(quizGetAllDaoProviderProvider);
-    final response = await quizDao.getQuizList(request);
+    test('お気に入りに登録されている単語の場合 isFavorite が true になること', () async {
+      /// 仮に代名詞カテゴリすべてがsqlにお気に入り登録されているとする
+      /// その場合isFavorite は全部 trueになるはず
+      when(mockQuizFavoriteSqlRepository.getTopicWords(any)).thenAnswer(
+          (_) async => [
+                '나',
+                '저',
+                '저희',
+                '너',
+                '너희',
+                '당신',
+                '당신들',
+                '그',
+                '그들',
+                '그녀',
+                '그녀들',
+                '우리'
+              ]);
+      final request = QuizGetAllRequest(
+          quizTopicType: QuizTopicType.pronoun,
+          questionCount: 2,
+          language: 'ja');
+      final response = await quizDao.getQuizList(request);
 
-    expect(response.isFavorites, [true, true]);
+      expect(response.isFavorites, [true, true]);
+
+      verify(mockQuizFavoriteSqlRepository
+          .getTopicWords(QuizTopicType.pronoun.name));
+    });
   });
 }

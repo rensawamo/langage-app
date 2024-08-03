@@ -49,44 +49,38 @@ jobs:
         run: |
           fvm dart --version
 
-      - name: Set up Melos
+          - name: Set up Melos
+          run: |
+            fvm dart pub global activate melos
+
+      - name: melso bootstrap
         run: |
-          fvm dart pub global activate melos
+          fvm dart pub global run melos bootstrap
 
-      - name: Bootstrapf
-        run: make bs
-
-      - name: flutter clean
-        run: fvm flutter clean
-
-
-      - name: flutter pub get
-        run: fvm flutter pub get
-
-
-      - name: Setup Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0.3.0
+      - name: melos test
+        run: |
+          fvm dart pub global run melos unit_test
 
       - name: setup google-services.json
         run: |
-          echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_JSON_BASE64 }}" >> app/android/app/google-services.json
+          echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_JSON_BASE64 }}" >> apps/ko_beginner/android/app/google-services.json
 
       - name: Decode firebase_option
-        run : echo "${{ secrets.KO_BEGINNER_FIREBASE_OPTION_BASE64 }}" | base64 -d > app/lib/firebase_options.dart
+        run : echo "${{ secrets.KO_BEGINNER_FIREBASE_OPTION_BASE64 }}" | base64 -d > apps/ko_beginner/lib/firebase_options.dart
 
       # - name: instrumentation tests
       #   run: make instrumentation-test
 
       - name: Setup Gradle
         run: |
-          echo "${{ secrets.KO_BEGINNER_KEYSTORE_BASE64 }}" | base64 -d > app/android/app/release.jks
+          echo "${{ secrets.KO_BEGINNER_KEYSTORE_BASE64 }}" | base64 -d > apps/ko_beginner/android/app/release.jks
 
       - name: Build APK
         env:
           KEY_ALIAS: ${{ secrets.KO_BEGINNER_KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KO_BEGINNER_KEY_PASSWORD }}
           STORE_PASSWORD: ${{ secrets.KO_BEGINNER_STORE_PASSWORD }}
-        run: make build_apk APP=ko_beginner
+        run: make release_build_android  APP=ko_beginner
 
 
       - name: Upload APK to Firebase App Distribution
@@ -95,8 +89,9 @@ jobs:
           appId: ${{secrets.KO_BEGINNER_ANDROID_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.KO_BEGINNER_CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: app/build/app/outputs/apk/release/app-release.apk
+          file: apps/ko_beginner/build/app/outputs/apk/release/app-release.apk
 
+          # ストア対応は後日対応
 
 
 
