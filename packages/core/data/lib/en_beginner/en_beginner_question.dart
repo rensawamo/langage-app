@@ -3351,7 +3351,7 @@ class AppEnBeginnerQuizData {
       text: "here",
       sentence: "I am here.",
       translation: "ここにいる。",
-      pronunciation: "hɪr, ヨギ",
+      pronunciation: "híɚ",
       options: [
         Option(text: "そこ", isCorrect: false),
         Option(text: "ここ", isCorrect: true),
@@ -3363,7 +3363,7 @@ class AppEnBeginnerQuizData {
       text: "there",
       sentence: "I am there.",
       translation: "そこにいる。",
-      pronunciation: "ðɛr, コギ",
+      pronunciation: "ðéɚ",
       options: [
         Option(text: "そこ", isCorrect: true),
         Option(text: "ここ", isCorrect: false),
@@ -3375,7 +3375,7 @@ class AppEnBeginnerQuizData {
       text: "over there",
       sentence: "I am over there.",
       translation: "あそこにいる。",
-      pronunciation: "ˌoʊvər ðɛr, チョギ",
+      pronunciation: "òver thére",
       options: [
         Option(text: "あそこ", isCorrect: true),
         Option(text: "そこ", isCorrect: false),
@@ -3391,7 +3391,7 @@ class AppEnBeginnerQuizData {
       text: "Excuse me",
       sentence: "Excuse me, I have a question.",
       translation: "失礼します、質問があります。",
-      pronunciation: "ɪkˈskjus mi",
+      pronunciation: "",
       options: [
         Option(text: "こんにちは", isCorrect: false),
         Option(text: "ありがとう", isCorrect: false),
@@ -3401,9 +3401,9 @@ class AppEnBeginnerQuizData {
     ),
     Quiz(
       text: "See you again",
-      sentence: "See you again.",
-      translation: "それでは、また会いましょう。",
-      pronunciation: "si ju əˈɡɛn",
+      sentence: "Nice to see you Again!",
+      translation: "また会いましょう！",
+      pronunciation: "",
       options: [
         Option(text: "どうぞよろしく", isCorrect: false),
         Option(text: "ごめんなさい", isCorrect: false),
@@ -3415,7 +3415,7 @@ class AppEnBeginnerQuizData {
       text: "Thank you",
       sentence: "Thank you for helping me.",
       translation: "助けてくれてありがとう。",
-      pronunciation: "θæŋk ju",
+      pronunciation: "",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),
@@ -3435,18 +3435,7 @@ class AppEnBeginnerQuizData {
         Option(text: "おやすみなさい", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "Thank you for the meal",
-      sentence: "Thank you for the meal, I'll enjoy it.",
-      translation: "いただきます、美味しくいただきます。",
-      pronunciation: "θæŋk ju fɔr ðə mil",
-      options: [
-        Option(text: "お疲れ様です", isCorrect: false),
-        Option(text: "またね", isCorrect: false),
-        Option(text: "さようなら", isCorrect: false),
-        Option(text: "いただきます", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "How have you been?",
       sentence: "How have you been? It's been a while.",
@@ -3531,18 +3520,7 @@ class AppEnBeginnerQuizData {
         Option(text: "～で行います", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "Hello",
-      sentence: "Hello, nice to meet you.",
-      translation: "こんにちは、お会いできて嬉しいです。",
-      pronunciation: "həˈloʊ",
-      options: [
-        Option(text: "ありがとう", isCorrect: false),
-        Option(text: "おやすみ", isCorrect: false),
-        Option(text: "お疲れ様", isCorrect: false),
-        Option(text: "こんにちは", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "Thank you",
       sentence: "Thank you for helping me.",
