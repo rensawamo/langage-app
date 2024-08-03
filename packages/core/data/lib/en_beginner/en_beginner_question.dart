@@ -2986,7 +2986,7 @@ class AppEnBeginnerQuizData {
       text: "face",
       sentence: "Your face is beautiful.",
       translation: "顔がきれいだ。",
-      pronunciation: "feɪs, フェイス",
+      pronunciation: "féɪs",
       options: [
         Option(text: "顔", isCorrect: true),
         Option(text: "頭", isCorrect: false),
@@ -2998,7 +2998,7 @@ class AppEnBeginnerQuizData {
       text: "hair",
       sentence: "Your hair is long.",
       translation: "髪が長い。",
-      pronunciation: "hɛr, ヘアー",
+      pronunciation: "héɚ",
       options: [
         Option(text: "顔", isCorrect: false),
         Option(text: "髪", isCorrect: true),
@@ -3010,7 +3010,7 @@ class AppEnBeginnerQuizData {
       text: "eye",
       sentence: "Your eyes are big.",
       translation: "目が大きい。",
-      pronunciation: "aɪ, アイ",
+      pronunciation: "άɪ",
       options: [
         Option(text: "耳", isCorrect: false),
         Option(text: "鼻", isCorrect: false),
@@ -3022,7 +3022,7 @@ class AppEnBeginnerQuizData {
       text: "ear",
       sentence: "I can hear well with my ears.",
       translation: "耳がよく聞こえる。",
-      pronunciation: "ɪr, イヤー",
+      pronunciation: "íɚ",
       options: [
         Option(text: "耳", isCorrect: true),
         Option(text: "目", isCorrect: false),
@@ -3034,7 +3034,7 @@ class AppEnBeginnerQuizData {
       text: "nose",
       sentence: "Your nose is high.",
       translation: "鼻が高い。",
-      pronunciation: "noʊz, ノーズ",
+      pronunciation: "nóʊz",
       options: [
         Option(text: "耳", isCorrect: false),
         Option(text: "目", isCorrect: false),
@@ -3046,7 +3046,7 @@ class AppEnBeginnerQuizData {
       text: "mouth",
       sentence: "Close your mouth.",
       translation: "口を閉じる。",
-      pronunciation: "maʊθ, マウス",
+      pronunciation: "mάʊθ",
       options: [
         Option(text: "鼻", isCorrect: false),
         Option(text: "耳", isCorrect: false),
@@ -3058,7 +3058,7 @@ class AppEnBeginnerQuizData {
       text: "tooth",
       sentence: "My tooth hurts.",
       translation: "歯が痛い。",
-      pronunciation: "tuːθ, トゥース",
+      pronunciation: "túːθ",
       options: [
         Option(text: "口", isCorrect: false),
         Option(text: "耳", isCorrect: false),
@@ -3070,7 +3070,7 @@ class AppEnBeginnerQuizData {
       text: "shoulder",
       sentence: "My shoulders are broad.",
       translation: "肩が広い。",
-      pronunciation: "ˈʃoʊldər, ショウルダー",
+      pronunciation: "ʃóʊldɚ",
       options: [
         Option(text: "胸", isCorrect: false),
         Option(text: "背中", isCorrect: false),
@@ -3082,7 +3082,7 @@ class AppEnBeginnerQuizData {
       text: "chest",
       sentence: "My chest feels tight.",
       translation: "胸が息苦しい。",
-      pronunciation: "ʧɛst, チェスト",
+      pronunciation: "tʃést",
       options: [
         Option(text: "肩", isCorrect: false),
         Option(text: "背中", isCorrect: false),
@@ -3090,25 +3090,14 @@ class AppEnBeginnerQuizData {
         Option(text: "腹", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "back",
-      sentence: "My back hurts.",
-      translation: "背中が痛い。",
-      pronunciation: "bæk, バック",
-      options: [
-        Option(text: "胸", isCorrect: false),
-        Option(text: "肩", isCorrect: false),
-        Option(text: "腹", isCorrect: false),
-        Option(text: "背中", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "stomach",
-      sentence: "I am hungry.",
-      translation: "お腹がすいた。",
-      pronunciation: "ˈstʌmək, スタマック",
+      sentence: "My stomach's upset.",
+      translation: "胃もたれがする",
+      pronunciation: "stˈʌmək",
       options: [
-        Option(text: "腹", isCorrect: true),
+        Option(text: "胃", isCorrect: true),
         Option(text: "背中", isCorrect: false),
         Option(text: "肩", isCorrect: false),
         Option(text: "胸", isCorrect: false),
@@ -3118,7 +3107,7 @@ class AppEnBeginnerQuizData {
       text: "hand",
       sentence: "Hold my hand.",
       translation: "手を握る。",
-      pronunciation: "hænd, ハンド",
+      pronunciation: "hˈænd, ハンド",
       options: [
         Option(text: "手", isCorrect: true),
         Option(text: "足", isCorrect: false),
@@ -3130,7 +3119,7 @@ class AppEnBeginnerQuizData {
       text: "arm",
       sentence: "Stretch your arm.",
       translation: "腕を伸ばす。",
-      pronunciation: "ɑrm, アーム",
+      pronunciation: "άɚm",
       options: [
         Option(text: "手", isCorrect: false),
         Option(text: "足", isCorrect: false),
@@ -3142,7 +3131,7 @@ class AppEnBeginnerQuizData {
       text: "elbow",
       sentence: "My elbow hurts.",
       translation: "ひじが痛い。",
-      pronunciation: "ˈɛlboʊ, エルボウ",
+      pronunciation: "élboʊ",
       options: [
         Option(text: "腕", isCorrect: false),
         Option(text: "手", isCorrect: false),
