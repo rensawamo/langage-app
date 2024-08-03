@@ -1,3 +1,4 @@
+import 'package:core_foundation/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// ダークモードとライトモードでカラーをカスタマイズするためのクラス
@@ -25,10 +26,12 @@ class AppColorsSet {
   }
 
   // クイズのタイルの色
-  static Color getQuizTileColor(BuildContext context) {
+  static Color getQuizTileColor(BuildContext context, AppInstallType appInstallType) {
     return Theme.of(context).brightness == Brightness.dark
         ? Color(0xff808080)
-        : Color(0xffEDA276);
+        : appInstallType == AppInstallType.koreanBeginner ? Color(0xffEDA276) : Color(0xff5D9BBF);
+        
+        
   }
 
   static Color getButtonColor(BuildContext context) {
@@ -38,10 +41,11 @@ class AppColorsSet {
   }
 
   // 表のタイトルの背景色
-  static Color getTableTitleColor(BuildContext context) {
+  static Color getTableTitleColor(BuildContext context, AppInstallType appInstallType) {
     return Theme.of(context).brightness == Brightness.dark
         ? Color(0xff008000)
-        : Color(0xffECBCA1);
+        : appInstallType == AppInstallType.koreanBeginner ? Color(0xffEDA276) :  Color(0xff5D9BBF);
+        
   }
 
   // 表の偶数行の背景色

@@ -30,6 +30,7 @@ class QuizWidget extends StatelessWidget {
   final int selected_ind;
   final int tatalScore;
   final QuizTopicType quizTopicType;
+  final AppInstallType appInstallType;
 
   /// テキストの大きさが定義されている場合に適応する
   final AppTextSizeType? textType;
@@ -53,6 +54,7 @@ class QuizWidget extends StatelessWidget {
     required this.selected,
     required this.selected_ind,
     required this.quizTopicType,
+    required this.appInstallType,
     this.textType,
     required this.tatalScore,
   }) : super(key: key);
@@ -84,7 +86,7 @@ class QuizWidget extends StatelessWidget {
                 SizedBox(
                   height: context.mediaQueryHeight * .015,
                 ),
-                progressBar(count: count, index: index),
+                progressBar(count: count, index: index, appInstallType: appInstallType),
                 SizedBox(
                   height: context.mediaQueryHeight * .015,
                 ),
@@ -143,6 +145,7 @@ class QuizWidget extends StatelessWidget {
                           ans_ind: index1,
                           selected: selected,
                           selected_ind: selected_ind,
+                          appInstallType: appInstallType,
                         ),
                       );
                     },

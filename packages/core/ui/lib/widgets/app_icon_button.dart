@@ -1,9 +1,8 @@
 import 'package:core_foundation/foundation.dart';
-import 'package:core_utility/utility.dart';
 import 'package:flutter/material.dart';
 
 /// アイコンボタンを表示するWidget
-class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
+class AppIconButton extends StatelessWidget  {
   /// 表示するアイコン
   final dynamic icon;
 
@@ -91,7 +90,4 @@ class AppIconButton extends StatelessWidget with AppCoachMarkTargetMixin {
       ),
     );
   }
-
-  @override
-  void onTapTarget() => onTap();
 }

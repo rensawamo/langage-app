@@ -1,11 +1,13 @@
 import 'package:core_designsystem/generated/flutter_gen/colors.gen.dart';
+import 'package:core_foundation/foundation.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-ThemeData getAppTheme() {
+ThemeData getAppTheme(AppInstallType  appInstallType) {
+
   // ko_begginer メイン
-  const primaryColor = ColorName.primary;
+  var primaryColor = appInstallType == AppInstallType.koreanBeginner ? ColorName.koBeginnerPrimary : ColorName.enBeginnerPrimary;
 
   final base = ThemeData(
     useMaterial3: true,
@@ -58,8 +60,8 @@ ThemeData getAppTheme() {
   );
 }
 
-ThemeData getAppThemeDark() {
-  const primaryColor = ColorName.primary;
+ThemeData getAppThemeDark(AppInstallType  appInstallType) {
+  var primaryColor = appInstallType == AppInstallType.koreanBeginner ? ColorName.koBeginnerPrimary : ColorName.enBeginnerPrimary;
 
   final base = ThemeData(
     useMaterial3: true,

@@ -13,6 +13,9 @@ import 'package:flutter/material.dart';
 class ColorName {
   ColorName._();
 
+  /// Color: #ADD8E6
+  static const Color enBeginnerPrimary = Color(0xFFADD8E6);
+
   /// Color: #EDA276
-  static const Color primary = Color(0xFFEDA276);
+  static const Color koBeginnerPrimary = Color(0xFFEDA276);
 }

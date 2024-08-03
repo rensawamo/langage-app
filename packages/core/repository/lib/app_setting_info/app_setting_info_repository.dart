@@ -5,43 +5,35 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// [AppInstallType]のProvider
 ///
 final appSettingInfoProvider =
-    StateNotifierProvider<AppSettingInfoImpl, AppInstallType>((ref) {
+    StateNotifierProvider<AppSettingInfo, AppInstallType>((ref) {
   final prefsRepository = ref.watch(sharedPreferencesRepositoryProvider);
-  return AppSettingInfoImpl(prefsRepository);
+  return AppSettingInfo(prefsRepository);
 });
 
 /// [AppInstallType]の を監視する
 /// [AppSettingInfo]の具象クラス
-class AppSettingInfoImpl extends StateNotifier<AppInstallType>
-    implements AppSettingInfo {
+class AppSettingInfo extends StateNotifier<AppInstallType>
+    {
   final SharedPreferencesRepository _prefsRepository;
   final AppPrefsKey _themeKey = AppPrefsKey.configAppInfo;
 
-  AppSettingInfoImpl(
+  AppSettingInfo(
     this._prefsRepository,
   ) : super(AppInstallType.none) {
     setup();
   }
 
-  @override
+  
   Future<void> setup() async {
     final typeIndex =
         _prefsRepository.fetch<int>(_themeKey) ?? AppInstallType.none.index;
     state = AppInstallType.values[typeIndex];
   }
 
-  @override
+  
   Future<void> changeAppInstallType(AppInstallType type) async {
     state = type;
     await _prefsRepository.save<int>(_themeKey, type.index);
   }
 }
 
-/// [AppInstallType]の設定を管理する抽象クラス
-abstract class AppSettingInfo {
-  /// [AppInstallType]の設定を変更する
-  Future<void> changeAppInstallType(AppInstallType type);
-
-  /// [AppInstallType]の設定を取得する
-  Future<void> setup();
-}

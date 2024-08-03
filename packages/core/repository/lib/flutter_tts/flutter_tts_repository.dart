@@ -26,7 +26,7 @@ class TtsRepositoryImpl implements TtsRepository {
       this._flutterTts, this.appSettingInfoProvider, this.appInstallType);
 
   @override
-  Future<void> initializeTts() async {
+  Future<void> initializeTts(AppInstallType appInstallType) async {
     await _flutterTts.setLanguage(appInstallType.ftsSetting);
     await _flutterTts.setPitch(1.0);
     await _flutterTts.setSpeechRate(0.5);
@@ -47,7 +47,7 @@ class TtsRepositoryImpl implements TtsRepository {
 /// TTSの初期化、発話、停止を行う
 abstract class TtsRepository {
   /// TTSの初期化
-  Future<void> initializeTts();
+  Future<void> initializeTts(AppInstallType appInstallType);
   // TTSの発話
   Future<void> speak(String text);
   // TTSの停止

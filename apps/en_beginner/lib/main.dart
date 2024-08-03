@@ -21,6 +21,7 @@ Future<void> main() async {
 
   /// Firebase
   await Firebase.initializeApp(
+    name: 'en_beginner',
     options: DefaultFirebaseOptions.currentPlatform,
   );
   //向き指定

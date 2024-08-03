@@ -1,5 +1,6 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz/quiz_result_table/quiz_result_table_page_viewmodel.dart';
@@ -38,6 +39,8 @@ class QuizResultTablePage extends StatelessWidget {
       // DI
       // speaking
       Function speak = ref.read(ttsRepositoryProvider).speak;
+      // appInstallType
+      final appInstallType = ref.read(appSettingInfoProvider);
 
       return AppBaseFrame(
           screenContext: context,
@@ -58,7 +61,7 @@ class QuizResultTablePage extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                _buildHeaderRow(context),
+                _buildHeaderRow(context,appInstallType),
                 Expanded(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical, // 垂直方向のスクロールを有効にする
@@ -72,19 +75,19 @@ class QuizResultTablePage extends StatelessWidget {
   }
 
   // ヘッダー行を構築
-  Widget _buildHeaderRow(BuildContext context) {
+  Widget _buildHeaderRow(BuildContext context, AppInstallType appInstallType) {
     return Table(
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       children: [
         TableRow(
           children: [
             TableCell(
-              child: _buildCell(context, 'Quiz'),
+              child: _buildCell(context, 'Quiz', appInstallType),
             ),
-            TableCell(child: _buildCell(context, 'Answer')),
-            TableCell(child: _buildCell(context, 'Score')),
-            TableCell(child: _buildCell(context, 'Voice')),
-            TableCell(child: _buildCell(context, 'Star')),
+            TableCell(child: _buildCell(context, 'Answer', appInstallType)),
+            TableCell(child: _buildCell(context, 'Score', appInstallType)),
+            TableCell(child: _buildCell(context, 'Voice', appInstallType)),
+            TableCell(child: _buildCell(context, 'Star', appInstallType)),
           ],
         ),
       ],
@@ -175,8 +178,10 @@ class QuizResultTablePage extends StatelessWidget {
         );
       });
 
-  Widget _buildCell(BuildContext context, String text) => Container(
-        color: AppColorsSet.getTableTitleColor(context),
+  Widget _buildCell(
+          BuildContext context, String text, AppInstallType appInstallType) =>
+      Container(
+        color: AppColorsSet.getTableTitleColor(context, appInstallType),
         padding: const EdgeInsets.all(8),
         height: 58,
         alignment: Alignment.center,

@@ -7,19 +7,19 @@ import '../helper/helper_test.mocks.dart';
 
 void main() {
   late MockFlutterTts mockFlutterTts;
-  late MockAppSettingInfoImpl mockAppSettingInfoRepository;
+  late MockAppSettingInfo mockAppSettingInfoRepository;
   late TtsRepositoryImpl ttsRepository;
 
   setUp(() {
     mockFlutterTts = MockFlutterTts();
-    mockAppSettingInfoRepository = MockAppSettingInfoImpl();
+    mockAppSettingInfoRepository = MockAppSettingInfo();
     ttsRepository = TtsRepositoryImpl(mockFlutterTts,
         mockAppSettingInfoRepository, AppInstallType.koreanBeginner);
   });
 
   group('TtsRepositoryImpl', () {
     test('初期化時に正しく言語情報がセットされること', () async {
-      await ttsRepository.initializeTts();
+      await ttsRepository.initializeTts(AppInstallType.koreanBeginner);
 
       verify(mockFlutterTts.setLanguage(any)).called(1);
       verify(mockFlutterTts.setPitch(1.0)).called(1);
