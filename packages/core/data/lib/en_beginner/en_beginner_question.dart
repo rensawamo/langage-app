@@ -2785,7 +2785,6 @@ class AppEnBeginnerQuizData {
       ],
     ),
 
-
     /// 場所
     Quiz(
       text: "station",
@@ -2827,7 +2826,7 @@ class AppEnBeginnerQuizData {
       text: "hospital",
       sentence: "I go to the hospital.",
       translation: "私は病院に行く。",
-      pronunciation: "ˈhɒspɪtl, ホスピタル",
+      pronunciation: "hάspɪṭl",
       options: [
         Option(text: "空港", isCorrect: false),
         Option(text: "学校", isCorrect: false),
@@ -2839,7 +2838,7 @@ class AppEnBeginnerQuizData {
       text: "park",
       sentence: "I take a walk in the park.",
       translation: "公園で散歩をする。",
-      pronunciation: "pɑrk, パーク",
+      pronunciation: "pάɚk",
       options: [
         Option(text: "公園", isCorrect: true),
         Option(text: "美術館", isCorrect: false),
@@ -2847,23 +2846,12 @@ class AppEnBeginnerQuizData {
         Option(text: "水族館", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "art gallery",
-      sentence: "I look at paintings in the art gallery.",
-      translation: "美術館で絵を見る。",
-      pronunciation: "ɑrt ˈɡæləri, アート ギャラリー",
-      options: [
-        Option(text: "公園", isCorrect: false),
-        Option(text: "博物館", isCorrect: false),
-        Option(text: "美術館", isCorrect: true),
-        Option(text: "水族館", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "museum",
       sentence: "I see historical artifacts in the museum.",
       translation: "博物館で歴史的な遺物を見る。",
-      pronunciation: "mjuˈziəm, ミュージアム",
+      pronunciation: "mjuːzíːəm",
       options: [
         Option(text: "博物館", isCorrect: true),
         Option(text: "美術館", isCorrect: false),
@@ -2875,7 +2863,7 @@ class AppEnBeginnerQuizData {
       text: "aquarium",
       sentence: "I look at fish in the aquarium.",
       translation: "水族館で魚を見る。",
-      pronunciation: "əˈkwɛriəm, アクエリアム",
+      pronunciation: "əkwé(ə)riəm",
       options: [
         Option(text: "水族館", isCorrect: true),
         Option(text: "博物館", isCorrect: false),
@@ -2887,7 +2875,7 @@ class AppEnBeginnerQuizData {
       text: "supermarket",
       sentence: "I do grocery shopping at the supermarket.",
       translation: "スーパーで買い物をする。",
-      pronunciation: "ˈsuːpərˌmɑrkɪt, スーパー",
+      pronunciation: "súːpɚmὰɚkɪt",
       options: [
         Option(text: "図書館", isCorrect: false),
         Option(text: "コンビニ", isCorrect: false),
@@ -2899,7 +2887,7 @@ class AppEnBeginnerQuizData {
       text: "library",
       sentence: "I read books in the library.",
       translation: "図書館で本を読む。",
-      pronunciation: "ˈlaɪbrəri, ライブラリー",
+      pronunciation: "lάɪbreri",
       options: [
         Option(text: "図書館", isCorrect: true),
         Option(text: "スーパー", isCorrect: false),
@@ -2911,7 +2899,7 @@ class AppEnBeginnerQuizData {
       text: "convenience store",
       sentence: "I buy snacks at the convenience store.",
       translation: "コンビニでおやつを買う。",
-      pronunciation: "kənˈviːniəns stɔr, コンビニエンス ストア",
+      pronunciation: "convénience stòre",
       options: [
         Option(text: "コンビニ", isCorrect: true),
         Option(text: "スーパー", isCorrect: false),
@@ -2923,7 +2911,7 @@ class AppEnBeginnerQuizData {
       text: "pharmacy",
       sentence: "I buy medicine at the pharmacy.",
       translation: "薬局で薬を買う。",
-      pronunciation: "ˈfɑrməsi, ファーマシー",
+      pronunciation: "fάɚməsi",
       options: [
         Option(text: "スーパー", isCorrect: false),
         Option(text: "図書館", isCorrect: false),
@@ -2935,7 +2923,7 @@ class AppEnBeginnerQuizData {
       text: "bank",
       sentence: "I withdraw money at the bank.",
       translation: "銀行でお金を下ろす。",
-      pronunciation: "bæŋk, バンク",
+      pronunciation: "bˈæŋk",
       options: [
         Option(text: "デパート", isCorrect: false),
         Option(text: "ホテル", isCorrect: false),
@@ -2943,23 +2931,12 @@ class AppEnBeginnerQuizData {
         Option(text: "レストラン", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "department store",
-      sentence: "I buy clothes at the department store.",
-      translation: "デパートで服を買う。",
-      pronunciation: "dɪˈpɑrtmənt stɔr, デパートメント ストア",
-      options: [
-        Option(text: "銀行", isCorrect: false),
-        Option(text: "ホテル", isCorrect: false),
-        Option(text: "レストラン", isCorrect: false),
-        Option(text: "デパート", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "hotel",
       sentence: "I stay at the hotel.",
       translation: "ホテルに泊まる。",
-      pronunciation: "hoʊˈtɛl, ホテル",
+      pronunciation: "hòʊtél",
       options: [
         Option(text: "ホテル", isCorrect: true),
         Option(text: "デパート", isCorrect: false),
@@ -2971,7 +2948,7 @@ class AppEnBeginnerQuizData {
       text: "restaurant",
       sentence: "I eat at the restaurant.",
       translation: "レストランで食事する。",
-      pronunciation: "ˈrɛstrɑnt, レストラン",
+      pronunciation: "réstərənt",
       options: [
         Option(text: "レストラン", isCorrect: true),
         Option(text: "ホテル", isCorrect: false),
@@ -2983,48 +2960,12 @@ class AppEnBeginnerQuizData {
       text: "cafe",
       sentence: "I drink coffee at the cafe.",
       translation: "カフェでコーヒーを飲む。",
-      pronunciation: "kæf, カフェ",
+      pronunciation: "kæféɪ",
       options: [
         Option(text: "レストラン", isCorrect: false),
         Option(text: "ホテル", isCorrect: false),
         Option(text: "カフェ", isCorrect: true),
         Option(text: "デパート", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "police station",
-      sentence: "I report it to the police station.",
-      translation: "警察署に通報する。",
-      pronunciation: "pəˈlis ˈsteɪʃən, ポリース ステーション",
-      options: [
-        Option(text: "日本大使館", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "公園", isCorrect: false),
-        Option(text: "警察署", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "Japanese embassy",
-      sentence: "I inquire at the Japanese embassy.",
-      translation: "日本大使館に問い合わせる。",
-      pronunciation: "ˌɛmˈbæsɪ, ジャパニーズ エンバシー",
-      options: [
-        Option(text: "警察署", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "公園", isCorrect: false),
-        Option(text: "日本大使館", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "gas station",
-      sentence: "I refuel at the gas station.",
-      translation: "ガソリンスタンドで給油する。",
-      pronunciation: "ɡæs ˈsteɪʃən, ガス ステーション",
-      options: [
-        Option(text: "警察署", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "ガソリンスタンド", isCorrect: true),
-        Option(text: "公園", isCorrect: false),
       ],
     ),
 
@@ -3033,7 +2974,7 @@ class AppEnBeginnerQuizData {
       text: "head",
       sentence: "I have a headache.",
       translation: "頭が痛い。",
-      pronunciation: "hɛd, ヘッド",
+      pronunciation: "héd",
       options: [
         Option(text: "顔", isCorrect: false),
         Option(text: "髪", isCorrect: false),
