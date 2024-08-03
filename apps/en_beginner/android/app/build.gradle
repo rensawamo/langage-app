@@ -56,13 +56,10 @@ task selectGoogleServicesJson(type: Copy) {
     into './'
 }
 
-tasks.whenTaskAdded { task ->
-    if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
-        task.dependsOn selectGoogleServicesJson
-    }
+tasks.whenTaskAdded {
+    it.dependsOn copyFirebaseSource
+    it.dependsOn copyIcons
 }
-
-// アイコン切り替えは設定してません
 
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'

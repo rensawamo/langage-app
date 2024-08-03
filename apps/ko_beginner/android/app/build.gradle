@@ -57,13 +57,10 @@ task selectGoogleServicesJson(type: Copy) {
     into './'
 }
 
-tasks.whenTaskAdded { task ->
-    if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
-        task.dependsOn selectGoogleServicesJson
-    }
+tasks.whenTaskAdded {
+    it.dependsOn copyFirebaseSource
+    it.dependsOn copyIcons
 }
-
-// アイコン切り替えは設定してません
 
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'
@@ -104,8 +101,7 @@ android {
         targetSdk = 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        resValue "string", "app_name", (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : "${dartEnvironmentVariables.FLAVOR}.") +
-                "Ko_beginner"
+
     }
 
     signingConfigs {
@@ -139,7 +135,7 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
         debug {
             signingConfig signingConfigs.debug
