@@ -21,7 +21,7 @@ void main() {
       mockQuizGetAllDao = MockQuizGetAllDaoImpl();
       container = createContainer(
         overrides: [
-          quizGetAllDaoProviderProvider
+          quizGetAllDaoProvider
               .overrideWith((ref) => mockQuizGetAllDao),
         ],
       );

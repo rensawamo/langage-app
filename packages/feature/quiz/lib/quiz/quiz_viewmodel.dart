@@ -57,7 +57,7 @@ class QuizViewmodel extends StateNotifier<QuizState> {
   Future<void> getQuizList(String language) async {
     // ローディング開始
     state = state.copyWith(isLoading: true);
-    final dao = ref.read(quizGetAllDaoProviderProvider);
+    final dao = ref.read(quizGetAllDaoProvider);
     // パラメータ生成
     // ここで data から quizeを取得する
     dao

@@ -13,7 +13,7 @@ part 'quiz_get_all_dao.g.dart';
 
 /// [QuizGetAllDao]のProvider
 @Riverpod(keepAlive: true)
-QuizGetAllDao quizGetAllDaoProvider(QuizGetAllDaoProviderRef ref) {
+QuizGetAllDao quizGetAllDao(QuizGetAllDaoRef ref) {
   return QuizGetAllDaoImpl(ref);
 }
 

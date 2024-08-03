@@ -13,7 +13,7 @@ part 'word_get_all_dao.g.dart';
 
 /// [WordGetAllDao]のProvider
 @Riverpod(keepAlive: true)
-WordGetAllDao wordGetAllDaoProvider(WordGetAllDaoProviderRef ref) {
+WordGetAllDao wordGetAllDao(WordGetAllDaoRef ref) {
   return WordGetAllDaoImpl(ref);
 }
 
@@ -45,7 +45,6 @@ class WordGetAllDaoImpl implements WordGetAllDao {
   Future<WordGetAllResponse> _call(
       WordGetAllRequest request, AppInstallType appInstallType) async {
     List<Quiz> quizzes = await _getQuizzes(request, appInstallType);
-    quizzes.shuffle();
 
     List<String> words = quizzes.map((quiz) => quiz.text).toList();
     List<String> sentences = quizzes.map((quiz) => quiz.sentence).toList();
@@ -55,6 +54,7 @@ class WordGetAllDaoImpl implements WordGetAllDao {
         quizzes.map((quiz) => quiz.translation).toList();
     List<String> answers = _getAnswers(quizzes, request.quizTopicType);
     List<bool> isFavorites = await _getFavorites(request, words);
+    logger.d('words: $isFavorites');
 
     return Future.value(WordGetAllResponse(
       words: words,
@@ -156,6 +156,7 @@ class WordGetAllDaoImpl implements WordGetAllDao {
   }
 
   /// [QuizFavoriteSqlRepository] からお気に入りの単語を取得
+  /// ifFavorites はお気に入りかどうかを示すリストを更新
   Future<List<bool>> _getFavorites(
       WordGetAllRequest request, List<String> words) async {
     final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);

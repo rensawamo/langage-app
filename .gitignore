@@ -77,6 +77,10 @@ unlinked_spec.ds
 **/android/app/src/stg/google-services.json
 **/android/app/src/prod/google-services.json
 **/android/app/src/dev/google-services.json
+**/android/key.properties
+**/android/release.pem
+
+
 ## 追加
 # DartDefine.xcconfig
 **/android/app/src/main/res/mipmap-*/ic_launcher.png

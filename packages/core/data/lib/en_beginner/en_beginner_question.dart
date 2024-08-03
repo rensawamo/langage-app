@@ -2500,8 +2500,6 @@ class AppEnBeginnerQuizData {
         Option(text: "足す", isCorrect: false),
       ],
     ),
-
-
     Quiz(
       text: "vomit",
       sentence: "He vomited because his stomach hurt.",
@@ -2550,7 +2548,6 @@ class AppEnBeginnerQuizData {
         Option(text: "忘れる", isCorrect: true),
       ],
     ),
-
     Quiz(
       text: "pull",
       sentence: "Please pull the door.",
@@ -2611,7 +2608,6 @@ class AppEnBeginnerQuizData {
         Option(text: "競う", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "enter",
       sentence: "I enter the house.",
@@ -2648,7 +2644,6 @@ class AppEnBeginnerQuizData {
         Option(text: "生む", isCorrect: false),
       ],
     ),
-
   ];
 
   /////////////  名詞　　/////////////////////
@@ -2658,7 +2653,7 @@ class AppEnBeginnerQuizData {
       text: "father",
       sentence: "The father works at the office.",
       translation: "父は職場で働く。",
-      pronunciation: "ˈfɑːðər, ファザー",
+      pronunciation: "fάːðɚ",
       options: [
         Option(text: "母", isCorrect: false),
         Option(text: "兄", isCorrect: false),
@@ -2670,7 +2665,7 @@ class AppEnBeginnerQuizData {
       text: "mother",
       sentence: "The mother cooks at home.",
       translation: "母は家で料理する。",
-      pronunciation: "ˈmʌðər, マザー",
+      pronunciation: "mˈʌðɚ",
       options: [
         Option(text: "父", isCorrect: false),
         Option(text: "妹", isCorrect: false),
@@ -2678,35 +2673,12 @@ class AppEnBeginnerQuizData {
         Option(text: "弟", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "dad",
-      sentence: "Dad plays with the child.",
-      translation: "お父さんが子供と遊んでいる。",
-      pronunciation: "dæd, ダッド",
-      options: [
-        Option(text: "お母さん", isCorrect: false),
-        Option(text: "お父さん", isCorrect: true),
-        Option(text: "兄", isCorrect: false),
-        Option(text: "姉", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "mom",
-      sentence: "Mom is preparing the meal.",
-      translation: "お母さんがご飯を準備している。",
-      pronunciation: "mɑːm, マーム",
-      options: [
-        Option(text: "お父さん", isCorrect: false),
-        Option(text: "お母さん", isCorrect: true),
-        Option(text: "妹", isCorrect: false),
-        Option(text: "弟", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "parents",
       sentence: "The parents go for a walk together.",
       translation: "両親が一緒に散歩に行く。",
-      pronunciation: "ˈpɛrənts, ペアレンツ",
+      pronunciation: "ˈpɛrʌnts",
       options: [
         Option(text: "兄弟", isCorrect: false),
         Option(text: "祖父母", isCorrect: false),
@@ -2718,7 +2690,7 @@ class AppEnBeginnerQuizData {
       text: "siblings",
       sentence: "The siblings are playing together.",
       translation: "兄弟が一緒に遊んでいる。",
-      pronunciation: "ˈsɪblɪŋz, シブリングズ",
+      pronunciation: "ˈsɪblɪŋz",
       options: [
         Option(text: "兄弟", isCorrect: true),
         Option(text: "両親", isCorrect: false),
@@ -2731,7 +2703,7 @@ class AppEnBeginnerQuizData {
       text: "grandfather",
       sentence: "The grandfather tells a story.",
       translation: "祖父が話を聞かせる。",
-      pronunciation: "ˈɡrændˌfɑːðər, グランドファーザー",
+      pronunciation: "grˈæn(d)fὰːðɚ",
       options: [
         Option(text: "祖母", isCorrect: false),
         Option(text: "祖父", isCorrect: true),
@@ -2743,7 +2715,7 @@ class AppEnBeginnerQuizData {
       text: "grandmother",
       sentence: "The grandmother takes care of the grandson.",
       translation: "祖母が孫を世話する。",
-      pronunciation: "ˈɡrændˌmʌðər, グランドマザー",
+      pronunciation: "grˈæn(d)m`ʌðɚ",
       options: [
         Option(text: "祖母", isCorrect: true),
         Option(text: "祖父", isCorrect: false),
@@ -2755,7 +2727,7 @@ class AppEnBeginnerQuizData {
       text: "child",
       sentence: "The child plays at the playground.",
       translation: "子供が遊び場で遊ぶ。",
-      pronunciation: "tʃaɪld, チャイルド",
+      pronunciation: "tʃάɪld",
       options: [
         Option(text: "息子", isCorrect: false),
         Option(text: "娘", isCorrect: false),
@@ -2767,7 +2739,7 @@ class AppEnBeginnerQuizData {
       text: "son",
       sentence: "The son helps his father.",
       translation: "息子が父を手伝う。",
-      pronunciation: "sʌn, サン",
+      pronunciation: "sˈʌn",
       options: [
         Option(text: "子供", isCorrect: false),
         Option(text: "娘", isCorrect: false),
@@ -2779,7 +2751,7 @@ class AppEnBeginnerQuizData {
       text: "daughter",
       sentence: "The daughter helps her mother.",
       translation: "娘が母を手伝う。",
-      pronunciation: "ˈdɔːtər, ドーター",
+      pronunciation: "dˈɔːṭɚ",
       options: [
         Option(text: "息子", isCorrect: false),
         Option(text: "子供", isCorrect: false),
@@ -2787,35 +2759,12 @@ class AppEnBeginnerQuizData {
         Option(text: "孫娘", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "grandson",
-      sentence: "The grandfather loves his grandson.",
-      translation: "祖父が孫息子を愛する。",
-      pronunciation: "ˈɡrændˌsʌn, グランドサン",
-      options: [
-        Option(text: "孫娘", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "娘", isCorrect: false),
-        Option(text: "孫息子", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "granddaughter",
-      sentence: "The grandmother loves her granddaughter.",
-      translation: "祖母が孫娘を愛する。",
-      pronunciation: "ˈɡrændˌdɔːtər, グランドドーター",
-      options: [
-        Option(text: "孫息子", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "孫娘", isCorrect: true),
-        Option(text: "娘", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "husband",
       sentence: "The husband helps his wife.",
       translation: "夫が妻を手伝う。",
-      pronunciation: "ˈhʌzbənd, ハズバンド",
+      pronunciation: "hˈʌzbənd",
       options: [
         Option(text: "親戚", isCorrect: false),
         Option(text: "夫", isCorrect: true),
@@ -2827,24 +2776,12 @@ class AppEnBeginnerQuizData {
       text: "wife",
       sentence: "The wife loves her husband.",
       translation: "妻が夫を愛する。",
-      pronunciation: "waɪf, ワイフ",
+      pronunciation: "wάɪf",
       options: [
         Option(text: "夫", isCorrect: false),
         Option(text: "親戚", isCorrect: false),
         Option(text: "両親", isCorrect: false),
         Option(text: "妻", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "relatives",
-      sentence: "All the relatives gathered together.",
-      translation: "親戚がみんな集まった。",
-      pronunciation: "ˈrɛlətɪvz, レラティブズ",
-      options: [
-        Option(text: "両親", isCorrect: false),
-        Option(text: "祖父母", isCorrect: false),
-        Option(text: "親戚", isCorrect: true),
-        Option(text: "兄弟", isCorrect: false),
       ],
     ),
 
@@ -2853,7 +2790,7 @@ class AppEnBeginnerQuizData {
       text: "station",
       sentence: "I meet my friend at the station.",
       translation: "私は駅で友達に会う。",
-      pronunciation: "ˈsteɪʃən, ステーション",
+      pronunciation: "stéɪʃən",
       options: [
         Option(text: "学校", isCorrect: false),
         Option(text: "空港", isCorrect: false),
@@ -2865,7 +2802,7 @@ class AppEnBeginnerQuizData {
       text: "school",
       sentence: "I go to school.",
       translation: "私は学校に行く。",
-      pronunciation: "skuːl, スクール",
+      pronunciation: "skúːl",
       options: [
         Option(text: "駅", isCorrect: false),
         Option(text: "学校", isCorrect: true),
@@ -2877,7 +2814,7 @@ class AppEnBeginnerQuizData {
       text: "airport",
       sentence: "I board a plane at the airport.",
       translation: "空港で飛行機に乗る。",
-      pronunciation: "ˈɛərpɔrt, エアポート",
+      pronunciation: "éɚp`ɔɚt",
       options: [
         Option(text: "学校", isCorrect: false),
         Option(text: "駅", isCorrect: false),
@@ -2889,7 +2826,7 @@ class AppEnBeginnerQuizData {
       text: "hospital",
       sentence: "I go to the hospital.",
       translation: "私は病院に行く。",
-      pronunciation: "ˈhɒspɪtl, ホスピタル",
+      pronunciation: "hάspɪṭl",
       options: [
         Option(text: "空港", isCorrect: false),
         Option(text: "学校", isCorrect: false),
@@ -2901,7 +2838,7 @@ class AppEnBeginnerQuizData {
       text: "park",
       sentence: "I take a walk in the park.",
       translation: "公園で散歩をする。",
-      pronunciation: "pɑrk, パーク",
+      pronunciation: "pάɚk",
       options: [
         Option(text: "公園", isCorrect: true),
         Option(text: "美術館", isCorrect: false),
@@ -2909,23 +2846,12 @@ class AppEnBeginnerQuizData {
         Option(text: "水族館", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "art gallery",
-      sentence: "I look at paintings in the art gallery.",
-      translation: "美術館で絵を見る。",
-      pronunciation: "ɑrt ˈɡæləri, アート ギャラリー",
-      options: [
-        Option(text: "公園", isCorrect: false),
-        Option(text: "博物館", isCorrect: false),
-        Option(text: "美術館", isCorrect: true),
-        Option(text: "水族館", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "museum",
       sentence: "I see historical artifacts in the museum.",
       translation: "博物館で歴史的な遺物を見る。",
-      pronunciation: "mjuˈziəm, ミュージアム",
+      pronunciation: "mjuːzíːəm",
       options: [
         Option(text: "博物館", isCorrect: true),
         Option(text: "美術館", isCorrect: false),
@@ -2937,7 +2863,7 @@ class AppEnBeginnerQuizData {
       text: "aquarium",
       sentence: "I look at fish in the aquarium.",
       translation: "水族館で魚を見る。",
-      pronunciation: "əˈkwɛriəm, アクエリアム",
+      pronunciation: "əkwé(ə)riəm",
       options: [
         Option(text: "水族館", isCorrect: true),
         Option(text: "博物館", isCorrect: false),
@@ -2949,7 +2875,7 @@ class AppEnBeginnerQuizData {
       text: "supermarket",
       sentence: "I do grocery shopping at the supermarket.",
       translation: "スーパーで買い物をする。",
-      pronunciation: "ˈsuːpərˌmɑrkɪt, スーパー",
+      pronunciation: "súːpɚmὰɚkɪt",
       options: [
         Option(text: "図書館", isCorrect: false),
         Option(text: "コンビニ", isCorrect: false),
@@ -2961,7 +2887,7 @@ class AppEnBeginnerQuizData {
       text: "library",
       sentence: "I read books in the library.",
       translation: "図書館で本を読む。",
-      pronunciation: "ˈlaɪbrəri, ライブラリー",
+      pronunciation: "lάɪbreri",
       options: [
         Option(text: "図書館", isCorrect: true),
         Option(text: "スーパー", isCorrect: false),
@@ -2973,7 +2899,7 @@ class AppEnBeginnerQuizData {
       text: "convenience store",
       sentence: "I buy snacks at the convenience store.",
       translation: "コンビニでおやつを買う。",
-      pronunciation: "kənˈviːniəns stɔr, コンビニエンス ストア",
+      pronunciation: "convénience stòre",
       options: [
         Option(text: "コンビニ", isCorrect: true),
         Option(text: "スーパー", isCorrect: false),
@@ -2985,7 +2911,7 @@ class AppEnBeginnerQuizData {
       text: "pharmacy",
       sentence: "I buy medicine at the pharmacy.",
       translation: "薬局で薬を買う。",
-      pronunciation: "ˈfɑrməsi, ファーマシー",
+      pronunciation: "fάɚməsi",
       options: [
         Option(text: "スーパー", isCorrect: false),
         Option(text: "図書館", isCorrect: false),
@@ -2997,7 +2923,7 @@ class AppEnBeginnerQuizData {
       text: "bank",
       sentence: "I withdraw money at the bank.",
       translation: "銀行でお金を下ろす。",
-      pronunciation: "bæŋk, バンク",
+      pronunciation: "bˈæŋk",
       options: [
         Option(text: "デパート", isCorrect: false),
         Option(text: "ホテル", isCorrect: false),
@@ -3005,23 +2931,12 @@ class AppEnBeginnerQuizData {
         Option(text: "レストラン", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "department store",
-      sentence: "I buy clothes at the department store.",
-      translation: "デパートで服を買う。",
-      pronunciation: "dɪˈpɑrtmənt stɔr, デパートメント ストア",
-      options: [
-        Option(text: "銀行", isCorrect: false),
-        Option(text: "ホテル", isCorrect: false),
-        Option(text: "レストラン", isCorrect: false),
-        Option(text: "デパート", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "hotel",
       sentence: "I stay at the hotel.",
       translation: "ホテルに泊まる。",
-      pronunciation: "hoʊˈtɛl, ホテル",
+      pronunciation: "hòʊtél",
       options: [
         Option(text: "ホテル", isCorrect: true),
         Option(text: "デパート", isCorrect: false),
@@ -3033,7 +2948,7 @@ class AppEnBeginnerQuizData {
       text: "restaurant",
       sentence: "I eat at the restaurant.",
       translation: "レストランで食事する。",
-      pronunciation: "ˈrɛstrɑnt, レストラン",
+      pronunciation: "réstərənt",
       options: [
         Option(text: "レストラン", isCorrect: true),
         Option(text: "ホテル", isCorrect: false),
@@ -3045,48 +2960,12 @@ class AppEnBeginnerQuizData {
       text: "cafe",
       sentence: "I drink coffee at the cafe.",
       translation: "カフェでコーヒーを飲む。",
-      pronunciation: "kæf, カフェ",
+      pronunciation: "kæféɪ",
       options: [
         Option(text: "レストラン", isCorrect: false),
         Option(text: "ホテル", isCorrect: false),
         Option(text: "カフェ", isCorrect: true),
         Option(text: "デパート", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "police station",
-      sentence: "I report it to the police station.",
-      translation: "警察署に通報する。",
-      pronunciation: "pəˈlis ˈsteɪʃən, ポリース ステーション",
-      options: [
-        Option(text: "日本大使館", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "公園", isCorrect: false),
-        Option(text: "警察署", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "Japanese embassy",
-      sentence: "I inquire at the Japanese embassy.",
-      translation: "日本大使館に問い合わせる。",
-      pronunciation: "ˌɛmˈbæsɪ, ジャパニーズ エンバシー",
-      options: [
-        Option(text: "警察署", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "公園", isCorrect: false),
-        Option(text: "日本大使館", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "gas station",
-      sentence: "I refuel at the gas station.",
-      translation: "ガソリンスタンドで給油する。",
-      pronunciation: "ɡæs ˈsteɪʃən, ガス ステーション",
-      options: [
-        Option(text: "警察署", isCorrect: false),
-        Option(text: "図書館", isCorrect: false),
-        Option(text: "ガソリンスタンド", isCorrect: true),
-        Option(text: "公園", isCorrect: false),
       ],
     ),
 
@@ -3095,7 +2974,7 @@ class AppEnBeginnerQuizData {
       text: "head",
       sentence: "I have a headache.",
       translation: "頭が痛い。",
-      pronunciation: "hɛd, ヘッド",
+      pronunciation: "héd",
       options: [
         Option(text: "顔", isCorrect: false),
         Option(text: "髪", isCorrect: false),
@@ -3107,7 +2986,7 @@ class AppEnBeginnerQuizData {
       text: "face",
       sentence: "Your face is beautiful.",
       translation: "顔がきれいだ。",
-      pronunciation: "feɪs, フェイス",
+      pronunciation: "féɪs",
       options: [
         Option(text: "顔", isCorrect: true),
         Option(text: "頭", isCorrect: false),
@@ -3119,7 +2998,7 @@ class AppEnBeginnerQuizData {
       text: "hair",
       sentence: "Your hair is long.",
       translation: "髪が長い。",
-      pronunciation: "hɛr, ヘアー",
+      pronunciation: "héɚ",
       options: [
         Option(text: "顔", isCorrect: false),
         Option(text: "髪", isCorrect: true),
@@ -3131,7 +3010,7 @@ class AppEnBeginnerQuizData {
       text: "eye",
       sentence: "Your eyes are big.",
       translation: "目が大きい。",
-      pronunciation: "aɪ, アイ",
+      pronunciation: "άɪ",
       options: [
         Option(text: "耳", isCorrect: false),
         Option(text: "鼻", isCorrect: false),
@@ -3143,7 +3022,7 @@ class AppEnBeginnerQuizData {
       text: "ear",
       sentence: "I can hear well with my ears.",
       translation: "耳がよく聞こえる。",
-      pronunciation: "ɪr, イヤー",
+      pronunciation: "íɚ",
       options: [
         Option(text: "耳", isCorrect: true),
         Option(text: "目", isCorrect: false),
@@ -3155,7 +3034,7 @@ class AppEnBeginnerQuizData {
       text: "nose",
       sentence: "Your nose is high.",
       translation: "鼻が高い。",
-      pronunciation: "noʊz, ノーズ",
+      pronunciation: "nóʊz",
       options: [
         Option(text: "耳", isCorrect: false),
         Option(text: "目", isCorrect: false),
@@ -3167,7 +3046,7 @@ class AppEnBeginnerQuizData {
       text: "mouth",
       sentence: "Close your mouth.",
       translation: "口を閉じる。",
-      pronunciation: "maʊθ, マウス",
+      pronunciation: "mάʊθ",
       options: [
         Option(text: "鼻", isCorrect: false),
         Option(text: "耳", isCorrect: false),
@@ -3179,7 +3058,7 @@ class AppEnBeginnerQuizData {
       text: "tooth",
       sentence: "My tooth hurts.",
       translation: "歯が痛い。",
-      pronunciation: "tuːθ, トゥース",
+      pronunciation: "túːθ",
       options: [
         Option(text: "口", isCorrect: false),
         Option(text: "耳", isCorrect: false),
@@ -3191,7 +3070,7 @@ class AppEnBeginnerQuizData {
       text: "shoulder",
       sentence: "My shoulders are broad.",
       translation: "肩が広い。",
-      pronunciation: "ˈʃoʊldər, ショウルダー",
+      pronunciation: "ʃóʊldɚ",
       options: [
         Option(text: "胸", isCorrect: false),
         Option(text: "背中", isCorrect: false),
@@ -3203,7 +3082,7 @@ class AppEnBeginnerQuizData {
       text: "chest",
       sentence: "My chest feels tight.",
       translation: "胸が息苦しい。",
-      pronunciation: "ʧɛst, チェスト",
+      pronunciation: "tʃést",
       options: [
         Option(text: "肩", isCorrect: false),
         Option(text: "背中", isCorrect: false),
@@ -3211,25 +3090,14 @@ class AppEnBeginnerQuizData {
         Option(text: "腹", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "back",
-      sentence: "My back hurts.",
-      translation: "背中が痛い。",
-      pronunciation: "bæk, バック",
-      options: [
-        Option(text: "胸", isCorrect: false),
-        Option(text: "肩", isCorrect: false),
-        Option(text: "腹", isCorrect: false),
-        Option(text: "背中", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "stomach",
-      sentence: "I am hungry.",
-      translation: "お腹がすいた。",
-      pronunciation: "ˈstʌmək, スタマック",
+      sentence: "My stomach's upset.",
+      translation: "胃もたれがする",
+      pronunciation: "stˈʌmək",
       options: [
-        Option(text: "腹", isCorrect: true),
+        Option(text: "胃", isCorrect: true),
         Option(text: "背中", isCorrect: false),
         Option(text: "肩", isCorrect: false),
         Option(text: "胸", isCorrect: false),
@@ -3239,7 +3107,7 @@ class AppEnBeginnerQuizData {
       text: "hand",
       sentence: "Hold my hand.",
       translation: "手を握る。",
-      pronunciation: "hænd, ハンド",
+      pronunciation: "hˈænd, ハンド",
       options: [
         Option(text: "手", isCorrect: true),
         Option(text: "足", isCorrect: false),
@@ -3251,7 +3119,7 @@ class AppEnBeginnerQuizData {
       text: "arm",
       sentence: "Stretch your arm.",
       translation: "腕を伸ばす。",
-      pronunciation: "ɑrm, アーム",
+      pronunciation: "άɚm",
       options: [
         Option(text: "手", isCorrect: false),
         Option(text: "足", isCorrect: false),
@@ -3263,7 +3131,7 @@ class AppEnBeginnerQuizData {
       text: "elbow",
       sentence: "My elbow hurts.",
       translation: "ひじが痛い。",
-      pronunciation: "ˈɛlboʊ, エルボウ",
+      pronunciation: "élboʊ",
       options: [
         Option(text: "腕", isCorrect: false),
         Option(text: "手", isCorrect: false),
@@ -3275,7 +3143,7 @@ class AppEnBeginnerQuizData {
       text: "waist",
       sentence: "My waist hurts.",
       translation: "腰が痛い。",
-      pronunciation: "weɪst, ウェイスト",
+      pronunciation: "wéɪst",
       options: [
         Option(text: "腰", isCorrect: true),
         Option(text: "腕", isCorrect: false),
@@ -3287,7 +3155,7 @@ class AppEnBeginnerQuizData {
       text: "leg",
       sentence: "My legs are long.",
       translation: "足が長い。",
-      pronunciation: "lɛɡ, レッグ",
+      pronunciation: "lég",
       options: [
         Option(text: "足", isCorrect: true),
         Option(text: "手", isCorrect: false),
@@ -3299,7 +3167,7 @@ class AppEnBeginnerQuizData {
       text: "foot",
       sentence: "My feet are big.",
       translation: "足が大きい。",
-      pronunciation: "fʊt, フット",
+      pronunciation: "fˈʊt",
       options: [
         Option(text: "手", isCorrect: false),
         Option(text: "腕", isCorrect: false),
@@ -3311,7 +3179,7 @@ class AppEnBeginnerQuizData {
       text: "knee",
       sentence: "My knee hurts.",
       translation: "膝が痛い。",
-      pronunciation: "niː, ニー",
+      pronunciation: "níː",
       options: [
         Option(text: "足", isCorrect: false),
         Option(text: "手", isCorrect: false),
@@ -3323,7 +3191,7 @@ class AppEnBeginnerQuizData {
       text: "nail",
       sentence: "I trim my nails.",
       translation: "爪を切る。",
-      pronunciation: "neɪl, ネイル",
+      pronunciation: "néɪl",
       options: [
         Option(text: "爪", isCorrect: true),
         Option(text: "手", isCorrect: false),
@@ -3332,250 +3200,10 @@ class AppEnBeginnerQuizData {
       ],
     ),
     Quiz(
-      text: "kimchi",
-      sentence: "I eat kimchi.",
-      translation: "キムチを食べる。",
-      pronunciation: "kɪmʧi, キムチ",
-      options: [
-        Option(text: "キムチ", isCorrect: true),
-        Option(text: "ビビンバ", isCorrect: false),
-        Option(text: "冷麺", isCorrect: false),
-        Option(text: "サムゲタン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "bibimbap",
-      sentence: "I eat bibimbap.",
-      translation: "ビビンバを食べる。",
-      pronunciation: "ˈbɪbɪmbɑːp, ピビムパプ",
-      options: [
-        Option(text: "キムチ", isCorrect: false),
-        Option(text: "冷麺", isCorrect: false),
-        Option(text: "サムゲタン", isCorrect: false),
-        Option(text: "ビビンバ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "cold noodles",
-      sentence: "I eat cold noodles.",
-      translation: "冷麺を食べる。",
-      pronunciation: "koʊld ˈnuːdlz, ムルネンミョン",
-      options: [
-        Option(text: "水冷麺", isCorrect: true),
-        Option(text: "ビビンバ", isCorrect: false),
-        Option(text: "キムチ", isCorrect: false),
-        Option(text: "サムゲタン", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "samgyetang",
-      sentence: "I eat samgyetang.",
-      translation: "サムゲタンを食べる。",
-      pronunciation: "sɑːmˈɡjeɪtɑːŋ, サムゲタン",
-      options: [
-        Option(text: "冷麺", isCorrect: false),
-        Option(text: "サムゲタン", isCorrect: true),
-        Option(text: "ビビンバ", isCorrect: false),
-        Option(text: "キムチ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "gamjatang",
-      sentence: "I eat gamjatang.",
-      translation: "カムジャタンを食べる。",
-      pronunciation: "ɡɑːmʤɑːˈtɑːŋ, カムジャタン",
-      options: [
-        Option(text: "サムゲタン", isCorrect: false),
-        Option(text: "冷麺", isCorrect: false),
-        Option(text: "ビビンバ", isCorrect: false),
-        Option(text: "カムジャタン", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "sundubu jjigae",
-      sentence: "I eat sundubu jjigae.",
-      translation: "スンドゥブチゲを食べる。",
-      pronunciation: "suːnduːbuː ʧɪɡeɪ, スンドゥブチゲ",
-      options: [
-        Option(text: "カムジャタン", isCorrect: false),
-        Option(text: "サムゲタン", isCorrect: false),
-        Option(text: "スンドゥブチゲ", isCorrect: true),
-        Option(text: "ビビンバ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "onion",
-      sentence: "I chop onions.",
-      translation: "玉ねぎを切る。",
-      pronunciation: "ˈʌnjən, ヤンパ",
-      options: [
-        Option(text: "白菜", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: false),
-        Option(text: "レタス", isCorrect: false),
-        Option(text: "玉ねぎ", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "napa cabbage",
-      sentence: "I buy napa cabbage.",
-      translation: "白菜を買う。",
-      pronunciation: "ˈneɪpə ˈkæbɪʤ, ペチュ",
-      options: [
-        Option(text: "玉ねぎ", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: false),
-        Option(text: "白菜", isCorrect: true),
-        Option(text: "レタス", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "cabbage",
-      sentence: "I chop cabbage.",
-      translation: "キャベツを切る。",
-      pronunciation: "ˈkæbɪʤ, ヤンベチュ",
-      options: [
-        Option(text: "玉ねぎ", isCorrect: false),
-        Option(text: "白菜", isCorrect: false),
-        Option(text: "キャベツ", isCorrect: true),
-        Option(text: "レタス", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "lettuce",
-      sentence: "I eat lettuce.",
-      translation: "レタスを食べる。",
-      pronunciation: "ˈlɛtɪs, ヤンサンチュ",
-      options: [
-        Option(text: "キャベツ", isCorrect: false),
-        Option(text: "玉ねぎ", isCorrect: false),
-        Option(text: "白菜", isCorrect: false),
-        Option(text: "レタス", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "potato",
-      sentence: "I eat potatoes.",
-      translation: "じゃがいもを食べる。",
-      pronunciation: "pəˈteɪtoʊ, カムジャ",
-      options: [
-        Option(text: "人参", isCorrect: false),
-        Option(text: "玉ねぎ", isCorrect: false),
-        Option(text: "じゃがいも", isCorrect: true),
-        Option(text: "大根", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "ginseng",
-      sentence: "I eat ginseng.",
-      translation: "高麗人参を食べる。",
-      pronunciation: "ˈdʒɪnsɛŋ, コリョインサム",
-      options: [
-        Option(text: "高麗人参", isCorrect: true),
-        Option(text: "玉ねぎ", isCorrect: false),
-        Option(text: "白菜", isCorrect: false),
-        Option(text: "じゃがいも", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "garlic",
-      sentence: "I add garlic.",
-      translation: "にんにくを入れる。",
-      pronunciation: "ˈɡɑrlɪk, マヌル",
-      options: [
-        Option(text: "じゃがいも", isCorrect: false),
-        Option(text: "人参", isCorrect: false),
-        Option(text: "大根", isCorrect: false),
-        Option(text: "にんにく", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "mushroom",
-      sentence: "I add mushrooms.",
-      translation: "きのこを入れる。",
-      pronunciation: "ˈmʌʃruːm, ポソッ",
-      options: [
-        Option(text: "じゃがいも", isCorrect: false),
-        Option(text: "人参", isCorrect: false),
-        Option(text: "きのこ", isCorrect: true),
-        Option(text: "大根", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "chili pepper",
-      sentence: "I add chili pepper.",
-      translation: "唐辛子を入れる。",
-      pronunciation: "ˈʧɪli ˈpɛpər, コチュ",
-      options: [
-        Option(text: "じゃがいも", isCorrect: false),
-        Option(text: "唐辛子", isCorrect: true),
-        Option(text: "きのこ", isCorrect: false),
-        Option(text: "にんにく", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "apple",
-      sentence: "I eat apples.",
-      translation: "りんごを食べる。",
-      pronunciation: "ˈæpəl, サグァ",
-      options: [
-        Option(text: "みかん", isCorrect: false),
-        Option(text: "梨", isCorrect: false),
-        Option(text: "りんご", isCorrect: true),
-        Option(text: "桃", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "mandarin",
-      sentence: "I eat mandarin oranges.",
-      translation: "みかんを食べる。",
-      pronunciation: "ˈmændərɪn, キュル",
-      options: [
-        Option(text: "りんご", isCorrect: false),
-        Option(text: "梨", isCorrect: false),
-        Option(text: "桃", isCorrect: false),
-        Option(text: "みかん", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "strawberry",
-      sentence: "I eat strawberries.",
-      translation: "いちごを食べる。",
-      pronunciation: "ˈstrɔːˌbɛri, タルギ",
-      options: [
-        Option(text: "いちご", isCorrect: true),
-        Option(text: "レモン", isCorrect: false),
-        Option(text: "桃", isCorrect: false),
-        Option(text: "卵", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "lemon",
-      sentence: "I add lemon.",
-      translation: "レモンを入れる。",
-      pronunciation: "ˈlɛmən, レモン",
-      options: [
-        Option(text: "いちご", isCorrect: false),
-        Option(text: "桃", isCorrect: false),
-        Option(text: "レモン", isCorrect: true),
-        Option(text: "卵", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "peach",
-      sentence: "I eat a peach.",
-      translation: "桃を食べる。",
-      pronunciation: "piːʧ, ポクッスンア",
-      options: [
-        Option(text: "桃", isCorrect: true),
-        Option(text: "いちご", isCorrect: false),
-        Option(text: "レモン", isCorrect: false),
-        Option(text: "卵", isCorrect: false),
-      ],
-    ),
-    Quiz(
       text: "egg",
       sentence: "I eat an egg.",
       translation: "卵を食べる。",
-      pronunciation: "ɛɡ, ケラン",
+      pronunciation: "ég",
       options: [
         Option(text: "いちご", isCorrect: false),
         Option(text: "レモン", isCorrect: false),
@@ -3587,7 +3215,7 @@ class AppEnBeginnerQuizData {
       text: "beef",
       sentence: "I eat beef.",
       translation: "牛肉を食べる。",
-      pronunciation: "biːf, ソゴギ",
+      pronunciation: "bíːf",
       options: [
         Option(text: "豚肉", isCorrect: false),
         Option(text: "鶏肉", isCorrect: false),
@@ -3599,7 +3227,7 @@ class AppEnBeginnerQuizData {
       text: "pork",
       sentence: "I eat pork.",
       translation: "豚肉を食べる。",
-      pronunciation: "pɔːrk, テジゴギ",
+      pronunciation: "pˈɔɚk",
       options: [
         Option(text: "牛肉", isCorrect: false),
         Option(text: "豚肉", isCorrect: true),
@@ -3611,7 +3239,7 @@ class AppEnBeginnerQuizData {
       text: "chicken",
       sentence: "I eat chicken.",
       translation: "鶏肉を食べる。",
-      pronunciation: "ˈʧɪkɪn, タルゴギ",
+      pronunciation: "tʃík(ə)n",
       options: [
         Option(text: "牛肉", isCorrect: false),
         Option(text: "豚肉", isCorrect: false),
@@ -3625,7 +3253,7 @@ class AppEnBeginnerQuizData {
       text: "east",
       sentence: "The sun rises in the east.",
       translation: "日が東から昇る。",
-      pronunciation: "iːst, トンチョク",
+      pronunciation: "íːst",
       options: [
         Option(text: "東", isCorrect: true),
         Option(text: "西", isCorrect: false),
@@ -3637,7 +3265,7 @@ class AppEnBeginnerQuizData {
       text: "west",
       sentence: "The sun sets in the west.",
       translation: "日が西に沈む。",
-      pronunciation: "wɛst, ソチョク",
+      pronunciation: "wést",
       options: [
         Option(text: "西", isCorrect: true),
         Option(text: "東", isCorrect: false),
@@ -3649,7 +3277,7 @@ class AppEnBeginnerQuizData {
       text: "south",
       sentence: "I go south.",
       translation: "南へ行く。",
-      pronunciation: "saʊθ, ナムチョク",
+      pronunciation: "sάʊθ",
       options: [
         Option(text: "北", isCorrect: false),
         Option(text: "東", isCorrect: false),
@@ -3661,7 +3289,7 @@ class AppEnBeginnerQuizData {
       text: "north",
       sentence: "I go north.",
       translation: "北へ行く。",
-      pronunciation: "nɔːrθ, プクチョク",
+      pronunciation: "nˈɔɚθ",
       options: [
         Option(text: "南", isCorrect: false),
         Option(text: "東", isCorrect: false),
@@ -3673,7 +3301,7 @@ class AppEnBeginnerQuizData {
       text: "right",
       sentence: "Turn to the right.",
       translation: "右に曲がる。",
-      pronunciation: "raɪt, オルンチョク",
+      pronunciation: "rάɪt",
       options: [
         Option(text: "左", isCorrect: false),
         Option(text: "右", isCorrect: true),
@@ -3685,7 +3313,7 @@ class AppEnBeginnerQuizData {
       text: "left",
       sentence: "Turn to the left.",
       translation: "左に曲がる。",
-      pronunciation: "lɛft, ウェンチョク",
+      pronunciation: "léft",
       options: [
         Option(text: "左", isCorrect: true),
         Option(text: "右", isCorrect: false),
@@ -3693,107 +3321,37 @@ class AppEnBeginnerQuizData {
         Option(text: "下", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "up",
-      sentence: "Go up.",
-      translation: "上へ登る。",
-      pronunciation: "ʌp, ウィ",
-      options: [
-        Option(text: "下", isCorrect: false),
-        Option(text: "前", isCorrect: false),
-        Option(text: "後ろ", isCorrect: false),
-        Option(text: "上", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "down",
-      sentence: "Go down.",
-      translation: "下へ降りる。",
-      pronunciation: "daʊn, アレ",
-      options: [
-        Option(text: "上", isCorrect: false),
-        Option(text: "前", isCorrect: false),
-        Option(text: "下", isCorrect: true),
-        Option(text: "後ろ", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "front",
-      sentence: "Go to the front.",
-      translation: "前へ行く。",
-      pronunciation: "frʌnt, アプ",
-      options: [
-        Option(text: "前", isCorrect: true),
-        Option(text: "後ろ", isCorrect: false),
-        Option(text: "上", isCorrect: false),
-        Option(text: "下", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "back",
-      sentence: "Go to the back.",
-      translation: "後ろへ行く。",
-      pronunciation: "bæk, トゥィ",
-      options: [
-        Option(text: "後ろ", isCorrect: true),
-        Option(text: "前", isCorrect: false),
-        Option(text: "上", isCorrect: false),
-        Option(text: "下", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "inside",
       sentence: "Go inside.",
       translation: "中へ入る。",
-      pronunciation: "ˈɪnˌsaɪd, アン",
+      pronunciation: "ìnsάɪd",
       options: [
-        Option(text: "外", isCorrect: false),
-        Option(text: "前", isCorrect: false),
-        Option(text: "後ろ", isCorrect: false),
-        Option(text: "内", isCorrect: true),
+        Option(text: "外部", isCorrect: false),
+        Option(text: "前部", isCorrect: false),
+        Option(text: "後部", isCorrect: false),
+        Option(text: "内部", isCorrect: true),
       ],
     ),
     Quiz(
       text: "outside",
       sentence: "Go outside.",
       translation: "外へ出る。",
-      pronunciation: "ˈaʊtˌsaɪd, パク",
+      pronunciation: "ὰʊtsάɪd",
       options: [
-        Option(text: "内", isCorrect: false),
-        Option(text: "前", isCorrect: false),
-        Option(text: "外", isCorrect: true),
-        Option(text: "後ろ", isCorrect: false),
+        Option(text: "内部", isCorrect: false),
+        Option(text: "前部", isCorrect: false),
+        Option(text: "外部", isCorrect: true),
+        Option(text: "後部", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "front side",
-      sentence: "Look at the front side of the book.",
-      translation: "本の表面を見る。",
-      pronunciation: "frʌnt saɪd, アムミョン",
-      options: [
-        Option(text: "表面", isCorrect: true),
-        Option(text: "裏面", isCorrect: false),
-        Option(text: "内", isCorrect: false),
-        Option(text: "外", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "back side",
-      sentence: "Look at the back side of the book.",
-      translation: "本の裏面を見る。",
-      pronunciation: "bæk saɪd, トゥィミョン",
-      options: [
-        Option(text: "裏面", isCorrect: true),
-        Option(text: "表面", isCorrect: false),
-        Option(text: "内", isCorrect: false),
-        Option(text: "外", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "here",
       sentence: "I am here.",
       translation: "ここにいる。",
-      pronunciation: "hɪr, ヨギ",
+      pronunciation: "híɚ",
       options: [
         Option(text: "そこ", isCorrect: false),
         Option(text: "ここ", isCorrect: true),
@@ -3805,7 +3363,7 @@ class AppEnBeginnerQuizData {
       text: "there",
       sentence: "I am there.",
       translation: "そこにいる。",
-      pronunciation: "ðɛr, コギ",
+      pronunciation: "ðéɚ",
       options: [
         Option(text: "そこ", isCorrect: true),
         Option(text: "ここ", isCorrect: false),
@@ -3817,7 +3375,7 @@ class AppEnBeginnerQuizData {
       text: "over there",
       sentence: "I am over there.",
       translation: "あそこにいる。",
-      pronunciation: "ˌoʊvər ðɛr, チョギ",
+      pronunciation: "òver thére",
       options: [
         Option(text: "あそこ", isCorrect: true),
         Option(text: "そこ", isCorrect: false),
@@ -3833,7 +3391,7 @@ class AppEnBeginnerQuizData {
       text: "Excuse me",
       sentence: "Excuse me, I have a question.",
       translation: "失礼します、質問があります。",
-      pronunciation: "ɪkˈskjus mi",
+      pronunciation: "",
       options: [
         Option(text: "こんにちは", isCorrect: false),
         Option(text: "ありがとう", isCorrect: false),
@@ -3843,9 +3401,9 @@ class AppEnBeginnerQuizData {
     ),
     Quiz(
       text: "See you again",
-      sentence: "See you again.",
-      translation: "それでは、また会いましょう。",
-      pronunciation: "si ju əˈɡɛn",
+      sentence: "Nice to see you Again!",
+      translation: "また会いましょう！",
+      pronunciation: "",
       options: [
         Option(text: "どうぞよろしく", isCorrect: false),
         Option(text: "ごめんなさい", isCorrect: false),
@@ -3857,7 +3415,7 @@ class AppEnBeginnerQuizData {
       text: "Thank you",
       sentence: "Thank you for helping me.",
       translation: "助けてくれてありがとう。",
-      pronunciation: "θæŋk ju",
+      pronunciation: "",
       options: [
         Option(text: "さようなら", isCorrect: false),
         Option(text: "お疲れ様です", isCorrect: false),
@@ -3877,18 +3435,7 @@ class AppEnBeginnerQuizData {
         Option(text: "おやすみなさい", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "Thank you for the meal",
-      sentence: "Thank you for the meal, I'll enjoy it.",
-      translation: "いただきます、美味しくいただきます。",
-      pronunciation: "θæŋk ju fɔr ðə mil",
-      options: [
-        Option(text: "お疲れ様です", isCorrect: false),
-        Option(text: "またね", isCorrect: false),
-        Option(text: "さようなら", isCorrect: false),
-        Option(text: "いただきます", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "How have you been?",
       sentence: "How have you been? It's been a while.",
@@ -3973,18 +3520,7 @@ class AppEnBeginnerQuizData {
         Option(text: "～で行います", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "Hello",
-      sentence: "Hello, nice to meet you.",
-      translation: "こんにちは、お会いできて嬉しいです。",
-      pronunciation: "həˈloʊ",
-      options: [
-        Option(text: "ありがとう", isCorrect: false),
-        Option(text: "おやすみ", isCorrect: false),
-        Option(text: "お疲れ様", isCorrect: false),
-        Option(text: "こんにちは", isCorrect: true),
-      ],
-    ),
+
     Quiz(
       text: "Thank you",
       sentence: "Thank you for helping me.",

@@ -24,7 +24,7 @@ void main() {
 
       container = createContainer(
         overrides: [
-          wordGetAllDaoProviderProvider.overrideWithValue(mockWordGetAllDao),
+          wordGetAllDaoProvider.overrideWithValue(mockWordGetAllDao),
           quizFavoriteSqlRepositoryProvider
               .overrideWithValue(mockQuizFavoriteSqlRepository),
         ],

@@ -5,6 +5,8 @@ on:
     branches:
       - current_none
     types: [closed]
+    paths:
+      - 'apps/ko_beginner/pubspec.yaml'
 
 jobs:
   build_iOS:
