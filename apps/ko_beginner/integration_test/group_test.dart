@@ -5,11 +5,7 @@ import 'utility/common.dart';
 import 'word_list/word_list_test.dart';
 
 void main() {
-  // ignore: omit_local_variable_types
-  patrol('at the beginning', ($) async {
-    await _splashPageTest($);
-  });
-
+  
   patrol('feature_splash', ($) async {
     await _splashPageTest($);
   });

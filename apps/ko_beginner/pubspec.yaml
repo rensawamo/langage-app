@@ -79,6 +79,6 @@ flutter_icons:
 patrol:
   app_name: patrol_integ
   android:
-    package_name: com.example.patrol_integ
+    package_name: com.rensawamo.ko_beginner
   ios:
-    bundle_id: com.example.patrolInteg
+    bundle_id: com.rensawamo.koBeginner

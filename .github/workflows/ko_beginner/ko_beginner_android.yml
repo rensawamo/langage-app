@@ -1,0 +1,103 @@
+
+
+name: Dart
+
+on:
+  push:
+    branches:
+      - cicd
+    types: [closed]
+    paths:
+      - 'apps/ko_beginner/pubspec.yaml'
+
+jobs:
+  build:
+    name: Build for Android
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          test-bot: false
+
+      - name: install fvm
+        run: |
+            brew tap leoafarias/fvm
+            brew install fvm
+
+      - name: set up fvm
+        run: |
+          fvm install
+
+      - name:  Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: set up dart
+        run: |
+          fvm dart --version
+
+      - name: Set up Melos
+        run: |
+          fvm dart pub global activate melos
+
+      - name: Bootstrapf
+        run: make bs
+
+      - name: flutter clean
+        run: fvm flutter clean
+
+
+      - name: flutter pub get
+        run: fvm flutter pub get
+
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.3.0
+
+      - name: setup google-services.json
+        run: |
+          echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_JSON_BASE64 }}" >> app/android/app/google-services.json
+
+      - name: Decode firebase_option
+        run : echo "${{ secrets.KO_BEGINNER_FIREBASE_OPTION_BASE64 }}" | base64 -d > app/lib/firebase_options.dart
+
+      # - name: instrumentation tests
+      #   run: make instrumentation-test
+
+      - name: Setup Gradle
+        run: |
+          echo "${{ secrets.KO_BEGINNER_KEYSTORE_BASE64 }}" | base64 -d > app/android/app/release.jks
+
+      - name: Build APK
+        env:
+          KEY_ALIAS: ${{ secrets.KO_BEGINNER_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KO_BEGINNER_KEY_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.KO_BEGINNER_STORE_PASSWORD }}
+        run: make build_apk APP=ko_beginner
+
+
+      - name: Upload APK to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.KO_BEGINNER_ANDROID_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.KO_BEGINNER_CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: app/build/app/outputs/apk/release/app-release.apk
+
+
+
+
+
