@@ -2658,7 +2658,7 @@ class AppEnBeginnerQuizData {
       text: "father",
       sentence: "The father works at the office.",
       translation: "父は職場で働く。",
-      pronunciation: "ˈfɑːðər, ファザー",
+      pronunciation: "fάːðɚ",
       options: [
         Option(text: "母", isCorrect: false),
         Option(text: "兄", isCorrect: false),
@@ -2670,7 +2670,7 @@ class AppEnBeginnerQuizData {
       text: "mother",
       sentence: "The mother cooks at home.",
       translation: "母は家で料理する。",
-      pronunciation: "ˈmʌðər, マザー",
+      pronunciation: "mˈʌðɚ",
       options: [
         Option(text: "父", isCorrect: false),
         Option(text: "妹", isCorrect: false),
@@ -2678,35 +2678,12 @@ class AppEnBeginnerQuizData {
         Option(text: "弟", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "dad",
-      sentence: "Dad plays with the child.",
-      translation: "お父さんが子供と遊んでいる。",
-      pronunciation: "dæd, ダッド",
-      options: [
-        Option(text: "お母さん", isCorrect: false),
-        Option(text: "お父さん", isCorrect: true),
-        Option(text: "兄", isCorrect: false),
-        Option(text: "姉", isCorrect: false),
-      ],
-    ),
-    Quiz(
-      text: "mom",
-      sentence: "Mom is preparing the meal.",
-      translation: "お母さんがご飯を準備している。",
-      pronunciation: "mɑːm, マーム",
-      options: [
-        Option(text: "お父さん", isCorrect: false),
-        Option(text: "お母さん", isCorrect: true),
-        Option(text: "妹", isCorrect: false),
-        Option(text: "弟", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "parents",
       sentence: "The parents go for a walk together.",
       translation: "両親が一緒に散歩に行く。",
-      pronunciation: "ˈpɛrənts, ペアレンツ",
+      pronunciation: "ˈpɛrʌnts",
       options: [
         Option(text: "兄弟", isCorrect: false),
         Option(text: "祖父母", isCorrect: false),
@@ -2718,7 +2695,7 @@ class AppEnBeginnerQuizData {
       text: "siblings",
       sentence: "The siblings are playing together.",
       translation: "兄弟が一緒に遊んでいる。",
-      pronunciation: "ˈsɪblɪŋz, シブリングズ",
+      pronunciation: "siblings",
       options: [
         Option(text: "兄弟", isCorrect: true),
         Option(text: "両親", isCorrect: false),

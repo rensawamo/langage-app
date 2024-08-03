@@ -63,7 +63,7 @@ jobs:
       - name: setup google-services.json
         run: |
           echo "${{ secrets.KO_BEGINNER_GOOGLE_SERVICES_JSON_BASE64 }}" >> apps/ko_beginner/android/app/src/prod/google-services.json
-
+ 
       - name: Decode firebase_option
         run : echo "${{ secrets.KO_BEGINNER_FIREBASE_OPTION_BASE64 }}" | base64 -d > apps/ko_beginner/lib/firebase_options.dart
 
