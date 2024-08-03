@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - cicd
-    types: [closed]
     paths:
       - 'apps/ko_beginner/pubspec.yaml'
 
