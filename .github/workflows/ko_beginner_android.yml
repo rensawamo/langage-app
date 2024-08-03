@@ -6,8 +6,8 @@ on:
   push:
     branches:
       - cicd
-    paths:
-      - 'apps/ko_beginner/pubspec.yaml'
+    # paths:
+    #   - 'apps/ko_beginner/pubspec.yaml'
 
 jobs:
   build:
