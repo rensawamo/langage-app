@@ -2500,8 +2500,6 @@ class AppEnBeginnerQuizData {
         Option(text: "足す", isCorrect: false),
       ],
     ),
-
-
     Quiz(
       text: "vomit",
       sentence: "He vomited because his stomach hurt.",
@@ -2550,7 +2548,6 @@ class AppEnBeginnerQuizData {
         Option(text: "忘れる", isCorrect: true),
       ],
     ),
-
     Quiz(
       text: "pull",
       sentence: "Please pull the door.",
@@ -2611,7 +2608,6 @@ class AppEnBeginnerQuizData {
         Option(text: "競う", isCorrect: false),
       ],
     ),
-
     Quiz(
       text: "enter",
       sentence: "I enter the house.",
@@ -2648,7 +2644,6 @@ class AppEnBeginnerQuizData {
         Option(text: "生む", isCorrect: false),
       ],
     ),
-
   ];
 
   /////////////  名詞　　/////////////////////
@@ -2695,7 +2690,7 @@ class AppEnBeginnerQuizData {
       text: "siblings",
       sentence: "The siblings are playing together.",
       translation: "兄弟が一緒に遊んでいる。",
-      pronunciation: "siblings",
+      pronunciation: "ˈsɪblɪŋz",
       options: [
         Option(text: "兄弟", isCorrect: true),
         Option(text: "両親", isCorrect: false),
@@ -2708,7 +2703,7 @@ class AppEnBeginnerQuizData {
       text: "grandfather",
       sentence: "The grandfather tells a story.",
       translation: "祖父が話を聞かせる。",
-      pronunciation: "ˈɡrændˌfɑːðər, グランドファーザー",
+      pronunciation: "grˈæn(d)fὰːðɚ",
       options: [
         Option(text: "祖母", isCorrect: false),
         Option(text: "祖父", isCorrect: true),
@@ -2720,7 +2715,7 @@ class AppEnBeginnerQuizData {
       text: "grandmother",
       sentence: "The grandmother takes care of the grandson.",
       translation: "祖母が孫を世話する。",
-      pronunciation: "ˈɡrændˌmʌðər, グランドマザー",
+      pronunciation: "grˈæn(d)m`ʌðɚ",
       options: [
         Option(text: "祖母", isCorrect: true),
         Option(text: "祖父", isCorrect: false),
@@ -2732,7 +2727,7 @@ class AppEnBeginnerQuizData {
       text: "child",
       sentence: "The child plays at the playground.",
       translation: "子供が遊び場で遊ぶ。",
-      pronunciation: "tʃaɪld, チャイルド",
+      pronunciation: "tʃάɪld",
       options: [
         Option(text: "息子", isCorrect: false),
         Option(text: "娘", isCorrect: false),
@@ -2744,7 +2739,7 @@ class AppEnBeginnerQuizData {
       text: "son",
       sentence: "The son helps his father.",
       translation: "息子が父を手伝う。",
-      pronunciation: "sʌn, サン",
+      pronunciation: "sˈʌn",
       options: [
         Option(text: "子供", isCorrect: false),
         Option(text: "娘", isCorrect: false),
@@ -2756,7 +2751,7 @@ class AppEnBeginnerQuizData {
       text: "daughter",
       sentence: "The daughter helps her mother.",
       translation: "娘が母を手伝う。",
-      pronunciation: "ˈdɔːtər, ドーター",
+      pronunciation: "dˈɔːṭɚ",
       options: [
         Option(text: "息子", isCorrect: false),
         Option(text: "子供", isCorrect: false),
@@ -2764,35 +2759,12 @@ class AppEnBeginnerQuizData {
         Option(text: "孫娘", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "grandson",
-      sentence: "The grandfather loves his grandson.",
-      translation: "祖父が孫息子を愛する。",
-      pronunciation: "ˈɡrændˌsʌn, グランドサン",
-      options: [
-        Option(text: "孫娘", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "娘", isCorrect: false),
-        Option(text: "孫息子", isCorrect: true),
-      ],
-    ),
-    Quiz(
-      text: "granddaughter",
-      sentence: "The grandmother loves her granddaughter.",
-      translation: "祖母が孫娘を愛する。",
-      pronunciation: "ˈɡrændˌdɔːtər, グランドドーター",
-      options: [
-        Option(text: "孫息子", isCorrect: false),
-        Option(text: "息子", isCorrect: false),
-        Option(text: "孫娘", isCorrect: true),
-        Option(text: "娘", isCorrect: false),
-      ],
-    ),
+
     Quiz(
       text: "husband",
       sentence: "The husband helps his wife.",
       translation: "夫が妻を手伝う。",
-      pronunciation: "ˈhʌzbənd, ハズバンド",
+      pronunciation: "hˈʌzbənd",
       options: [
         Option(text: "親戚", isCorrect: false),
         Option(text: "夫", isCorrect: true),
@@ -2804,7 +2776,7 @@ class AppEnBeginnerQuizData {
       text: "wife",
       sentence: "The wife loves her husband.",
       translation: "妻が夫を愛する。",
-      pronunciation: "waɪf, ワイフ",
+      pronunciation: "wάɪf",
       options: [
         Option(text: "夫", isCorrect: false),
         Option(text: "親戚", isCorrect: false),
@@ -2812,25 +2784,14 @@ class AppEnBeginnerQuizData {
         Option(text: "妻", isCorrect: true),
       ],
     ),
-    Quiz(
-      text: "relatives",
-      sentence: "All the relatives gathered together.",
-      translation: "親戚がみんな集まった。",
-      pronunciation: "ˈrɛlətɪvz, レラティブズ",
-      options: [
-        Option(text: "両親", isCorrect: false),
-        Option(text: "祖父母", isCorrect: false),
-        Option(text: "親戚", isCorrect: true),
-        Option(text: "兄弟", isCorrect: false),
-      ],
-    ),
+
 
     /// 場所
     Quiz(
       text: "station",
       sentence: "I meet my friend at the station.",
       translation: "私は駅で友達に会う。",
-      pronunciation: "ˈsteɪʃən, ステーション",
+      pronunciation: "stéɪʃən",
       options: [
         Option(text: "学校", isCorrect: false),
         Option(text: "空港", isCorrect: false),
@@ -2842,7 +2803,7 @@ class AppEnBeginnerQuizData {
       text: "school",
       sentence: "I go to school.",
       translation: "私は学校に行く。",
-      pronunciation: "skuːl, スクール",
+      pronunciation: "skúːl",
       options: [
         Option(text: "駅", isCorrect: false),
         Option(text: "学校", isCorrect: true),
@@ -2854,7 +2815,7 @@ class AppEnBeginnerQuizData {
       text: "airport",
       sentence: "I board a plane at the airport.",
       translation: "空港で飛行機に乗る。",
-      pronunciation: "ˈɛərpɔrt, エアポート",
+      pronunciation: "éɚp`ɔɚt",
       options: [
         Option(text: "学校", isCorrect: false),
         Option(text: "駅", isCorrect: false),
