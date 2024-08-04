@@ -356,7 +356,7 @@ class AppEnBeginnerQuizData {
       text: "warm",
       sentence: "Spring days are warm.",
       translation: "春の日は温かい。",
-      pronunciation: "wˈɔɚm, ウォーム",
+      pronunciation: "wˈɔɚm",
       options: [
         Option(text: "熱い", isCorrect: false),
         Option(text: "温かい", isCorrect: true),
@@ -368,7 +368,7 @@ class AppEnBeginnerQuizData {
       text: "cool",
       sentence: "The sea is cool in summer.",
       translation: "夏には海が涼しい。",
-      pronunciation: "kul, クール",
+      pronunciation: "kúːl",
       options: [
         Option(text: "涼しい", isCorrect: true),
         Option(text: "暖かい", isCorrect: false),
@@ -376,18 +376,7 @@ class AppEnBeginnerQuizData {
         Option(text: "苦い", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "cool",
-      sentence: "The weather is cool in autumn.",
-      translation: "秋には天気が涼しい。",
-      pronunciation: "kúːl",
-      options: [
-        Option(text: "暖かい", isCorrect: false),
-        Option(text: "甘い", isCorrect: false),
-        Option(text: "涼しい", isCorrect: true),
-        Option(text: "酸っぱい", isCorrect: false),
-      ],
-    ),
+   
     Quiz(
       text: "sweet",
       sentence: "This candy is sweet.",

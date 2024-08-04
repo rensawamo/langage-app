@@ -90,4 +90,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get mode => 'ダークモード';
+
+  @override
+  String get appreview => 'レビューをする';
 }

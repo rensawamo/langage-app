@@ -26,6 +26,11 @@ test:
 	chmod +x scripts/test.sh
 	sh ./scripts/test.sh
 
+# localize
+.PHONY: localize
+localize:
+	cd packages/core/designsystem && make localize
+
 
 # [Android] リリースビルド(難読)
 .PHONY: release_build_android

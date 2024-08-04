@@ -57,8 +57,8 @@ class SettingPage extends StatelessWidget {
             ),
             AppDriver(),
             ListTile(
-              leading: const Icon(Icons.star),
-              title: const Text('レビューをする'),
+              leading:  Icon(Icons.star),
+              title:  Text(AppLocalizations.of(context).appreview),
               onTap: () => DrawerHelper.launchStoreReview(context),
             ),
           ],
