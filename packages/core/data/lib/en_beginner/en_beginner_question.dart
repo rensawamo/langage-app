@@ -914,7 +914,7 @@ class AppEnBeginnerQuizData {
       pronunciation: "túː",
       options: [
         Option(text: "ほとんど", isCorrect: false),
-        Option(text: "非常に", isCorrect: true),
+        Option(text: "あまりにも", isCorrect: true),
         Option(text: "完全に", isCorrect: false),
         Option(text: "時々", isCorrect: false),
       ],
@@ -3437,9 +3437,9 @@ class AppEnBeginnerQuizData {
     ),
     Quiz(
       text: "How have you been?",
-      sentence: "",
+      sentence: "How have you been? Long time no see.",
       translation: "お元気でしたか？久しぶりです。",
-      pronunciation: "haʊ hæv ju bɪn",
+      pronunciation: "",
       options: [
         Option(text: "お元気でしたか？", isCorrect: true),
         Option(text: "おはようございます", isCorrect: false),
@@ -3507,18 +3507,7 @@ class AppEnBeginnerQuizData {
         Option(text: "～で行います", isCorrect: false),
       ],
     ),
-    Quiz(
-      text: "Thank you",
-      sentence: "Thank you for helping me.",
-      translation: "助けていただいてありがとうございます。",
-      pronunciation: "",
-      options: [
-        Option(text: "こんにちは", isCorrect: false),
-        Option(text: "こんばんは", isCorrect: false),
-        Option(text: "お疲れ様です", isCorrect: false),
-        Option(text: "ありがとうございます", isCorrect: true),
-      ],
-    ),
+   
     Quiz(
       text: "Good night",
       sentence: "Good night, sleep well.",

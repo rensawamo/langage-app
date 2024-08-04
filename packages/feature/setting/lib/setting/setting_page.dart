@@ -27,8 +27,8 @@ class SettingPage extends StatelessWidget {
                 shape: BoxShape.rectangle,
               ),
               child: Image.asset(isDarkMode
-                  ? 'assets/images/ko_national_dark.png'
-                  : 'assets/images/ko_national_flag.png'),
+                  ? 'assets/images/national_dark.png'
+                  : 'assets/images/national_flag.png'),
             ),
             AppDriver(),
             SettingsItem(

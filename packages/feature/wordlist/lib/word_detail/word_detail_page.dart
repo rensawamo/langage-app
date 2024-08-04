@@ -1,4 +1,5 @@
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_wordlist/word_detail/word_detail_viewmodel.dart';
@@ -32,7 +33,8 @@ class WordDetailPage extends StatelessWidget {
       final vm = ref.watch(wordDetailProvider.notifier);
       // DI speak
       // tts 発音関数
-      Function speak = ref.read(ttsRepositoryProvider).speak;
+      final Function speak = ref.read(ttsRepositoryProvider).speak;
+      final AppInstallType appInstallType = ref.read(appSettingInfoProvider);
       return AppBaseFrame(
         screenContext: context,
         hasPrevButton: true,
@@ -77,7 +79,10 @@ class WordDetailPage extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: word.length > 8 ? 20 : 28,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.orange),
+                                      color: appInstallType ==
+                                              AppInstallType.koreanBeginner
+                                          ? Colors.orange
+                                          : Colors.blue),
                                 ),
                                 IconButton(
                                   icon:
