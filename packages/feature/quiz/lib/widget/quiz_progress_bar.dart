@@ -1,11 +1,13 @@
 import 'package:core_designsystem/designsystem.dart';
+import 'package:core_foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 class progressBar extends StatefulWidget {
-  const progressBar({super.key, required this.count, required this.index});
+  const progressBar({super.key, required this.count, required this.index, required this.appInstallType});
   final int count;
   final int index;
+  final AppInstallType appInstallType;
 
   @override
   State<progressBar> createState() => _progressBarState();
@@ -49,7 +51,8 @@ class _progressBarState extends State<progressBar>
                         ((200 / widget.count) * animation!.value),
                     height: 5,
                     decoration: BoxDecoration(
-                      color: AppColorsSet.getQuizTileColor(context),
+                      color: AppColorsSet.getQuizTileColor(context,
+                          widget.appInstallType),
                       borderRadius: BorderRadius.all(Radius.circular(4.0)),
                     ),
                   )

@@ -18,6 +18,13 @@
 ![image](https://github.com/user-attachments/assets/76244c6d-0fac-4a98-abd7-27630be726a6)
 
 
+
+# 英語初級
+
+![image](https://github.com/user-attachments/assets/1fb45722-56db-4587-aa43-e835585d32e8)
+
+
+
 # ビルド
 
 ```sh

@@ -2,7 +2,7 @@ name: en_beginner
 description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.1.4+3
+version: 1.1.4+10
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -65,8 +65,8 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
-    - ./assets/images/ko_national_flag.png
-    - ./assets/images/ko_national_dark.png
+    - ./assets/images/national_flag.png
+    - ./assets/images/national_dark.png
   uses-material-design: true
 
 

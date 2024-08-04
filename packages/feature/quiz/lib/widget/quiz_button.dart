@@ -10,6 +10,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
     required this.ans_ind,
     required this.selected,
     required this.selected_ind,
+    required this.appInstallType,
     this.textType,
   }) : super(key: key);
 
@@ -19,6 +20,7 @@ class AppQuizbuttonWidget extends StatefulWidget {
   final int ans_ind;
   final int selected_ind;
   final AppTextSizeType? textType;
+  final AppInstallType appInstallType;
 
   @override
   ___buttonWidgetState createState() => ___buttonWidgetState();
@@ -75,7 +77,7 @@ class ___buttonWidgetState extends State<AppQuizbuttonWidget>
                                   : WidgetStateProperty.all<Color>(
                                       Color.fromARGB(255, 152, 149, 148))))
                           : WidgetStateProperty.all<Color>(
-                              AppColorsSet.getQuizTileColor(context)), // 未選択
+                              AppColorsSet.getQuizTileColor(context, widget.appInstallType)), // 未選択
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),

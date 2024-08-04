@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#EDA276</color>
+    <color name="koBeginnerPrimary">#EDA276</color>
+    <color name="enBeginnerPrimary">#ADD8E6</color> 
 </resources>

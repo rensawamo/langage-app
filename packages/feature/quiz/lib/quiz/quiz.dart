@@ -1,6 +1,7 @@
 import 'package:core_dao/dao/quiz_get_all/topic_param.dart';
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
 import 'package:feature_quiz/quiz/quiz_state.dart';
@@ -23,8 +24,8 @@ class QuizPage extends StatelessWidget {
       final vm = ref.watch(quizProvider.notifier);
       final state = ref.watch(quizProvider);
       // DI
-      // speaking
       final tts = ref.read(ttsRepositoryProvider);
+      final appInstallType = ref.read(appSettingInfoProvider);
 
       return AppBaseFrame(
           screenContext: screenContext,
@@ -44,14 +45,15 @@ class QuizPage extends StatelessWidget {
                     ? const Center(child: CircularProgressIndicator())
                     : state.quizzs.isEmpty
                         ? _empty(context)
-                        : _page(state, vm, tts.speak),
+                        : _page(state, vm, tts.speak, appInstallType),
               ),
             ],
           ));
     });
   }
 
-  Widget _page(QuizState state, QuizViewmodel vm, Function speak) {
+  Widget _page(QuizState state, QuizViewmodel vm, Function speak,
+      AppInstallType appInstallType) {
     return PageView.builder(
       key: AppKeys.quiz,
       itemCount: state.quizzs.length,
@@ -78,6 +80,7 @@ class QuizPage extends StatelessWidget {
           selected_ind: state.selectedInd,
           tatalScore: state.totalScore,
           quizTopicType: quizTopicType.quizTopicType,
+          appInstallType: appInstallType,
         );
       },
     );

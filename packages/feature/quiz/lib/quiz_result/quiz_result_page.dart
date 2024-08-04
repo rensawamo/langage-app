@@ -47,7 +47,7 @@ class QuizResultPage extends StatelessWidget {
 
       return AppBaseFrame(
         screenContext: context,
-        // hasAppbar: false,
+        hasAppbar: false,
         initFrame: (context, ref) async {
           vm.init(
             context,

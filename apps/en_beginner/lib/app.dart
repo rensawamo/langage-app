@@ -17,14 +17,15 @@ class App extends ConsumerWidget {
     final textScale = ref.watch(themeTextRepositoryProvider);
     final appSettingInfo = ref.read(appSettingInfoProvider.notifier);
     final tts = ref.read(ttsRepositoryProvider);
+    final appInstallType = AppInstallType.englishBeginner;
     // 韓国語初級アプリの設定を変更
-    appSettingInfo.changeAppInstallType(AppInstallType.englishBeginner);
+    appSettingInfo.changeAppInstallType(appInstallType);
     // TTSの初期化
-    tts.initializeTts();
+    tts.initializeTts(appInstallType);
     return MaterialApp.router(
       title: 'english_beginner',
-      theme: getAppTheme(),
-      darkTheme: getAppThemeDark(),
+      theme: getAppTheme(appInstallType),
+      darkTheme: getAppThemeDark(appInstallType),
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(

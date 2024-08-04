@@ -53,9 +53,13 @@ class WordGetAllDaoImpl implements WordGetAllDao {
     List<String> translations =
         quizzes.map((quiz) => quiz.translation).toList();
     List<String> answers = _getAnswers(quizzes, request.quizTopicType);
-    List<bool> isFavorites = await _getFavorites(request, words);
-    logger.d('words: $isFavorites');
-
+    List<bool> isFavorites;
+    // QuizTopicType.favorite の場合は全てisFavoriteをtrueにする
+    if (request.quizTopicType == QuizTopicType.favorite) {
+      isFavorites = List.filled(quizzes.length, true);
+    } else {
+      isFavorites = await _getFavorites(request, words);
+    }
     return Future.value(WordGetAllResponse(
       words: words,
       answers: answers,
@@ -140,6 +144,7 @@ class WordGetAllDaoImpl implements WordGetAllDao {
   /// [QuizFavoriteSqlRepository] からお気に入りのクイズを取得
   Future<List<Quiz>> _getFavoriteQuizzes() async {
     final quizFavoriteSql = ref.read(quizFavoriteSqlRepositoryProvider);
+    // isFavorite を　true にする
     return await quizFavoriteSql.getAllquizzes();
   }
 

@@ -1,5 +1,6 @@
 import 'package:core_foundation/foundation.dart';
 import 'package:core_ui/ui.dart';
+import 'package:core_ui/widgets/app_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -143,7 +144,6 @@ class _AppBaseFrameState extends ConsumerState<AppBaseFrame> {
 
   /// 戻るボタンの生成
   Widget _prevButton(BuildContext context) {
-
     // 戻り先がない場合は戻るボタンを表示しな
     if (!widget.hasPrevButton) {
       return const SizedBox();

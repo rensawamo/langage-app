@@ -3,11 +3,12 @@
 name: ko_beginner_android
 
 on:
-  push:
+  pull_request:
     branches:
-      - cicd
-    # paths:
-    #   - 'apps/ko_beginner/pubspec.yaml'
+      - main
+    types: [closed]
+    paths:
+      - 'apps/ko_beginner/pubspec.yaml'
 
 jobs:
   build:

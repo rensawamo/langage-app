@@ -3,7 +3,7 @@ name: ko_beginner_ios
 on:
   pull_request:
     branches:
-      - current_none
+      - main
     types: [closed]
     paths:
       - 'apps/ko_beginner/pubspec.yaml'
