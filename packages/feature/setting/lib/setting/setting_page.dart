@@ -1,5 +1,6 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_ui/ui.dart';
+import 'package:core_utility/utility/app_review.dart';
 import 'package:feature_setting/widget/setting_item.dart';
 import 'package:feature_setting/widget/setting_switch_tile.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,12 @@ class SettingPage extends StatelessWidget {
             SettingsSwitchTile(
               title: AppLocalizations.of(context).mode,
               icon: Icons.brightness_6,
+            ),
+            AppDriver(),
+            ListTile(
+              leading: const Icon(Icons.star),
+              title: const Text('レビューをする'),
+              onTap: () => DrawerHelper.launchStoreReview(context),
             ),
           ],
         ),
