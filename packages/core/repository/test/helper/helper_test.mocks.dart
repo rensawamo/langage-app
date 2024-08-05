@@ -9,6 +9,8 @@ import 'dart:ui' as _i14;
 import 'package:core_foundation/foundation.dart' as _i8;
 import 'package:core_repository/app_setting_info/app_setting_info_repository.dart'
     as _i11;
+import 'package:core_repository/flutter_tts/flutter_tts_repository.dart'
+    as _i19;
 import 'package:core_repository/secure_storage/secure_storage_repository.dart'
     as _i10;
 import 'package:core_repository/shared_preferences/shared_preference_repository.dart'
@@ -362,6 +364,48 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
 /// See the documentation for Mockito's code generation for more information.
 class MockSharedPreferencesRepositoryImpl extends _i1.Mock
     implements _i7.SharedPreferencesRepositoryImpl {
+  @override
+  _i5.Future<bool> save<T>(
+    _i8.AppPrefsKey? key,
+    T? value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #save,
+          [
+            key,
+            value,
+          ],
+        ),
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
+
+  @override
+  T? fetch<T>(_i8.AppPrefsKey? key) => (super.noSuchMethod(
+        Invocation.method(
+          #fetch,
+          [key],
+        ),
+        returnValueForMissingStub: null,
+      ) as T?);
+
+  @override
+  _i5.Future<bool> remove(_i8.AppPrefsKey? key) => (super.noSuchMethod(
+        Invocation.method(
+          #remove,
+          [key],
+        ),
+        returnValue: _i5.Future<bool>.value(false),
+        returnValueForMissingStub: _i5.Future<bool>.value(false),
+      ) as _i5.Future<bool>);
+}
+
+/// A class which mocks [SharedPreferencesRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSharedPreferencesRepository extends _i1.Mock
+    implements _i7.SharedPreferencesRepository {
   @override
   _i5.Future<bool> save<T>(
     _i8.AppPrefsKey? key,
@@ -1933,4 +1977,47 @@ class MockQuizFavoriteSql extends _i1.Mock implements _i18.QuizFavoriteSql {
           Invocation.getter(#db),
         )),
       ) as _i5.Future<_i4.Database>);
+}
+
+/// A class which mocks [TtsRepositoryImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTtsRepositoryImpl extends _i1.Mock implements _i19.TtsRepositoryImpl {
+  @override
+  _i8.AppInstallType get appInstallType => (super.noSuchMethod(
+        Invocation.getter(#appInstallType),
+        returnValue: _i8.AppInstallType.none,
+        returnValueForMissingStub: _i8.AppInstallType.none,
+      ) as _i8.AppInstallType);
+
+  @override
+  _i5.Future<void> initializeTts(_i8.AppInstallType? appInstallType) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #initializeTts,
+          [appInstallType],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<void> speak(String? text) => (super.noSuchMethod(
+        Invocation.method(
+          #speak,
+          [text],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<void> stop() => (super.noSuchMethod(
+        Invocation.method(
+          #stop,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 }
