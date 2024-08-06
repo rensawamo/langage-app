@@ -5,7 +5,7 @@ import 'package:sqflite/sqlite_api.dart';
 
 part 'quiz_favorite_sql.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 QuizFavoriteSql quizFavoriteSql(QuizFavoriteSqlRef ref) => QuizFavoriteSql();
 
 class QuizFavoriteSql {

@@ -1,25 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'quiz_favorite_sql.dart';
+part of 'analytics_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$quizFavoriteSqlHash() => r'6e7731108d45007618583dd0c3fa03f48da4b6b7';
+String _$firebaseAnalyticsHash() => r'8b1f1a545410cb7059181e53b4b9e330e37c4653';
 
-/// See also [quizFavoriteSql].
-@ProviderFor(quizFavoriteSql)
-final quizFavoriteSqlProvider = Provider<QuizFavoriteSql>.internal(
-  quizFavoriteSql,
-  name: r'quizFavoriteSqlProvider',
+/// See also [firebaseAnalytics].
+@ProviderFor(firebaseAnalytics)
+final firebaseAnalyticsProvider =
+    AutoDisposeProvider<FirebaseAnalytics>.internal(
+  firebaseAnalytics,
+  name: r'firebaseAnalyticsProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$quizFavoriteSqlHash,
+      : _$firebaseAnalyticsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef QuizFavoriteSqlRef = ProviderRef<QuizFavoriteSql>;
+typedef FirebaseAnalyticsRef = AutoDisposeProviderRef<FirebaseAnalytics>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -28,5 +28,7 @@
   "goTopic": "Go to Topic",
   "table": "Table",
   "web": "Website",
-  "mode": "Dark Mode"
+  "mode": "Dark Mode",
+  "appreview": "App Review"
+
 }

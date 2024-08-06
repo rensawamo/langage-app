@@ -2,6 +2,7 @@ import 'package:core_foundation/foundation.dart';
 import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
 import 'package:core_repository/repository.dart';
 import 'package:core_ui/ui.dart';
+import 'package:core_utility/utility/app_review.dart';
 import 'package:feature_wordlist/word_detail/word_detail_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,6 +36,9 @@ class WordDetailPage extends StatelessWidget {
       // tts 発音関数
       final Function speak = ref.read(ttsRepositoryProvider).speak;
       final AppInstallType appInstallType = ref.read(appSettingInfoProvider);
+      String appStoreUrl = appInstallType.name == 'koreanBeginner'
+          ? 'https://apps.apple.com/jp/app/%E9%9F%93%E5%9B%BD%E8%AA%9E%E5%88%9D%E7%B4%9A/id6503278804'
+          : 'https://apps.apple.com/jp/app/%E8%8B%B1%E8%AA%9E%E5%88%9D%E7%B4%9A/id6605926859';
       return AppBaseFrame(
         screenContext: context,
         hasPrevButton: true,
@@ -44,6 +48,13 @@ class WordDetailPage extends StatelessWidget {
           // お気に入りの初期設定
           // 初期設定
           await vm.init(isFavorite);
+          /// レビュー数が15の時にレビューを促す
+          /// TOOD: レビュされてない場合、再度レビューを促すようにしたい
+          int count =
+              await ref.read(reviewCountSqlRepositoryProvider).getCount(appInstallType);
+          if (count == 15) {
+            DrawerHelper.launchStoreReview(context, appStoreUrl: appStoreUrl);
+          }
         },
         backOnTap: () {
           context.pop(true);

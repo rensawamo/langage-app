@@ -32,7 +32,13 @@ $ make bs
 $ make dev APP=ko_beginner 
 ```
 
-# ディレクトリ構造
+# ディレクトリ構造 
+
+- [参照](https://github.com/android/nowinandroid/blob/main/docs/ModularizationLearningJourney.md) 
+
+
+![依存グラフ](assets/依存グラフ.png)
+
 
 ```sh
 root
@@ -51,7 +57,7 @@ root
 │   │      └── utility             --- logger やその他utility
 │   │      └── test_util           --- test用の utility
 │   │
-│   └── feature
+│   └── feature                    --- 画面
 │          └── quiz
 │          └── setting
 │          └── splash

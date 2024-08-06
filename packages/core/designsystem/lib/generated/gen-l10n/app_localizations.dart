@@ -266,6 +266,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dark Mode'**
   String get mode;
+
+  /// No description provided for @appreview.
+  ///
+  /// In en, this message translates to:
+  /// **'App Review'**
+  String get appreview;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

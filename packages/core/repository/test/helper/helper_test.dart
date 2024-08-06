@@ -10,11 +10,15 @@ import 'package:sqflite/sqflite.dart';
 
 @GenerateNiceMocks([MockSpec<SharedPreferences>()])
 @GenerateNiceMocks([MockSpec<SharedPreferencesRepositoryImpl>()])
+@GenerateNiceMocks([MockSpec<SharedPreferencesRepository>()])
 @GenerateNiceMocks([MockSpec<FlutterSecureStorage>()])
 @GenerateNiceMocks([MockSpec<SecureStorageRepositoryImpl>()])
 @GenerateNiceMocks([MockSpec<AppSettingInfo>()])
 @GenerateNiceMocks([MockSpec<FlutterTts>()])
 @GenerateNiceMocks([MockSpec<Database>()])
 @GenerateNiceMocks([MockSpec<QuizFavoriteSql>()])
+@GenerateNiceMocks([MockSpec<TtsRepositoryImpl>()])
+
+
 
 void main() {}

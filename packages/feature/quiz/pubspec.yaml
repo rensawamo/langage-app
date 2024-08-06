@@ -14,12 +14,8 @@ dependencies:
   flutter_tts: ^4.0.2
   core_dao:
     path: ../../core/dao
-  core_data:
-    path: ../../core/data
   core_repository:
-    path: ../../core/repository
-  core_utility:
-    path: ../../core/utility
+    path: ../../core/repository    
   core_router:
     path: ../../core/router
   core_designsystem:

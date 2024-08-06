@@ -11,7 +11,7 @@ import '../helper/helper_test.mocks.dart';
 void main() {
   late MockSharedPreferencesRepositoryImpl mockPrefsRepository;
   late ProviderContainer container;
-
+  late ThemeTextRepository themeTextRepository;
   setUp(() {
     mockPrefsRepository = MockSharedPreferencesRepositoryImpl();
     container = createContainer(
@@ -20,29 +20,27 @@ void main() {
             .overrideWithValue(mockPrefsRepository),
       ],
     );
+    themeTextRepository = container.read(themeTextRepositoryProvider.notifier);
   });
 
   group('ThemeTextRepository', () {
-    test('最初に nullがloadされてもnormalがかえること', () async {
+    test('[正常系] loadSclale 最初に nullがloadされてもnormalがかえること', () async {
       // arrange
-      when(mockPrefsRepository.fetch(AppPrefsKey.configFontScale)).thenReturn(null);
+      when(mockPrefsRepository.fetch(any)).thenReturn(null);
 
       // act
-      final themeTextNotifier =
-          container.read(themeTextRepositoryProvider.notifier);
-      await themeTextNotifier.loadScale();
+      await themeTextRepository.loadScale();
       //assert
-      expect(themeTextNotifier.state, AppTextScale.normal);
+      expect(themeTextRepository.state, AppTextScale.normal);
     });
-    test('sharedpreferenceがよばれてしっかり保存されること', () async {
+    test('[正常系] setScale', () async {
       // arrange
       when(mockPrefsRepository.save(any, any)).thenAnswer((_) async => true);
       // act
-      final themeTextNotifier =
-          container.read(themeTextRepositoryProvider.notifier);
-      await themeTextNotifier.setScale(AppTextScale.large);
+
+      await themeTextRepository.setScale(AppTextScale.large);
       // assert
-      expect(themeTextNotifier.state, AppTextScale.large);
+      expect(themeTextRepository.state, AppTextScale.large);
       verify(mockPrefsRepository.save(any, AppTextScale.large.index)).called(1);
     });
   });

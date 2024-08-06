@@ -3,7 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'utility/app_logger.dart';
-export 'utility/provider_observer.dart';
+export 'firebase_analitics/analytics_provider.dart';
 
 // TODO: Export any libraries intended for clients of this package.

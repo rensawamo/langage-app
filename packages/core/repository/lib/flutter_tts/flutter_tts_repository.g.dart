@@ -6,7 +6,21 @@ part of 'flutter_tts_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$ttsRepositoryHash() => r'211af4e4924526b7c324f405f9d1824bbf64d001';
+String _$flutterTtsHash() => r'17667046dd0b7683f9b05c81e3e751b873ada51e';
+
+/// See also [flutterTts].
+@ProviderFor(flutterTts)
+final flutterTtsProvider = Provider<FlutterTts>.internal(
+  flutterTts,
+  name: r'flutterTtsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$flutterTtsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FlutterTtsRef = ProviderRef<FlutterTts>;
+String _$ttsRepositoryHash() => r'9763577a8fe1e2df29cf34a076749e0902cb5e52';
 
 /// [TtsRepository]のProvider
 /// [AppInstallType] を引数に取り、言語を設定する
@@ -14,7 +28,7 @@ String _$ttsRepositoryHash() => r'211af4e4924526b7c324f405f9d1824bbf64d001';
 ///
 /// Copied from [ttsRepository].
 @ProviderFor(ttsRepository)
-final ttsRepositoryProvider = Provider<TtsRepositoryImpl>.internal(
+final ttsRepositoryProvider = Provider<TtsRepository>.internal(
   ttsRepository,
   name: r'ttsRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -24,6 +38,6 @@ final ttsRepositoryProvider = Provider<TtsRepositoryImpl>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef TtsRepositoryRef = ProviderRef<TtsRepositoryImpl>;
+typedef TtsRepositoryRef = ProviderRef<TtsRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

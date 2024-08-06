@@ -12,17 +12,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  core_utility:
-    path: ../utility
-
-  core_ui:
-    path: ../ui
-  core_dao:
-    path: ../dao
-  core_foundation:
-    path: ../foundation
-  core_designsystem:
-    path: ../designsystem
   feature_splash:
     path: ../../../packages/feature/splash
   feature_wordlist:
@@ -34,7 +23,7 @@ dependencies:
 
 
   go_router: ^14.2.0
-  firebase_analytics: ^11.1.0
+  firebase_analytics: ^11.2.1
   # path: ^1.8.0
 
 dev_dependencies:

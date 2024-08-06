@@ -10,8 +10,7 @@ final appSettingInfoProvider =
   return AppSettingInfo(prefsRepository);
 });
 
-/// [AppInstallType]の を監視する
-/// [AppSettingInfo]の具象クラス
+/// [AppInstallType]の を監視する StateNotifier
 class AppSettingInfo extends StateNotifier<AppInstallType>
     {
   final SharedPreferencesRepository _prefsRepository;
@@ -23,14 +22,14 @@ class AppSettingInfo extends StateNotifier<AppInstallType>
     setup();
   }
 
-  
+
   Future<void> setup() async {
     final typeIndex =
         _prefsRepository.fetch<int>(_themeKey) ?? AppInstallType.none.index;
     state = AppInstallType.values[typeIndex];
   }
 
-  
+
   Future<void> changeAppInstallType(AppInstallType type) async {
     state = type;
     await _prefsRepository.save<int>(_themeKey, type.index);

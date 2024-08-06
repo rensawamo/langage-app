@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
@@ -18,6 +19,8 @@ Future<void> main() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   // SecureStorage の初期化
   final flutterSecureStorage = FlutterSecureStorage();
+  final flutterTts = FlutterTts();
+
 
   /// Firebase
   await Firebase.initializeApp(
@@ -41,6 +44,8 @@ Future<void> main() async {
       overrides: [
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         flutterSecureStorageProvider.overrideWithValue(flutterSecureStorage),
+        flutterTtsProvider.overrideWithValue(flutterTts),
+        
       ],
       child: const App(),
     ),

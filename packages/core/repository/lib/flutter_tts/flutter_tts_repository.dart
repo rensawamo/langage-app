@@ -4,14 +4,21 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'flutter_tts_repository.g.dart';
 
+@Riverpod(keepAlive: true)
+FlutterTts flutterTts(
+  FlutterTtsRef ref,
+) {
+  throw UnimplementedError();
+}
+
 /// [TtsRepository]のProvider
 /// [AppInstallType] を引数に取り、言語を設定する
 /// [TtsRepositoryImpl]を返す
 @Riverpod(keepAlive: true)
-TtsRepositoryImpl ttsRepository(
+TtsRepository ttsRepository(
   TtsRepositoryRef ref,
 ) {
-  final flutterTts = FlutterTts();
+  final flutterTts = ref.read(flutterTtsProvider);
   final appInstallType = ref.read(appSettingInfoProvider);
   return TtsRepositoryImpl(flutterTts, appSettingInfoProvider, appInstallType);
 }

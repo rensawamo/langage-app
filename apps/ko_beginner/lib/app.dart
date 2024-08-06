@@ -17,7 +17,7 @@ class App extends ConsumerWidget {
     final textScale = ref.watch(themeTextRepositoryProvider);
     final appSettingInfo = ref.read(appSettingInfoProvider.notifier);
     final tts = ref.read(ttsRepositoryProvider);
-    final appInstallType = AppInstallType.englishBeginner;
+    final appInstallType = AppInstallType.koreanBeginner;
     // 韓国語初級アプリの設定を変更
     appSettingInfo.changeAppInstallType(appInstallType);
     // TTSの初期化
