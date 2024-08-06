@@ -693,7 +693,7 @@ class AppEnBeginnerQuizData {
       text: "inconvenient",
       sentence: "The chair is inconvenient.",
       translation: "その椅子は不便だ。",
-      pronunciation: "ˌɪnkənˈvinjənt, インコンビニエント",
+      pronunciation: "ˌɪnkənˈvinjənt",
       options: [
         Option(text: "不便だ", isCorrect: true),
         Option(text: "便利だ", isCorrect: false),
@@ -1261,7 +1261,7 @@ class AppEnBeginnerQuizData {
       text: "truly",
       sentence: "That is truly real.",
       translation: "それは本当である。",
-      pronunciation: "trúːli, トゥルーリー",
+      pronunciation: "trúːli",
       options: [
         Option(text: "とても", isCorrect: false),
         Option(text: "少し", isCorrect: false),
@@ -1445,7 +1445,7 @@ class AppEnBeginnerQuizData {
       text: "she",
       sentence: "She is my sister.",
       translation: "彼女は私の妹です。",
-      pronunciation: "ʃiː, シー",
+      pronunciation: "ʃiː",
       options: [
         Option(text: "彼女は/が", isCorrect: true),
         Option(text: "彼女の", isCorrect: false),
@@ -1457,7 +1457,7 @@ class AppEnBeginnerQuizData {
       text: "her",
       sentence: "This is her bag.",
       translation: "これは彼女のバッグです。",
-      pronunciation: "(h)ɚ, ハー",
+      pronunciation: "(h)ɚ",
       options: [
         Option(text: "彼女は/が", isCorrect: false),
         Option(text: "彼女の/を/に", isCorrect: true),
@@ -1469,7 +1469,7 @@ class AppEnBeginnerQuizData {
       text: "hers",
       sentence: "The bag is hers.",
       translation: "そのバッグは彼女のものです。",
-      pronunciation: "hˈɚːz, ハーズ",
+      pronunciation: "hˈɚːz",
       options: [
         Option(text: "彼女は/が", isCorrect: false),
         Option(text: "彼女の", isCorrect: false),
@@ -2361,7 +2361,7 @@ class AppEnBeginnerQuizData {
       text: "grill",
       sentence: "I grilled meat.",
       translation: "私は肉を焼いた。",
-      pronunciation: "gríl, グリル",
+      pronunciation: "gríl",
       options: [
         Option(text: "(直火で)焼く", isCorrect: true),
         Option(text: "茹でる", isCorrect: false),
@@ -3096,7 +3096,7 @@ class AppEnBeginnerQuizData {
       text: "hand",
       sentence: "Hold my hand.",
       translation: "手を握る。",
-      pronunciation: "hˈænd, ハンド",
+      pronunciation: "hˈænd",
       options: [
         Option(text: "手", isCorrect: true),
         Option(text: "足", isCorrect: false),

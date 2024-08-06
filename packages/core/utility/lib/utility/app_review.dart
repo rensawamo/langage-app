@@ -1,23 +1,30 @@
 import 'dart:io';
 
+import 'package:core_foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// [AppInstallType]に応じて、Storeのレビュー画面を開く
+/// utility class
 class DrawerHelper {
   static final InAppReview _inAppReview = InAppReview.instance;
 
-  // URLを定数化
-  static const String _urlAppStore = 'https://apps.apple.com/jp/app/%E9%9F%93%E5%9B%BD%E8%AA%9E%E5%88%9D%E7%B4%9A/id6503278804';
-  static const String _urlPlayStore = 'PlayStoreURL';
+  static const String _defaultUrlAppStore =
+      'https://apps.apple.com/jp/app/韓国語初級/id6503278804';
+  static const String _defaultUrlPlayStore = '未対応';
 
-  static void launchStoreReview(BuildContext context) async {
+  static void launchStoreReview(BuildContext context,
+      {String? appStoreUrl, String? playStoreUrl}) async {
+    final String urlAppStore = appStoreUrl ?? _defaultUrlAppStore;
+    final String urlPlayStore = playStoreUrl ?? _defaultUrlPlayStore;
+
     try {
       if (await _inAppReview.isAvailable()) {
         _inAppReview.requestReview();
       } else {
-        final url = Platform.isIOS ? _urlAppStore : _urlPlayStore;
+        final url = Platform.isIOS ? urlAppStore : urlPlayStore;
 
         if (!await launchUrl(Uri.parse(url))) {
           throw 'Cannot launch the store URL';

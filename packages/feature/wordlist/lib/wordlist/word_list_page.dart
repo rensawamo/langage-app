@@ -1,5 +1,8 @@
 import 'package:core_designsystem/designsystem.dart';
 import 'package:core_foundation/foundation.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
+import 'package:core_repository/repository.dart';
+
 import 'package:core_router/data/app_route_data.dart';
 import 'package:core_router/data/wordlist/wordlist_route_data.dart';
 import 'package:core_ui/ui.dart';
@@ -21,6 +24,8 @@ class WordListPage extends StatelessWidget {
     return Consumer(builder: (context, ref, child) {
       final vm = ref.watch(wordlistProvider.notifier);
       final state = ref.watch(wordlistProvider);
+      // DI
+      final appInstallType = ref.read(appSettingInfoProvider);
 
       return AppBaseFrame(
         screenContext: screenContext,
@@ -87,7 +92,10 @@ class WordListPage extends StatelessWidget {
                                     quizTopicType);
                               },
                             ),
-                            onTap: () {
+                            onTap: () async {
+                              await ref
+                                  .read(reviewCountSqlRepositoryProvider)
+                                  .incrementCount(appInstallType);
                               wordDetailPageData(
                                 state.quizzes[index],
                                 state.answers[index],

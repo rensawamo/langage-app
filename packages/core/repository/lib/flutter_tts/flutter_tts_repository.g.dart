@@ -20,7 +20,7 @@ final flutterTtsProvider = Provider<FlutterTts>.internal(
 );
 
 typedef FlutterTtsRef = ProviderRef<FlutterTts>;
-String _$ttsRepositoryHash() => r'db8866aba879681dde9d514aaa2b55d384b5e1d2';
+String _$ttsRepositoryHash() => r'9763577a8fe1e2df29cf34a076749e0902cb5e52';
 
 /// [TtsRepository]のProvider
 /// [AppInstallType] を引数に取り、言語を設定する

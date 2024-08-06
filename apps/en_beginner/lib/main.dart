@@ -45,6 +45,7 @@ Future<void> main() async {
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         flutterSecureStorageProvider.overrideWithValue(flutterSecureStorage),
         flutterTtsProvider.overrideWithValue(flutterTts),
+        
       ],
       child: const App(),
     ),

@@ -20,8 +20,6 @@ dependencies:
     path: ../data
   core_repository:
     path: ../repository
-  core_ui:
-    path: ../ui
   core_utility:
     path:  ../utility
   core_model:

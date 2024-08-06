@@ -21,6 +21,7 @@ Future<void> main() async {
   // SecureStorage の初期化
   final flutterSecureStorage = FlutterSecureStorage();
   final flutterTts = FlutterTts();
+  
 
   /// Firebase
   await Firebase.initializeApp(
@@ -44,6 +45,7 @@ Future<void> main() async {
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         flutterSecureStorageProvider.overrideWithValue(flutterSecureStorage),
         flutterTtsProvider.overrideWithValue(flutterTts),
+        
       ],
       observers: [ProviderLogger()],
       child: const App(),

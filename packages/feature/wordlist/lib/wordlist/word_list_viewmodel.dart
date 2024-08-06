@@ -99,7 +99,6 @@ class WordListViewmodel extends StateNotifier<WordListState> {
       await quizFavoriteSql.delete(text);
     }
   }
-
   void clearList() {
     state = state.copyWith(quizzes: []);
   }

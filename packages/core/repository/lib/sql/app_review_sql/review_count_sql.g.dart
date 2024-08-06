@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'quiz_favorite_sql.dart';
+part of 'review_count_sql.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$quizFavoriteSqlHash() => r'6e7731108d45007618583dd0c3fa03f48da4b6b7';
+String _$reviewCountSqlHash() => r'de0c955e96abe04ab7cfdc9a37f05f89652ea78f';
 
-/// See also [quizFavoriteSql].
-@ProviderFor(quizFavoriteSql)
-final quizFavoriteSqlProvider = Provider<QuizFavoriteSql>.internal(
-  quizFavoriteSql,
-  name: r'quizFavoriteSqlProvider',
+/// See also [reviewCountSql].
+@ProviderFor(reviewCountSql)
+final reviewCountSqlProvider = Provider<ReviewCountSql>.internal(
+  reviewCountSql,
+  name: r'reviewCountSqlProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$quizFavoriteSqlHash,
+      : _$reviewCountSqlHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef QuizFavoriteSqlRef = ProviderRef<QuizFavoriteSql>;
+typedef ReviewCountSqlRef = ProviderRef<ReviewCountSql>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

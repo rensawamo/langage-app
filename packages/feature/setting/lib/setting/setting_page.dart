@@ -1,4 +1,6 @@
 import 'package:core_designsystem/designsystem.dart';
+import 'package:core_repository/app_setting_info/app_setting_info_repository.dart';
+import 'package:core_service/firebase_analitics/analytics_provider.dart';
 import 'package:core_ui/ui.dart';
 import 'package:core_utility/utility/app_review.dart';
 import 'package:feature_setting/widget/setting_item.dart';
@@ -12,58 +14,72 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Consumer(builder: (context, ref, child) {
-      return AppBaseFrame(
-        screenContext: context,
-        hasPrevButton: false,
-        title: AppLocalizations.of(context).setting,
-        body: ListView(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.3,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
+      final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+      // DI
+      final appInstallType = ref.read(appSettingInfoProvider);
+      final analitics = ref.read(firebaseAnalyticsProvider);
+      String appStoreUrl = appInstallType.name == 'koreanBeginner'
+          ? 'https://apps.apple.com/jp/app/%E9%9F%93%E5%9B%BD%E8%AA%9E%E5%88%9D%E7%B4%9A/id6503278804'
+          : 'https://apps.apple.com/jp/app/%E8%8B%B1%E8%AA%9E%E5%88%9D%E7%B4%9A/id6605926859';
+      return Consumer(builder: (context, ref, child) {
+        return AppBaseFrame(
+          screenContext: context,
+          hasPrevButton: false,
+          title: AppLocalizations.of(context).setting,
+          body: ListView(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.3,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                ),
+                child: Image.asset(isDarkMode
+                    ? 'assets/images/national_dark.png'
+                    : 'assets/images/national_flag.png'),
               ),
-              child: Image.asset(isDarkMode
-                  ? 'assets/images/national_dark.png'
-                  : 'assets/images/national_flag.png'),
-            ),
-            AppDriver(),
-            SettingsItem(
-                icon: Icons.web,
-                title: AppLocalizations.of(context).web,
-                onTap: () {
-                  final url = Uri.parse(
-                      'https://wonderful-flower-033138b00.5.azurestaticapps.net/');
-                  launchUrl(url);
-                }),
-            AppDriver(),
-            SettingsItem(
-                icon: Icons.lock,
-                title: AppLocalizations.of(context).privacyPolicy,
-                onTap: () {
-                  final url = Uri.parse(
-                      'https://wonderful-flower-033138b00.5.azurestaticapps.net/privacypolicy');
-                  launchUrl(url);
-                }),
-            SizedBox(height: 5),
-            AppDriver(),
-            SettingsSwitchTile(
-              title: AppLocalizations.of(context).mode,
-              icon: Icons.brightness_6,
-            ),
-            AppDriver(),
-            ListTile(
-              leading:  Icon(Icons.star),
-              title:  Text(AppLocalizations.of(context).appreview),
-              onTap: () => DrawerHelper.launchStoreReview(context),
-            ),
-          ],
-        ),
-      );
+              AppDriver(),
+              SettingsItem(
+                  icon: Icons.web,
+                  title: AppLocalizations.of(context).web,
+                  onTap: () {
+                    final url = Uri.parse(
+                        'https://wonderful-flower-033138b00.5.azurestaticapps.net/');
+                    launchUrl(url);
+                  }),
+              AppDriver(),
+              SettingsItem(
+                  icon: Icons.lock,
+                  title: AppLocalizations.of(context).privacyPolicy,
+                  onTap: () {
+                    final url = Uri.parse(
+                        'https://wonderful-flower-033138b00.5.azurestaticapps.net/privacypolicy');
+                    launchUrl(url);
+                  }),
+              SizedBox(height: 5),
+              AppDriver(),
+              SettingsSwitchTile(
+                title: AppLocalizations.of(context).mode,
+                icon: Icons.brightness_6,
+              ),
+              AppDriver(),
+              ListTile(
+                  leading: Icon(Icons.star),
+                  title: Text(AppLocalizations.of(context).appreview),
+                  onTap: () => {
+                        analitics.logEvent(
+                          name: 'app_review',
+                          parameters: {'app_install_type': appInstallType.name},
+                        ),
+                        DrawerHelper.launchStoreReview(context,
+                            appStoreUrl: appStoreUrl),
+                      }),
+            ],
+          ),
+        );
+      });
     });
   }
 }
