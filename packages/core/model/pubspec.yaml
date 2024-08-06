@@ -1,19 +1,21 @@
+
 name: core_model
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+publish_to: "none"
+
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
 # Add regular dependencies here.
 dependencies:
-  deep_collection: ^1.0.2
   flutter:
     sdk: flutter
+  deep_collection: ^1.0.2  
   freezed_annotation: ^2.4.1
   json_annotation: 4.9.0
-
+  path: ^1.8.0
 
 dev_dependencies:
   lints: ^3.0.0
@@ -21,5 +23,6 @@ dev_dependencies:
   build_runner: ^2.3.3
   freezed: ^2.4.5
   json_serializable: ^6.7.1
+
 
 
